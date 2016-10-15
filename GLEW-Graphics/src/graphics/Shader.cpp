@@ -43,7 +43,7 @@ uint Shader::load()
 	glGetShaderiv(fragment, GL_COMPILE_STATUS, &compileResult);
 	if (compileResult == GL_FALSE) {
 		int length;
-		glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &length);
+		glGetShaderiv(fragment, GL_INFO_LOG_LENGTH, &length);
 		std::vector<char> error(length);
 		glGetShaderInfoLog(fragment, length, &length, &error[0]);
 
@@ -73,4 +73,50 @@ void Shader::bind()
 void Shader::unbind()
 {
 	glUseProgram(0);
+}
+
+int Shader::GetUniformLocation(const String& name)
+{
+	if (m_UniformLocationCache.find(name) != m_UniformLocationCache.end())
+		return m_UniformLocationCache[name];
+
+	int location = glGetUniformLocation(m_ShaderID, name.c_str());
+		
+	m_UniformLocationCache[name] = location;
+	return location;
+}
+
+void Shader::SetUniform1i(const String & name, int value)
+{
+	glUniform1i(GetUniformLocation(name), value);
+}
+
+void Shader::SetUniform1f(const String& name, float value)
+{
+	glUniform1f(GetUniformLocation(name), value);
+}
+
+void Shader::SetUniform2f(const String& name, const vec2& vec)
+{
+	glUniform2f(GetUniformLocation(name), vec.x, vec.y);
+}
+
+void Shader::SetUniform3f(const String& name, const vec3& vec)
+{
+	glUniform3f(GetUniformLocation(name), vec.x, vec.y, vec.z);
+}
+
+void Shader::SetUniformVec4(const String& name, const vec4& vec)
+{
+	SetUniform4f(name, vec.x, vec.y, vec.z, vec.w);
+}
+
+void Shader::SetUniform4f(const String& name, float x, float y, float z, float w)
+{
+	glUniform4f(GetUniformLocation(name), x, y, z, w);
+}
+
+void Shader::SetUniformMat4(const String& name, const mat4& matrix)
+{
+	glUniformMatrix4fv(GetUniformLocation(name), 1, GL_TRUE, matrix.elements);
 }

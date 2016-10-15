@@ -18,7 +18,7 @@ bool Window::init()
 		return false;
 	}
 		
-	m_window = glfwCreateWindow(m_height, m_width, m_title, nullptr, nullptr);
+	m_window = glfwCreateWindow(m_width, m_height, m_title, nullptr, nullptr);
 
 	if (!m_window) {
 		std::cout << "Could not initialize GLFW Window!" << std::endl;
@@ -38,8 +38,8 @@ bool Window::init()
 
 void Window::update()
 {
-	glfwPollEvents();
 	glfwSwapBuffers(m_window);
+	glfwPollEvents();
 }
 
 void Window::clear() {
