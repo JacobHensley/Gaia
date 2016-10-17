@@ -5,7 +5,9 @@ class Texture
 {
 public:
 	Texture(const char* path);
-	const char* m_path;
+
+	inline const char* getPath() { return m_path; }
 private:
 	void load();
+	const char* m_path;
 };

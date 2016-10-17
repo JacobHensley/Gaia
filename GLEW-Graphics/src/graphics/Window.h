@@ -12,9 +12,13 @@ public:
 	void update();
 	void clear();
 	int closed();
+
+	inline int getWidth() { return m_width; }
+	inline int getHeight() { return m_height; }
 private:
 	GLFWwindow* m_window;
 
 	int m_width, m_height;
 	const char* m_title;
+	friend void windowResize(GLFWwindow* window, int width, int height);
 };

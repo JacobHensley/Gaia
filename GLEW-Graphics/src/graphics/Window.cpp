@@ -28,6 +28,9 @@ bool Window::init()
 	glfwMakeContextCurrent(m_window);
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
+	glfwSetWindowUserPointer(m_window, this);
+	glfwSetFramebufferSizeCallback(m_window, windowResize);
+
 	if (glewInit() != GLEW_OK) {
 		std::cout << "Could not initialize GLEW!" << std::endl;
 		return false;
@@ -49,4 +52,11 @@ void Window::clear() {
 int Window::closed()
 {
 	return glfwWindowShouldClose(m_window);
+}
+
+void windowResize(GLFWwindow* window, int width, int height) {
+	glViewport(0, 0, width, height);
+	Window* win = (Window*)glfwGetWindowUserPointer(window);
+	win->m_width = width;
+	win->m_height = height;
 }
