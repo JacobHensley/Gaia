@@ -13,8 +13,8 @@ public:
 	void clear();
 	int closed();
 
-	inline int getWidth() { return m_width; }
-	inline int getHeight() { return m_height; }
+	inline int GetWidth() { return m_width; }
+	inline int GetHeight() { return m_height; }
 private:
 	GLFWwindow* m_window;
 
