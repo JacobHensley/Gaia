@@ -20,6 +20,11 @@ void Renderer2D::End()
 
 }
 
+void Renderer2D::setCamera(Camera* camera)
+{
+	m_Camera = camera;
+}
+
 void Renderer2D::OnResize(int width, int height)
 {
 	m_Width = width;
@@ -38,9 +43,10 @@ void Renderer2D::Flush()
 		command.renderable->m_Shader->bind();
 
 	//	mat4 prespective = mat4::Perspective(65.0f, 16.0f / 9.0f, 0.1f, 1000.0f);
-		mat4 proj = mat4::Orthographic(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f, -1.0f, 1.0f);
+	//	mat4 proj = mat4::Orthographic(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f, -1.0f, 1.0f);
 		command.renderable->m_Shader->SetUniform1i("u_Texture", 0);
-		command.renderable->m_Shader->SetUniformMat4("u_ProjMatrix", proj);
+		command.renderable->m_Shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
+		command.renderable->m_Shader->SetUniformMat4("u_ViewMatrix", m_Camera->GetViewMatrix());
 		command.renderable->m_Shader->SetUniformMat4("u_ModelMatrix", command.renderable->m_Transform);
 
 		command.renderable->m_IndexBuffer->draw();

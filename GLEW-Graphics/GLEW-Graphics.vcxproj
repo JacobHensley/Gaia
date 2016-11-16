@@ -131,9 +131,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\Camera\Camera.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\GLError.cpp" />
     <ClCompile Include="src\graphics\Buffer.cpp" />
+    <ClCompile Include="src\graphics\Camera\OrthographicCamera.cpp" />
+    <ClCompile Include="src\graphics\Camera\PerspectiveCamera.cpp" />
     <ClCompile Include="src\graphics\IndexBuffer.cpp" />
     <ClCompile Include="src\graphics\Layers\GameLayer.cpp" />
     <ClCompile Include="src\graphics\Rectangle.cpp" />
@@ -152,10 +155,13 @@
     <ClCompile Include="src\math\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\Camera\Camera.h" />
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Common.h" />
     <ClInclude Include="src\GLError.h" />
     <ClInclude Include="src\graphics\Buffer.h" />
+    <ClInclude Include="src\graphics\Camera\OrthographicCamera.h" />
+    <ClInclude Include="src\graphics\Camera\PerspectiveCamera.h" />
     <ClInclude Include="src\graphics\IndexBuffer.h" />
     <ClInclude Include="src\graphics\Layers\GameLayer.h" />
     <ClInclude Include="src\graphics\Rectangle.h" />

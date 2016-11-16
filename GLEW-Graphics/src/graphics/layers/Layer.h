@@ -6,6 +6,7 @@ class Layer {
 protected: 
 	String m_Name;
 	Renderer2D* m_Renderer;
+	int m_Width, m_Height;
 public:
 	Layer(const String& name);
 	void OnInit();

@@ -27,5 +27,8 @@ Rectangle::Rectangle(float x, float y, float width, float height)
 
 Rectangle::~Rectangle()
 {
-
+	delete m_IndexBuffer;
+	delete m_Shader;
+	delete m_VertexArray;
+	delete m_Texture;
 }

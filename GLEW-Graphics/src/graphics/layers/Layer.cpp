@@ -8,6 +8,9 @@ Layer::Layer(const String& name)
 void Layer::OnInit() {
 	Application& app = Application::GetApplication();
 	m_Renderer = new Renderer2D(app.GetWidth(), app.GetHeight());
+	
+	m_Width = app.GetWidth();
+	m_Height = app.GetHeight();
 }
 
 void Layer::OnUpdate()
