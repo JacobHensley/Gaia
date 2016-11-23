@@ -1,7 +1,7 @@
 #include "Layer.h"
 #include "../../Application.h"
 Layer::Layer(const String& name)
-	:	m_Name(name)	{
+	:	m_Name(name), m_Camera(nullptr)	{
 	OnInit();
 }
 

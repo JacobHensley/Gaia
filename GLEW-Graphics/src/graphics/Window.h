@@ -4,6 +4,9 @@
 
 class Window
 {
+private:
+	friend class Application;
+
 public:
 	Window(const char* title, int width, int height);
 	~Window();
@@ -20,5 +23,7 @@ private:
 
 	int m_width, m_height;
 	const char* m_title;
+	bool m_Keys[1024];
 	friend void windowResize(GLFWwindow* window, int width, int height);
+	friend void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 };

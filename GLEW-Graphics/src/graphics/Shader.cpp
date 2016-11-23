@@ -71,8 +71,7 @@ void Shader::bind()
 	GLCall(glUseProgram(m_ShaderID));
 }
 
-void Shader::unbind()
-{
+void Shader::unbind() {
 	GLCall(glUseProgram(0));
 }
 

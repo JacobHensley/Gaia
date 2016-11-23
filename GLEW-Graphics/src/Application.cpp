@@ -24,16 +24,36 @@ void Application::OnRender()
 	}
 }
 
+void Application::OnUpdate()
+{
+	for (Layer* layer : m_LayerStack) {
+		layer->OnUpdate();
+	}
+}
+
 void Application::Run()
 {
 	while (!m_Window->closed()) {
 //		if (m_Window->GetWidth() != renderer.GetWidth() || m_Window->GetHeight() != renderer.GetHeight())
 //			renderer.OnResize(m_Window->GetWidth(), m_Window->GetHeight());
 
+		double currentTime = glfwGetTime();
+		nbFrames++;
+		if (currentTime - lastTime >= 1.0) {
+			printf("ms/frame: %f", 1000.0 / double(nbFrames));
+			printf(" | FPS: %f\n", double(nbFrames));
+			
+			nbFrames = 0;
+			lastTime += 1.0;
+		}
+
+		OnUpdate();
+
 		m_Window->clear();
 
 		OnRender();
 
 		m_Window->update();
+
 	}
 }

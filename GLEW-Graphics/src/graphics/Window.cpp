@@ -3,6 +3,8 @@
 
 Window::Window(const char* title, int width, int height)
 	: m_title(title), m_width(width), m_height(height) {
+	memset(m_Keys, 0, sizeof(m_Keys));
+
 	init();
 }
 
@@ -30,11 +32,14 @@ bool Window::init()
 
 	glfwSetWindowUserPointer(m_window, this);
 	glfwSetFramebufferSizeCallback(m_window, windowResize);
+	glfwSetKeyCallback(m_window, KeyCallback);
 
 	if (glewInit() != GLEW_OK) {
 		std::cout << "Could not initialize GLEW!" << std::endl;
 		return false;
 	}	
+
+	glfwSwapInterval(0);
 
 	return true;
 }
@@ -59,4 +64,11 @@ void windowResize(GLFWwindow* window, int width, int height) {
 	Window* win = (Window*)glfwGetWindowUserPointer(window);
 	win->m_width = width;
 	win->m_height = height;
+}
+
+void KeyCallback(GLFWwindow * window, int key, int scancode, int action, int mods)
+{
+	Window* win = (Window*)glfwGetWindowUserPointer(window);
+	win->m_Keys[key] = action != GLFW_RELEASE;
+
 }

@@ -4,5 +4,8 @@
 class GameLayer : public Layer {
 public:	
 	GameLayer(const String& name);
-	void OnRender();
+	void OnUpdate() override;
+	void OnRender() override;
+private:
+	float m_zoom;
 };

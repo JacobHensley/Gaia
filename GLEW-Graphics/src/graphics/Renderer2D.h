@@ -6,6 +6,7 @@
 struct RenderCommand
 {
 	Renderable2D* renderable;
+	mat4 transform;
 };
 
 class Renderer2D
@@ -17,6 +18,7 @@ private:
 public:
 	Renderer2D(int width, int height);
 	void Begin();
+	void Submit(Renderable2D* renderable, const mat4& transform);
 	void Submit(Renderable2D* renderable);
 	void End();
 
