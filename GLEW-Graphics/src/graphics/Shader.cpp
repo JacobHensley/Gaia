@@ -8,6 +8,7 @@ Shader::Shader(const String& vertPath, const String& fragPath)
 
 Shader::~Shader()
 {
+	GLCall(glDeleteProgram(m_ShaderID));
 }
 
 uint Shader::load()

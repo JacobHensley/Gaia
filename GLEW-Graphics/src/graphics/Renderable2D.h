@@ -18,6 +18,7 @@ protected:
 	mat4 m_Transform;
 public:
 	Renderable2D();
+	virtual ~Renderable2D();
 
 	inline void SetTransform(const mat4& transform) { m_Transform = transform; }
 };

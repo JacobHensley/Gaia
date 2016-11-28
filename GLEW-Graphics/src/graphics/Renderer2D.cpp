@@ -48,6 +48,7 @@ void Renderer2D::Flush()
 		command.renderable->m_VertexArray->bind();
 		command.renderable->m_IndexBuffer->bind();
 		command.renderable->m_Shader->bind();
+		command.renderable->m_Texture->Bind();
 
 		command.renderable->m_Shader->SetUniform1i("u_Texture", 0);
 		command.renderable->m_Shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
@@ -55,5 +56,10 @@ void Renderer2D::Flush()
 		command.renderable->m_Shader->SetUniformMat4("u_ModelMatrix", command.transform);
 
 		command.renderable->m_IndexBuffer->draw();
+
+		command.renderable->m_Texture->Unbind();
+		command.renderable->m_Shader->unbind();
+		command.renderable->m_IndexBuffer->unbind();
+		command.renderable->m_VertexArray->unbind();
 	}
 }

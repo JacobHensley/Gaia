@@ -34,8 +34,8 @@ void GameLayer::OnRender()
 	Rectangle rectangle(0, 0, 10, 10);
 	m_Renderer->Begin();
 	m_Renderer->Submit(&rectangle);
-//	m_Renderer->Submit(&rectangle, mat4::Translate(vec3(-20.0f, 0.0f, 0.0f)));
-//	m_Renderer->Submit(&rectangle, mat4::Translate(vec3(20.0f, 0.0f, 0.0f)) * mat4::Rotate(45.0f, vec3(0, 0, 1)));
+	m_Renderer->Submit(&rectangle, mat4::Translate(vec3(-20.0f, 0.0f, 0.0f)));
+	m_Renderer->Submit(&rectangle, mat4::Translate(vec3(20.0f, 0.0f, 0.0f)) * mat4::Rotate(45.0f, vec3(0, 0, 1)));
 //	for (int i = 0; i < 1;i++) {
 //		m_Renderer->Submit(&rectangle);
 //	}

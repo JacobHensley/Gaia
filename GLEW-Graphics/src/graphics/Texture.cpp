@@ -4,10 +4,15 @@
 
 Texture::Texture(const char* path)
 	:	m_path(path) {
-	load();
+	m_Texture = load();
 }
 
-void Texture::load()
+Texture::~Texture()
+{
+	GLCall(glDeleteTextures(1, &m_Texture));
+}
+
+uint Texture::load()
 {
 	int width, height, bpc;
 	byte* data = stbi_load(m_path, &width, &height, &bpc, 0);
@@ -21,4 +26,16 @@ void Texture::load()
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
 
 	stbi_image_free(data);
+	return texture;
+}
+
+void Texture::Bind()
+{
+	GLCall(glBindTexture(GL_TEXTURE_2D, m_Texture));
+}
+
+
+void Texture::Unbind()
+{
+	GLCall(glBindTexture(GL_TEXTURE_2D, 0));
 }

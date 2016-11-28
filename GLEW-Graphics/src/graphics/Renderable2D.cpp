@@ -5,3 +5,7 @@ Renderable2D::Renderable2D()
 {
 
 }
+
+Renderable2D::~Renderable2D()
+{
+}

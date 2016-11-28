@@ -6,6 +6,7 @@ class IndexBuffer
 {
 public:
 	IndexBuffer(uint* data, GLsizei count);
+	~IndexBuffer();
 
 	void draw() const;
 	void bind() const;
