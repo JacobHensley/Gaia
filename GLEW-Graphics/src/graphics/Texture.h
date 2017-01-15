@@ -1,18 +1,19 @@
 #pragma once
 #include "../Common.h"
-
+#include "../Resource.h"
 class Texture
 {
 public:
-	Texture(const char* path);
+	Texture(const String& path);
 	~Texture();
 
 	void Bind();
 	void Unbind();
 
-	inline const char* getPath() { return m_path; }
+	inline const String& getPath() { return m_path; }
+	static inline Resource::ResourceType GetType() { return Resource::ResourceType::TEXTURE; }
 private:
 	uint load();
 	uint m_Texture;
-	const char* m_path;
+	const String& m_path;
 };

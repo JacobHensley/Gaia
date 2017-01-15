@@ -1,5 +1,6 @@
 #pragma once
 #include "Layer.h"
+#include "../Rectangle.h"
 
 class GameLayer : public Layer {
 public:	
@@ -7,5 +8,6 @@ public:
 	void OnUpdate() override;
 	void OnRender() override;
 private:
+	Rectangle* m_Rectangle;
 	float m_zoom;
 };

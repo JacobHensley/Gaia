@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include "GLError.h"
-
+#include <unordered_map>
 typedef std::string String;
 typedef unsigned int uint;
 typedef unsigned char byte;
@@ -15,5 +15,5 @@ typedef unsigned char byte;
 	__debugbreak(); \
 }
 #else
-#define ASSERT(condition)
+#define ASSERT(condition) condition
 #endif

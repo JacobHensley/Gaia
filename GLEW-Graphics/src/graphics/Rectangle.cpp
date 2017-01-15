@@ -1,4 +1,5 @@
 #include "Rectangle.h"
+#include "../Resource.h"
 
 Rectangle::Rectangle(float x, float y, float width, float height)
 	: Renderable2D()
@@ -21,14 +22,12 @@ Rectangle::Rectangle(float x, float y, float width, float height)
 	m_IndexBuffer = new IndexBuffer(indices, 6);
 	m_VertexArray->addBuffer(new Buffer(vertices, 4 * 5, 3), 0);
 
-	m_Shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
-	m_Texture = new Texture("res/jungle.png");
+	m_Shader = Resource::GetAs<Shader>("Shader");
+	m_Texture = Resource::GetAs<Texture>("Jungle");
 }
 
 Rectangle::~Rectangle()
 {
 	delete m_IndexBuffer;
-	delete m_Shader;
 	delete m_VertexArray;
-	delete m_Texture;
 }

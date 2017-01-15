@@ -153,6 +153,7 @@
     <ClCompile Include="src\math\vec2.cpp" />
     <ClCompile Include="src\math\vec3.cpp" />
     <ClCompile Include="src\math\vec4.cpp" />
+    <ClCompile Include="src\Resource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\Camera\Camera.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="src\math\vec2.h" />
     <ClInclude Include="src\math\vec3.h" />
     <ClInclude Include="src\math\vec4.h" />
+    <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\utils\FileUtils.h" />
     <ClInclude Include="src\utils\Timer.h" />
   </ItemGroup>

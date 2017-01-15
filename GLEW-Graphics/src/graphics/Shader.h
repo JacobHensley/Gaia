@@ -5,6 +5,7 @@
 #include <vector>
 #include "../math/math.h" 
 #include <unordered_map>
+#include "../Resource.h"
 
 class Shader
 {
@@ -27,6 +28,7 @@ public:
 	void SetUniformMat4(const String& name, const mat4& matrix);
 
 	inline uint GetID() const { return m_ShaderID; }
+	static inline Resource::ResourceType GetType() { return Resource::ResourceType::SHADER; }
 private:
 	uint m_ShaderID;
 	String m_vertPath, m_fragPath;

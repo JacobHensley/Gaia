@@ -2,7 +2,7 @@
 #include "stb_image.h"
 #include "GLFW\glfw3.h"
 
-Texture::Texture(const char* path)
+Texture::Texture(const String& path)
 	:	m_path(path) {
 	m_Texture = load();
 }
@@ -15,7 +15,7 @@ Texture::~Texture()
 uint Texture::load()
 {
 	int width, height, bpc;
-	byte* data = stbi_load(m_path, &width, &height, &bpc, 0);
+	byte* data = stbi_load(m_path.c_str(), &width, &height, &bpc, 0);
 	ASSERT(data);
 
 	uint texture;
