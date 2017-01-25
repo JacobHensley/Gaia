@@ -19,6 +19,7 @@ public:
 	Renderer2D(int width, int height);
 	void Begin();
 	void Submit(Renderable2D* renderable, const mat4& transform);
+	void Submit(Renderable2D* renderable, float x, float y, float width, float height);
 	void Submit(Renderable2D* renderable);
 	void End();
 
