@@ -10,11 +10,11 @@ public:
 	VertexArray();
 	~VertexArray();
 
-	void addBuffer(Buffer* buffer, uint index);
+	void AddBuffer(Buffer* buffer, uint index);
 
-	void bind() const;
-	void unbind() const;
+	void Bind() const;
+	void Unbind() const;
 private:
-	uint m_arrayID;
-	std::vector<Buffer*> m_buffers;
+	uint m_ArrayID;
+	std::vector<Buffer*> m_Buffers;
 };

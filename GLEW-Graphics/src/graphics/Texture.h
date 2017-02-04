@@ -10,10 +10,10 @@ public:
 	void Bind();
 	void Unbind();
 
-	inline const String& getPath() { return m_path; }
+	inline const String& GetPath() { return m_Path; }
 	static inline Resource::ResourceType GetType() { return Resource::ResourceType::TEXTURE; }
 private:
-	uint load();
+	uint Load();
 	uint m_Texture;
-	const String& m_path;
+	const String& m_Path;
 };

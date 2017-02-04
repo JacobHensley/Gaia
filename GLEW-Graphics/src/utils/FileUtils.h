@@ -4,7 +4,7 @@
 #include <algorithm>
 #include "../Common.h"
 
-static std::string readFile(const String& path) {
+static std::string ReadFile(const String& path) {
 	FILE* file = fopen(path.c_str(), "rb");
 	if (!file) {
 		std::cout << "Failed to open file at path: " << path.c_str() << std::endl;

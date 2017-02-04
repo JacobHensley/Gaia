@@ -9,5 +9,5 @@ public:
 	void OnRender() override;
 private:
 	Rectangle* m_Rectangle;
-	float m_zoom;
+	float m_Zoom;
 };

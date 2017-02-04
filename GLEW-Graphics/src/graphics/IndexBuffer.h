@@ -8,10 +8,11 @@ public:
 	IndexBuffer(uint* data, GLsizei count);
 	~IndexBuffer();
 
-	void draw() const;
-	void bind() const;
-	void unbind() const;
+	void Draw() const;
+	void Draw(uint count) const;
+	void Bind() const;
+	void Unbind() const;
 private:
-	uint m_bufferID;
-	uint m_count;
+	uint m_BufferID;
+	uint m_Count;
 };

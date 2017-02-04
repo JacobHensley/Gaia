@@ -5,7 +5,7 @@
 #include "graphics\layers\GameLayer.h"
 
 int main() {
-	
+
 	Application app("Test Window", 1280, 720);
 
 	app.PushLayer(new GameLayer("GameLayer"));

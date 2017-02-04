@@ -3,6 +3,9 @@
 #include <queue>
 #include "Renderable2D.h"
 #include "Camera\Camera.h"
+
+struct Vertex;
+
 struct RenderCommand
 {
 	Renderable2D* renderable;
@@ -15,6 +18,10 @@ private:
 	std::queue<RenderCommand> m_Queue;
 	int m_Width, m_Height;
 	Camera* m_Camera;
+	Vertex* m_Buffer;
+	Buffer* m_VertexBuffer;
+	IndexBuffer* m_IndexBuffer;
+	uint m_IndexCount;
 public:
 	Renderer2D(int width, int height);
 	void Begin();
@@ -23,7 +30,7 @@ public:
 	void Submit(Renderable2D* renderable);
 	void End();
 
-	void setCamera(Camera* camera);
+	void SetCamera(Camera* camera);
 
 	void OnResize(int width, int height);
 
@@ -31,4 +38,6 @@ public:
 
 	inline int GetWidth() const { return m_Width; }
 	inline int GetHeight() const { return m_Height; }
+private:
+	void Init();
 };

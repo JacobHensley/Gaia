@@ -13,8 +13,8 @@ public:
 	Shader(const String& vertPath, const String& fragPath);
 	~Shader();
 
-	void bind();
-	void unbind();
+	void Bind();
+	void Unbind();
 
 	int GetUniformLocation(const String& name);
 
@@ -31,7 +31,7 @@ public:
 	static inline Resource::ResourceType GetType() { return Resource::ResourceType::SHADER; }
 private:
 	uint m_ShaderID;
-	String m_vertPath, m_fragPath;
-	uint load();
+	String m_VertPath, m_FragPath;
+	uint Load();
 	std::unordered_map<String, int> m_UniformLocationCache;
 };

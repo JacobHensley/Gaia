@@ -20,7 +20,7 @@ Rectangle::Rectangle(float x, float y, float width, float height)
 
 	m_VertexArray = new VertexArray();
 	m_IndexBuffer = new IndexBuffer(indices, 6);
-	m_VertexArray->addBuffer(new Buffer(vertices, 4 * 5, 3), 0);
+	m_VertexArray->AddBuffer(new Buffer(vertices, 4 * 5, 3), 0);
 
 	ASSERT(m_Shader = Resource::GetAs<Shader>("Shader"));
 	ASSERT(m_Texture = Resource::GetAs<Texture>("Jungle"));

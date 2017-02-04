@@ -1,8 +1,8 @@
 #include "Shader.h"
 
 Shader::Shader(const String& vertPath, const String& fragPath)
-	:	m_vertPath(vertPath), m_fragPath(fragPath)	{
-	m_ShaderID = load();
+	:	m_VertPath(vertPath), m_FragPath(fragPath)	{
+	m_ShaderID = Load();
 	ASSERT(m_ShaderID);
 }
 
@@ -11,14 +11,14 @@ Shader::~Shader()
 	GLCall(glDeleteProgram(m_ShaderID));
 }
 
-uint Shader::load()
+uint Shader::Load()
 {
 	GLCall(uint program = glCreateProgram());
 	GLCall(uint vertex = glCreateShader(GL_VERTEX_SHADER));
 	GLCall(uint fragment = glCreateShader(GL_FRAGMENT_SHADER));
 
-	String vertexSrc = readFile(m_vertPath);
-	String fragSrc = readFile(m_fragPath);
+	String vertexSrc = ReadFile(m_VertPath);
+	String fragSrc = ReadFile(m_FragPath);
 
 	const char* vs = vertexSrc.c_str();
 	GLCall(glShaderSource(vertex, 1, &vs, NULL));
@@ -67,12 +67,12 @@ uint Shader::load()
 	return program;
 }
 
-void Shader::bind()
+void Shader::Bind()
 {
 	GLCall(glUseProgram(m_ShaderID));
 }
 
-void Shader::unbind() {
+void Shader::Unbind() {
 	GLCall(glUseProgram(0));
 }
 
