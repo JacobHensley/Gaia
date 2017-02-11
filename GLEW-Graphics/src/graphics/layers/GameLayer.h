@@ -8,6 +8,8 @@ public:
 	void OnUpdate() override;
 	void OnRender() override;
 private:
+	Texture* texture;
 	Rectangle* m_Rectangle;
+
 	float m_Zoom;
 };

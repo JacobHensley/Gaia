@@ -1,24 +1,32 @@
 #include "Renderer2D.h"
 
+#define RENDERER_VERTEX_SIZE sizeof(Vertex)
+
+#define SHADER_VERTEX_INDEX 0
+#define SHADER_TC_INDEX     1
+#define SHADER_TID_INDEX    2
+
 struct Vertex
 {
 	vec3 position;
 	vec2 tc;
+	float tid;
 };
 
 Renderer2D::Renderer2D(int width, int height) 
-	:	m_Width(width), m_Height(height), m_Camera(nullptr), m_Buffer(nullptr), m_IndexCount(0) {
+	:	m_Width(width), m_Height(height), m_Camera(nullptr), m_Buffer(nullptr), m_IndexCount(0) 
+{
 	Init();
 }
 
-
 void Renderer2D::Init()
 {
+	const uint MAX_SPRITES = 100000;
 
-	const uint INDEX_BUFFER_SIZE = 60 * 6;
+	const uint INDEX_BUFFER_SIZE = MAX_SPRITES * 6;
 	uint offset = 0;
 	uint* indices = new uint[INDEX_BUFFER_SIZE];
-	for (int i = 0; i < 60; i += 6)
+	for (int i = 0; i < MAX_SPRITES; i += 6)
 	{
 		indices[i + 0] = offset;
 		indices[i + 1] = offset + 1;
@@ -33,14 +41,17 @@ void Renderer2D::Init()
 	m_IndexBuffer = new IndexBuffer(indices, INDEX_BUFFER_SIZE);
 	delete[] indices;
 
-	m_VertexBuffer = new Buffer(60 * 4);
+	m_VertexBuffer = new Buffer(MAX_SPRITES * 4 * 5);
 
 	m_VertexBuffer->Bind();
 
-	GLCall(glEnableVertexAttribArray(0));
-	GLCall(glEnableVertexAttribArray(1));
-	GLCall(glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, (3 + 2) * sizeof(float), 0));
-	GLCall(glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, (3 + 2) * sizeof(float), (const void*)(3 * sizeof(float))));
+	GLCall(glEnableVertexAttribArray(SHADER_VERTEX_INDEX));
+	GLCall(glEnableVertexAttribArray(SHADER_TC_INDEX));
+	GLCall(glEnableVertexAttribArray(SHADER_TID_INDEX));
+
+	GLCall(glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, 0));
+	GLCall(glVertexAttribPointer(SHADER_TC_INDEX, 2, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const void*)(offsetof(Vertex, Vertex::tc))));
+	GLCall(glVertexAttribPointer(SHADER_TID_INDEX, 1, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const void*)(offsetof(Vertex, Vertex::tid))));
 }
 
 void Renderer2D::Begin()
@@ -59,22 +70,60 @@ void Renderer2D::Submit(Renderable2D* renderable, const mat4& transform)
 	m_Queue.push(RenderCommand{ renderable, transform });
 }
 
-void Renderer2D::Submit(Renderable2D* renderable, float x, float y, float width, float height)
+void Renderer2D::Submit(Renderable2D* renderable, Texture* texture, float x, float y, float width, float height)
 {
+	uint textureID = texture->GetTexture();
+
+	float textureSlot = 0.0f;
+
+	if (textureID > 0) 
+	{
+		bool found = false;
+
+		for (int i = 0; i < m_TextureSlots.size(); i++)
+		{
+			if (m_TextureSlots[i] == textureID) 
+			{
+				textureSlot = (float)(i + 1);
+				found = true;
+				break;
+			}
+		}
+		if (!found) 
+		{
+			if (m_TextureSlots.size() > 32)
+			{
+				End();
+				Flush();
+				Begin();
+			}
+			m_TextureSlots.push_back(textureID);
+		    textureSlot = (float)(m_TextureSlots.size() - 1);
+		}
+	}
+	else {
+		std::cout << "Invalid Texture ID" << std::endl;
+		ASSERT(false);
+	}
+
 	m_Buffer->position = vec3(x, y);
 	m_Buffer->tc = vec2(0, 1);
+	m_Buffer->tid = textureSlot;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x, y + height);
 	m_Buffer->tc = vec2(0, 0);
+	m_Buffer->tid = textureSlot;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y + height);
 	m_Buffer->tc = vec2(1, 0);
+	m_Buffer->tid = textureSlot;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y);
 	m_Buffer->tc = vec2(1, 1);
+	m_Buffer->tid = textureSlot;
 	m_Buffer++;
 	m_IndexCount += 6;
 }
@@ -85,26 +134,19 @@ void Renderer2D::End()
 	m_VertexBuffer->Unbind();
 }
 
-void Renderer2D::SetCamera(Camera* camera)
-{
-	m_Camera = camera;
-}
-
-void Renderer2D::OnResize(int width, int height)
-{
-	m_Width = width;
-	m_Height = height;
-}
-
 void Renderer2D::Flush()
 {
 	ASSERT(m_Camera);
 
+	for (int i = 0; i < m_TextureSlots.size(); i++)
+	{
+		glActiveTexture(GL_TEXTURE0 + i);
+		glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);
+	}
+
 	Shader* shader = Resource::GetAs<Shader>("Shader");
 	shader->Bind();
-	Resource::GetAs<Texture>("Jungle")->Bind();
 
-	shader->SetUniform1i("u_Texture", 0);
 	shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
 	shader->SetUniformMat4("u_ViewMatrix", m_Camera->GetViewMatrix());
 	shader->SetUniformMat4("u_ModelMatrix", mat4::Identity());
@@ -113,9 +155,11 @@ void Renderer2D::Flush()
 	m_IndexBuffer->Bind();
 
 	m_IndexBuffer->Draw(m_IndexCount);
-
+	
 	m_IndexBuffer->Unbind();
 	m_VertexBuffer->Unbind();
+
+	m_IndexCount = 0;
 
 #if 0
 	while (!m_Queue.empty())
@@ -142,4 +186,15 @@ void Renderer2D::Flush()
 		command.renderable->m_VertexArray->Unbind();
 	}
 #endif
+}
+
+void Renderer2D::SetCamera(Camera* camera)
+{
+	m_Camera = camera;
+}
+
+void Renderer2D::OnResize(int width, int height)
+{
+	m_Width = width;
+	m_Height = height;
 }

@@ -11,6 +11,7 @@ public:
 	void Unbind();
 
 	inline const String& GetPath() { return m_Path; }
+	inline const uint GetTexture() { return m_Texture; }
 	static inline Resource::ResourceType GetType() { return Resource::ResourceType::TEXTURE; }
 private:
 	uint Load();

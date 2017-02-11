@@ -16,9 +16,12 @@ public:
 	void Bind();
 	void Unbind();
 
+	void SetTextureIDs(const String& name);
+
 	int GetUniformLocation(const String& name);
 
 	void SetUniform1i(const String& name, int value);
+	void SetUniform1iv(const String& name, int* value, int count);
 	void SetUniform1f(const String& name, float value);
 	void SetUniform2f(const String& name, const vec2& vec);
 	void SetUniform3f(const String& name, const vec3& vec);

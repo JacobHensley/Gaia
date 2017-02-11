@@ -76,6 +76,19 @@ void Shader::Unbind() {
 	GLCall(glUseProgram(0));
 }
 
+void Shader::SetTextureIDs(const String& name)
+{
+	int texIDs[32];
+	for (int i = 0;i< 32;i++) 
+	{
+		texIDs[i] = i;
+	}
+
+	Bind();
+	SetUniform1iv(name, texIDs, 32);
+	Unbind();
+}
+
 int Shader::GetUniformLocation(const String& name)
 {
 	if (m_UniformLocationCache.find(name) != m_UniformLocationCache.end())
@@ -88,9 +101,14 @@ int Shader::GetUniformLocation(const String& name)
 	return location;
 }
 
-void Shader::SetUniform1i(const String & name, int value)
+void Shader::SetUniform1i(const String& name, int value)
 {
 	GLCall(glUniform1i(GetUniformLocation(name), value));
+}
+
+void Shader::SetUniform1iv(const String& name, int* value, int count)
+{
+	GLCall(glUniform1iv(GetUniformLocation(name), count, value));
 }
 
 void Shader::SetUniform1f(const String& name, float value)
