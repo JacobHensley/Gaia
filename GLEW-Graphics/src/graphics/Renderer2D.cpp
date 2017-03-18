@@ -13,8 +13,8 @@ struct Vertex
 	float tid;
 };
 
-Renderer2D::Renderer2D(int width, int height) 
-	:	m_Width(width), m_Height(height), m_Camera(nullptr), m_Buffer(nullptr), m_IndexCount(0) 
+Renderer2D::Renderer2D(int width, int height)
+	: m_Width(width), m_Height(height), m_Camera(nullptr), m_Buffer(nullptr), m_IndexCount(0)
 {
 	Init();
 }
@@ -41,10 +41,12 @@ void Renderer2D::Init()
 	m_IndexBuffer = new IndexBuffer(indices, INDEX_BUFFER_SIZE);
 	delete[] indices;
 
-	m_VertexBuffer = new Buffer(MAX_SPRITES * 4 * 5);
+	m_VertexBuffer = new Buffer(MAX_SPRITES * sizeof(float) * 5);
+}
 
+void Renderer2D::Begin()
+{
 	m_VertexBuffer->Bind();
-
 	GLCall(glEnableVertexAttribArray(SHADER_VERTEX_INDEX));
 	GLCall(glEnableVertexAttribArray(SHADER_TC_INDEX));
 	GLCall(glEnableVertexAttribArray(SHADER_TID_INDEX));
@@ -52,11 +54,6 @@ void Renderer2D::Init()
 	GLCall(glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, 0));
 	GLCall(glVertexAttribPointer(SHADER_TC_INDEX, 2, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const void*)(offsetof(Vertex, Vertex::tc))));
 	GLCall(glVertexAttribPointer(SHADER_TID_INDEX, 1, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const void*)(offsetof(Vertex, Vertex::tid))));
-}
-
-void Renderer2D::Begin()
-{
-	m_VertexBuffer->Bind();
 	m_Buffer = m_VertexBuffer->Map<Vertex>();
 }
 
@@ -72,40 +69,100 @@ void Renderer2D::Submit(Renderable2D* renderable, const mat4& transform)
 
 void Renderer2D::Submit(Renderable2D* renderable, Texture* texture, float x, float y, float width, float height)
 {
-	uint textureID = texture->GetTexture();
-
 	float textureSlot = 0.0f;
 
-	if (textureID > 0) 
-	{
-		bool found = false;
+	if (texture) {
+		uint textureID = texture->GetTexture();
 
-		for (int i = 0; i < m_TextureSlots.size(); i++)
+		if (textureID > 0)
 		{
-			if (m_TextureSlots[i] == textureID) 
+			bool found = false;
+
+			for (int i = 0; i < m_TextureSlots.size(); i++)
 			{
-				textureSlot = (float)(i + 1);
-				found = true;
-				break;
+				if (m_TextureSlots[i] == textureID)
+				{
+					textureSlot = (float)(i + 1);
+					found = true;
+					break;
+				}
+			}
+			if (!found)
+			{
+				if (m_TextureSlots.size() > 32)
+				{
+					End();
+					Flush();
+					Begin();
+				}
+				m_TextureSlots.push_back(textureID);
+				textureSlot = (float)(m_TextureSlots.size() - 1);
 			}
 		}
-		if (!found) 
-		{
-			if (m_TextureSlots.size() > 32)
-			{
-				End();
-				Flush();
-				Begin();
-			}
-			m_TextureSlots.push_back(textureID);
-		    textureSlot = (float)(m_TextureSlots.size() - 1);
+		else {
+			std::cout << "Invalid Texture ID" << std::endl;
+			ASSERT(false);
 		}
 	}
-	else {
-		std::cout << "Invalid Texture ID" << std::endl;
-		ASSERT(false);
-	}
+	m_Buffer->position = vec3(x, y);
+	m_Buffer->tc = vec2(0, 1);
+	m_Buffer->tid = textureSlot;
+	m_Buffer++;
 
+	m_Buffer->position = vec3(x, y + height);
+	m_Buffer->tc = vec2(0, 0);
+	m_Buffer->tid = textureSlot;
+	m_Buffer++;
+
+	m_Buffer->position = vec3(x + width, y + height);
+	m_Buffer->tc = vec2(1, 0);
+	m_Buffer->tid = textureSlot;
+	m_Buffer++;
+
+	m_Buffer->position = vec3(x + width, y);
+	m_Buffer->tc = vec2(1, 1);
+	m_Buffer->tid = textureSlot;
+	m_Buffer++;
+	m_IndexCount += 6;
+}
+
+void Renderer2D::Submit(const Renderable2DRef& renderable, Texture* texture, float x, float y, float width, float height)
+{
+	float textureSlot = 0.0f;
+
+	if (texture) {
+		uint textureID = texture->GetTexture();
+
+		if (textureID > 0)
+		{
+			bool found = false;
+
+			for (int i = 0; i < m_TextureSlots.size(); i++)
+			{
+				if (m_TextureSlots[i] == textureID)
+				{
+					textureSlot = (float)(i + 1);
+					found = true;
+					break;
+				}
+			}
+			if (!found)
+			{
+				if (m_TextureSlots.size() > 32)
+				{
+					End();
+					Flush();
+					Begin();
+				}
+				m_TextureSlots.push_back(textureID);
+				textureSlot = (float)(m_TextureSlots.size() - 1);
+			}
+		}
+		else {
+			std::cout << "Invalid Texture ID" << std::endl;
+			ASSERT(false);
+		}
+	}
 	m_Buffer->position = vec3(x, y);
 	m_Buffer->tc = vec2(0, 1);
 	m_Buffer->tid = textureSlot;
@@ -136,7 +193,8 @@ void Renderer2D::End()
 
 void Renderer2D::Flush()
 {
-	ASSERT(m_Camera);
+//TODO: Fix ASSERT
+//	ASSERT(m_Camera);
 
 	for (int i = 0; i < m_TextureSlots.size(); i++)
 	{
@@ -188,7 +246,7 @@ void Renderer2D::Flush()
 #endif
 }
 
-void Renderer2D::SetCamera(Camera* camera)
+void Renderer2D::SetCamera(CameraRef camera)
 {
 	m_Camera = camera;
 }

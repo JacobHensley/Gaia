@@ -3,8 +3,9 @@
 #include "../Common.h"
 #include <vector>
 #include "GL\glew.h"
+#include "RefCounted.h"
 
-class VertexArray
+class VertexArray : public RefCounted
 {
 public:
 	VertexArray();
@@ -18,3 +19,5 @@ private:
 	uint m_ArrayID;
 	std::vector<Buffer*> m_Buffers;
 };
+
+typedef Ref<VertexArray> VertexArrayRef;

@@ -4,12 +4,13 @@
 
 class GameLayer : public Layer {
 public:	
+
 	GameLayer(const String& name);
 	void OnUpdate() override;
 	void OnRender() override;
 private:
-	Texture* texture;
-	Rectangle* m_Rectangle;
+	TextureRef texture;
+	Renderable2DRef m_Rectangle;
 
 	float m_Zoom;
 };

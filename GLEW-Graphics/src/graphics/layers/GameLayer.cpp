@@ -6,6 +6,9 @@
 #include "../../Resource.h"
 #include <vector>
 
+#include "debug/DebugGraphics.h"
+
+
 GameLayer::GameLayer(const String& name)
 	: Layer(name), m_Zoom(40.0f)
 {
@@ -21,9 +24,8 @@ GameLayer::GameLayer(const String& name)
 
 	Shader* shader = Resource::GetAs<Shader>("Shader");
 	shader->SetTextureIDs("u_Textures");
-
+	  
 	texture = Resource::GetAs<Texture>("Jungle");
-
 	m_Rectangle = new Rectangle(0, 0, 10, 10);
 }
 
@@ -48,6 +50,9 @@ void GameLayer::OnUpdate()
 
 void GameLayer::OnRender()
 {
+//	DebugGraphics::FillRectangle(vec2(0, 0), vec2(10, 10));
+	//return;
+
 	m_Renderer->Begin();
 
 	m_Renderer->Submit(m_Rectangle, Resource::GetAs<Texture>("Jungle"), -30, 0, 5, 5);

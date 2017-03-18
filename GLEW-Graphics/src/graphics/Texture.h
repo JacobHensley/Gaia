@@ -1,7 +1,9 @@
 #pragma once
 #include "../Common.h"
 #include "../Resource.h"
-class Texture
+#include "RefCounted.h"
+
+class Texture : public RefCounted
 {
 public:
 	Texture(const String& path);
@@ -18,3 +20,5 @@ private:
 	uint m_Texture;
 	const String& m_Path;
 };
+
+typedef Ref<Texture> TextureRef;

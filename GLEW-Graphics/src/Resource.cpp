@@ -28,7 +28,7 @@ Shader* Resource::LoadShader(const String& name, const String& vertexPath, const
 	return shader;
 }
 
-void * Resource::Get(const String& name)
+void* Resource::Get(const String& name)
 {
 	return s_ResourceMap[name].pointer;
 }

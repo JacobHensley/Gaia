@@ -7,7 +7,7 @@ protected:
 	String m_Name;
 	Renderer2D* m_Renderer;
 	int m_Width, m_Height;
-	Camera* m_Camera;
+	CameraRef m_Camera;
 public:
 	Layer(const String& name);
 	void OnInit();

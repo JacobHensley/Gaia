@@ -1,14 +1,17 @@
 #include "Application.h"
+#include "debug/DebugGraphics.h"
 
 Application* Application::s_Application = nullptr;
 
 Application::Application(const String& name, int width, int height) {
 	s_Application = this;
 	m_Window = new Window(name.c_str(), width, height);
+	PushOverlay(new DebugGraphics());
 }
 
 Application::~Application()
 {
+	//TODO: Delete Layers/Overlay
 	delete m_Window;
 }
 
@@ -17,8 +20,17 @@ void Application::PushLayer(Layer* layer)
 	m_LayerStack.push_back(layer);
 }
 
+void Application::PushOverlay(Layer* layer)
+{
+	m_OverlayStack.push_back(layer);
+}
+
 void Application::OnRender()
 {
+	for (Layer* layer : m_OverlayStack) {
+		layer->OnRender();
+	}
+
 	for (Layer* layer : m_LayerStack) {
 		layer->OnRender();
 	}
@@ -26,6 +38,10 @@ void Application::OnRender()
 
 void Application::OnUpdate()
 {
+	for (Layer* layer : m_OverlayStack) {
+		layer->OnUpdate();
+	}
+
 	for (Layer* layer : m_LayerStack) {
 		layer->OnUpdate();
 	}

@@ -1,8 +1,9 @@
 #pragma once
 
 #include "../../math/mat4.h"
+#include "RefCounted.h"
 
-class Camera
+class Camera : public  RefCounted
 {
 protected:
 	mat4 m_Proj, m_View;
@@ -17,4 +18,6 @@ public:
 	inline void SetViewMatrix(const mat4& ViewMatrix) { m_View = ViewMatrix; }
 	virtual void OnUpdate();
 };
+
+typedef Ref<Camera> CameraRef;
 

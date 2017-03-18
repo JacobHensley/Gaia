@@ -10,12 +10,8 @@ uniform sampler2D u_Textures[32];
 
 void main() 
 {
-	
-	if (textureID > 0.0)
-	{
-		int tid = int(textureID - 0.5f);
-		color = texture(u_Textures[tid], texCoord);
-	//	color = vec4(100, 0, 0, 1);
-	}
+	int tid = int(textureID - 0.5f);	
+	color = texture(u_Textures[tid], texCoord);
+//	color = vec4(1, 0, 0, 1);
 
 }

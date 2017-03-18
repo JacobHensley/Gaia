@@ -11,6 +11,7 @@ private:
 private:
 	Window* m_Window;
 	std::vector<Layer*> m_LayerStack;
+	std::vector<Layer*> m_OverlayStack;
 
 	double lastTime = glfwGetTime();
 	int nbFrames = 0;
@@ -19,6 +20,7 @@ public:
 	~Application();	
 
 	void PushLayer(Layer* layer);
+	void PushOverlay(Layer* layer);
 	void OnRender();
 	void OnUpdate();
 	void Run();

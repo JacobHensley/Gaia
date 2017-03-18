@@ -1,8 +1,9 @@
 #pragma once
 #include "GL\glew.h"
 #include "../Common.h"
+#include "RefCounted.h"
 
-class IndexBuffer
+class IndexBuffer : public RefCounted
 {
 public:
 	IndexBuffer(uint* data, GLsizei count);
@@ -16,3 +17,5 @@ private:
 	uint m_BufferID;
 	uint m_Count;
 };
+
+typedef Ref<IndexBuffer> IndexBufferRef;
