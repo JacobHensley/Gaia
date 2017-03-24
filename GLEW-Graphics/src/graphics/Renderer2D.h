@@ -19,7 +19,7 @@ private:
 	int m_Width, m_Height;
 	CameraRef m_Camera;
 	Vertex* m_Buffer;
-	Buffer* m_VertexBuffer;
+	VertexBuffer* m_VertexBuffer;
 	IndexBufferRef m_IndexBuffer;
 	uint m_IndexCount;
 

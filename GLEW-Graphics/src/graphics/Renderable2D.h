@@ -1,18 +1,18 @@
 #pragma once
 
-#include "VertexArray.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "Texture.h"
 #include "../math/mat4.h"
 #include "RefCounted.h"
+#include "VertexBuffer.h"
 
 class Renderable2D : public RefCounted 
 {
 private:
 	friend class Renderer2D;
 protected:
-	VertexArrayRef m_VertexArray;
+	VertexBufferRef m_VertexBuffer;
 	IndexBufferRef m_IndexBuffer;
 	Shader* m_Shader;
 	TextureRef m_Texture;

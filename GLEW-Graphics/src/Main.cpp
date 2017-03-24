@@ -67,10 +67,11 @@ int main() {
 
 	//TODO:
 	//ref counting
-	//add static asserts, etc
+	//Materials
 	//setup buffer layouts
 	//Memory Arena
 	//Font Rendering
+	//add static asserts, etc
 	//Debug Layer Labels
 	//String Formatting
 

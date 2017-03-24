@@ -11,13 +11,11 @@ public:
 	Ref()
 		: m_Obj(nullptr) {
 		Set(nullptr);
-		std::cout << "Created Ref(" << this << "), Using Default Constructor" << std::endl;
 	}
 
 	Ref(T* obj)
 		: m_Obj(nullptr) {
 		Set(obj);
-		std::cout << "Created Ref(" << this << "), Using Non-Default Constructor" << std::endl;
 	}
 
 	Ref(const Ref& other)
@@ -34,7 +32,6 @@ public:
 	~Ref()
 	{
 		Set(nullptr);
-		std::cout << "Destroyed Ref(" << this << ")" << std::endl;
 	}
 
 	T* Get() const
@@ -85,13 +82,11 @@ public:
 	void Increment() const
 	{
 		m_ReferenceCount++;
-		std::cout << "Incremented m_ReferenceCount for: " << this << ", m_ReferenceCount is now: " << m_ReferenceCount << std::endl;
 	}
 
 	void Decrement() const
 	{
 		m_ReferenceCount--;
-		std::cout << "Decremented m_ReferenceCount for: " << this << ", m_ReferenceCount is now: " << m_ReferenceCount << std::endl;
 		if (m_ReferenceCount == 0) 
 			delete this;
 	}

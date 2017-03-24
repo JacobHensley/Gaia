@@ -37,23 +37,21 @@ void Renderer2D::Init()
 		indices[i + 5] = offset + 0;
 		offset += 4;
 	}
+	m_VertexBuffer = new VertexBuffer(MAX_SPRITES * sizeof(float) * 5);
+
+	BufferLayout layout;
+	layout.Push<vec3>("Position");
+	layout.Push<vec2>("TexCoord");
+	layout.Push<float>("TexID");
+	m_VertexBuffer->SetLayout(layout);
 
 	m_IndexBuffer = new IndexBuffer(indices, INDEX_BUFFER_SIZE);
 	delete[] indices;
-
-	m_VertexBuffer = new Buffer(MAX_SPRITES * sizeof(float) * 5);
 }
 
 void Renderer2D::Begin()
 {
 	m_VertexBuffer->Bind();
-	GLCall(glEnableVertexAttribArray(SHADER_VERTEX_INDEX));
-	GLCall(glEnableVertexAttribArray(SHADER_TC_INDEX));
-	GLCall(glEnableVertexAttribArray(SHADER_TID_INDEX));
-
-	GLCall(glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, 0));
-	GLCall(glVertexAttribPointer(SHADER_TC_INDEX, 2, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const void*)(offsetof(Vertex, Vertex::tc))));
-	GLCall(glVertexAttribPointer(SHADER_TID_INDEX, 1, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const void*)(offsetof(Vertex, Vertex::tid))));
 	m_Buffer = m_VertexBuffer->Map<Vertex>();
 }
 

@@ -278,10 +278,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\debug\DebugGraphics.cpp" />
+    <ClCompile Include="src\graphics\BufferLayout.cpp" />
     <ClCompile Include="src\graphics\Camera\Camera.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\GLError.cpp" />
-    <ClCompile Include="src\graphics\Buffer.cpp" />
+    <ClCompile Include="src\graphics\VertexBuffer.cpp" />
     <ClCompile Include="src\graphics\Camera\OrthographicCamera.cpp" />
     <ClCompile Include="src\graphics\Camera\PerspectiveCamera.cpp" />
     <ClCompile Include="src\graphics\IndexBuffer.cpp" />
@@ -292,7 +293,6 @@
     <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\graphics\stb_image.cpp" />
     <ClCompile Include="src\graphics\Texture.cpp" />
-    <ClCompile Include="src\graphics\VertexArray.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\graphics\Layers\Layer.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -304,11 +304,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\debug\DebugGraphics.h" />
+    <ClInclude Include="src\graphics\BufferLayout.h" />
     <ClInclude Include="src\graphics\Camera\Camera.h" />
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Common.h" />
     <ClInclude Include="src\GLError.h" />
-    <ClInclude Include="src\graphics\Buffer.h" />
+    <ClInclude Include="src\graphics\VertexBuffer.h" />
     <ClInclude Include="src\graphics\Camera\OrthographicCamera.h" />
     <ClInclude Include="src\graphics\Camera\PerspectiveCamera.h" />
     <ClInclude Include="src\graphics\IndexBuffer.h" />
@@ -319,7 +320,6 @@
     <ClInclude Include="src\graphics\Shader.h" />
     <ClInclude Include="src\graphics\stb_image.h" />
     <ClInclude Include="src\graphics\Texture.h" />
-    <ClInclude Include="src\graphics\VertexArray.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\graphics\Layers\Layer.h" />
     <ClInclude Include="src\math\mat4.h" />

@@ -9,7 +9,7 @@ public:
 	void OnUpdate() override;
 	void OnRender() override;
 private:
-	TextureRef texture;
+	Texture* texture;
 	Renderable2DRef m_Rectangle;
 
 	float m_Zoom;

@@ -18,9 +18,8 @@ Rectangle::Rectangle(float x, float y, float width, float height)
 		2, 3, 0
 	};
 
-	m_VertexArray = new VertexArray();
+	m_VertexBuffer = new VertexBuffer(vertices, 4 * 5, 3);
 	m_IndexBuffer = new IndexBuffer(indices, 6);
-	m_VertexArray->AddBuffer(new Buffer(vertices, 4 * 5, 3), 0);
 
 //TODO: Fix ASSERT
 //	ASSERT(m_Shader = Resource::GetAs<Shader>("Shader"));
