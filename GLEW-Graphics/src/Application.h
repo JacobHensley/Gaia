@@ -13,7 +13,7 @@ private:
 	std::vector<Layer*> m_LayerStack;
 	std::vector<Layer*> m_OverlayStack;
 
-	double lastTime = glfwGetTime();
+	double lastTime;
 	int nbFrames = 0;
 public:
 	Application(const String& name, int width, int height);

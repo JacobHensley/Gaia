@@ -1,4 +1,5 @@
 #include "VertexBuffer.h"
+#include "GL/glew.h"
 
 VertexBuffer::VertexBuffer(uint count)
 {
@@ -38,4 +39,15 @@ void VertexBuffer::Bind() const
 void VertexBuffer::Unbind() const
 {
 	GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
+}
+
+void VertexBuffer::Unmap()
+{
+	GLCall(glUnmapBuffer(GL_ARRAY_BUFFER));
+}
+
+void * VertexBuffer::MapInternal()
+{
+	GLCall(void* result = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY));
+	return result;
 }

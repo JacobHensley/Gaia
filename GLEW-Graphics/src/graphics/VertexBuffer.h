@@ -1,5 +1,4 @@
 #pragma once
-#include "GL/glew.h"
 #include "Common.h"
 #include "RefCounted.h"
 #include "BufferLayout.h"
@@ -19,15 +18,13 @@ public:
 	template<typename T = void>
 	inline T* Map()
 	{
-		GLCall(T* result = (T*)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY));
-		return result;
+		return (T*)MapInternal();
 	}
 
-	inline void Unmap() 
-	{
-		GLCall(glUnmapBuffer(GL_ARRAY_BUFFER));
-	}
+	void Unmap();
 private:
+	void* MapInternal();
+
 	uint m_ComponentCount;
 	uint m_BufferID;
 	BufferLayout m_Layout;

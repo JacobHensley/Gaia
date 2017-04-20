@@ -1,5 +1,4 @@
 #pragma once
-#include <GL\glew.h>
 #include "../Common.h"
 #include "../utils/FileUtils.h"
 #include <vector>

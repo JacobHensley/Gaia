@@ -1,7 +1,14 @@
 #pragma once
 #include "Common.h"
 #include "math/vec3.h"
-#include "GL/glew.h"
+
+#define GL_BYTE 0x1400
+#define GL_UNSIGNED_BYTE 0x1401
+#define GL_SHORT 0x1402
+#define GL_UNSIGNED_SHORT 0x1403
+#define GL_INT 0x1404
+#define GL_UNSIGNED_INT 0x1405
+#define GL_FLOAT 0x1406
 
 class BufferLayout 
 {
@@ -82,3 +89,11 @@ void BufferLayout::Push<vec4>(const String& name)
 {
 	PushInternal(name, GL_FLOAT, 4, sizeof(float));
 }
+
+#undef GL_BYTE
+#undef GL_UNSIGNED_BYTE 
+#undef GL_SHORT 
+#undef GL_UNSIGNED_SHORT 
+#undef GL_INT 
+#undef GL_UNSIGNED_INT 
+#undef GL_FLOAT 

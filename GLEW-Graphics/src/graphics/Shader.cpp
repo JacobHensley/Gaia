@@ -1,4 +1,5 @@
 #include "Shader.h"
+#include <GL\glew.h>
 
 Shader::Shader(const String& vertPath, const String& fragPath)
 	:	m_VertPath(vertPath), m_FragPath(fragPath)	{

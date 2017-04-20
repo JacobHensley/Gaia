@@ -1,5 +1,7 @@
 #include "Window.h"
 #include <iostream>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 Window::Window(const char* title, int width, int height)
 	: m_Title(title), m_Width(width), m_Height(height) {

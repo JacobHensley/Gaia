@@ -1,4 +1,6 @@
 #include "Renderer2D.h"
+#include <gl/glew.h>
+#include <GLFW/glfw3.h>
 
 #define RENDERER_VERTEX_SIZE sizeof(Vertex)
 
@@ -76,7 +78,7 @@ void Renderer2D::Submit(Renderable2D* renderable, Texture* texture, float x, flo
 		{
 			bool found = false;
 
-			for (int i = 0; i < m_TextureSlots.size(); i++)
+			for (uint i = 0; i < m_TextureSlots.size(); i++)
 			{
 				if (m_TextureSlots[i] == textureID)
 				{
@@ -135,7 +137,7 @@ void Renderer2D::Submit(const Renderable2DRef& renderable, Texture* texture, flo
 		{
 			bool found = false;
 
-			for (int i = 0; i < m_TextureSlots.size(); i++)
+			for (uint i = 0; i < m_TextureSlots.size(); i++)
 			{
 				if (m_TextureSlots[i] == textureID)
 				{
@@ -194,7 +196,7 @@ void Renderer2D::Flush()
 //TODO: Fix ASSERT
 //	ASSERT(m_Camera);
 
-	for (int i = 0; i < m_TextureSlots.size(); i++)
+	for (uint i = 0; i < m_TextureSlots.size(); i++)
 	{
 		glActiveTexture(GL_TEXTURE0 + i);
 		glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);
