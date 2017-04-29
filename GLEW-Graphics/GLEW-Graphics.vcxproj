@@ -285,6 +285,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\debug\DebugGraphics.cpp" />
+    <ClCompile Include="src\game\Entity.cpp" />
+    <ClCompile Include="src\game\Level.cpp" />
     <ClCompile Include="src\graphics\BufferLayout.cpp" />
     <ClCompile Include="src\graphics\Camera\Camera.cpp" />
     <ClCompile Include="src\Application.cpp" />
@@ -310,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\debug\DebugGraphics.h" />
+    <ClInclude Include="src\game\component\Component.h" />
+    <ClInclude Include="src\game\Entity.h" />
+    <ClInclude Include="src\game\Level.h" />
     <ClInclude Include="src\graphics\BufferLayout.h" />
     <ClInclude Include="src\graphics\Camera\Camera.h" />
     <ClInclude Include="src\Application.h" />
@@ -342,6 +347,14 @@
   <ItemGroup>
     <None Include="Shaders\shader.frag" />
     <None Include="Shaders\shader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dependencies\GLEW\GLEW.vcxproj">
+      <Project>{a51d929a-6413-4ca1-ae95-cebc60b16490}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\GLFW\GLFW.vcxproj">
+      <Project>{fe99fc3b-e104-4f12-8d2a-da37af1e4bf4}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
