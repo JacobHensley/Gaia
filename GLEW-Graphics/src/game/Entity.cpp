@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Level.h"
 
 Entity::Entity()
 {

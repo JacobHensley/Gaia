@@ -71,7 +71,8 @@ void Renderer2D::Submit(Renderable2D* renderable, Texture* texture, float x, flo
 {
 	float textureSlot = 0.0f;
 
-	if (texture) {
+	if (texture) 
+	{
 		uint textureID = texture->GetTexture();
 
 		if (textureID > 0)
@@ -130,7 +131,8 @@ void Renderer2D::Submit(const Renderable2DRef& renderable, Texture* texture, flo
 {
 	float textureSlot = 0.0f;
 
-	if (texture) {
+	if (texture) 
+	{
 		uint textureID = texture->GetTexture();
 
 		if (textureID > 0)

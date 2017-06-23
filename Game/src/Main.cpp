@@ -2,10 +2,14 @@
 
 #include "Application.h"
 #include "GameLayer.h"
+#include "TestLayer.h"
+#include "game/Level.h"
 
 int main()
 {
 	Application app("Test Window", 1280, 720);
+
+//	app.PushLayer(new TestLayer("TestLayer"));
 
 	app.PushLayer(new GameLayer("GameLayer"));
 	app.Run();
@@ -19,6 +23,7 @@ int main()
 	//add static asserts, etc
 	//Debug Layer Labels
 	//String Formatting
+	//sprites
 
 	return 0;
 }

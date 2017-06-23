@@ -4,7 +4,8 @@
 #include <GLFW/glfw3.h>
 
 Window::Window(const char* title, int width, int height)
-	: m_Title(title), m_Width(width), m_Height(height) {
+	: m_Title(title), m_Width(width), m_Height(height) 
+{
 	memset(m_Keys, 0, sizeof(m_Keys));
 
 	Init();
@@ -52,7 +53,8 @@ void Window::Update()
 	glfwPollEvents();
 }
 
-void Window::Clear() {
+void Window::Clear() 
+{
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
@@ -61,7 +63,8 @@ int Window::Closed()
 	return glfwWindowShouldClose(m_Window);
 }
 
-void windowResize(GLFWwindow* window, int width, int height) {
+void windowResize(GLFWwindow* window, int width, int height)
+{
 	glViewport(0, 0, width, height);
 	Window* win = (Window*)glfwGetWindowUserPointer(window);
 	win->m_Width = width;

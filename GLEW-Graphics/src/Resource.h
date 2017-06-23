@@ -33,7 +33,8 @@ public:
 	}
 
 	template<typename T>
-	static T* Load(const String& name) {
+	static T* Load(const String& name) 
+	{
 		T* resource = new T(path.c_str());
 		s_ResourceMap[name] = { T::GetType(), resource };
 		return resource;

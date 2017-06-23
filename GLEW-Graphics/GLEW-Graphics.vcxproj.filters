@@ -90,6 +90,9 @@
     <ClCompile Include="src\game\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\component\TransformComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\Window.h">
@@ -186,6 +189,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\game\component\Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\component\TransformComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\component\SpriteComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

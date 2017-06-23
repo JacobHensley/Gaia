@@ -9,17 +9,20 @@ private:
 public:
 
 	Ref()
-		: m_Obj(nullptr) {
+		: m_Obj(nullptr) 
+	{
 		Set(nullptr);
 	}
 
 	Ref(T* obj)
-		: m_Obj(nullptr) {
+		: m_Obj(nullptr) 
+	{
 		Set(obj);
 	}
 
 	Ref(const Ref& other)
-		: m_Obj(nullptr) {
+		: m_Obj(nullptr) 
+	{
 		this->operator=(other);
 	}
 
@@ -66,6 +69,11 @@ public:
 	const T& operator *() const
 	{
 		return *m_Obj;
+	}
+
+	bool operator==(const Ref<T>& other) const
+	{
+		return m_Obj == other.m_Obj;
 	}
 };
 

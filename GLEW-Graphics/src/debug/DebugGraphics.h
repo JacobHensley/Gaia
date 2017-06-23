@@ -12,7 +12,8 @@ private:
 		mat4 transform;
 
 		RenderCommand(Renderable2D* renderable, Texture* texture, const mat4& transform)
-			: renderable(renderable), texture(texture), transform(transform) {
+			: renderable(renderable), texture(texture), transform(transform) 
+		{
 		}
 
 		~RenderCommand()

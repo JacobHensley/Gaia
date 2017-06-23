@@ -1,16 +1,17 @@
 #pragma once
 #include "graphics/layers/Layer.h"
 #include "graphics/Rectangle.h"
+#include "game/Level.h"
 
 class GameLayer : public Layer {
 public:	
-
 	GameLayer(const String& name);
+	void Init();
 	void OnUpdate() override;
 	void OnRender() override;
 private:
-	Texture* texture;
-	Renderable2DRef m_Rectangle;
-
-	float m_Zoom;
+	LevelRef m_Level;
+	EntityRef m_Entity;
+public:
+	inline LevelRef GetLevel() { return m_Level; }
 };

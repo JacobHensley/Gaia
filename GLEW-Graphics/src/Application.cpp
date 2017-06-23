@@ -52,7 +52,8 @@ void Application::OnUpdate()
 
 void Application::Run()
 {
-	while (!m_Window->Closed()) {
+	while (!m_Window->Closed()) 
+	{
 //		if (m_Window->GetWidth() != renderer.GetWidth() || m_Window->GetHeight() != renderer.GetHeight())
 //			renderer.OnResize(m_Window->GetWidth(), m_Window->GetHeight());
 

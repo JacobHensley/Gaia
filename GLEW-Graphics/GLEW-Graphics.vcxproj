@@ -285,6 +285,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\debug\DebugGraphics.cpp" />
+    <ClCompile Include="src\game\component\TransformComponent.cpp" />
     <ClCompile Include="src\game\Entity.cpp" />
     <ClCompile Include="src\game\Level.cpp" />
     <ClCompile Include="src\graphics\BufferLayout.cpp" />
@@ -313,6 +314,8 @@
   <ItemGroup>
     <ClInclude Include="src\debug\DebugGraphics.h" />
     <ClInclude Include="src\game\component\Component.h" />
+    <ClInclude Include="src\game\component\SpriteComponent.h" />
+    <ClInclude Include="src\game\component\TransformComponent.h" />
     <ClInclude Include="src\game\Entity.h" />
     <ClInclude Include="src\game\Level.h" />
     <ClInclude Include="src\graphics\BufferLayout.h" />

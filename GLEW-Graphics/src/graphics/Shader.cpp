@@ -27,7 +27,8 @@ uint Shader::Load()
 
 	int compileResult;
 	GLCall(glGetShaderiv(vertex, GL_COMPILE_STATUS, &compileResult));
-	if (compileResult == GL_FALSE) {
+	if (compileResult == GL_FALSE) 
+	{
 		int length;
 		GLCall(glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &length));
 		std::vector<char> error(length);
@@ -44,7 +45,8 @@ uint Shader::Load()
 	GLCall(glCompileShader(fragment));
 
 	GLCall(glGetShaderiv(fragment, GL_COMPILE_STATUS, &compileResult));
-	if (compileResult == GL_FALSE) {
+	if (compileResult == GL_FALSE) 
+	{
 		int length;
 		GLCall(glGetShaderiv(fragment, GL_INFO_LOG_LENGTH, &length));
 		std::vector<char> error(length);
@@ -73,7 +75,8 @@ void Shader::Bind()
 	GLCall(glUseProgram(m_ShaderID));
 }
 
-void Shader::Unbind() {
+void Shader::Unbind() 
+{
 	GLCall(glUseProgram(0));
 }
 

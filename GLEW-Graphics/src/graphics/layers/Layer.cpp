@@ -6,7 +6,8 @@ Layer::Layer(const String& name)
 	OnInit();
 }
 
-void Layer::OnInit() {
+void Layer::OnInit() 
+{
 	Application& app = Application::GetApplication();
 	m_Renderer = new Renderer2D(app.GetWidth(), app.GetHeight());
 	

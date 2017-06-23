@@ -5,7 +5,8 @@
 DebugGraphics* DebugGraphics::s_Instance = nullptr;
 
 DebugGraphics::DebugGraphics()
- : Layer("DebugGraphics") {
+ : Layer("DebugGraphics") 
+{
 
 	s_Instance = this;
 

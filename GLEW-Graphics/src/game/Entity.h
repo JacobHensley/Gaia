@@ -1,11 +1,13 @@
 #pragma once
+#include "RefCounted.h"
 
 class Level;
+typedef Ref<Level> LevelRef;
 
-class Entity
+class Entity : public RefCounted
 {
 protected:
-	Level* m_Level;
+	LevelRef m_Level;
 public:
 	Entity();
 	virtual ~Entity();
@@ -13,3 +15,5 @@ public:
 	virtual void OnInit(Level* level);
 	virtual void OnUpdate();
 };
+
+typedef Ref<Entity> EntityRef;

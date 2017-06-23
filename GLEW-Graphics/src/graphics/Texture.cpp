@@ -3,7 +3,8 @@
 #include "GLFW\glfw3.h"
 
 Texture::Texture(const String& path)
-	:	m_Path(path) {
+	:	m_Path(path) 
+{
 	m_Texture = Load();
 }
 

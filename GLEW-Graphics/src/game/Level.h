@@ -1,22 +1,26 @@
 #pragma once
 
 #include <vector>
+#include "RefCounted.h"
 
 class Entity;
+typedef Ref<Entity> EntityRef;
 
-class Level
+class Level : public RefCounted
 {
 protected:
-	std::vector<Entity*> m_Entities;
+	std::vector<EntityRef> m_Entities;
 public:
 	Level();
 	virtual ~Level();
 
-	void Add(Entity* entity);
-	void Remove(Entity* entity);
+	void Add(EntityRef& entity);
+	void Remove(const EntityRef& entity);
 	void RemoveAll();
 
 	virtual void OnInit();
 	virtual void OnUpdate();
 	virtual void OnRender();
 };
+
+typedef Ref<Level> LevelRef;
