@@ -32,6 +32,9 @@ public:
 		return *this;
 	}
 
+	operator T*() { return m_Obj; }
+	operator const T*() const { return m_Obj; }
+
 	~Ref()
 	{
 		Set(nullptr);

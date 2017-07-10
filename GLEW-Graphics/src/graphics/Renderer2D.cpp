@@ -13,6 +13,7 @@ struct Vertex
 	vec3 position;
 	vec2 tc;
 	float tid;
+	vec4 color;
 };
 
 Renderer2D::Renderer2D(int width, int height)
@@ -28,6 +29,7 @@ void Renderer2D::Init()
 	const uint INDEX_BUFFER_SIZE = MAX_SPRITES * 6;
 	uint offset = 0;
 	uint* indices = new uint[INDEX_BUFFER_SIZE];
+
 	for (int i = 0; i < MAX_SPRITES; i += 6)
 	{
 		indices[i + 0] = offset;
@@ -39,12 +41,15 @@ void Renderer2D::Init()
 		indices[i + 5] = offset + 0;
 		offset += 4;
 	}
+
 	m_VertexBuffer = new VertexBuffer(MAX_SPRITES * sizeof(float) * 5);
 
 	BufferLayout layout;
 	layout.Push<vec3>("Position");
 	layout.Push<vec2>("TexCoord");
 	layout.Push<float>("TexID");
+	layout.Push<vec4>("Color");
+
 	m_VertexBuffer->SetLayout(layout);
 
 	m_IndexBuffer = new IndexBuffer(indices, INDEX_BUFFER_SIZE);
@@ -123,6 +128,30 @@ void Renderer2D::Submit(Renderable2D* renderable, Texture* texture, float x, flo
 	m_Buffer->position = vec3(x + width, y);
 	m_Buffer->tc = vec2(1, 1);
 	m_Buffer->tid = textureSlot;
+	m_Buffer++;
+	m_IndexCount += 6;
+}
+
+void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float height)
+{
+	m_Buffer->position = vec3(x, y);
+	m_Buffer->tc = vec2(0, 1);
+	m_Buffer->color = sprite->m_Color;
+	m_Buffer++;
+
+	m_Buffer->position = vec3(x, y + height);
+	m_Buffer->tc = vec2(0, 0);
+	m_Buffer->color = sprite->m_Color;
+	m_Buffer++;
+
+	m_Buffer->position = vec3(x + width, y + height);
+	m_Buffer->tc = vec2(1, 0);
+	m_Buffer->color = sprite->m_Color;
+	m_Buffer++;
+
+	m_Buffer->position = vec3(x + width, y);
+	m_Buffer->tc = vec2(1, 1);
+	m_Buffer->color = sprite->m_Color;
 	m_Buffer++;
 	m_IndexCount += 6;
 }

@@ -3,6 +3,7 @@
 #include <queue>
 #include "Renderable2D.h"
 #include "Camera\Camera.h"
+#include "Sprite.h"
 
 struct Vertex;
 
@@ -31,6 +32,8 @@ public:
 	void Submit(Renderable2D* renderable, const mat4& transform);
 	void Submit(Renderable2D* renderable);
 	void Submit(Renderable2D* renderable, Texture* texture, float x, float y, float width, float height);
+
+	void Submit(Sprite* sprite, float x, float y, float width, float height);
 
 	void Submit(const Renderable2DRef& renderable, Texture* texture, float x, float y, float width, float height);
 

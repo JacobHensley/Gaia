@@ -285,6 +285,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\debug\DebugGraphics.cpp" />
+    <ClCompile Include="src\game\component\SpriteComponent.cpp" />
     <ClCompile Include="src\game\component\TransformComponent.cpp" />
     <ClCompile Include="src\game\Entity.cpp" />
     <ClCompile Include="src\game\Level.cpp" />
@@ -293,6 +294,7 @@
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\GLError.cpp" />
     <ClCompile Include="src\graphics\Material.cpp" />
+    <ClCompile Include="src\graphics\Sprite.cpp" />
     <ClCompile Include="src\graphics\VertexBuffer.cpp" />
     <ClCompile Include="src\graphics\Camera\OrthographicCamera.cpp" />
     <ClCompile Include="src\graphics\Camera\PerspectiveCamera.cpp" />
@@ -324,6 +326,7 @@
     <ClInclude Include="src\Common.h" />
     <ClInclude Include="src\GLError.h" />
     <ClInclude Include="src\graphics\Material.h" />
+    <ClInclude Include="src\graphics\Sprite.h" />
     <ClInclude Include="src\graphics\VertexBuffer.h" />
     <ClInclude Include="src\graphics\Camera\OrthographicCamera.h" />
     <ClInclude Include="src\graphics\Camera\PerspectiveCamera.h" />

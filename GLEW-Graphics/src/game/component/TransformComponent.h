@@ -5,7 +5,7 @@
 class TransformComponent : public Component
 {
 public:
-	mat4 Transform;
+	mat4 m_Transform;
 
 public:
 	TransformComponent(const mat4& transform);

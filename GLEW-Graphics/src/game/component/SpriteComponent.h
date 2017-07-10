@@ -1,14 +1,14 @@
 #pragma once
 
 #include "Component.h"
+#include "graphics/Sprite.h"
 
 class SpriteComponent : public Component
 {
 public:
-	mat4 Transform;
-
+	Sprite m_Sprite;
 public:
-	TransformComponent(const mat4& transform);
+	SpriteComponent(const Sprite& sprite);
 
 	static Component::Type* GetStaticType()
 	{
@@ -17,5 +17,4 @@ public:
 	}
 
 	inline virtual const Component::Type* GetType() const override { return GetStaticType(); }
-
 };
