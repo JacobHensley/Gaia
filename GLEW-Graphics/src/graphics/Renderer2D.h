@@ -47,4 +47,5 @@ public:
 	inline int GetHeight() const { return m_Height; }
 private:
 	void Init();
+	float SubmitTexture(const Texture* texture);
 };

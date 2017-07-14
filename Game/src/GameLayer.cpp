@@ -20,6 +20,7 @@ GameLayer::GameLayer(const String& name)
 	Shader* shader = Resource::GetAs<Shader>("Shader");
 
 	shader->SetTextureIDs("u_Textures");
+	ASSERT(Resource::LoadTexture("Jungle", "res/jungle.png"));
 
 	Init();
 }
@@ -31,7 +32,7 @@ void GameLayer::Init()
 	
 	m_Entity = m_Level->CreateEntity<Entity>();
 	m_Entity->AddComponent(new TransformComponent(mat4::Identity()));
-	m_Entity->AddComponent(new SpriteComponent(Sprite(vec4(0, 1, 0, 1))));
+	m_Entity->AddComponent(new SpriteComponent(Sprite(Resource::GetAs<Texture>("Jungle"))));
 }
 
 void GameLayer::OnUpdate()

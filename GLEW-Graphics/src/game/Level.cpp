@@ -33,6 +33,7 @@ void Level::Remove(const EntityRef& entity)
 void Level::RemoveAll()
 {
 	m_Entities.clear();
+	m_Components.clear(); //TODO: delete comps
 }
 
 void Level::OnInit()
@@ -66,20 +67,17 @@ void Level::OnRender()
 
 void Level::OnRender(Renderer2D* renderer2D)
 {
-	for (auto kv : m_Components)
+	auto& spriteComponents = m_Components[SpriteComponent::GetStaticType()];
+	renderer2D->Begin();
+
+	for (auto component : m_Components[SpriteComponent::GetStaticType()])
 	{
-		if (kv.first == SpriteComponent::GetStaticType())
-			for (auto component : kv.second)
-			{
-				std::cout << "Name: " << component->GetType()->Name << ", Size: " << kv.second.size() << std::endl;
-				renderer2D->Begin();
+		std::cout << "Name: " << component->GetType()->Name << ", Size: " << spriteComponents.size() << std::endl;
+		SpriteComponent* comp = (SpriteComponent*)component;
 
-				SpriteComponent* comp = (SpriteComponent*)component;
-
-				renderer2D->Submit(&comp->m_Sprite, 0.5f, 0.5f, 10, 10);
-
-				renderer2D->End();
-				renderer2D->Flush();
-			}
+		renderer2D->Submit(&comp->m_Sprite, 0.5f, 0.5f, 10, 10);
 	}
+
+	renderer2D->End();
+	renderer2D->Flush();
 }

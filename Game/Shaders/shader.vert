@@ -20,6 +20,6 @@ void main()
 
 	pos = position;
 	texCoord = tc;
-//	textureID = tid;
+	textureID = tid;
 	col = color;
 }

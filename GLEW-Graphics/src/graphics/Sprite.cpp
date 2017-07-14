@@ -1,8 +1,8 @@
 #include "Sprite.h"
 
-VertexBufferRef Sprite::m_VertexBuffer;
-IndexBufferRef Sprite::m_IndexBuffer;
-Shader* Sprite::m_Shader;
+VertexBuffer* Sprite::m_VertexBuffer = nullptr;
+IndexBuffer* Sprite::m_IndexBuffer = nullptr;
+Shader* Sprite::m_Shader = nullptr;
 
 Sprite::Sprite()
 {
@@ -10,8 +10,16 @@ Sprite::Sprite()
 	Init();
 }
 
-Sprite::Sprite(vec4 color)
- : m_Color(color) { 
+Sprite::Sprite(const vec4& color)
+ : m_Color(color), m_Texture(nullptr)
+{ 
+	Init();
+}
+
+Sprite::Sprite(const Texture* texture)
+	: m_Color(1.0f), m_Texture(texture)
+{	
+	m_Color = vec4(1.0f, 0.5f, 1.0f, 1.0f);
 	Init();
 }
 
@@ -37,4 +45,10 @@ void Sprite::Init()
 		m_IndexBuffer = new IndexBuffer(indices, 6);
 		m_Shader = Resource::GetAs<Shader>("Shader");
 	}
+}
+
+void Sprite::Shutdown()
+{
+	delete m_VertexBuffer;
+	delete m_IndexBuffer;
 }

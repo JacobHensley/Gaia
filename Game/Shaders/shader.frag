@@ -11,8 +11,9 @@ uniform sampler2D u_Textures[32];
 
 void main() 
 {
-//	int tid = int(textureID - 0.5f);	
-//	color = texture(u_Textures[tid], texCoord);
+	int tid = int(textureID - 0.5f);	
 
-	color = col;
+	color = texture(u_Textures[tid], texCoord) * col;
+
+//	color = col;
 }

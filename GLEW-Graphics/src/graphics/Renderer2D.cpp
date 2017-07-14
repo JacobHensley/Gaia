@@ -56,6 +56,44 @@ void Renderer2D::Init()
 	delete[] indices;
 }
 
+float Renderer2D::SubmitTexture(const Texture* texture)
+{
+	float result = 0.0f;
+	uint textureID = texture->GetTexture();
+
+	if (textureID > 0)
+	{
+		bool found = false;
+
+		for (uint i = 0; i < m_TextureSlots.size(); i++)
+		{
+			if (m_TextureSlots[i] == textureID)
+			{
+				result = (float)(i + 1);
+				found = true;
+				break;
+			}
+		}
+		if (!found)
+		{
+			if (m_TextureSlots.size() > 32)
+			{
+				End();
+				Flush();
+				Begin();
+			}
+			m_TextureSlots.push_back(textureID);
+			result = (float)(m_TextureSlots.size() - 1);
+		}
+	}
+	else {
+		std::cout << "Invalid Texture ID" << std::endl;
+		ASSERT(false);
+	}
+
+	return result;
+}
+
 void Renderer2D::Begin()
 {
 	m_VertexBuffer->Bind();
@@ -77,39 +115,8 @@ void Renderer2D::Submit(Renderable2D* renderable, Texture* texture, float x, flo
 	float textureSlot = 0.0f;
 
 	if (texture) 
-	{
-		uint textureID = texture->GetTexture();
+		textureSlot = SubmitTexture(texture);
 
-		if (textureID > 0)
-		{
-			bool found = false;
-
-			for (uint i = 0; i < m_TextureSlots.size(); i++)
-			{
-				if (m_TextureSlots[i] == textureID)
-				{
-					textureSlot = (float)(i + 1);
-					found = true;
-					break;
-				}
-			}
-			if (!found)
-			{
-				if (m_TextureSlots.size() > 32)
-				{
-					End();
-					Flush();
-					Begin();
-				}
-				m_TextureSlots.push_back(textureID);
-				textureSlot = (float)(m_TextureSlots.size() - 1);
-			}
-		}
-		else {
-			std::cout << "Invalid Texture ID" << std::endl;
-			ASSERT(false);
-		}
-	}
 	m_Buffer->position = vec3(x, y);
 	m_Buffer->tc = vec2(0, 1);
 	m_Buffer->tid = textureSlot;
@@ -134,24 +141,33 @@ void Renderer2D::Submit(Renderable2D* renderable, Texture* texture, float x, flo
 
 void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float height)
 {
+	
+	float tid = 0.0f;
+	if (sprite->GetTexture())
+		tid = SubmitTexture(sprite->GetTexture());
+
 	m_Buffer->position = vec3(x, y);
 	m_Buffer->tc = vec2(0, 1);
 	m_Buffer->color = sprite->m_Color;
+	m_Buffer->tid = tid;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x, y + height);
 	m_Buffer->tc = vec2(0, 0);
 	m_Buffer->color = sprite->m_Color;
+	m_Buffer->tid = tid;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y + height);
 	m_Buffer->tc = vec2(1, 0);
 	m_Buffer->color = sprite->m_Color;
+	m_Buffer->tid = tid;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y);
 	m_Buffer->tc = vec2(1, 1);
 	m_Buffer->color = sprite->m_Color;
+	m_Buffer->tid = tid;
 	m_Buffer++;
 	m_IndexCount += 6;
 }

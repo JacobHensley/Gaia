@@ -10,14 +10,21 @@ class Sprite : RefCounted
 private:
 	friend class Renderer2D;
 private:
-	static VertexBufferRef m_VertexBuffer;
-	static IndexBufferRef m_IndexBuffer;
+	static VertexBuffer* m_VertexBuffer;
+	static IndexBuffer* m_IndexBuffer;
 	static Shader* m_Shader;
+private:
+	vec4 m_Color;
+	const Texture* m_Texture;
 public:
 	Sprite();
-	Sprite(vec4 color);
-
-	vec4 m_Color;
+	Sprite(const vec4& color);
+	Sprite(const Texture* texture);
+	
+	inline const vec4& GetColor() const { return m_Color; }
+	inline const Texture* GetTexture() const { return m_Texture; }
 private:
 	void Init();
+public:
+	static void Shutdown();
 };

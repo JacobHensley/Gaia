@@ -28,6 +28,7 @@ public:
 	inline int GetHeight() const { return m_Window->GetHeight(); }
 	inline bool IsKeyPressed(int keycode) const { ASSERT(keycode >= 0 && keycode < 1024); return m_Window->m_Keys[keycode]; }
 
+	void Shutdown();
 public:
 	static inline Application& GetApplication() { return *s_Application; };
 };

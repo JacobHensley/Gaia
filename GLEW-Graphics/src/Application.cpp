@@ -15,6 +15,7 @@ Application::Application(const String& name, int width, int height)
 Application::~Application()
 {
 	//TODO: Delete Layers/Overlay
+	Shutdown();
 	delete m_Window;
 }
 
@@ -76,4 +77,10 @@ void Application::Run()
 		m_Window->Update();
 
 	}
+}
+
+void Application::Shutdown()
+{
+	//Shutdown list
+	Sprite::Shutdown();
 }
