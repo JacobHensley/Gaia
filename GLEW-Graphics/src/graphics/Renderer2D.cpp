@@ -83,7 +83,7 @@ float Renderer2D::SubmitTexture(const Texture* texture)
 				Begin();
 			}
 			m_TextureSlots.push_back(textureID);
-			result = (float)(m_TextureSlots.size() - 1);
+			result = (float)(m_TextureSlots.size());
 		}
 	}
 	else {

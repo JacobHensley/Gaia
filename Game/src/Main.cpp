@@ -22,7 +22,7 @@ int main()
 	//5 (Extra): Fix bug when deleting IndexBuffer
 	//6 (Bonus): Find the entities TransformComponent and use that to render the SpriteComponent
 
-	//Next class talk about cleaning up the Engine (Mess is overwhelming to me)
+	//Next class talk about cleaning up the Engine
 
 	//TODO:
 	//Game
