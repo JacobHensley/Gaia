@@ -18,14 +18,16 @@ Window::~Window()
 
 bool Window::Init()
 {
-	if (!glfwInit()) {
+	if (!glfwInit()) 
+	{
 		std::cout << "Could not initialize GLFW!" << std::endl;
 		return false;
 	}
 		
 	m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, nullptr, nullptr);
 
-	if (!m_Window) {
+	if (!m_Window) 
+	{
 		std::cout << "Could not initialize GLFW Window!" << std::endl;
 		return false;
 	}
@@ -34,10 +36,11 @@ bool Window::Init()
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
 	glfwSetWindowUserPointer(m_Window, this);
-	glfwSetFramebufferSizeCallback(m_Window, windowResize);
+	glfwSetFramebufferSizeCallback(m_Window, WindowResize);
 	glfwSetKeyCallback(m_Window, KeyCallback);
 
-	if (glewInit() != GLEW_OK) {
+	if (glewInit() != GLEW_OK) 
+	{
 		std::cout << "Could not initialize GLEW!" << std::endl;
 		return false;
 	}	
@@ -63,7 +66,7 @@ int Window::Closed()
 	return glfwWindowShouldClose(m_Window);
 }
 
-void windowResize(GLFWwindow* window, int width, int height)
+void WindowResize(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
 	Window* win = (Window*)glfwGetWindowUserPointer(window);

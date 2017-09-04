@@ -28,7 +28,8 @@ void DebugGraphics::OnRender()
 		mat4& transform = command->transform;
 		vec3 translation = transform.GetPosition();
 		vec3 scale = transform.GetScale();
-		m_Renderer->Submit(command->renderable, command->texture, translation.x, translation.y, scale.x, scale.y);
+	//  Commented out as method no longer exists
+	//	m_Renderer->Submit(command->renderable, command->texture, translation.x, translation.y, scale.x, scale.y);
 		delete command;
 	}
 
@@ -44,7 +45,7 @@ void DebugGraphics::FillRectangle(const vec2& position, const vec2& size, int co
 
 	Rectangle* rectangle = new Rectangle(0.0f, 0.0f, 1.0f, 1.0f);
 	mat4 transform = mat4::Translate(vec3(position)) * mat4::Scale(vec3(size));
-	//TODO: std::Move
 
+	//TODO: std::Move
 	s_Instance->m_RenderBuffer.push_back(new RenderCommand{ rectangle, nullptr, transform });
 }

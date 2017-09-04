@@ -4,6 +4,7 @@
 #include <iostream>
 #include "GLError.h"
 #include <unordered_map>
+
 typedef std::string String;
 typedef unsigned int uint;
 typedef unsigned char byte;

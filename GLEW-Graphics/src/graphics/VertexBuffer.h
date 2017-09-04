@@ -12,6 +12,7 @@ public:
 
 	void Bind() const;
 	void Unbind() const;
+
 	inline uint GetComponentCount() const { return m_ComponentCount; }
 	inline void SetLayout(const BufferLayout& layout) { m_Layout = layout; }
 

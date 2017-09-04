@@ -2,7 +2,8 @@
 #include "../Renderer2D.h"
 #include "../../Common.h"
 
-class Layer {
+class Layer 
+{
 protected: 
 	String m_Name;
 	Renderer2D* m_Renderer;

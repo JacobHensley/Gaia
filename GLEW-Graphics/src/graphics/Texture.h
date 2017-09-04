@@ -14,6 +14,7 @@ public:
 
 	inline const String& GetPath() const { return m_Path; }
 	inline const uint GetTexture() const { return m_Texture; }
+
 	static inline Resource::ResourceType GetType() { return Resource::ResourceType::TEXTURE; }
 private:
 	uint Load();

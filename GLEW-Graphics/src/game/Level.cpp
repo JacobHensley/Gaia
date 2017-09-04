@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "component/Component.h"
 #include "component/SpriteComponent.h"
+#include "component/TransformComponent.h"
 
 Level::Level()
 {
@@ -20,7 +21,7 @@ void Level::Add(EntityRef& entity)
 
 void Level::AddComponent(Component* component)
 {
-	m_Components[component->GetType()].push_back(component);
+	m_ComponentCache.Add(component);
 }
 
 void Level::Remove(const EntityRef& entity)
@@ -32,8 +33,7 @@ void Level::Remove(const EntityRef& entity)
 
 void Level::RemoveAll()
 {
-	m_Entities.clear();
-	m_Components.clear(); //TODO: delete comps
+	m_ComponentCache.ClearAll();
 }
 
 void Level::OnInit()
@@ -45,37 +45,20 @@ void Level::OnUpdate()
 	for (EntityRef& entity : m_Entities)
 		entity->OnUpdate();
 
-//	std::cout << "Components:" << std::endl;
-	for (auto kv : m_Components) 
-	{
-	//	std::cout << kv.first->Name << " (" << kv.second.size() << ")" << std::endl;
-	}
-}
-
-void Level::OnRender()
-{
-	for (auto kv : m_Components) 
-	{
-		if (kv.first == SpriteComponent::GetStaticType()) 
-			for (auto component : kv.second)
-			{
-				std::cout << "Name: " << component->GetType()->Name << ", Size: " << kv.second.size() << std::endl;
-				
-			}
-	}
 }
 
 void Level::OnRender(Renderer2D* renderer2D)
 {
-	auto& spriteComponents = m_Components[SpriteComponent::GetStaticType()];
+	auto& spriteComponents = m_ComponentCache.GetAll<SpriteComponent>();
 	renderer2D->Begin();
 
-	for (auto component : m_Components[SpriteComponent::GetStaticType()])
+	for (auto component : spriteComponents)
 	{
-		std::cout << "Name: " << component->GetType()->Name << ", Size: " << spriteComponents.size() << std::endl;
-		SpriteComponent* comp = (SpriteComponent*)component;
 
-		renderer2D->Submit(&comp->m_Sprite, 0.5f, 0.5f, 10, 10);
+		SpriteComponent* comp = (SpriteComponent*)component;
+		const TransformComponent*  tc = m_ComponentCache.Get<TransformComponent>(comp->GetEntity());
+
+		renderer2D->Submit(&comp->m_Sprite, tc->m_Transform.GetPosition().x, tc->m_Transform.GetPosition().y, 10, 10);
 	}
 
 	renderer2D->End();

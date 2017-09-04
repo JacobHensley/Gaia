@@ -19,7 +19,6 @@ Sprite::Sprite(const vec4& color)
 Sprite::Sprite(const Texture* texture)
 	: m_Color(1.0f), m_Texture(texture)
 {	
-	m_Color = vec4(1.0f, 0.5f, 1.0f, 1.0f);
 	Init();
 }
 

@@ -10,8 +10,8 @@ VertexBuffer::VertexBuffer(uint count)
 }
 
 VertexBuffer::VertexBuffer(float* data, int count, uint componentCount)
-	:	m_ComponentCount(componentCount)	{
-
+	:	m_ComponentCount(componentCount)	
+{
 	GLCall(glGenBuffers(1, &m_BufferID));
 	GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_BufferID));
 	GLCall(glBufferData(GL_ARRAY_BUFFER, count * sizeof(float), data, GL_STATIC_DRAW));

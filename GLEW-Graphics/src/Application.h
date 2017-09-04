@@ -21,11 +21,15 @@ public:
 
 	void PushLayer(Layer* layer);
 	void PushOverlay(Layer* layer);
+
 	void OnRender();
 	void OnUpdate();
+
 	void Run();
+
 	inline int GetWidth() const { return m_Window->GetWidth(); }
 	inline int GetHeight() const { return m_Window->GetHeight(); }
+
 	inline bool IsKeyPressed(int keycode) const { ASSERT(keycode >= 0 && keycode < 1024); return m_Window->m_Keys[keycode]; }
 
 	void Shutdown();

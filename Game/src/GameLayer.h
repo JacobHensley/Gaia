@@ -7,11 +7,11 @@ class GameLayer : public Layer {
 public:	
 	GameLayer(const String& name);
 	void Init();
+
 	void OnUpdate() override;
 	void OnRender() override;
 private:
 	LevelRef m_Level;
-	EntityRef m_Entity;
 public:
 	inline LevelRef GetLevel() { return m_Level; }
 };

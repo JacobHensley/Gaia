@@ -56,6 +56,45 @@ void Renderer2D::Init()
 	delete[] indices;
 }
 
+void Renderer2D::Begin()
+{
+	m_VertexBuffer->Bind();
+	m_Buffer = m_VertexBuffer->Map<Vertex>();
+}
+
+void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float height)
+{
+	
+	float tid = 0.0f;
+	if (sprite->GetTexture())
+		tid = SubmitTexture(sprite->GetTexture());
+
+	m_Buffer->position = vec3(x, y);
+	m_Buffer->tc = vec2(0, 1);
+	m_Buffer->color = sprite->m_Color;
+	m_Buffer->tid = tid;
+	m_Buffer++;
+
+	m_Buffer->position = vec3(x, y + height);
+	m_Buffer->tc = vec2(0, 0);
+	m_Buffer->color = sprite->m_Color;
+	m_Buffer->tid = tid;
+	m_Buffer++;
+
+	m_Buffer->position = vec3(x + width, y + height);
+	m_Buffer->tc = vec2(1, 0);
+	m_Buffer->color = sprite->m_Color;
+	m_Buffer->tid = tid;
+	m_Buffer++;
+
+	m_Buffer->position = vec3(x + width, y);
+	m_Buffer->tc = vec2(1, 1);
+	m_Buffer->color = sprite->m_Color;
+	m_Buffer->tid = tid;
+	m_Buffer++;
+	m_IndexCount += 6;
+}
+
 float Renderer2D::SubmitTexture(const Texture* texture)
 {
 	float result = 0.0f;
@@ -94,144 +133,6 @@ float Renderer2D::SubmitTexture(const Texture* texture)
 	return result;
 }
 
-void Renderer2D::Begin()
-{
-	m_VertexBuffer->Bind();
-	m_Buffer = m_VertexBuffer->Map<Vertex>();
-}
-
-void Renderer2D::Submit(Renderable2D* renderable)
-{
-	m_Queue.push(RenderCommand { renderable, renderable->m_Transform});
-}
-
-void Renderer2D::Submit(Renderable2D* renderable, const mat4& transform)
-{
-	m_Queue.push(RenderCommand{ renderable, transform });
-}
-
-void Renderer2D::Submit(Renderable2D* renderable, Texture* texture, float x, float y, float width, float height)
-{
-	float textureSlot = 0.0f;
-
-	if (texture) 
-		textureSlot = SubmitTexture(texture);
-
-	m_Buffer->position = vec3(x, y);
-	m_Buffer->tc = vec2(0, 1);
-	m_Buffer->tid = textureSlot;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x, y + height);
-	m_Buffer->tc = vec2(0, 0);
-	m_Buffer->tid = textureSlot;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x + width, y + height);
-	m_Buffer->tc = vec2(1, 0);
-	m_Buffer->tid = textureSlot;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x + width, y);
-	m_Buffer->tc = vec2(1, 1);
-	m_Buffer->tid = textureSlot;
-	m_Buffer++;
-	m_IndexCount += 6;
-}
-
-void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float height)
-{
-	
-	float tid = 0.0f;
-	if (sprite->GetTexture())
-		tid = SubmitTexture(sprite->GetTexture());
-
-	m_Buffer->position = vec3(x, y);
-	m_Buffer->tc = vec2(0, 1);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->tid = tid;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x, y + height);
-	m_Buffer->tc = vec2(0, 0);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->tid = tid;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x + width, y + height);
-	m_Buffer->tc = vec2(1, 0);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->tid = tid;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x + width, y);
-	m_Buffer->tc = vec2(1, 1);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->tid = tid;
-	m_Buffer++;
-	m_IndexCount += 6;
-}
-
-void Renderer2D::Submit(const Renderable2DRef& renderable, Texture* texture, float x, float y, float width, float height)
-{
-	float textureSlot = 0.0f;
-
-	if (texture) 
-	{
-		uint textureID = texture->GetTexture();
-
-		if (textureID > 0)
-		{
-			bool found = false;
-
-			for (uint i = 0; i < m_TextureSlots.size(); i++)
-			{
-				if (m_TextureSlots[i] == textureID)
-				{
-					textureSlot = (float)(i + 1);
-					found = true;
-					break;
-				}
-			}
-			if (!found)
-			{
-				if (m_TextureSlots.size() > 32)
-				{
-					End();
-					Flush();
-					Begin();
-				}
-				m_TextureSlots.push_back(textureID);
-				textureSlot = (float)(m_TextureSlots.size() - 1);
-			}
-		}
-		else {
-			std::cout << "Invalid Texture ID" << std::endl;
-			ASSERT(false);
-		}
-	}
-	m_Buffer->position = vec3(x, y);
-	m_Buffer->tc = vec2(0, 1);
-	m_Buffer->tid = textureSlot;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x, y + height);
-	m_Buffer->tc = vec2(0, 0);
-	m_Buffer->tid = textureSlot;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x + width, y + height);
-	m_Buffer->tc = vec2(1, 0);
-	m_Buffer->tid = textureSlot;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x + width, y);
-	m_Buffer->tc = vec2(1, 1);
-	m_Buffer->tid = textureSlot;
-	m_Buffer++;
-	m_IndexCount += 6;
-}
-
 void Renderer2D::End()
 {
 	m_VertexBuffer->Unmap();
@@ -240,9 +141,6 @@ void Renderer2D::End()
 
 void Renderer2D::Flush()
 {
-//TODO: Fix ASSERT
-//	ASSERT(m_Camera);
-
 	for (uint i = 0; i < m_TextureSlots.size(); i++)
 	{
 		glActiveTexture(GL_TEXTURE0 + i);

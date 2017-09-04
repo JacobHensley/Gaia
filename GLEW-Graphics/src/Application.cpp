@@ -55,9 +55,6 @@ void Application::Run()
 {
 	while (!m_Window->Closed()) 
 	{
-//		if (m_Window->GetWidth() != renderer.GetWidth() || m_Window->GetHeight() != renderer.GetHeight())
-//			renderer.OnResize(m_Window->GetWidth(), m_Window->GetHeight());
-
 		double currentTime = glfwGetTime();
 		nbFrames++;
 		if (currentTime - lastTime >= 1.0) {
@@ -75,7 +72,6 @@ void Application::Run()
 		OnRender();
 
 		m_Window->Update();
-
 	}
 }
 

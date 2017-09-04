@@ -21,7 +21,7 @@ Rectangle::Rectangle(float x, float y, float width, float height)
 	m_VertexBuffer = new VertexBuffer(vertices, 4 * 5, 3);
 	m_IndexBuffer = new IndexBuffer(indices, 6);
 
-//TODO: Fix ASSERT
+//  TODO: Fix ASSERT
 //	ASSERT(m_Shader = Resource::GetAs<Shader>("Shader"));
 //	ASSERT(m_Texture = Resource::GetAs<Texture>("Jungle"));
 }

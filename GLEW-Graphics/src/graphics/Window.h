@@ -24,6 +24,7 @@ private:
 	int m_Width, m_Height;
 	const char* m_Title;
 	bool m_Keys[1024];
-	friend void windowResize(GLFWwindow* window, int width, int height);
+
+	friend void WindowResize(GLFWwindow* window, int width, int height);
 	friend void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 };

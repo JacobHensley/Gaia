@@ -2,7 +2,8 @@
 #include "GL\glew.h"
 
 IndexBuffer::IndexBuffer(uint* data, uint count)
-	:	m_Count(count)	{
+	:	m_Count(count)	
+{
 	GLCall(glGenBuffers(1, &m_BufferID));
 	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_BufferID));
 	GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint), data, GL_STATIC_DRAW));

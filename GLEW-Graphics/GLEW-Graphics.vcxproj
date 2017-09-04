@@ -316,6 +316,7 @@
   <ItemGroup>
     <ClInclude Include="src\debug\DebugGraphics.h" />
     <ClInclude Include="src\game\component\Component.h" />
+    <ClInclude Include="src\game\component\ComponentCahe.h" />
     <ClInclude Include="src\game\component\SpriteComponent.h" />
     <ClInclude Include="src\game\component\TransformComponent.h" />
     <ClInclude Include="src\game\Entity.h" />

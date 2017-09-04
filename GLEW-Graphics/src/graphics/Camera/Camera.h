@@ -16,6 +16,7 @@ public:
 
 	inline void SetProjectionMatrix(const mat4& projectionMatrix) { m_Proj = projectionMatrix; }
 	inline void SetViewMatrix(const mat4& ViewMatrix) { m_View = ViewMatrix; }
+
 	virtual void OnUpdate();
 };
 

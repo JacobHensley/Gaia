@@ -27,15 +27,10 @@ private:
 	std::vector<uint> m_TextureSlots;
 public:
 	Renderer2D(int width, int height);
+
 	void Begin();
 
-	void Submit(Renderable2D* renderable, const mat4& transform);
-	void Submit(Renderable2D* renderable);
-	void Submit(Renderable2D* renderable, Texture* texture, float x, float y, float width, float height);
-
 	void Submit(Sprite* sprite, float x, float y, float width, float height);
-
-	void Submit(const Renderable2DRef& renderable, Texture* texture, float x, float y, float width, float height);
 
 	void End();
 	void Flush();

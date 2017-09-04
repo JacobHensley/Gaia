@@ -2,7 +2,8 @@
 #include <GL\glew.h>
 
 Shader::Shader(const String& vertPath, const String& fragPath)
-	:	m_VertPath(vertPath), m_FragPath(fragPath)	{
+	:	m_VertPath(vertPath), m_FragPath(fragPath)	
+{
 	m_ShaderID = Load();
 	ASSERT(m_ShaderID);
 }
@@ -27,6 +28,7 @@ uint Shader::Load()
 
 	int compileResult;
 	GLCall(glGetShaderiv(vertex, GL_COMPILE_STATUS, &compileResult));
+
 	if (compileResult == GL_FALSE) 
 	{
 		int length;
@@ -45,6 +47,7 @@ uint Shader::Load()
 	GLCall(glCompileShader(fragment));
 
 	GLCall(glGetShaderiv(fragment, GL_COMPILE_STATUS, &compileResult));
+
 	if (compileResult == GL_FALSE) 
 	{
 		int length;

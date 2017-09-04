@@ -139,7 +139,6 @@
   <ItemGroup>
     <ClCompile Include="src\GameLayer.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\TestLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dependencies\GLEW\GLEW.vcxproj">
@@ -154,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameLayer.h" />
-    <ClInclude Include="src\TestLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\shader.frag" />
