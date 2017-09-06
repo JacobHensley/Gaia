@@ -22,6 +22,13 @@ Sprite::Sprite(const Texture* texture)
 	Init();
 }
 
+Sprite::Sprite(const Texture* texture, const vec4& color)
+	: m_Texture(texture),  m_Color(color)
+{
+	Init();
+}
+
+
 void Sprite::Init()
 {
 	if (!m_Shader) 

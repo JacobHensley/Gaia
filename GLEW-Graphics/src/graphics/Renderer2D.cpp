@@ -11,8 +11,8 @@
 struct Vertex
 {
 	vec3 position;
-	vec2 tc;
-	float tid;
+	vec2 textCoord;
+	float textureID;
 	vec4 color;
 };
 
@@ -47,7 +47,7 @@ void Renderer2D::Init()
 	BufferLayout layout;
 	layout.Push<vec3>("Position");
 	layout.Push<vec2>("TexCoord");
-	layout.Push<float>("TexID");
+	layout.Push<float>("textureID");
 	layout.Push<vec4>("Color");
 
 	m_VertexBuffer->SetLayout(layout);
@@ -65,32 +65,32 @@ void Renderer2D::Begin()
 void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float height)
 {
 	
-	float tid = 0.0f;
+	float textureID = 0.0f;
 	if (sprite->GetTexture())
-		tid = SubmitTexture(sprite->GetTexture());
+		textureID = SubmitTexture(sprite->GetTexture());
 
 	m_Buffer->position = vec3(x, y);
-	m_Buffer->tc = vec2(0, 1);
+	m_Buffer->textCoord = vec2(0, 1);
 	m_Buffer->color = sprite->m_Color;
-	m_Buffer->tid = tid;
+	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x, y + height);
-	m_Buffer->tc = vec2(0, 0);
+	m_Buffer->textCoord = vec2(0, 0);
 	m_Buffer->color = sprite->m_Color;
-	m_Buffer->tid = tid;
+	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y + height);
-	m_Buffer->tc = vec2(1, 0);
+	m_Buffer->textCoord = vec2(1, 0);
 	m_Buffer->color = sprite->m_Color;
-	m_Buffer->tid = tid;
+	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y);
-	m_Buffer->tc = vec2(1, 1);
+	m_Buffer->textCoord = vec2(1, 1);
 	m_Buffer->color = sprite->m_Color;
-	m_Buffer->tid = tid;
+	m_Buffer->textureID = textureID;
 	m_Buffer++;
 	m_IndexCount += 6;
 }
@@ -171,22 +171,22 @@ void Renderer2D::Flush()
 		RenderCommand command = m_Queue.front();
 		m_Queue.pop();
 
-		command.renderable->m_VertexArray->Bind();
-		command.renderable->m_IndexBuffer->Bind();
-		command.renderable->m_Shader->Bind();
-		command.renderable->m_Texture->Bind();
+		command.sprite->m_VertexArray->Bind();
+		command.sprite->m_IndexBuffer->Bind();
+		command.sprite->m_Shader->Bind();
+		command.sprite->GetTexture()->Bind();
 
-		command.renderable->m_Shader->SetUniform1i("u_Texture", 0);
-		command.renderable->m_Shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
-		command.renderable->m_Shader->SetUniformMat4("u_ViewMatrix", m_Camera->GetViewMatrix());
-		command.renderable->m_Shader->SetUniformMat4("u_ModelMatrix", command.transform);
+		command.sprite->m_Shader->SetUniform1i("u_Texture", 0);
+		command.sprite->m_Shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
+		command.sprite->m_Shader->SetUniformMat4("u_ViewMatrix", m_Camera->GetViewMatrix());
+		command.sprite->m_Shader->SetUniformMat4("u_ModelMatrix", command.transform);
 
-		command.renderable->m_IndexBuffer->Draw();
+		command.sprite->m_IndexBuffer->Draw();
 
-		command.renderable->m_Texture->Unbind();
-		command.renderable->m_Shader->Unbind();
-		command.renderable->m_IndexBuffer->Unbind();
-		command.renderable->m_VertexArray->Unbind();
+		command.sprite->GetTexture()->Unbind();
+		command.sprite->m_Shader->Unbind();
+		command.sprite->m_IndexBuffer->Unbind();
+		command.sprite->m_VertexArray->Unbind();
 	}
 #endif
 }

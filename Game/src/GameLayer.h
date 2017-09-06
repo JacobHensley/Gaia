@@ -1,6 +1,5 @@
 #pragma once
 #include "graphics/layers/Layer.h"
-#include "graphics/Rectangle.h"
 #include "game/Level.h"
 
 class GameLayer : public Layer {

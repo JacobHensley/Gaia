@@ -20,6 +20,7 @@ public:
 	Sprite();
 	Sprite(const vec4& color);
 	Sprite(const Texture* texture);
+	Sprite(const Texture* texture, const vec4& color);
 	
 	inline const vec4& GetColor() const { return m_Color; }
 	inline const Texture* GetTexture() const { return m_Texture; }

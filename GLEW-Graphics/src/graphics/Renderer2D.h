@@ -1,15 +1,15 @@
 #pragma once
 
 #include <queue>
-#include "Renderable2D.h"
 #include "Camera\Camera.h"
 #include "Sprite.h"
+#include "Texture.h"
 
 struct Vertex;
 
 struct RenderCommand
 {
-	Renderable2D* renderable;
+	Sprite* sprite;
 	mat4 transform;
 };
 

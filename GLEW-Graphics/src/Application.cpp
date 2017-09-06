@@ -31,22 +31,22 @@ void Application::PushOverlay(Layer* layer)
 
 void Application::OnRender()
 {
-	for (Layer* layer : m_OverlayStack) {
+	for (Layer* layer : m_LayerStack) {
 		layer->OnRender();
 	}
 
-	for (Layer* layer : m_LayerStack) {
+	for (Layer* layer : m_OverlayStack) {
 		layer->OnRender();
 	}
 }
 
 void Application::OnUpdate()
 {
-	for (Layer* layer : m_OverlayStack) {
+	for (Layer* layer : m_LayerStack) {
 		layer->OnUpdate();
 	}
 
-	for (Layer* layer : m_LayerStack) {
+	for (Layer* layer : m_OverlayStack) {
 		layer->OnUpdate();
 	}
 }
