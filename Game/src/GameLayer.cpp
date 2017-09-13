@@ -9,6 +9,7 @@
 #include "game/Entity.h"
 #include "game/component/TransformComponent.h"
 #include "game/component/SpriteComponent.h"
+#include "PlayerComponent.h"
 
 GameLayer::GameLayer(const String& name)
 	: Layer(name)
@@ -38,6 +39,7 @@ void GameLayer::Init()
 	EntityRef colorEntity = m_Level->CreateEntity<Entity>();
 	colorEntity->AddComponent(new TransformComponent(mat4::Translate(vec3(12.0f, 0.0f, 0.0f))));
 	colorEntity->AddComponent(new SpriteComponent(Sprite(vec4(0.8f, 0.3f, 0.2f, 1.0f))));
+	colorEntity->AddComponent(new PlayerComponent());
 }
 
 void GameLayer::OnUpdate()

@@ -15,14 +15,14 @@ int main()
 
 	//TODO:
 	//Game
-	//Entity System
+	//Text
 	//Materials
 	//Memory Arena
 	//Font Rendering
 	//add static asserts, etc
 	//Debug Layer Labels
 	//String Formatting
-	//sprites
+	//Allocation Tracking
 
 	return 0;
 }

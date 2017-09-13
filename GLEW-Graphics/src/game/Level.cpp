@@ -3,6 +3,7 @@
 #include "component/Component.h"
 #include "component/SpriteComponent.h"
 #include "component/TransformComponent.h"
+#include "component/GameComponent.h"
 
 Level::Level()
 {
@@ -22,6 +23,10 @@ void Level::Add(EntityRef& entity)
 void Level::AddComponent(Component* component)
 {
 	m_ComponentCache.Add(component);
+	if (component->GetType() == GameComponent::GetStaticType()) 
+	{
+		((GameComponent*)component)->OnCreate();
+	}
 }
 
 void Level::Remove(const EntityRef& entity)
@@ -45,6 +50,13 @@ void Level::OnUpdate()
 	for (EntityRef& entity : m_Entities)
 		entity->OnUpdate();
 
+	auto& gameComponents = m_ComponentCache.GetAll<GameComponent>();
+
+	for (auto component : gameComponents)
+	{
+		GameComponent* gc = (GameComponent*)component;
+		gc->OnUpdate();
+	}
 }
 
 void Level::OnRender(Renderer2D* renderer2D)
