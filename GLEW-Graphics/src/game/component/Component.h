@@ -14,12 +14,17 @@ public:
 	};
 public:
 
+	virtual Type* GetType() const { return nullptr; }
+
 	inline Entity* GetEntity() { return m_Entity; }
 	inline const Entity* GetEntity() const { return m_Entity; }
-
 	inline void SetEntity(Entity* entity) { m_Entity = entity; }
 
-	virtual const Type* GetType() const { return nullptr; }
+	template<typename T>
+	T* GetComponent()
+	{
+		return m_Entity->GetComponent<T>();
+	}
 
 protected:
 	Entity* m_Entity;

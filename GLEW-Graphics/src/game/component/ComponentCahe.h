@@ -6,8 +6,8 @@
 class ComponentCache
 {
 private:
-	std::unordered_map<const Component::Type*, std::vector<Component*>> m_Components;
-	std::unordered_map<Entity*, std::unordered_map<const Component::Type*, Component*>> m_EntityComponents;
+	std::unordered_map<Component::Type*, std::vector<Component*>> m_Components;
+	std::unordered_map<Entity*, std::unordered_map<Component::Type*, Component*>> m_EntityComponents;
 public:
 
 	template<typename T>
@@ -18,10 +18,10 @@ public:
 	}
 
 	template<typename T>
-	const T* Get(Entity* entity)
+    T* Get(const Entity* entity)
 	{
 		//TODO: add static assert 
-		return (T*)m_EntityComponents[entity][T::GetStaticType()];
+		return (T*)m_EntityComponents[(Entity*)entity][T::GetStaticType()];
 	}
 
 	void Add(Component* component) 

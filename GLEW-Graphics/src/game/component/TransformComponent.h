@@ -16,6 +16,6 @@ public:
 		return &type;
 	}
 
-	inline virtual const Component::Type* GetType() const override { return GetStaticType(); }
+	inline virtual Component::Type* GetType() const override { return GetStaticType(); }
 
 };

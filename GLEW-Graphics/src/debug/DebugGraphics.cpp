@@ -20,8 +20,6 @@ void DebugGraphics::OnUpdate()
 
 void DebugGraphics::OnRender()
 {
-	DrawSprite(new Sprite(vec4(0.3f, 0.8f, 0.2f, 1.0f)), mat4::Translate(vec3(-12.0f, 0.0f, 0.0f)));
-
 	m_Renderer->Begin();
 
 	for (RenderCommand* command : m_RenderBuffer)

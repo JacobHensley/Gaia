@@ -2,7 +2,6 @@
 
 #include <vector>
 #include "RefCounted.h"
-#include "component/Component.h"
 #include <type_traits>
 #include "graphics/Renderer2D.h"
 #include "component/ComponentCahe.h"
@@ -34,9 +33,21 @@ public:
 		return entity;
 	}
 
+	template<typename T>
+	T* GetComponent(const Entity* entity)
+	{
+		static_assert(std::is_base_of<Component, T>::value, "T must inherit from Component");
+		return m_ComponentCache.Get<T>(entity);
+	}
+
 	virtual void OnInit();
 	virtual void OnUpdate();
 	virtual void OnRender(Renderer2D* renderer2D);
 };
+
+template<typename T>
+T* Entity::GetComponent() {
+	return m_Level->GetComponent<T>(this);
+}
 
 typedef Ref<Level> LevelRef;

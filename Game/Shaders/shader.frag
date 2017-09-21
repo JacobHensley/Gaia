@@ -2,7 +2,7 @@
 
 layout (location = 0) out vec4 color;
 
-in vec4 f_Position;
+in vec4 f_Position; //v_
 in vec2 f_TexCoord;
 in float f_TextureID;
 in vec4 f_Color;

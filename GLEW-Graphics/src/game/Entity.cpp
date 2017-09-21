@@ -25,3 +25,8 @@ void Entity::OnInit(Level* level)
 void Entity::OnUpdate()
 {
 }
+
+LevelRef Entity::GetLevel() const
+{
+	return m_Level;
+}

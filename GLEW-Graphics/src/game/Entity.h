@@ -20,6 +20,11 @@ public:
 
 	virtual void OnInit(Level* level);
 	virtual void OnUpdate();
+
+	template<typename T>
+	T* GetComponent();
+
+	LevelRef GetLevel() const;
 };
 
 typedef Ref<Entity> EntityRef;
