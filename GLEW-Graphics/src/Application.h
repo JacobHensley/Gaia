@@ -23,7 +23,7 @@ public:
 	void PushOverlay(Layer* layer);
 
 	void OnRender();
-	void OnUpdate();
+	void OnUpdate(float timesStep);
 
 	void Run();
 

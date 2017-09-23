@@ -32,6 +32,6 @@ public:
 
 	void DrawSprite(Sprite* sprite, const mat4& transform);
 
-	void OnUpdate() override;
+	void OnUpdate(float timeStep) override;
 	void OnRender() override;
 };

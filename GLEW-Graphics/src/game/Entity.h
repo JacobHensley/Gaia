@@ -19,7 +19,7 @@ public:
 	void AddComponent(Component* component);
 
 	virtual void OnInit(Level* level);
-	virtual void OnUpdate();
+	virtual void OnUpdate(float timeStep);
 
 	template<typename T>
 	T* GetComponent();

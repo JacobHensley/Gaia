@@ -42,12 +42,12 @@ void GameLayer::Init()
 	colorEntity->AddComponent(new PlayerComponent());
 }
 
-void GameLayer::OnUpdate()
+void GameLayer::OnUpdate(float timeStep)
 {
-	m_Camera->OnUpdate();
+	m_Camera->OnUpdate(timeStep);
 	m_Camera->SetProjectionMatrix(mat4::Orthographic(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f, -1.0f, 1.0f));
 
-	m_Level->OnUpdate();
+	m_Level->OnUpdate(timeStep);
 }
 
 void GameLayer::OnRender()

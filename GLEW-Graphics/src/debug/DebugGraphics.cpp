@@ -14,7 +14,7 @@ DebugGraphics::DebugGraphics()
 	m_Renderer->SetCamera(m_Camera);
 }
 
-void DebugGraphics::OnUpdate()
+void DebugGraphics::OnUpdate(float timeStep)
 {
 }
 

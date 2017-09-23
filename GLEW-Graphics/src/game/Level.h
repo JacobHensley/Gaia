@@ -41,7 +41,7 @@ public:
 	}
 
 	virtual void OnInit();
-	virtual void OnUpdate();
+	virtual void OnUpdate(float timeStep);
 	virtual void OnRender(Renderer2D* renderer2D);
 };
 

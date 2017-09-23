@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "debug/DebugGraphics.h"
 #include <GLFW/glfw3.h>
+#include <Windows.h>
 
 Application* Application::s_Application = nullptr;
 
@@ -40,16 +41,18 @@ void Application::OnRender()
 	}
 }
 
-void Application::OnUpdate()
+void Application::OnUpdate(float timeStep)
 {
 	for (Layer* layer : m_LayerStack) {
-		layer->OnUpdate();
+		layer->OnUpdate(timeStep);
 	}
 
 	for (Layer* layer : m_OverlayStack) {
-		layer->OnUpdate();
+		layer->OnUpdate(timeStep);
 	}
 }
+float lastUpdate = 0.0f;
+float updateTime = 0.0f;
 
 void Application::Run()
 {
@@ -57,21 +60,25 @@ void Application::Run()
 	{
 		double currentTime = glfwGetTime();
 		nbFrames++;
-		if (currentTime - lastTime >= 1.0) {
-			printf("ms/frame: %f", 1000.0 / double(nbFrames));
-			printf(" | FPS: %f\n", double(nbFrames));
-			
+		if (currentTime - lastTime >= 1.0) 
+		{
+	//		printf("ms/frame: %f", 1000.0 / double(nbFrames));
+	//		printf(" | FPS: %f\n", double(nbFrames));
 			nbFrames = 0;
 			lastTime += 1.0;
 		}
 
-		OnUpdate();
+		OnUpdate(lastUpdate);
+		updateTime = (float)glfwGetTime() * 1000;
 
 		m_Window->Clear();
-
+		
 		OnRender();
+	//	Sleep(5); //For testing timeStep
 
 		m_Window->Update();
+
+		lastUpdate = (float)glfwGetTime() * 1000 - updateTime;
 	}
 }
 

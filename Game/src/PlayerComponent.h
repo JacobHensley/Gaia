@@ -11,5 +11,5 @@ private:
 	SpriteComponent* m_Sprite;
 public:
 	virtual void OnCreate() override;
-	virtual void OnUpdate() override;
+	virtual void OnUpdate(float timeStep) override;
 };

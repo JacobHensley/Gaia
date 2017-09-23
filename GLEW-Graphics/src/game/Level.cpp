@@ -45,17 +45,17 @@ void Level::OnInit()
 {
 }
 
-void Level::OnUpdate()
+void Level::OnUpdate(float timeStep)
 {
 	for (EntityRef& entity : m_Entities)
-		entity->OnUpdate();
+		entity->OnUpdate(timeStep);
 
 	auto& gameComponents = m_ComponentCache.GetAll<GameComponent>();
 
 	for (auto component : gameComponents)
 	{
 		GameComponent* gc = (GameComponent*)component;
-		gc->OnUpdate();
+		gc->OnUpdate(timeStep);
 	}
 }
 

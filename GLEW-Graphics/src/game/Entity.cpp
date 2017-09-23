@@ -22,7 +22,7 @@ void Entity::OnInit(Level* level)
 	m_Level = level;
 }
 
-void Entity::OnUpdate()
+void Entity::OnUpdate(float timeStep)
 {
 }
 

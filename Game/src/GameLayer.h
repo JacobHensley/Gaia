@@ -7,7 +7,7 @@ public:
 	GameLayer(const String& name);
 	void Init();
 
-	void OnUpdate() override;
+	void OnUpdate(float timeStep) override;
 	void OnRender() override;
 private:
 	LevelRef m_Level;
