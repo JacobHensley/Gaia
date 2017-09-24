@@ -74,7 +74,7 @@ void Application::Run()
 		m_Window->Clear();
 		
 		OnRender();
-	//	Sleep(5); //For testing timeStep
+	//	Sleep(50); //For testing timeStep
 
 		m_Window->Update();
 

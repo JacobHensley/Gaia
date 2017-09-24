@@ -16,20 +16,20 @@ void OrthographicCamera::OnUpdate(float timeStep)
 	vec3 pos = m_View.GetPosition();
 	if (app.IsKeyPressed(GLFW_KEY_UP)) 
 	{
-		pos.y -= speed;
+	//	pos.y -= speed;
 	}	
 	else if (app.IsKeyPressed(GLFW_KEY_DOWN))  
 	{
-		pos.y += speed;
+	//	pos.y += speed;
 	}
 
 	if (app.IsKeyPressed(GLFW_KEY_LEFT)) 
 	{
-		pos.x += speed;
+	//	pos.x += speed;
 	}
 	else if (app.IsKeyPressed(GLFW_KEY_RIGHT)) 
 	{
-		pos.x -= speed;
+	//	pos.x -= speed;
 	}
 	
 	m_View.SetPosition(pos);
