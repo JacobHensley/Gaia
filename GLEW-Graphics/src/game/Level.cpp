@@ -45,7 +45,7 @@ void Level::OnInit()
 {
 }
 
-void Level::OnUpdate(float timeStep)
+void Level::OnUpdate(TimeStep timeStep)
 {
 	for (EntityRef& entity : m_Entities)
 		entity->OnUpdate(timeStep);

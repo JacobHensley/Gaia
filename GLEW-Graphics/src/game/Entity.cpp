@@ -1,6 +1,7 @@
 #include "Entity.h"
 #include "Level.h"
 
+
 Entity::Entity()
 {
 }
@@ -22,7 +23,7 @@ void Entity::OnInit(Level* level)
 	m_Level = level;
 }
 
-void Entity::OnUpdate(float timeStep)
+void Entity::OnUpdate(TimeStep timeStep)
 {
 }
 

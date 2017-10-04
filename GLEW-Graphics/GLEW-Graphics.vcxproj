@@ -345,6 +345,7 @@
     <ClInclude Include="src\math\vec4.h" />
     <ClInclude Include="src\RefCounted.h" />
     <ClInclude Include="src\Resource.h" />
+    <ClInclude Include="src\TimeStep.h" />
     <ClInclude Include="src\utils\FileUtils.h" />
     <ClInclude Include="src\utils\Timer.h" />
   </ItemGroup>

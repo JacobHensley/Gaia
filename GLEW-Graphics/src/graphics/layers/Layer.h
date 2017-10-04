@@ -1,6 +1,7 @@
 #pragma once
 #include "../Renderer2D.h"
 #include "../../Common.h"
+#include "TimeStep.h"
 
 class Layer 
 {
@@ -13,6 +14,6 @@ public:
 	Layer(const String& name);
 	void OnInit();
 
-	virtual void OnUpdate(float timeStep);
+	virtual void OnUpdate(TimeStep timeStep);
 	virtual void OnRender();
 };

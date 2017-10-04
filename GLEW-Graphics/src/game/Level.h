@@ -5,6 +5,7 @@
 #include <type_traits>
 #include "graphics/Renderer2D.h"
 #include "component/ComponentCahe.h"
+#include "TimeStep.h"
 
 class Entity;
 typedef Ref<Entity> EntityRef;
@@ -41,7 +42,7 @@ public:
 	}
 
 	virtual void OnInit();
-	virtual void OnUpdate(float timeStep);
+	virtual void OnUpdate(TimeStep timeStep);
 	virtual void OnRender(Renderer2D* renderer2D);
 };
 

@@ -1,5 +1,6 @@
 #include "DebugGraphics.h"
 #include "graphics\Camera\OrthographicCamera.h"
+#include "TimeStep.h"
 
 DebugGraphics* DebugGraphics::s_Instance = nullptr;
 
@@ -14,7 +15,7 @@ DebugGraphics::DebugGraphics()
 	m_Renderer->SetCamera(m_Camera);
 }
 
-void DebugGraphics::OnUpdate(float timeStep)
+void DebugGraphics::OnUpdate(TimeStep timeStep)
 {
 }
 

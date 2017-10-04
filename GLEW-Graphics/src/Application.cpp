@@ -2,6 +2,7 @@
 #include "debug/DebugGraphics.h"
 #include <GLFW/glfw3.h>
 #include <Windows.h>
+#include "TimeStep.h"
 
 Application* Application::s_Application = nullptr;
 
@@ -41,7 +42,7 @@ void Application::OnRender()
 	}
 }
 
-void Application::OnUpdate(float timeStep)
+void Application::OnUpdate(TimeStep timeStep)
 {
 	for (Layer* layer : m_LayerStack) {
 		layer->OnUpdate(timeStep);
@@ -51,8 +52,6 @@ void Application::OnUpdate(float timeStep)
 		layer->OnUpdate(timeStep);
 	}
 }
-float lastUpdate = 0.0f;
-float updateTime = 0.0f;
 
 void Application::Run()
 {
@@ -68,8 +67,8 @@ void Application::Run()
 			lastTime += 1.0;
 		}
 
-		OnUpdate(lastUpdate);
-		updateTime = (float)glfwGetTime() * 1000;
+		m_TimeStep.Update((float)glfwGetTime());
+		OnUpdate(m_TimeStep);
 
 		m_Window->Clear();
 		
@@ -77,8 +76,6 @@ void Application::Run()
 	//	Sleep(50); //For testing timeStep
 
 		m_Window->Update();
-
-		lastUpdate = (float)glfwGetTime() * 1000 - updateTime;
 	}
 }
 

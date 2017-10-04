@@ -16,7 +16,7 @@ void Layer::OnInit()
 	m_Height = app.GetHeight();
 }
 
-void Layer::OnUpdate(float timeStep)
+void Layer::OnUpdate(TimeStep timeStep)
 {
 }
 

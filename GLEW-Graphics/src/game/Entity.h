@@ -1,6 +1,7 @@
 #pragma once
 #include "RefCounted.h"
 #include "component/Component.h"
+#include "TimeStep.h"
 
 class Component;
 typedef Ref<Component> ComponentRef;
@@ -19,7 +20,7 @@ public:
 	void AddComponent(Component* component);
 
 	virtual void OnInit(Level* level);
-	virtual void OnUpdate(float timeStep);
+	virtual void OnUpdate(TimeStep timeStep);
 
 	template<typename T>
 	T* GetComponent();

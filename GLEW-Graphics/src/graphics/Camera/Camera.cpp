@@ -11,7 +11,7 @@ Camera::~Camera()
 {
 }
 
-void Camera::OnUpdate(float timeStep)
+void Camera::OnUpdate(TimeStep timeStep)
 {
 	
 }

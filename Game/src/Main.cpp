@@ -13,6 +13,8 @@ int main()
 
 	//TODO: Fix bug when deleting IndexBuffer (?)
 
+	//Convert to timeStep Struc
+
 	//TODO:
 	//Timestep
 	//Game

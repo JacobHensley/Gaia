@@ -2,6 +2,7 @@
 
 #include "../../math/mat4.h"
 #include "RefCounted.h"
+#include "TimeStep.h"
 
 class Camera : public  RefCounted
 {
@@ -17,7 +18,7 @@ public:
 	inline void SetProjectionMatrix(const mat4& projectionMatrix) { m_Proj = projectionMatrix; }
 	inline void SetViewMatrix(const mat4& ViewMatrix) { m_View = ViewMatrix; }
 
-	virtual void OnUpdate(float timeStep);
+	virtual void OnUpdate(TimeStep timeStep);
 };
 
 typedef Ref<Camera> CameraRef;

@@ -10,6 +10,7 @@
 #include "game/component/TransformComponent.h"
 #include "game/component/SpriteComponent.h"
 #include "PlayerComponent.h"
+#include "TimeStep.h"
 
 GameLayer::GameLayer(const String& name)
 	: Layer(name)
@@ -42,7 +43,7 @@ void GameLayer::Init()
 	colorEntity->AddComponent(new PlayerComponent());
 }
 
-void GameLayer::OnUpdate(float timeStep)
+void GameLayer::OnUpdate(TimeStep timeStep)
 {
 	m_Camera->OnUpdate(timeStep);
 	m_Camera->SetProjectionMatrix(mat4::Orthographic(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f, -1.0f, 1.0f));

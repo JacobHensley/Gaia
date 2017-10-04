@@ -4,6 +4,6 @@ class OrthographicCamera : public Camera
 {
 public:
 	OrthographicCamera(float left, float right, float top, float bottom);
-	void OnUpdate(float timeStep) override;
+	void OnUpdate(TimeStep timeStep) override;
 
 };

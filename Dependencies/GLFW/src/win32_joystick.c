@@ -523,7 +523,7 @@ void _glfwDetectJoystickConnectionWin32(void)
         }
     }
 
-    if (_glfw.win32.dinput8.api)
+	if (_glfw.win32.dinput8.api)
     {
         if (FAILED(IDirectInput8_EnumDevices(_glfw.win32.dinput8.api,
                                              DI8DEVCLASS_GAMECTRL,

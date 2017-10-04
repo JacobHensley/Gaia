@@ -8,7 +8,7 @@ OrthographicCamera::OrthographicCamera(float left, float right, float top, float
 {
 }
 
-void OrthographicCamera::OnUpdate(float timeStep)
+void OrthographicCamera::OnUpdate(TimeStep timeStep)
 {
 	const Application& app = Application::GetApplication();
 

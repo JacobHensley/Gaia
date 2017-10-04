@@ -11,7 +11,7 @@ public:
 
 	virtual void OnCreate() {}
 	virtual void OnDestroy() {}
-	virtual void OnUpdate(float timeStep) {}
+	virtual void OnUpdate(TimeStep timeStep) {}
 
 	static Component::Type* GetStaticType()
 	{

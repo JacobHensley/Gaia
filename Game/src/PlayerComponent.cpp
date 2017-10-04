@@ -10,10 +10,10 @@ void PlayerComponent::OnCreate()
 	m_Sprite = GetComponent<SpriteComponent>();
 }
 
-void PlayerComponent::OnUpdate(float timeStep)
+void PlayerComponent::OnUpdate(TimeStep timeStep)
 {
 	const Application& app = Application::GetApplication();
-	float speed = 0.1 * timeStep;
+	float speed = (float)(0.1 * timeStep.GetMills());
 	vec3 pos = m_Transform->m_Transform.GetPosition();
 
 	if (app.IsKeyPressed(GLFW_KEY_UP))
@@ -35,6 +35,4 @@ void PlayerComponent::OnUpdate(float timeStep)
 	}
 
 	m_Transform->m_Transform.SetPosition(pos);
-
-	std::cout << speed << std::endl;
 }

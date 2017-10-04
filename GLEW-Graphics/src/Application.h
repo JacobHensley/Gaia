@@ -12,6 +12,7 @@ private:
 	Window* m_Window;
 	std::vector<Layer*> m_LayerStack;
 	std::vector<Layer*> m_OverlayStack;
+	TimeStep m_TimeStep;
 
 	double lastTime;
 	int nbFrames = 0;
@@ -23,7 +24,7 @@ public:
 	void PushOverlay(Layer* layer);
 
 	void OnRender();
-	void OnUpdate(float timesStep);
+	void OnUpdate(TimeStep timesStep);
 
 	void Run();
 
