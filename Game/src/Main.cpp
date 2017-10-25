@@ -4,19 +4,26 @@
 #include "GameLayer.h"
 #include "game/Level.h"
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 int main()
 {
+
+	FT_Library  library;
+
+	int error = FT_Init_FreeType(&library);
+	if (error)
+	{
+		std::cout << "FreeType Error!" << std::endl;
+	}
+
 	Application app("Test Window", 1280, 720);
 
 	app.PushLayer(new GameLayer("GameLayer"));
 	app.Run();
 
-	//TODO: Fix bug when deleting IndexBuffer (?)
-
-	//Convert to timeStep Struc
-
 	//TODO:
-	//Timestep
 	//Game
 	//Text
 	//Materials

@@ -1,7 +1,6 @@
 #include "Application.h"
 #include "debug/DebugGraphics.h"
 #include <GLFW/glfw3.h>
-#include <Windows.h>
 #include "TimeStep.h"
 
 Application* Application::s_Application = nullptr;
@@ -73,7 +72,6 @@ void Application::Run()
 		m_Window->Clear();
 		
 		OnRender();
-	//	Sleep(50); //For testing timeStep
 
 		m_Window->Update();
 	}

@@ -34,3 +34,6 @@ bin/
 *.exe
 *.out
 *.app
+
+# Misc
+*.html
