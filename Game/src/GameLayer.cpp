@@ -11,6 +11,7 @@
 #include "game/component/SpriteComponent.h"
 #include "PlayerComponent.h"
 #include "TimeStep.h"
+#include "graphics/FontManager.h"
 
 GameLayer::GameLayer(const String& name)
 	: Layer(name)
@@ -33,6 +34,8 @@ void GameLayer::Init()
 	m_Level = new Level();
 	m_Level->OnInit();
 	
+	FontManager fontManager = FontManager();
+
 	EntityRef textureEntity = m_Level->CreateEntity<Entity>();
 	textureEntity->AddComponent(new TransformComponent(mat4::Identity()));
 	textureEntity->AddComponent(new SpriteComponent(Sprite(Resource::GetAs<Texture>("Jungle"), vec4(0.4f, 0.1f, 0.1f, 1.0f))));
