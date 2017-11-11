@@ -321,10 +321,6 @@
     <ClCompile Include="builds\windows\ftdebug.c" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="builds\ZERO_CHECK.vcxproj">
-      <Project>{0BBAA71B-7A5E-3C04-9C0F-7CE20DCA0190}</Project>
-      <Name>ZERO_CHECK</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

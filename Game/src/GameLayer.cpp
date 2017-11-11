@@ -34,11 +34,15 @@ void GameLayer::Init()
 	m_Level = new Level();
 	m_Level->OnInit();
 	
-	FontManager fontManager = FontManager();
+
+	FontManager::Init();
+	FT_Face font = FontManager::LoadFace("calibri", "res/calibri.ttf");
+		
+	FontManager::WriteText("HELLO WORLD", "calibri", 32);
 
 	EntityRef textureEntity = m_Level->CreateEntity<Entity>();
 	textureEntity->AddComponent(new TransformComponent(mat4::Identity()));
-	textureEntity->AddComponent(new SpriteComponent(Sprite(Resource::GetAs<Texture>("Jungle"), vec4(0.4f, 0.1f, 0.1f, 1.0f))));
+	textureEntity->AddComponent(new SpriteComponent(Sprite(Resource::GetAs<Texture>("Jungle"))));
 
 	EntityRef colorEntity = m_Level->CreateEntity<Entity>();
 	colorEntity->AddComponent(new TransformComponent(mat4::Translate(vec3(12.0f, 0.0f, 0.0f))));

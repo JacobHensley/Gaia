@@ -1,4 +1,10 @@
 #include "FontManager.h"
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+
+FontManager::FTLib FontManager::s_FTLib;
+FontManager::FaceMap FontManager::s_FaceMap;
 
 FontManager::FontManager()
 {
@@ -9,24 +15,66 @@ FontManager::~FontManager()
 {
 }
 
-FT_Face FontManager::LoadFace(const String& path)
+FT_Bitmap& FontManager::GetBitmap(const String& name, int size, char code)
+{
+	FT_Face face = GetFace(name);
+
+	uint index = FT_Get_Char_Index(face, code);
+	FT_Set_Char_Size(face, 0, size * 64, 72, 72);
+
+	int error = FT_Load_Glyph(face, index, FT_LOAD_DEFAULT);
+
+	error = FT_Render_Glyph(face->glyph, FT_RENDER_MODE_NORMAL);
+
+	return face->glyph->bitmap;
+}
+
+FT_Face& FontManager::LoadFace(const String& name, const String& path)
 {
 	FT_Face face;
-	int error = FT_New_Face(m_FT, path.c_str(), 0, &face);
+	int error = FT_New_Face(s_FTLib, path.c_str(), 0, &face);
+		
+	s_FaceMap[name] = face;
+	return s_FaceMap[name];
+}
 
-	if (error == FT_Err_Unknown_File_Format)
-		std::cout << "Failed to load font file, format may be unsupported" << std::endl;
-	else if (error)
-		std::cout << "Font file could not be open or read, error code: " + error << std::endl;
+FT_Face& FontManager::GetFace(const String& name)
+{
+	return s_FaceMap[name];
+}
 
-	return face;
+void FontManager::WriteText(const String& text, const String& name, int size)
+{
+	for (int i = 0; i < text.size(); i++)
+	{
+		FT_Bitmap bitmap = GetBitmap(name, size, text.at(i));
+		if (text.at(i) != ' ')
+		{
+			for (int y = 0; y < bitmap.rows; y++)
+			{
+				for (int x = 0; x < bitmap.pitch; x++)
+				{
+					byte value = bitmap.buffer[x + y * bitmap.pitch];
+					if (value > 0)
+						printf("O");
+					else
+						printf(" ");
+				}
+				printf("\n");
+			}
+			printf("\n");
+		}
+		else
+		{
+			for (int w = 0; w < 5; w++)
+			{
+				printf("\n");
+			}
+		}
+	}
 }
 
 void FontManager::Init()
 {
-	int error = FT_Init_FreeType(&m_FT);
-	if (error)
-	{
-		std::cout << "Failed to initialize FreeType lib, error code: " + error << std::endl;
-	}
+	int error = FT_Init_FreeType(&s_FTLib);
 }

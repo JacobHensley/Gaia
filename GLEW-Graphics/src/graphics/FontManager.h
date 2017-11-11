@@ -6,14 +6,21 @@
 
 class FontManager
 {
-private:
-	FT_Library m_FT;
 public:
 	FontManager();
 	~FontManager();
 
-	FT_Face LoadFace(const String& path);
-	inline void SetPixelSize(FT_Face face, int width, int height) { FT_Set_Pixel_Sizes(face, width, height); };
+	static void Init();
+
+	static FT_Bitmap& GetBitmap(const String& name, int size, char code);
+	static FT_Face& LoadFace(const String& name, const String& path);
+	static FT_Face& GetFace(const String& name);
+
+	static void WriteText(const String& text, const String& name, int size);
+
+	typedef FT_Library FTLib;
+	typedef std::unordered_map<String, FT_Face> FaceMap;
 private:
-	void Init();
+	static FTLib s_FTLib;
+	static FaceMap s_FaceMap;
 };

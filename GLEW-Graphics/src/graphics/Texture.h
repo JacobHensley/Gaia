@@ -2,6 +2,8 @@
 #include "../Common.h"
 #include "../Resource.h"
 #include "RefCounted.h"
+#include <ft2build.h>
+#include FT_FREETYPE_H
 
 class Texture : public RefCounted
 {
