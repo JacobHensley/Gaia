@@ -12,6 +12,9 @@ int main()
 	app.PushLayer(new GameLayer("GameLayer"));
 	app.Run();
 
+	//Debug Texture errors
+	//Abstract Texture
+
 	//TODO:
 	//Game
 	//Text

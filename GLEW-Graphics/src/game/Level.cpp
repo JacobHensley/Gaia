@@ -69,7 +69,7 @@ void Level::OnRender(Renderer2D* renderer2D)
 
 		SpriteComponent* comp = (SpriteComponent*)component;
 		const TransformComponent*  tc = m_ComponentCache.Get<TransformComponent>(comp->GetEntity());
-
+		ASSERT(tc);
 		renderer2D->Submit(&comp->m_Sprite, tc->m_Transform.GetPosition().x, tc->m_Transform.GetPosition().y, 10, 10);
 	}
 

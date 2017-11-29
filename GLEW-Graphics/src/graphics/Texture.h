@@ -8,11 +8,14 @@
 class Texture : public RefCounted
 {
 public:
+	Texture(uint width, uint height);
 	Texture(const String& path);
 	~Texture();
 
 	void Bind();
 	void Unbind();
+
+	void SetData(byte* data, uint size);
 
 	inline const String& GetPath() const { return m_Path; }
 	inline const uint GetTexture() const { return m_Texture; }
@@ -21,7 +24,8 @@ public:
 private:
 	uint Load();
 	uint m_Texture;
-	const String& m_Path;
+	String m_Path;
+	uint m_Width, m_Height;
 };
 
 typedef Ref<Texture> TextureRef;
