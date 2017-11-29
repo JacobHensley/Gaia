@@ -48,7 +48,7 @@ FT_Face& FontManager::GetFace(const String& name)
 Texture* FontManager::GetTexture(const String& font, char character, int size)
 {
 	FT_Bitmap bitmap = GetBitmap(font, size, character);
-	Texture* texture = new Texture(bitmap.pitch, bitmap.rows);
+	Texture* texture = new Texture(bitmap.pitch, bitmap.rows, Texture::TextureFormat::RED);
 	texture->SetData(bitmap.buffer, bitmap.pitch * bitmap.rows);
 	return texture;
 }

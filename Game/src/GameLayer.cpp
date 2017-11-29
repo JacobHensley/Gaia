@@ -33,7 +33,6 @@ void GameLayer::Init()
 {
 	m_Level = new Level();
 	m_Level->OnInit();
-	
 
 	FontManager::Init();
 	FT_Face font = FontManager::LoadFace("calibri", "res/calibri.ttf");
@@ -48,7 +47,7 @@ void GameLayer::Init()
 
 	EntityRef colorEntity = m_Level->CreateEntity<Entity>();
 	colorEntity->AddComponent(new TransformComponent(mat4::Translate(vec3(12.0f, 0.0f, 0.0f))));
-	colorEntity->AddComponent(new SpriteComponent(Sprite(vec4(0.8f, 0.3f, 0.2f, 1.0f))));
+	colorEntity->AddComponent(new SpriteComponent(Sprite(vec4(0.8f, 0.8f, 0.2f, 1.0f))));
 	colorEntity->AddComponent(new PlayerComponent());
 }
 
