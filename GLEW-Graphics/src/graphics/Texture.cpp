@@ -62,10 +62,10 @@ byte Texture::GetStrideFromFormat(TextureFormat format)
 {
 	switch (format)
 	{
-			case TextureFormat::RED:				return 1;
-			case TextureFormat::RGB:				return 3;
-			case TextureFormat::RGBA:				return 4;
-			case TextureFormat::LUMINANCE_ALPHA:	return 4;
+		case TextureFormat::RED:				return 1;
+		case TextureFormat::RGB:				return 3;
+		case TextureFormat::RGBA:				return 4;
+		case TextureFormat::LUMINANCE_ALPHA:	return 4;
 	}
 	return 0;
 }
@@ -74,11 +74,11 @@ uint Texture::TextureFormatToGL(TextureFormat format)
 {
 	switch (format)
 	{
-	case TextureFormat::RGBA:				return GL_RGBA;
-	case TextureFormat::RGB:				return GL_RGB;
-	case TextureFormat::RED:				return GL_RED;
-	case TextureFormat::LUMINANCE:			return GL_LUMINANCE;
-	case TextureFormat::LUMINANCE_ALPHA:	return GL_LUMINANCE_ALPHA;
+		case TextureFormat::RGBA:				return GL_RGBA;
+		case TextureFormat::RGB:				return GL_RGB;
+		case TextureFormat::RED:				return GL_RED;
+		case TextureFormat::LUMINANCE:			return GL_LUMINANCE;
+		case TextureFormat::LUMINANCE_ALPHA:	return GL_LUMINANCE_ALPHA;
 	}
 	return 0;
 }
@@ -87,11 +87,11 @@ uint Texture::TextureWrapToGL(TextureWrap wrap)
 {
 	switch (wrap)
 	{
-	case TextureWrap::CLAMP:			return GL_CLAMP;
-	case TextureWrap::CLAMP_TO_BORDER:	return GL_CLAMP_TO_BORDER;
-	case TextureWrap::CLAMP_TO_EDGE:	return GL_CLAMP_TO_EDGE;
-	case TextureWrap::REPEAT:			return GL_REPEAT;
-	case TextureWrap::MIRRORED_REPEAT:	return GL_MIRRORED_REPEAT;
+		case TextureWrap::CLAMP:			return GL_CLAMP;
+		case TextureWrap::CLAMP_TO_BORDER:	return GL_CLAMP_TO_BORDER;
+		case TextureWrap::CLAMP_TO_EDGE:	return GL_CLAMP_TO_EDGE;
+		case TextureWrap::REPEAT:			return GL_REPEAT;
+		case TextureWrap::MIRRORED_REPEAT:	return GL_MIRRORED_REPEAT;
 	}
 	return 0;
 }
@@ -100,8 +100,8 @@ uint Texture::TextureFilterToGL(TextureFilter filter)
 {
 	switch (filter)
 	{
-	case TextureFilter::LINEAR:			return GL_LINEAR;
-	case TextureFilter::NEAREST:		return GL_NEAREST;
+		case TextureFilter::LINEAR:			return GL_LINEAR;
+		case TextureFilter::NEAREST:		return GL_NEAREST;
 	}
 	return 0;
 }

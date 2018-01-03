@@ -39,7 +39,7 @@ void GameLayer::Init()
 		
 	FontManager::WriteText("HELLO WORLD", "calibri", 32);
 
-	Texture* FontTexture = FontManager::GetTexture("calibri", 'A', 32);
+	Texture* FontTexture = FontManager::GetTexture("calibri", 'L', 32);
 
 	EntityRef textureEntity = m_Level->CreateEntity<Entity>();
 	textureEntity->AddComponent(new TransformComponent(mat4::Identity()));

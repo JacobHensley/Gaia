@@ -70,25 +70,25 @@ void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float hei
 		textureID = SubmitTexture(sprite->GetTexture());
 
 	m_Buffer->position = vec3(x, y);
-	m_Buffer->textCoord = vec2(0, 1);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->textureID = textureID;
-	m_Buffer++;
-
-	m_Buffer->position = vec3(x, y + height);
 	m_Buffer->textCoord = vec2(0, 0);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
+	m_Buffer->position = vec3(x, y + height);
+	m_Buffer->textCoord = vec2(0, 1);
+	m_Buffer->color = sprite->m_Color;
+	m_Buffer->textureID = textureID;
+	m_Buffer++;
+
 	m_Buffer->position = vec3(x + width, y + height);
-	m_Buffer->textCoord = vec2(1, 0);
+	m_Buffer->textCoord = vec2(1, 1);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y);
-	m_Buffer->textCoord = vec2(1, 1);
+	m_Buffer->textCoord = vec2(1, 0);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
