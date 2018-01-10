@@ -75,6 +75,9 @@ public:
 	inline const String& GetPath() const { return m_Path; }
 	inline const uint GetTexture() const { return m_Texture; }
 
+	inline const uint GetWidth() const { return m_Width; }
+	inline const uint GetHeight() const { return m_Height; }
+
 	static inline Resource::ResourceType GetType() { return Resource::ResourceType::TEXTURE; }
 
 private:

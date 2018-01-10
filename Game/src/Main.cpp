@@ -4,12 +4,15 @@
 #include "GameLayer.h"
 #include "game/Level.h"
 
+#include "demo/DemoLayer.h"
+
 int main()
 {
 
 	Application app("Test Window", 1280, 720);
 
-	app.PushLayer(new GameLayer("GameLayer"));
+//	app.PushLayer(new GameLayer("GameLayer"));
+	app.PushLayer(new DemoLayer("DemoLayer"));
 	app.Run();
 
 	//Debug Texture errors

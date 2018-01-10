@@ -16,7 +16,9 @@ void main()
 	if (f_TextureID > 0.0)
 	{
 		int tid = int(f_TextureID - 0.5f);	
-		textureColor = texture(u_Textures[tid], f_TexCoord);
+		vec2 tc = f_TexCoord;
+		tc.y = 1.0 - tc.y;
+		textureColor = texture(u_Textures[tid], tc);
 	}
 	
 //	color = textureColor * f_Color;
