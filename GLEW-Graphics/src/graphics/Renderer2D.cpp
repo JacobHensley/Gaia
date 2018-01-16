@@ -1,6 +1,7 @@
 #include "Renderer2D.h"
 #include <gl/glew.h>
 #include <GLFW/glfw3.h>
+#include "FontManager.h"
 
 #define RENDERER_VERTEX_SIZE sizeof(Vertex)
 
@@ -93,6 +94,45 @@ void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float hei
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 	m_IndexCount += 6;
+}
+
+void Renderer2D::DrawString(const String& text, float x, float y)
+{
+	float width = 1.0f;
+	float height = 1.0f;
+
+	for (int i = 0;i < text.size();i++)
+	{
+		Texture* texture = FontManager::GetTexture("calibri", text[i], 32);
+		float textureID = SubmitTexture(texture);
+
+		m_Buffer->position = vec3(x, y);
+		m_Buffer->textCoord = vec2(0, 0);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x, y + height);
+		m_Buffer->textCoord = vec2(0, 1);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x + width, y + height);
+		m_Buffer->textCoord = vec2(1, 1);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x + width, y);
+		m_Buffer->textCoord = vec2(1, 0);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+		m_IndexCount += 6;
+
+		x += 1.2;
+	}
 }
 
 float Renderer2D::SubmitTexture(const Texture* texture)

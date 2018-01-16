@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include <vector>
 
 FontManager::FTLib FontManager::s_FTLib;
 FontManager::FaceMap FontManager::s_FaceMap;
@@ -45,12 +46,53 @@ FT_Face& FontManager::GetFace(const String& name)
 	return s_FaceMap[name];
 }
 
+struct CharacterObj 
+{
+	const String& m_Font;
+	char m_Character;
+	int m_Size;
+
+	Texture* m_Texture;
+
+	CharacterObj(const String& font, char character, int size) 
+	 : m_Font(font), m_Character(character), m_Size(size)	
+	{
+	}
+
+	bool IsEqual(CharacterObj obj) 
+	{
+		if (obj.m_Character != m_Character)
+			return false;
+		if (obj.m_Size != m_Size)
+			return false;
+		if (obj.m_Font != m_Font)
+			return false;
+		return true;
+	}
+};
+
+std::vector<CharacterObj> cache;
+
 Texture* FontManager::GetTexture(const String& font, char character, int size)
 {
+	CharacterObj obj = CharacterObj(font, character, size);
+	for (int i = 0; i < cache.size(); i++)
+	{
+		if (obj.IsEqual(cache[i])) 
+		{
+			return cache[i].m_Texture;
+		}
+	}
+
 	FT_Bitmap bitmap = GetBitmap(font, size, character);
+
 	Texture* texture = new Texture(bitmap.pitch, bitmap.rows, Texture::TextureFormat::RED);
 	texture->SetData(bitmap.buffer, bitmap.pitch * bitmap.rows);
-	return texture;
+
+	obj.m_Texture = texture;
+	cache.push_back(obj);
+
+	return obj.m_Texture;
 }
 
 void FontManager::WriteText(const String& text, const String& name, int size)

@@ -137,8 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\demo\NewPacker\Packer.cpp" />
-    <ClCompile Include="src\demo\NewPacker\Block.cpp" />
+    <ClCompile Include="src\demo\Packer\Packer.cpp" />
     <ClCompile Include="src\demo\DemoLayer.cpp" />
     <ClCompile Include="src\GameLayer.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -159,8 +158,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\demo\NewPacker\Packer.h" />
-    <ClInclude Include="src\demo\NewPacker\Block.h" />
+    <ClInclude Include="src\demo\Packer\Packer.h" />
     <ClInclude Include="src\demo\DemoLayer.h" />
     <ClInclude Include="src\GameLayer.h" />
     <ClInclude Include="src\PlayerComponent.h" />

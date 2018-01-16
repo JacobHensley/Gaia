@@ -21,6 +21,6 @@ void main()
 		textureColor = texture(u_Textures[tid], tc);
 	}
 	
-//	color = textureColor * f_Color;
-	color = vec4(textureColor.r, 0.0, 0.0, 1.0);
+	color = textureColor * f_Color;
+//	color = vec4(textureColor.r, 0.0, 0.0, 1.0);
 }

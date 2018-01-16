@@ -64,4 +64,11 @@ void GameLayer::OnRender()
 //	DebugGraphics::FillRectangle(vec2(0, 0), vec2(10, 10));
 
 	m_Level->OnRender(m_Renderer);
+
+	m_Renderer->Begin();
+
+	m_Renderer->DrawString("Hey", 0.0f, 0.0f);
+
+	m_Renderer->End();
+	m_Renderer->Flush();
 }

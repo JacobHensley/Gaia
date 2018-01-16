@@ -28,6 +28,12 @@ Sprite::Sprite(const Texture* texture, const vec4& color)
 	Init();
 }
 
+//Temp
+Sprite::Sprite(const vec4& color, int width, int height)
+	: m_Color(color), m_Texture(nullptr), m_TempWidth(width), m_TempHeight(height)
+{
+	Init();
+}
 
 void Sprite::Init()
 {

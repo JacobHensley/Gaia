@@ -27,10 +27,7 @@
     <ClCompile Include="src\demo\DemoLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\demo\NewPacker\Block.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\demo\NewPacker\Packer.cpp">
+    <ClCompile Include="src\demo\Packer\Packer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +41,7 @@
     <ClInclude Include="src\demo\DemoLayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\demo\NewPacker\Block.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\demo\NewPacker\Packer.h">
+    <ClInclude Include="src\demo\Packer\Packer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

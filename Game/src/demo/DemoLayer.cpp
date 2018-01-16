@@ -4,9 +4,10 @@
 #include "TimeStep.h"
 #include "game/component/TransformComponent.h"
 #include "game/component/SpriteComponent.h"
+#include "Packer/Packer.h"
 
 DemoLayer::DemoLayer(const String& name)
-	:	Layer(name)	
+	: Layer(name)
 {
 	m_Camera = new OrthographicCamera(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f);
 	m_Renderer->SetCamera(m_Camera);
@@ -26,9 +27,26 @@ void DemoLayer::Init()
 	m_Level = new Level();
 	m_Level->OnInit();
 
-	EntityRef colorEntity = m_Level->CreateEntity<Entity>();
-	colorEntity->AddComponent(new TransformComponent(mat4::Translate(vec3(0.0f, 0.0f, 0.0f))));
-	colorEntity->AddComponent(new SpriteComponent(Sprite(vec4(0.8f, 0.8f, 0.2f, 1.0f))));
+	Packer packer = Packer(40, 40);
+
+	std::vector<Block> blocks;
+	blocks.push_back(Block(1, 1, vec4(1.0f, 1.0f, 1.0f, 1.0f)));
+	blocks.push_back(Block(1, 1, vec4(0.9f, 0.9f, 0.9f, 1.0f)));
+	blocks.push_back(Block(2, 1, vec4(0.8f, 0.8f, 0.8f, 1.0f)));
+	blocks.push_back(Block(1, 1, vec4(0.7f, 0.7f, 0.7f, 1.0f)));
+	blocks.push_back(Block(2, 1, vec4(0.6f, 0.6f, 0.6f, 1.0f)));
+	blocks.push_back(Block(2, 2, vec4(0.5f, 0.5f, 0.5f, 1.0f)));
+	blocks.push_back(Block(1, 3, vec4(0.4f, 0.4f, 0.4f, 1.0f)));
+	blocks.push_back(Block(6, 2, vec4(0.3f, 0.3f, 0.3f, 1.0f)));
+	packer.Sort(blocks);
+
+	for (int i = 0; i < blocks.size(); i++)
+	{
+		Block block = blocks[i];
+		EntityRef colorEntity = m_Level->CreateEntity<Entity>();
+		colorEntity->AddComponent(new TransformComponent(mat4::Translate(vec3(block.x, block.y, 0.0f))));
+		colorEntity->AddComponent(new SpriteComponent(Sprite(block.getColor(), block.width, block.height)));
+	}
 
 }
 

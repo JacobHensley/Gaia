@@ -32,6 +32,8 @@ public:
 
 	void Submit(Sprite* sprite, float x, float y, float width, float height);
 
+	void DrawString(const String& text, float x, float y);
+
 	void End();
 	void Flush();
 
