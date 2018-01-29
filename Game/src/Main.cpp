@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "Application.h"
 #include "GameLayer.h"
 #include "game/Level.h"
@@ -8,27 +7,21 @@
 
 int main()
 {
-
 	Application app("Test Window", 1280, 720);
 
 	app.PushLayer(new GameLayer("GameLayer"));
-//	app.PushLayer(new UILayer("UILayer"));
-//	app.PushLayer(new DemoLayer("DemoLayer"));
+	app.PushLayer(new UILayer("UILayer"));
+	app.PushLayer(new DemoLayer("DemoLayer"));
 	app.Run();
 
-	//Debug Texture errors
-	//Abstract Texture
-
 	//TODO:
-	//Game
 	//Text
-	//Materials
+	//ImGUI
 	//Memory Arena
-	//Font Rendering
+	//Allocation Tracking
+	//String Formatting
+	//Materials
+	//Game
 	//add static asserts, etc
 	//Debug Layer Labels
-	//String Formatting
-	//Allocation Tracking
-
-	return 0;
 }

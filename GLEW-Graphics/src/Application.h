@@ -16,6 +16,7 @@ private:
 
 	double lastTime;
 	int nbFrames = 0;
+	int activeLayer = 0;
 public:
 	Application(const String& name, int width, int height);
 	~Application();	
@@ -30,6 +31,8 @@ public:
 
 	inline int GetWidth() const { return m_Window->GetWidth(); }
 	inline int GetHeight() const { return m_Window->GetHeight(); }
+	
+	inline void SetActiveLayer(int value) { activeLayer = value; }
 
 	inline bool IsKeyPressed(int keycode) const { ASSERT(keycode >= 0 && keycode < 1024); return m_Window->m_Keys[keycode]; }
 

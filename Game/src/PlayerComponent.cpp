@@ -12,9 +12,26 @@ void PlayerComponent::OnCreate()
 
 void PlayerComponent::OnUpdate(TimeStep timeStep)
 {
-	const Application& app = Application::GetApplication();
+	Application& app = Application::GetApplication();
 	float speed = (float)(0.1 * timeStep.GetMills());
 	vec3 pos = m_Transform->m_Transform.GetPosition();
+
+	//Temp
+	if (app.IsKeyPressed(GLFW_KEY_F1))
+	{
+		app.SetActiveLayer(0);
+	}
+
+	if (app.IsKeyPressed(GLFW_KEY_F2))
+	{
+		app.SetActiveLayer(1);
+	}
+
+	if (app.IsKeyPressed(GLFW_KEY_F3))
+	{
+		app.SetActiveLayer(2);
+	}
+
 
 	if (app.IsKeyPressed(GLFW_KEY_UP))
 	{

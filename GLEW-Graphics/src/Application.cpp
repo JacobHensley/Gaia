@@ -32,8 +32,10 @@ void Application::PushOverlay(Layer* layer)
 
 void Application::OnRender()
 {
-	for (Layer* layer : m_LayerStack) {
-		layer->OnRender();
+	for (int i = 0;i < m_LayerStack.size();i++) 
+	{
+		if (i == activeLayer)
+			m_LayerStack[i]->OnRender();
 	}
 
 	for (Layer* layer : m_OverlayStack) {
