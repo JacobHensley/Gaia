@@ -29,14 +29,18 @@ GameLayer::GameLayer(const String& name)
 	Init();
 }
 
+static Font* s_Font;
+
 void GameLayer::Init()
 {
 	m_Level = new Level();
 	m_Level->OnInit();
 
 	FontManager::Init();
+	s_Font = new Font("res/calibri.ttf", 32);
+
 	FT_Face font = FontManager::LoadFace("calibri", "res/calibri.ttf");
-		
+
 	FontManager::WriteText("HELLO WORLD", "calibri", 32);
 
 	Texture* FontTexture = FontManager::GetTexture("calibri", 'A', 32);
@@ -67,7 +71,7 @@ void GameLayer::OnRender()
 
 	m_Renderer->Begin();
 
-	m_Renderer->DrawString("Hey", 0.0f, 0.0f);
+	m_Renderer->DrawString("Hey", 0.0f, 0.0f, *s_Font);
 
 	m_Renderer->End();
 	m_Renderer->Flush();

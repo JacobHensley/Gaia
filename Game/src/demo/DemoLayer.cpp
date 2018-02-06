@@ -12,13 +12,6 @@ DemoLayer::DemoLayer(const String& name)
 	m_Camera = new OrthographicCamera(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f);
 	m_Renderer->SetCamera(m_Camera);
 
-	ASSERT(Resource::LoadShader("Shader", "shaders/shader.vert", "shaders/shader.frag"));
-	Shader* shader = Resource::GetAs<Shader>("Shader");
-
-	shader->SetTextureIDs("u_Textures");
-
-	ASSERT(Resource::LoadTexture("Jungle", "res/jungle.png"));
-
 	Init();
 }
 

@@ -4,6 +4,7 @@
 #include "Camera\Camera.h"
 #include "Sprite.h"
 #include "Texture.h"
+#include "Font.h"
 
 struct Vertex;
 
@@ -33,6 +34,7 @@ public:
 	void Submit(Sprite* sprite, float x, float y, float width, float height);
 
 	void DrawString(const String& text, float x, float y);
+	void DrawString(const String& text, float x, float y, Font& font);
 
 	void End();
 	void Flush();

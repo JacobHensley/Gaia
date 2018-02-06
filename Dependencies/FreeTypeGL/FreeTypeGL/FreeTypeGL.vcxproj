@@ -82,7 +82,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeType\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions); _CRT_NONSTDC_NO_DEPRECATE</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -100,7 +100,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeType\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions); _CRT_NONSTDC_NO_DEPRECATE</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -122,14 +122,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\distance-field.h" />
+    <ClInclude Include="..\edtaa3func.h" />
     <ClInclude Include="..\freetype-gl.h" />
     <ClInclude Include="..\texture-atlas.h" />
     <ClInclude Include="..\texture-font.h" />
+    <ClInclude Include="..\utf8-utils.h" />
     <ClInclude Include="..\vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\distance-field.c" />
+    <ClCompile Include="..\edtaa3func.c" />
     <ClCompile Include="..\texture-atlas.c" />
     <ClCompile Include="..\texture-font.c" />
+    <ClCompile Include="..\utf8-utils.c" />
     <ClCompile Include="..\vector.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

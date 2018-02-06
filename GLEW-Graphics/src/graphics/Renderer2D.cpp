@@ -98,13 +98,13 @@ void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float hei
 
 void Renderer2D::DrawString(const String& text, float x, float y)
 {
-	float width = 1.0f;
-	float height = 1.0f;
-
 	for (int i = 0;i < text.size();i++)
 	{
 		Texture* texture = FontManager::GetTexture("calibri", text[i], 32);
 		float textureID = SubmitTexture(texture);
+		
+		float width = texture->GetWidth() / 10.0f;
+		float height = texture->GetHeight() / 10.0f;
 
 		m_Buffer->position = vec3(x, y);
 		m_Buffer->textCoord = vec2(0, 0);
@@ -131,7 +131,51 @@ void Renderer2D::DrawString(const String& text, float x, float y)
 		m_Buffer++;
 		m_IndexCount += 6;
 
-		x += 1.2;
+		x += texture->GetWidth() / 10.0f;
+	}
+}
+
+void Renderer2D::DrawString(const String& text, float x, float y, Font& font)
+{
+	ftgl::texture_font_t* ftFont = font.GetFont();
+
+	for (int i = 0; i < text.size(); i++)
+	{
+		char c = text[i];
+		ftgl::texture_glyph_t* glyph = ftgl::texture_font_get_glyph(ftFont, &c);
+
+		Texture* texture = FontManager::GetTexture("calibri", text[i], 32);
+		float textureID = SubmitTexture(texture);
+
+		float width = texture->GetWidth() / 10.0f;
+		float height = texture->GetHeight() / 10.0f;
+
+		m_Buffer->position = vec3(x, y);
+		m_Buffer->textCoord = vec2(0, 0);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x, y + height);
+		m_Buffer->textCoord = vec2(0, 1);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x + width, y + height);
+		m_Buffer->textCoord = vec2(1, 1);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x + width, y);
+		m_Buffer->textCoord = vec2(1, 0);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+		m_IndexCount += 6;
+
+		x += texture->GetWidth() / 10.0f;
 	}
 }
 
