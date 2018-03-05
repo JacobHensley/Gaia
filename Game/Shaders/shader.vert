@@ -1,7 +1,7 @@
 #version 330 core
 
 layout (location = 0) in vec4 position;
-layout (location = 1) in vec2 textCoord;
+layout (location = 1) in vec2 texCoord;
 layout (location = 2) in float textureID;
 layout (location = 3) in vec4 color;
 
@@ -19,7 +19,7 @@ void main()
 	gl_Position = u_ProjMatrix * u_ViewMatrix * u_ModelMatrix * position;
 
 	f_Position = position;
-	f_TexCoord = textCoord;
+	f_TexCoord = texCoord;
 	f_TextureID = textureID;
 	f_Color = color;
 }

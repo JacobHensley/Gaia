@@ -1,8 +1,6 @@
 #pragma once
 #include "Common.h"
 #include "Texture.h"
-
-
 #include "freetype-gl.h"
 
 class Font 
@@ -18,6 +16,9 @@ private:
 public:
 	Font(const String& filePath, float size);
 
+	void UpdateTexture();
+
+	inline Texture* GetTexture() const { return m_Texture; }
 	inline ftgl::texture_atlas_t* GetAtlas() const { return m_FTAtlas; }
 	inline ftgl::texture_font_t* GetFont() const { return m_FTFont; }
 };

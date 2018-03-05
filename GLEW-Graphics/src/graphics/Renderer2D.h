@@ -46,4 +46,5 @@ public:
 private:
 	void Init();
 	float SubmitTexture(const Texture* texture);
+	float SubmitTexture(uint textureID);
 };

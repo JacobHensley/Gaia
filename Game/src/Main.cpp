@@ -13,15 +13,4 @@ int main()
 	app.PushLayer(new UILayer("UILayer"));
 	app.PushLayer(new DemoLayer("DemoLayer"));
 	app.Run();
-
-	//TODO:
-	//Text
-	//ImGUI
-	//Memory Arena
-	//Allocation Tracking
-	//String Formatting
-	//Materials
-	//Game
-	//add static asserts, etc
-	//Debug Layer Labels
 }

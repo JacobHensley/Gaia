@@ -71,7 +71,7 @@ void GameLayer::OnRender()
 
 	m_Renderer->Begin();
 
-	m_Renderer->DrawString("Hey", 0.0f, 0.0f, *s_Font);
+	m_Renderer->DrawString("Hello!", 0.0f, 0.0f, *s_Font);
 
 	m_Renderer->End();
 	m_Renderer->Flush();

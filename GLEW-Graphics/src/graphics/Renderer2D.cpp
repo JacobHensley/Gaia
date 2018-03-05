@@ -12,7 +12,7 @@
 struct Vertex
 {
 	vec3 position;
-	vec2 textCoord;
+	vec2 texCoord;
 	float textureID;
 	vec4 color;
 };
@@ -71,25 +71,25 @@ void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float hei
 		textureID = SubmitTexture(sprite->GetTexture());
 
 	m_Buffer->position = vec3(x, y);
-	m_Buffer->textCoord = vec2(0, 0);
+	m_Buffer->texCoord = vec2(0, 0);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x, y + height);
-	m_Buffer->textCoord = vec2(0, 1);
+	m_Buffer->texCoord = vec2(0, 1);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y + height);
-	m_Buffer->textCoord = vec2(1, 1);
+	m_Buffer->texCoord = vec2(1, 1);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
 	m_Buffer->position = vec3(x + width, y);
-	m_Buffer->textCoord = vec2(1, 0);
+	m_Buffer->texCoord = vec2(1, 0);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
@@ -99,13 +99,19 @@ void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float hei
 void Renderer2D::DrawString(const String& text, float x, float y, Font& font)
 {
 	ftgl::texture_font_t* ftFont = font.GetFont();
+	ftgl::texture_atlas_t* ftAtlas = font.GetAtlas();
+
+	Texture* texture = font.GetTexture();
+	texture->SetData(ftAtlas->data, ftAtlas->width * ftAtlas->height);
 
 	for (int i = 0; i < text.size(); i++)
 	{
 		char c = text[i];
+
 		ftgl::texture_glyph_t* glyph = ftgl::texture_font_get_glyph(ftFont, &c);
 
-		Texture* texture = FontManager::GetTexture("calibri", text[i], 32);
+	//	texture = Resource::GetAs<Texture>("Jungle");
+
 		float textureID = SubmitTexture(texture);
 
 		if (i > 0)
@@ -114,44 +120,53 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font)
 			x += kerning;
 		}
 
-		float x0 = x + glyph->offset_x / 10;
-		float y0 = y + glyph->offset_y / 10;
-		float x1 = x0 + glyph->width / 10;
-		float y1 = y0 - glyph->height / 10;
-
-		m_Buffer->position = vec3(x0, y1);
-		m_Buffer->textCoord = vec2(0, 0);
-		m_Buffer->color = vec4(1.0f);
-		m_Buffer->textureID = textureID;
-		m_Buffer++;
+		float x0 = x + glyph->offset_x * 0.1f;
+		float y0 = y + glyph->offset_y * 0.1f;
+		float x1 = x0 + glyph->width  * 0.1f;
+		float y1 = y0 - glyph->height * 0.1f;
 
 		m_Buffer->position = vec3(x0, y0);
-		m_Buffer->textCoord = vec2(0, 1);
+		m_Buffer->texCoord = vec2(glyph->s0, 1 - glyph->t0);
+// 		m_Buffer->position = vec3(0, 0);
+// 		m_Buffer->texCoord = vec2(0, 0);
 		m_Buffer->color = vec4(1.0f);
 		m_Buffer->textureID = textureID;
 		m_Buffer++;
 
-		m_Buffer->position = vec3(x1, y0);
-		m_Buffer->textCoord = vec2(1, 1);
+		m_Buffer->position = vec3(x0, y1);
+		m_Buffer->texCoord = vec2(glyph->s0, 1 - glyph->t1);
+// 		m_Buffer->position = vec3(0, 10);
+// 		m_Buffer->texCoord = vec2(0, 1);
 		m_Buffer->color = vec4(1.0f);
 		m_Buffer->textureID = textureID;
 		m_Buffer++;
 
 		m_Buffer->position = vec3(x1, y1);
-		m_Buffer->textCoord = vec2(1, 0);
+		m_Buffer->texCoord = vec2(glyph->s1, 1 - glyph->t1);
+// 		m_Buffer->position = vec3(10, 10);
+// 		m_Buffer->texCoord = vec2(1, 1);
+		m_Buffer->color = vec4(1.0f);
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x1, y0);
+		m_Buffer->texCoord = vec2(glyph->s1, 1 - glyph->t0);
+// 		m_Buffer->position = vec3(10, 0);
+// 		m_Buffer->texCoord = vec2(1, 0);
 		m_Buffer->color = vec4(1.0f);
 		m_Buffer->textureID = textureID;
 		m_Buffer++;
 		m_IndexCount += 6;
 
-		x += glyph->advance_x / 10;
+		x += glyph->advance_x * 0.1f;
 	}
+
+	font.UpdateTexture();
 }
 
-float Renderer2D::SubmitTexture(const Texture* texture)
+float Renderer2D::SubmitTexture(uint textureID)
 {
 	float result = 0.0f;
-	uint textureID = texture->GetTexture();
 
 	if (textureID > 0)
 	{
@@ -184,6 +199,12 @@ float Renderer2D::SubmitTexture(const Texture* texture)
 	}
 
 	return result;
+}
+
+float Renderer2D::SubmitTexture(const Texture* texture)
+{
+	uint textureID = texture->GetTexture();
+	return SubmitTexture(textureID);
 }
 
 void Renderer2D::End()

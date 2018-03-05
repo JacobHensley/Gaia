@@ -35,10 +35,10 @@ uint Texture::LoadFromFile()
 	return texture;
 }
 
-
+static byte* buffer;
 static byte* AlignData(byte* data, uint size) 
 {
-	byte* buffer = new byte[size * 4];
+	buffer = new byte[size * 4];
 	memset(buffer, 0, size * 4);
 	for (int i = 0; i < size; i++) {
 		buffer[i * 4] = data[i];
@@ -69,6 +69,7 @@ void Texture::SetData(byte* data, uint size)
 	Bind();
 	ASSERT(size == m_Width * m_Height * GetStrideFromFormat(m_Parameters.format));
 	byte* alignedData = AlignData(data, size);
+	delete buffer;
 	GLCall(glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, m_Width, m_Height, TextureFormatToGL(m_Parameters.format), GL_UNSIGNED_BYTE, data));
 	Unbind();
 }
