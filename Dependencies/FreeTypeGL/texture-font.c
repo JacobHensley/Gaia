@@ -635,7 +635,7 @@ cleanup_stroker:
 
     vector_push_back( self->glyphs, &glyph );
 
-	//TODO: ask Yan about this
+	//Note: This code was added by me, Jacob Hensley.
 	ft_glyph = NULL;
 
     if( self->rendermode != RENDER_NORMAL && self->rendermode != RENDER_SIGNED_DISTANCE_FIELD )

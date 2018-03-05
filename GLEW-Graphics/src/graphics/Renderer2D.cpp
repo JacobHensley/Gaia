@@ -96,13 +96,13 @@ void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float hei
 	m_IndexCount += 6;
 }
 
-void Renderer2D::DrawString(const String& text, float x, float y, Font& font)
+void Renderer2D::DrawString(const String& text, float x, float y, Font& font, vec4& color)
 {
 	ftgl::texture_font_t* ftFont = font.GetFont();
 	ftgl::texture_atlas_t* ftAtlas = font.GetAtlas();
 
-	Texture* texture = font.GetTexture();
-	texture->SetData(ftAtlas->data, ftAtlas->width * ftAtlas->height);
+	Texture* atlasTexture = font.GetAtlasTexture();
+	atlasTexture->SetData(ftAtlas->data, ftAtlas->width * ftAtlas->height);
 
 	for (int i = 0; i < text.size(); i++)
 	{
@@ -110,9 +110,7 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font)
 
 		ftgl::texture_glyph_t* glyph = ftgl::texture_font_get_glyph(ftFont, &c);
 
-	//	texture = Resource::GetAs<Texture>("Jungle");
-
-		float textureID = SubmitTexture(texture);
+		float textureID = SubmitTexture(atlasTexture);
 
 		if (i > 0)
 		{
@@ -120,48 +118,40 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font)
 			x += kerning;
 		}
 
-		float x0 = x + glyph->offset_x * 0.1f;
-		float y0 = y + glyph->offset_y * 0.1f;
-		float x1 = x0 + glyph->width  * 0.1f;
-		float y1 = y0 - glyph->height * 0.1f;
+		float x0 = x + glyph->offset_x;
+		float y0 = y + (glyph->height - glyph->offset_y);
+		float x1 = x + glyph->offset_x +  glyph->width;
+		float y1 = y - glyph->offset_y;
 
 		m_Buffer->position = vec3(x0, y0);
-		m_Buffer->texCoord = vec2(glyph->s0, 1 - glyph->t0);
-// 		m_Buffer->position = vec3(0, 0);
-// 		m_Buffer->texCoord = vec2(0, 0);
-		m_Buffer->color = vec4(1.0f);
-		m_Buffer->textureID = textureID;
-		m_Buffer++;
-
-		m_Buffer->position = vec3(x0, y1);
-		m_Buffer->texCoord = vec2(glyph->s0, 1 - glyph->t1);
-// 		m_Buffer->position = vec3(0, 10);
-// 		m_Buffer->texCoord = vec2(0, 1);
-		m_Buffer->color = vec4(1.0f);
-		m_Buffer->textureID = textureID;
-		m_Buffer++;
-
-		m_Buffer->position = vec3(x1, y1);
-		m_Buffer->texCoord = vec2(glyph->s1, 1 - glyph->t1);
-// 		m_Buffer->position = vec3(10, 10);
-// 		m_Buffer->texCoord = vec2(1, 1);
-		m_Buffer->color = vec4(1.0f);
+		m_Buffer->texCoord = vec2(glyph->s0, glyph->t0);
+		m_Buffer->color = color;
 		m_Buffer->textureID = textureID;
 		m_Buffer++;
 
 		m_Buffer->position = vec3(x1, y0);
-		m_Buffer->texCoord = vec2(glyph->s1, 1 - glyph->t0);
-// 		m_Buffer->position = vec3(10, 0);
-// 		m_Buffer->texCoord = vec2(1, 0);
-		m_Buffer->color = vec4(1.0f);
+		m_Buffer->texCoord = vec2(glyph->s0, glyph->t1);
+		m_Buffer->color = color;
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x1, y1);
+		m_Buffer->texCoord = vec2(glyph->s1, glyph->t1);
+		m_Buffer->color = color;
+		m_Buffer->textureID = textureID;
+		m_Buffer++;
+
+		m_Buffer->position = vec3(x0, y1);
+		m_Buffer->texCoord = vec2(glyph->s1, glyph->t0);
+		m_Buffer->color = color;
 		m_Buffer->textureID = textureID;
 		m_Buffer++;
 		m_IndexCount += 6;
 
-		x += glyph->advance_x * 0.1f;
+		x += glyph->advance_x;
 	}
 
-	font.UpdateTexture();
+	font.UpdateAtlasTexture();
 }
 
 float Renderer2D::SubmitTexture(uint textureID)

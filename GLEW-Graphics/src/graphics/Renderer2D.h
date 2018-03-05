@@ -33,7 +33,7 @@ public:
 
 	void Submit(Sprite* sprite, float x, float y, float width, float height);
 
-	void DrawString(const String& text, float x, float y, Font& font);
+	void DrawString(const String& text, float x, float y, Font& font, vec4& color);
 
 	void End();
 	void Flush();
