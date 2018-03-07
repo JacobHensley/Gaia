@@ -14,9 +14,12 @@ private:
 	ftgl::texture_atlas_t* m_FTAtlas;
 	ftgl::texture_font_t* m_FTFont;
 public:
-	Font(const String& filePath, float size);
+	Font(const String& name, const String& filePath, float size);
 
 	void UpdateAtlasTexture();
+
+	inline const String& GetName() const { return m_Name; }
+	inline float GetSize() const { return m_Size; }
 
 	inline Texture* GetAtlasTexture() const { return m_AtlasTexture; }
 	inline ftgl::texture_atlas_t* GetAtlas() const { return m_FTAtlas; }

@@ -137,8 +137,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\demo\Packer\Packer.cpp" />
-    <ClCompile Include="src\demo\DemoLayer.cpp" />
     <ClCompile Include="src\GameLayer.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\PlayerComponent.cpp" />

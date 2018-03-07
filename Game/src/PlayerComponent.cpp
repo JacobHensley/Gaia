@@ -27,12 +27,6 @@ void PlayerComponent::OnUpdate(TimeStep timeStep)
 		app.SetActiveLayer(1);
 	}
 
-	if (app.IsKeyPressed(GLFW_KEY_F3))
-	{
-		app.SetActiveLayer(2);
-	}
-
-
 	if (app.IsKeyPressed(GLFW_KEY_UP))
 	{
 		pos.y += speed;
