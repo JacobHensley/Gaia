@@ -33,6 +33,8 @@ public:
 
 	void Submit(Sprite* sprite, float x, float y, float width, float height);
 
+	void DrawTriangle(const vec4& color, float x, float y, float width, float height);
+
 	void DrawString(const String& text, float x, float y, Font& font, vec4& color);
 
 	void End();

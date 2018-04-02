@@ -62,8 +62,8 @@ void Application::Run()
 		nbFrames++;
 		if (currentTime - lastTime >= 1.0) 
 		{
-	//		printf("ms/frame: %f", 1000.0 / double(nbFrames));
-	//		printf(" | FPS: %f\n", double(nbFrames));
+//			printf("ms/frame: %f", 1000.0 / double(nbFrames));
+//			printf(" | FPS: %f\n", double(nbFrames));
 			nbFrames = 0;
 			lastTime += 1.0;
 		}

@@ -70,29 +70,30 @@ void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float hei
 	if (sprite->GetTexture())
 		textureID = SubmitTexture(sprite->GetTexture());
 
-	m_Buffer->position = vec3(x, y);
+	m_Buffer->position = vec3(x, y + height);
 	m_Buffer->texCoord = vec2(0, 0);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
-	m_Buffer->position = vec3(x, y + height);
+	m_Buffer->position = vec3(x, y);
 	m_Buffer->texCoord = vec2(0, 1);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
-	m_Buffer->position = vec3(x + width, y + height);
+	m_Buffer->position = vec3(x + width, y);
 	m_Buffer->texCoord = vec2(1, 1);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
 
-	m_Buffer->position = vec3(x + width, y);
+	m_Buffer->position = vec3(x + width, y + height);
 	m_Buffer->texCoord = vec2(1, 0);
 	m_Buffer->color = sprite->m_Color;
 	m_Buffer->textureID = textureID;
 	m_Buffer++;
+
 	m_IndexCount += 6;
 }
 
@@ -146,6 +147,7 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font, ve
 		m_Buffer->color = color;
 		m_Buffer->textureID = textureID;
 		m_Buffer++;
+
 		m_IndexCount += 6;
 
 		x += glyph->advance_x;
