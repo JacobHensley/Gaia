@@ -21,5 +21,5 @@ void main()
 		textureColor = texture(u_Textures[tid], tc);
 	}
 	
-	color = textureColor * f_Color;
+	color = vec4(1, 1, 1, textureColor.r); //textureColor * f_Color;
 }

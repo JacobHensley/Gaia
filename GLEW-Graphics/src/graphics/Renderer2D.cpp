@@ -27,6 +27,8 @@ void Renderer2D::Init()
 {
 	const uint MAX_SPRITES = 100000;
 
+	const uint MAX_TEXT_CHARS = 1000;
+
 	const uint INDEX_BUFFER_SIZE = MAX_SPRITES * 6;
 	uint offset = 0;
 	uint* indices = new uint[INDEX_BUFFER_SIZE];
@@ -43,7 +45,9 @@ void Renderer2D::Init()
 		offset += 4;
 	}
 
-	m_VertexBuffer = new VertexBuffer(MAX_SPRITES * sizeof(float) * 5);
+	m_VertexBuffer = new VertexBuffer(MAX_SPRITES * sizeof(float) * 10);
+
+	m_TextVertexBuffer = new VertexBuffer(MAX_TEXT_CHARS * sizeof(float) * 10);
 
 	BufferLayout layout;
 	layout.Push<vec3>("Position");
@@ -53,14 +57,22 @@ void Renderer2D::Init()
 
 	m_VertexBuffer->SetLayout(layout);
 
+	m_TextVertexBuffer->SetLayout(layout);
+
 	m_IndexBuffer = new IndexBuffer(indices, INDEX_BUFFER_SIZE);
 	delete[] indices;
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void Renderer2D::Begin()
 {
 	m_VertexBuffer->Bind();
 	m_Buffer = m_VertexBuffer->Map<Vertex>();
+
+	m_TextVertexBuffer->Bind();
+	m_TextBuffer = m_TextVertexBuffer->Map<Vertex>();
 }
 
 void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float height)
@@ -201,8 +213,13 @@ float Renderer2D::SubmitTexture(const Texture* texture)
 
 void Renderer2D::End()
 {
+	m_VertexBuffer->Bind();
 	m_VertexBuffer->Unmap();
 	m_VertexBuffer->Unbind();
+
+	m_TextVertexBuffer->Bind();
+	m_TextVertexBuffer->Unmap();
+	m_TextVertexBuffer->Unbind();
 }
 
 void Renderer2D::Flush()
@@ -213,20 +230,23 @@ void Renderer2D::Flush()
 		glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);
 	}
 
-	Shader* shader = Resource::GetAs<Shader>("Shader");
-	shader->Bind();
+	if (m_IndexCount > 0)
+	{
+		Shader* shader = Resource::GetAs<Shader>("Shader");
+		shader->Bind();
 
-	shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
-	shader->SetUniformMat4("u_ViewMatrix", m_Camera->GetViewMatrix());
-	shader->SetUniformMat4("u_ModelMatrix", mat4::Identity());
+		shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
+		shader->SetUniformMat4("u_ViewMatrix", m_Camera->GetViewMatrix());
+		shader->SetUniformMat4("u_ModelMatrix", mat4::Identity());
 
-	m_VertexBuffer->Bind();
-	m_IndexBuffer->Bind();
+		m_VertexBuffer->Bind();
+		m_IndexBuffer->Bind();
 
-	m_IndexBuffer->Draw(m_IndexCount);
-	
-	m_IndexBuffer->Unbind();
-	m_VertexBuffer->Unbind();
+		m_IndexBuffer->Draw(m_IndexCount);
+
+		m_IndexBuffer->Unbind();
+		m_VertexBuffer->Unbind();
+	}
 
 	m_IndexCount = 0;
 

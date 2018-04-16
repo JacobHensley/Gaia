@@ -1,7 +1,7 @@
 #pragma once
 
 #include <queue>
-#include "Camera\Camera.h"
+#include "Camera/Camera.h"
 #include "Sprite.h"
 #include "Texture.h"
 #include "Font.h"
@@ -21,7 +21,9 @@ private:
 	int m_Width, m_Height;
 	CameraRef m_Camera;
 	Vertex* m_Buffer;
+	Vertex* m_TextBuffer;
 	VertexBuffer* m_VertexBuffer;
+	VertexBuffer* m_TextVertexBuffer;
 	IndexBufferRef m_IndexBuffer;
 	uint m_IndexCount;
 
@@ -32,8 +34,6 @@ public:
 	void Begin();
 
 	void Submit(Sprite* sprite, float x, float y, float width, float height);
-
-	void DrawTriangle(const vec4& color, float x, float y, float width, float height);
 
 	void DrawString(const String& text, float x, float y, Font& font, vec4& color);
 

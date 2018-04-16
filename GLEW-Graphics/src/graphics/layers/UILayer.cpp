@@ -24,7 +24,7 @@ void UILayer::OnRender()
 {
 	m_Renderer->Begin();
 
-	m_Renderer->DrawString("Hello!y", 100.0f, 200.0f, *FontManager::GetFont("calibri", 64), vec4(1.0f));
+	m_Renderer->DrawString("Hey!", 100.0f, 200.0f, *FontManager::GetFont("calibri", 64), vec4(1.0f));
 
 	m_Renderer->End();
 	m_Renderer->Flush();
