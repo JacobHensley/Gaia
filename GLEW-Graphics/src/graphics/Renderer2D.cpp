@@ -232,20 +232,32 @@ void Renderer2D::Flush()
 
 	if (m_IndexCount > 0)
 	{
-		Shader* shader = Resource::GetAs<Shader>("Shader");
-		shader->Bind();
+		mat4 mvp = m_Camera->GetProjectionMatrix() *  m_Camera->GetViewMatrix() *mat4::Identity();
 
-		shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
-		shader->SetUniformMat4("u_ViewMatrix", m_Camera->GetViewMatrix());
-		shader->SetUniformMat4("u_ModelMatrix", mat4::Identity());
+		//Geometry pass
+		{
+			Shader* shader = Resource::GetAs<Shader>("Shader");
+			shader->Bind();
+			shader->SetUniformMat4("u_MVP", mvp);
 
-		m_VertexBuffer->Bind();
-		m_IndexBuffer->Bind();
+			m_VertexBuffer->Bind();
+			m_IndexBuffer->Bind();
 
-		m_IndexBuffer->Draw(m_IndexCount);
+			m_IndexBuffer->Draw(m_IndexCount);
+		}
 
-		m_IndexBuffer->Unbind();
-		m_VertexBuffer->Unbind();
+		//Text pass
+		{
+			Shader* shader = Resource::GetAs<Shader>("TextShader");
+			shader->Bind();
+			shader->SetUniformMat4("u_MVP", mvp);
+
+			m_TextVertexBuffer->Bind();
+			m_IndexBuffer->Bind();
+
+			m_IndexBuffer->Draw(m_IndexCount);
+		}
+
 	}
 
 	m_IndexCount = 0;

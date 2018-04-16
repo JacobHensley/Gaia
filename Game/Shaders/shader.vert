@@ -10,13 +10,11 @@ out vec2 f_TexCoord;
 out float f_TextureID;
 out vec4 f_Color;
 
-uniform mat4 u_ModelMatrix;
-uniform mat4 u_ViewMatrix;
-uniform mat4 u_ProjMatrix;
+uniform mat4 u_MVP;
 
 void main() 
 {
-	gl_Position = u_ProjMatrix * u_ViewMatrix * u_ModelMatrix * position;
+	gl_Position = u_MVP * position;
 
 	f_Position = position;
 	f_TexCoord = texCoord;
