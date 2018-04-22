@@ -6,10 +6,12 @@
 #include <unordered_map>
 #include "../utils/Resource.h"
 
+struct ShaderSource;
+
 class Shader
 {
 public:
-	Shader(const String& vertPath, const String& fragPath);
+	Shader(const String& filePath);
 	~Shader();
 
 	void Bind();
@@ -33,7 +35,9 @@ public:
 	static inline Resource::ResourceType GetType() { return Resource::ResourceType::SHADER; }
 private:
 	uint m_ShaderID;
-	String m_VertPath, m_FragPath;
+	String m_FilePath;
+	ShaderSource ParseShader(const String& filePath);
+	int CompileShader(uint shader, const String& shaderSrc);
 	uint Load();
 	std::unordered_map<String, int> m_UniformLocationCache;
 };

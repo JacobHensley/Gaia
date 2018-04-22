@@ -1,8 +1,16 @@
 #include "Shader.h"
 #include <GL/glew.h>
+#include <fstream>
+#include <sstream>
 
-Shader::Shader(const String& vertPath, const String& fragPath)
-	:	m_VertPath(vertPath), m_FragPath(fragPath)	
+struct ShaderSource
+{
+	String VertexSource;
+	String FragmentSource;
+};
+
+Shader::Shader(const String& filePath)
+	: m_FilePath(filePath)
 {
 	m_ShaderID = Load();
 	ASSERT(m_ShaderID);
@@ -13,64 +21,90 @@ Shader::~Shader()
 	GLCall(glDeleteProgram(m_ShaderID));
 }
 
+ShaderSource Shader::ParseShader(const String& filePath)
+{
+	std::ifstream stream(filePath);
+
+	enum class ShaderType 
+	{
+		NONE = -1, VERTEX = 0, FRAGMENT = 1
+	};
+
+	ShaderType type = ShaderType::NONE;
+	std::stringstream ss[2];
+	String line;
+	while (getline(stream, line))
+	{
+		if (line.find("#Shader") != String::npos)
+		{
+			if (line.find("Vertex") != String::npos)
+			{
+				type = ShaderType::VERTEX;
+			} 
+			else if (line.find("Fragment") != String::npos)
+			{
+				type = ShaderType::FRAGMENT;
+			}
+		} 
+		else
+		{
+			ss[(int)type] << line << '\n';
+		}
+	}
+	return { ss[0].str(), ss[1].str() };
+}
+
+int Shader::CompileShader(uint shader, const String& shaderSrc)
+{
+	const char* vs = shaderSrc.c_str();
+	GLCall(glShaderSource(shader, 1, &vs, NULL));
+	GLCall(glCompileShader(shader));
+
+	int compileResult;
+	GLCall(glGetShaderiv(shader, GL_COMPILE_STATUS, &compileResult));
+
+	if (compileResult == GL_FALSE)
+	{
+		int length;
+		GLCall(glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length));
+		std::vector<char> error(length);
+		GLCall(glGetShaderInfoLog(shader, length, &length, &error[0]));
+
+		std::cout << &error[0] << std::endl;
+		std::cout << "Shader failed to compile!" << std::endl;
+		GLCall(glDeleteShader(shader));
+		return 0;
+	}
+
+	return 1;
+}
+
 uint Shader::Load()
 {
 	GLCall(uint program = glCreateProgram());
 	GLCall(uint vertex = glCreateShader(GL_VERTEX_SHADER));
 	GLCall(uint fragment = glCreateShader(GL_FRAGMENT_SHADER));
 
-	String vertexSrc = ReadFile(m_VertPath);
-	String fragSrc = ReadFile(m_FragPath);
+	ShaderSource shaderSrc = ParseShader(m_FilePath);
 
-	const char* vs = vertexSrc.c_str();
-	GLCall(glShaderSource(vertex, 1, &vs, NULL));
-	GLCall(glCompileShader(vertex));
+	String vertexSrc = shaderSrc.VertexSource;
+	String fragSrc = shaderSrc.FragmentSource;
 
-	int compileResult;
-	GLCall(glGetShaderiv(vertex, GL_COMPILE_STATUS, &compileResult));
-
-	if (compileResult == GL_FALSE) 
+	if (CompileShader(vertex, vertexSrc) && CompileShader(fragment, fragSrc)) 
 	{
-		int length;
-		GLCall(glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &length));
-		std::vector<char> error(length);
-		GLCall(glGetShaderInfoLog(vertex, length, &length, &error[0]));
+		GLCall(glAttachShader(program, vertex));
+		GLCall(glAttachShader(program, fragment));
 
-		std::cout << &error[0] << std::endl;
-		std::cout << "Vertex shader failed to compile" << std::endl;
+		GLCall(glLinkProgram(program));
+		GLCall(glValidateProgram(program));
+
 		GLCall(glDeleteShader(vertex));
-		return 0;
-	}
-
-	const char* fs = fragSrc.c_str();
-	GLCall(glShaderSource(fragment, 1, &fs, NULL));
-	GLCall(glCompileShader(fragment));
-
-	GLCall(glGetShaderiv(fragment, GL_COMPILE_STATUS, &compileResult));
-
-	if (compileResult == GL_FALSE) 
-	{
-		int length;
-		GLCall(glGetShaderiv(fragment, GL_INFO_LOG_LENGTH, &length));
-		std::vector<char> error(length);
-		GLCall(glGetShaderInfoLog(fragment, length, &length, &error[0]));
-
-		std::cout << &error[0] << std::endl;
-		std::cout << "Fragment shader failed to compile" << std::endl;
 		GLCall(glDeleteShader(fragment));
-		return 0;
+
+		return program;
 	}
 
-	GLCall(glAttachShader(program, vertex));
-	GLCall(glAttachShader(program, fragment));
-
-	GLCall(glLinkProgram(program));
-	GLCall(glValidateProgram(program));
-
-	GLCall(glDeleteShader(vertex));
-	GLCall(glDeleteShader(fragment));
-
-	return program;
+	return 0;
 }
 
 void Shader::Bind()

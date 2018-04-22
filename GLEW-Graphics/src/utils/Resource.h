@@ -18,7 +18,7 @@ private:
 	Resource() {}
 public:
 	static Texture* LoadTexture(const String& name, const String& path);
-	static Shader* LoadShader(const String& name, const String& vertexPath, const String& fragmentPath);
+	static Shader* LoadShader(const String& name, const String& filePath);
 
 	static void* Get(const String& name);
 

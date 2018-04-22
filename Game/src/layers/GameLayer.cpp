@@ -19,8 +19,8 @@ GameLayer::GameLayer(const String& name)
 	m_Camera = new OrthographicCamera(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f);
 	m_Renderer->SetCamera(m_Camera);
 
-	ASSERT(Resource::LoadShader("TextShader", "shaders/text.vert", "shaders/text.frag"));
-	ASSERT(Resource::LoadShader("Shader", "shaders/shader.vert", "shaders/shader.frag"));
+	ASSERT(Resource::LoadShader("TextShader", "shaders/Basic.shader"));
+	ASSERT(Resource::LoadShader("Shader", "shaders/Text.shader"));
 	Shader* shader = Resource::GetAs<Shader>("Shader");
 
 	shader->SetTextureIDs("u_Textures");

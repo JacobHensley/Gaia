@@ -16,9 +16,9 @@ Texture* Resource::LoadTexture(const String& name, const String& path)
 	return texture;
 }
 
-Shader* Resource::LoadShader(const String& name, const String& vertexPath, const String& fragmentPath)
+Shader* Resource::LoadShader(const String& name, const String& filePath)
 {
-	Shader* shader = new Shader(vertexPath, fragmentPath);
+	Shader* shader = new Shader(filePath);
 #if _DEBUG 
 	if (s_ResourceMap.find(name) != s_ResourceMap.end()) {
 		std::cout << "Warning: overwriting existing resource " << name << "!" << std::endl;
