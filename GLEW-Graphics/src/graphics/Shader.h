@@ -1,10 +1,10 @@
 #pragma once
-#include "../Common.h"
+#include "../utils/Common.h"
 #include "../utils/FileUtils.h"
 #include <vector>
 #include "../math/math.h" 
 #include <unordered_map>
-#include "../Resource.h"
+#include "../utils/Resource.h"
 
 class Shader
 {

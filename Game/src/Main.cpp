@@ -1,8 +1,8 @@
 #include <iostream>
+#include "layers/GameLayer.h"
+#include "layers/UILayer.h"
 #include "Application.h"
-#include "GameLayer.h"
 #include "game/Level.h"
-#include "graphics/layers/UILayer.h"
 
 int main()
 {

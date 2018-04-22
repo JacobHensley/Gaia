@@ -86,7 +86,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;_HAS_EXCEPTIONS=0;NOT_USING_FT_GL_NAMESPACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ExceptionHandling>false</ExceptionHandling>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeTypeGL;$(SolutionDir)Dependencies\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeTypeGL;$(SolutionDir)Dependencies\GLEW\include;src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;_HAS_EXCEPTIONS=0;NOT_USING_FT_GL_NAMESPACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ExceptionHandling>false</ExceptionHandling>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeTypeGL;$(SolutionDir)Dependencies\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeTypeGL;$(SolutionDir)Dependencies\GLEW\include;src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -137,9 +137,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\GameLayer.cpp" />
+    <ClCompile Include="src\layers\GameLayer.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\PlayerComponent.cpp" />
+    <ClCompile Include="src\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dependencies\FreeTypeGL\FreeTypeGL\FreeTypeGL.vcxproj">
@@ -161,8 +162,9 @@
   <ItemGroup>
     <ClInclude Include="src\demo\Packer\Packer.h" />
     <ClInclude Include="src\demo\DemoLayer.h" />
-    <ClInclude Include="src\GameLayer.h" />
+    <ClInclude Include="src\layers\GameLayer.h" />
     <ClInclude Include="src\PlayerComponent.h" />
+    <ClInclude Include="src\layers\UILayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\shader.frag" />

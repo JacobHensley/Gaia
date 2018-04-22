@@ -1,6 +1,6 @@
 #pragma once
-#include "../Common.h"
-#include "RefCounted.h"
+#include "../utils/Common.h"
+#include "utils/RefCounted.h"
 
 class IndexBuffer : public RefCounted
 {

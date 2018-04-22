@@ -284,7 +284,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\debug\DebugGraphics.cpp" />
+    <ClCompile Include="src\debug\DebugLayer.cpp" />
     <ClCompile Include="src\game\component\SpriteComponent.cpp" />
     <ClCompile Include="src\game\component\TransformComponent.cpp" />
     <ClCompile Include="src\game\Entity.cpp" />
@@ -292,7 +292,7 @@
     <ClCompile Include="src\graphics\BufferLayout.cpp" />
     <ClCompile Include="src\graphics\Camera\Camera.cpp" />
     <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\GLError.cpp" />
+    <ClCompile Include="src\utils\GLError.cpp" />
     <ClCompile Include="src\graphics\Font.cpp" />
     <ClCompile Include="src\graphics\FontManager.cpp" />
     <ClCompile Include="src\graphics\Material.cpp" />
@@ -311,11 +311,10 @@
     <ClCompile Include="src\math\vec2.cpp" />
     <ClCompile Include="src\math\vec3.cpp" />
     <ClCompile Include="src\math\vec4.cpp" />
-    <ClCompile Include="src\Resource.cpp" />
-    <ClCompile Include="src\graphics\layers\UILayer.cpp" />
+    <ClCompile Include="src\utils\Resource.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\debug\DebugGraphics.h" />
+    <ClInclude Include="src\debug\DebugLayer.h" />
     <ClInclude Include="src\game\component\Component.h" />
     <ClInclude Include="src\game\component\ComponentCahe.h" />
     <ClInclude Include="src\game\component\GameComponent.h" />
@@ -326,8 +325,8 @@
     <ClInclude Include="src\graphics\BufferLayout.h" />
     <ClInclude Include="src\graphics\Camera\Camera.h" />
     <ClInclude Include="src\Application.h" />
-    <ClInclude Include="src\Common.h" />
-    <ClInclude Include="src\GLError.h" />
+    <ClInclude Include="src\utils\Common.h" />
+    <ClInclude Include="src\utils\GLError.h" />
     <ClInclude Include="src\graphics\Font.h" />
     <ClInclude Include="src\graphics\FontManager.h" />
     <ClInclude Include="src\graphics\Material.h" />
@@ -348,12 +347,11 @@
     <ClInclude Include="src\math\vec2.h" />
     <ClInclude Include="src\math\vec3.h" />
     <ClInclude Include="src\math\vec4.h" />
-    <ClInclude Include="src\RefCounted.h" />
-    <ClInclude Include="src\Resource.h" />
-    <ClInclude Include="src\TimeStep.h" />
+    <ClInclude Include="src\utils\RefCounted.h" />
+    <ClInclude Include="src\utils\Resource.h" />
+    <ClInclude Include="src\utils\TimeStep.h" />
     <ClInclude Include="src\utils\FileUtils.h" />
     <ClInclude Include="src\utils\Timer.h" />
-    <ClInclude Include="src\graphics\layers\UILayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\shader.frag" />

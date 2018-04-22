@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../../math/mat4.h"
-#include "RefCounted.h"
-#include "TimeStep.h"
+#include "utils/RefCounted.h"
+#include "utils/TimeStep.h"
 
 class Camera : public  RefCounted
 {

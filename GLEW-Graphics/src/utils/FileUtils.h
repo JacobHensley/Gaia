@@ -2,9 +2,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <algorithm>
-#include "../Common.h"
+#include "../utils/Common.h"
 
-static std::string ReadFile(const String& path) 
+static String ReadFile(const String& path) 
 {
 	FILE* file = fopen(path.c_str(), "rb");
 	if (!file) {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Common.h"
+#include "../utils/Common.h"
 
 #include "vec3.h"
 #include "vec4.h"

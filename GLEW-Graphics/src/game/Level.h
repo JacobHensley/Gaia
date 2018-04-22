@@ -1,11 +1,11 @@
 #pragma once
 
 #include <vector>
-#include "RefCounted.h"
+#include "utils/RefCounted.h"
 #include <type_traits>
 #include "graphics/Renderer2D.h"
 #include "component/ComponentCahe.h"
-#include "TimeStep.h"
+#include "utils/TimeStep.h"
 
 class Entity;
 typedef Ref<Entity> EntityRef;

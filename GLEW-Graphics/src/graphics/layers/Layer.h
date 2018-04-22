@@ -1,7 +1,7 @@
 #pragma once
 #include "../Renderer2D.h"
-#include "../../Common.h"
-#include "TimeStep.h"
+#include "../../utils/Common.h"
+#include "utils/TimeStep.h"
 
 class Layer 
 {

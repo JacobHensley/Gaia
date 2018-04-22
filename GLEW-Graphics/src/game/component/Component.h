@@ -1,7 +1,7 @@
 #pragma once
-#include "Common.h"
+#include "utils/Common.h"
 #include "game/Entity.h"
-#include "RefCounted.h"
+#include "utils/RefCounted.h"
 
 class Entity;
 

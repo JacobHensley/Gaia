@@ -3,7 +3,7 @@
 #include "game/component/GameComponent.h"
 #include "game/component/TransformComponent.h"
 #include "game/component/SpriteComponent.h"
-#include "TimeStep.h"
+#include "utils/TimeStep.h"
 
 class PlayerComponent : public GameComponent
 {

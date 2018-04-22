@@ -1,5 +1,5 @@
 #include "GLError.h"
-#include <gl\glew.h>
+#include <gl/glew.h>
 #include <iostream>
 
 unsigned int GLCheckError()

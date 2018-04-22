@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RefCounted.h"
+#include "utils/RefCounted.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "Shader.h"

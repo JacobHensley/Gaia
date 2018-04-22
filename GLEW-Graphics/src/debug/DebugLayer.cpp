@@ -1,11 +1,11 @@
-#include "DebugGraphics.h"
-#include "graphics\Camera\OrthographicCamera.h"
-#include "TimeStep.h"
+#include "DebugLayer.h"
+#include "graphics/Camera/OrthographicCamera.h"
+#include "utils/TimeStep.h"
 
-DebugGraphics* DebugGraphics::s_Instance = nullptr;
+DebugLayer* DebugLayer::s_Instance = nullptr;
 
-DebugGraphics::DebugGraphics()
-	: Layer("DebugGraphics")
+DebugLayer::DebugLayer()
+	: Layer("DebugLayer")
 {
 	s_Instance = this;
 
@@ -15,11 +15,11 @@ DebugGraphics::DebugGraphics()
 	m_Renderer->SetCamera(m_Camera);
 }
 
-void DebugGraphics::OnUpdate(TimeStep timeStep)
+void DebugLayer::OnUpdate(TimeStep timeStep)
 {
 }
 
-void DebugGraphics::OnRender()
+void DebugLayer::OnRender()
 {
 	m_Renderer->Begin();
 
@@ -40,7 +40,7 @@ void DebugGraphics::OnRender()
 	m_RenderBuffer.clear();
 }
 
-void DebugGraphics::DrawSprite(Sprite* sprite, const mat4& transform)
+void DebugLayer::DrawSprite(Sprite* sprite, const mat4& transform)
 {
 	m_RenderBuffer.push_back(new RenderCommand(sprite, transform));
 }

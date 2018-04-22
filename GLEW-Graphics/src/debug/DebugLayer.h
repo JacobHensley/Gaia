@@ -3,7 +3,7 @@
 #include "graphics/layers/Layer.h"
 #include "graphics/Sprite.h"
 
-class DebugGraphics : public Layer 
+class DebugLayer : public Layer 
 {
 private:
 	struct RenderCommand 
@@ -24,11 +24,11 @@ private:
 	};
 
 private:
-	static DebugGraphics* s_Instance;
+	static DebugLayer* s_Instance;
 private:
 	std::vector<RenderCommand*> m_RenderBuffer;
 public:
-	DebugGraphics();
+	DebugLayer();
 
 	void DrawSprite(Sprite* sprite, const mat4& transform);
 

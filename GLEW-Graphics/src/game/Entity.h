@@ -1,7 +1,7 @@
 #pragma once
-#include "RefCounted.h"
+#include "utils/RefCounted.h"
 #include "component/Component.h"
-#include "TimeStep.h"
+#include "utils/TimeStep.h"
 
 class Component;
 typedef Ref<Component> ComponentRef;

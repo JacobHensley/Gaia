@@ -1,7 +1,7 @@
 #include "Application.h"
-#include "debug/DebugGraphics.h"
+#include "debug/DebugLayer.h"
 #include <GLFW/glfw3.h>
-#include "TimeStep.h"
+#include "utils/TimeStep.h"
 
 Application* Application::s_Application = nullptr;
 
@@ -9,7 +9,7 @@ Application::Application(const String& name, int width, int height)
 {
 	s_Application = this;
 	m_Window = new Window(name.c_str(), width, height);
-	PushOverlay(new DebugGraphics());
+	PushOverlay(new DebugLayer());
 	lastTime = glfwGetTime();
 }
 

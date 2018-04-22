@@ -1,5 +1,5 @@
 #pragma once
-#include "Common.h"
+#include "utils/Common.h"
 #include "math/vec3.h"
 
 #define GL_BYTE 0x1400

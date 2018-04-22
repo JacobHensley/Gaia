@@ -1,16 +1,16 @@
 #include "GameLayer.h"
 #include "graphics/Camera/OrthographicCamera.h"
 #include "graphics/Camera/PerspectiveCamera.h"
-#include "debug/DebugGraphics.h"
+#include "debug/DebugLayer.h"
 #include "Application.h"
-#include "Resource.h"
+#include "utils/Resource.h"
 #include <vector>
 #include <GLFW/glfw3.h>
 #include "game/Entity.h"
 #include "game/component/TransformComponent.h"
 #include "game/component/SpriteComponent.h"
 #include "PlayerComponent.h"
-#include "TimeStep.h"
+#include "utils/TimeStep.h"
 #include "graphics/FontManager.h"
 
 GameLayer::GameLayer(const String& name)
