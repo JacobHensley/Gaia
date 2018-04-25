@@ -136,29 +136,29 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font, ve
 		float x1 = x + glyph->offset_x + glyph->width;
 		float y1 = y - glyph->offset_y;
 
-		m_Buffer->position = vec3(x0, y0);
-		m_Buffer->texCoord = vec2(glyph->s0, glyph->t1);
-		m_Buffer->color = color;
-		m_Buffer->textureID = textureID;
-		m_Buffer++;
+		m_TextBuffer->position = vec3(x0, y0);
+		m_TextBuffer->texCoord = vec2(glyph->s0, glyph->t1);
+		m_TextBuffer->color = color;
+		m_TextBuffer->textureID = textureID;
+		m_TextBuffer++;
 
-		m_Buffer->position = vec3(x1, y0);
-		m_Buffer->texCoord = vec2(glyph->s1, glyph->t1);
-		m_Buffer->color = color;
-		m_Buffer->textureID = textureID;
-		m_Buffer++;
+		m_TextBuffer->position = vec3(x1, y0);
+		m_TextBuffer->texCoord = vec2(glyph->s1, glyph->t1);
+		m_TextBuffer->color = color;
+		m_TextBuffer->textureID = textureID;
+		m_TextBuffer++;
 
-		m_Buffer->position = vec3(x1, y1);
-		m_Buffer->texCoord = vec2(glyph->s1, glyph->t0);
-		m_Buffer->color = color;
-		m_Buffer->textureID = textureID;
-		m_Buffer++;
+		m_TextBuffer->position = vec3(x1, y1);
+		m_TextBuffer->texCoord = vec2(glyph->s1, glyph->t0);
+		m_TextBuffer->color = color;
+		m_TextBuffer->textureID = textureID;
+		m_TextBuffer++;
 
-		m_Buffer->position = vec3(x0, y1);
-		m_Buffer->texCoord = vec2(glyph->s0, glyph->t0);
-		m_Buffer->color = color;
-		m_Buffer->textureID = textureID;
-		m_Buffer++;
+		m_TextBuffer->position = vec3(x0, y1);
+		m_TextBuffer->texCoord = vec2(glyph->s0, glyph->t0);
+		m_TextBuffer->color = color;
+		m_TextBuffer->textureID = textureID;
+		m_TextBuffer++;
 
 		m_IndexCount += 6;
 
@@ -232,7 +232,7 @@ void Renderer2D::Flush()
 
 	if (m_IndexCount > 0)
 	{
-		mat4 mvp = m_Camera->GetProjectionMatrix() *  m_Camera->GetViewMatrix() *mat4::Identity();
+		mat4 mvp = m_Camera->GetProjectionMatrix() *  m_Camera->GetViewMatrix() * mat4::Identity();
 
 		//Geometry pass
 		{

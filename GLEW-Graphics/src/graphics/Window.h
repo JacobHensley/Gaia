@@ -18,6 +18,7 @@ public:
 
 	inline int GetWidth() { return m_Width; }
 	inline int GetHeight() { return m_Height; }
+	inline GLFWwindow* GetWindow() { return m_Window; }
 private:
 	GLFWwindow* m_Window;
 

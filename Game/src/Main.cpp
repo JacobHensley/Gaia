@@ -11,7 +11,4 @@ int main()
 	app.PushLayer(new GameLayer("GameLayer"));
 	app.PushLayer(new UILayer("UILayer"));
 	app.Run();
-
-	//Watch Shader video
-	//Change Shaders to one shader
 }
