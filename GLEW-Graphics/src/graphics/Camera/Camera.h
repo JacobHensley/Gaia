@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../math/mat4.h"
+#include "math/mat4.h"
 #include "utils/RefCounted.h"
 #include "utils/TimeStep.h"
 

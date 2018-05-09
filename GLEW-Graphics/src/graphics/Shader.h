@@ -1,10 +1,10 @@
 #pragma once
-#include "../utils/Common.h"
-#include "../utils/FileUtils.h"
+#include "utils/Common.h"
+#include "utils/FileUtils.h"
 #include <vector>
-#include "../math/math.h" 
+#include "math/math.h" 
 #include <unordered_map>
-#include "../utils/Resource.h"
+#include "utils/Resource.h"
 
 struct ShaderSource;
 

@@ -13,5 +13,9 @@ Font::Font(const String& name, const String& filePath, float size)
 
 void Font::UpdateAtlasTexture()
 {
-	m_AtlasTexture->SetData(m_FTAtlas->data, m_FTAtlas->width * m_FTAtlas->height);
+	if (m_FTAtlas->dirty) 
+	{
+		m_AtlasTexture->SetData(m_FTAtlas->data, m_FTAtlas->width * m_FTAtlas->height);
+		m_FTAtlas->dirty = 0;
+	}
 }

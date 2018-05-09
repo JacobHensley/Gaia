@@ -5,7 +5,7 @@
 class GameLayer : public Layer {
 public:	
 	GameLayer(const String& name);
-	void Init();
+	void OnInit();
 
 	void OnUpdate(TimeStep timeStep) override;
 	void OnRender() override;

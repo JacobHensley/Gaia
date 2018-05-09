@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <algorithm>
-#include "../utils/Common.h"
+#include "Common.h"
 
 static String ReadFile(const String& path) 
 {

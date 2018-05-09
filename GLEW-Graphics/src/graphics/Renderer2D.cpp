@@ -115,7 +115,6 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font, ve
 	ftgl::texture_atlas_t* ftAtlas = font.GetAtlas();
 
 	Texture* atlasTexture = font.GetAtlasTexture();
-	atlasTexture->SetData(ftAtlas->data, ftAtlas->width * ftAtlas->height);
 
 	for (int i = 0; i < text.size(); i++)
 	{

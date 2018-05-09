@@ -1,6 +1,7 @@
 #include <iostream>
 #include "layers/GameLayer.h"
 #include "layers/UILayer.h"
+#include "graphics/layers/IamGUILayer.h"
 #include "Application.h"
 #include "game/Level.h"
 
@@ -10,5 +11,6 @@ int main()
 
 	app.PushLayer(new GameLayer("GameLayer"));
 	app.PushLayer(new UILayer("UILayer"));
+	app.PushLayer(new IamGUILayer("IamGUILayer"));
 	app.Run();
 }

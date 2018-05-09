@@ -1,6 +1,6 @@
 #pragma once
-#include "../utils/Common.h"
-#include "../utils/Resource.h"
+#include "utils/Common.h"
+#include "utils/Resource.h"
 #include "utils/RefCounted.h"
 #include <ft2build.h>
 #include FT_FREETYPE_H

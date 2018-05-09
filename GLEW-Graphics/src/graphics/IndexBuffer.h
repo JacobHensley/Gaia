@@ -1,5 +1,5 @@
 #pragma once
-#include "../utils/Common.h"
+#include "utils/Common.h"
 #include "utils/RefCounted.h"
 
 class IndexBuffer : public RefCounted

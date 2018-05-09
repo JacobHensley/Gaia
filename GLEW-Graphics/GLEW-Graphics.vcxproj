@@ -292,6 +292,7 @@
     <ClCompile Include="src\graphics\BufferLayout.cpp" />
     <ClCompile Include="src\graphics\Camera\Camera.cpp" />
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\graphics\layers\IamGUILayer.cpp" />
     <ClCompile Include="src\utils\GLError.cpp" />
     <ClCompile Include="src\graphics\Font.cpp" />
     <ClCompile Include="src\graphics\FontManager.cpp" />
@@ -329,6 +330,7 @@
     <ClInclude Include="src\graphics\BufferLayout.h" />
     <ClInclude Include="src\graphics\Camera\Camera.h" />
     <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\graphics\layers\IamGUILayer.h" />
     <ClInclude Include="src\utils\Common.h" />
     <ClInclude Include="src\utils\GLError.h" />
     <ClInclude Include="src\graphics\Font.h" />

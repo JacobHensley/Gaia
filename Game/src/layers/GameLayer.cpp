@@ -27,10 +27,10 @@ GameLayer::GameLayer(const String& name)
 
 	ASSERT(Resource::LoadTexture("Jungle", "res/textures/jungle.png"));
 
-	Init();
+	OnInit();
 }
 
-void GameLayer::Init()
+void GameLayer::OnInit()
 {
 	m_Level = new Level();
 	m_Level->OnInit();

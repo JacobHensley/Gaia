@@ -110,6 +110,8 @@ typedef struct texture_atlas_t
      */
     unsigned char * data;
 
+	unsigned char dirty;
+
 } texture_atlas_t;
 
 

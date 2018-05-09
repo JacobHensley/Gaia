@@ -1,6 +1,6 @@
 #include "Camera.h"
 #include "OrthographicCamera.h"
-#include "../../Application.h"
+#include "Application.h"
 #include <GLFW/glfw3.h>
 
 OrthographicCamera::OrthographicCamera(float left, float right, float top, float bottom)

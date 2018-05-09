@@ -10,6 +10,11 @@ UILayer::UILayer(const String& name)
 	m_Camera = new OrthographicCamera(0, (float)m_Width, 0, (float)m_Height);
 	m_Renderer->SetCamera(m_Camera);
 
+	OnInit();
+}
+
+void UILayer::OnInit()
+{
 	s_Font = new Font("calibri", "res/fonts/calibri.ttf", 64);
 	FontManager::LoadFont(s_Font);
 }

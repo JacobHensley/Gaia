@@ -14,7 +14,7 @@ private:
 	std::vector<Layer*> m_OverlayStack;
 	TimeStep m_TimeStep;
 
-	int activeLayer = 1;
+	int activeLayer = 0;
 public:
 	Application(const String& name, int width, int height);
 	~Application();	
@@ -33,6 +33,7 @@ public:
 	inline void SetActiveLayer(int value) { activeLayer = value; }
 
 	inline bool IsKeyPressed(int keycode) const { ASSERT(keycode >= 0 && keycode < 1024); return m_Window->m_Keys[keycode]; }
+	inline Window* GetWindow() const { return m_Window; }
 
 	void Shutdown();
 public:
