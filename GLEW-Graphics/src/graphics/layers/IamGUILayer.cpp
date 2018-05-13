@@ -30,24 +30,60 @@ void IamGUILayer::OnUpdate(TimeStep timeStep)
 
 void IamGUILayer::OnRender()
 {
+	using namespace ImGui;
+
 	ImGui_ImplGlfwGL3_NewFrame();
+
+	if (BeginMainMenuBar())
+	{
+		if (BeginMenu("File"))
+		{
+			if (MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
+			if (MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
+			if (MenuItem("Close", "Ctrl+W")) { /* Do stuff */ }
+			ImGui::EndMenu();
+		}
+		EndMainMenuBar();
+	}
+
+	if (ImGui::TreeNode("Basic trees"))
+	{
+		for (int i = 0; i < 5; i++)
+			if (ImGui::TreeNode((void*)(intptr_t)i, "Child", i))
+			{
+				ImGui::Text("blah blah");
+		//		ImGui::SameLine();
+				if (ImGui::SmallButton("button")) {};
+				ImGui::TreePop();
+			}
+		ImGui::TreePop();
+	}
 
 	static float f = 0.0f;
 	static int counter = 0;
-	ImGui::Text("Hello, world!");
-	ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
-	ImGui::ColorEdit3("clear color", (float*)&clear_color);
+	Text("Hello, world!");
+	SliderFloat("float", &f, 0.0f, 1.0f);
+	ColorEdit3("clear color", (float*)&clear_color);
+	Checkbox("Demo Window", &show_demo_window);
+	Checkbox("Another Window", &show_another_window);
 
-	ImGui::Checkbox("Demo Window", &show_demo_window);
-	ImGui::Checkbox("Another Window", &show_another_window);
 
-	if (ImGui::Button("Button"))
+	Button("Click");     // Label = "Click",  ID = top of id stack + hash of "Click"
+	if (TreeNode("node"))
+	{
+		Button("Click");   // Label = "Click",  ID = top of id stack + hash of "node" + hash of "Click"
+		TreePop();
+	}
+
+	ShowDemoWindow();
+
+	if (Button("Button"))
 		counter++;
-	ImGui::SameLine();
-	ImGui::Text("counter = %d", counter);
+	SameLine();
+	Text("counter = %d", counter);
 
-	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / GetIO().Framerate, GetIO().Framerate);
 
-	ImGui::Render();
-	ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
+	Render();
+	ImGui_ImplGlfwGL3_RenderDrawData(GetDrawData());
 }

@@ -32,7 +32,7 @@ public:
 	
 	inline void SetActiveLayer(int value) { activeLayer = value; }
 
-	inline bool IsKeyPressed(int keycode) const { ASSERT(keycode >= 0 && keycode < 1024); return m_Window->m_Keys[keycode]; }
+	inline bool IsKeyPressed(int keycode) const { ASSERT(keycode >= 0 && keycode < 1024, "Keycode requsted out of range"); return m_Window->m_Keys[keycode]; }
 	inline Window* GetWindow() const { return m_Window; }
 
 	void Shutdown();
