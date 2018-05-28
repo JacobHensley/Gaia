@@ -13,7 +13,7 @@ Shader::Shader(const String& filePath)
 	: m_FilePath(filePath)
 {
 	m_ShaderID = Load();
-	ASSERT(m_ShaderID);
+	ASSERT(m_ShaderID, "Temp");
 }
 
 Shader::~Shader()

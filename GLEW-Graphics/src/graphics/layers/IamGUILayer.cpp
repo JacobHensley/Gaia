@@ -27,62 +27,62 @@ void IamGUILayer::OnInit()
 void IamGUILayer::OnUpdate(TimeStep timeStep)
 {
 }
-
+bool active = false;
 void IamGUILayer::OnRender()
 {
 	using namespace ImGui;
 
 	ImGui_ImplGlfwGL3_NewFrame();
 
-	if (BeginMainMenuBar())
-	{
-		if (BeginMenu("File"))
-		{
-			if (MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
-			if (MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
-			if (MenuItem("Close", "Ctrl+W")) { /* Do stuff */ }
-			ImGui::EndMenu();
-		}
-		EndMainMenuBar();
-	}
-
+	ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver);
+	ImGui::Begin("Same title as another window##1");
 	if (ImGui::TreeNode("Basic trees"))
 	{
 		for (int i = 0; i < 5; i++)
 			if (ImGui::TreeNode((void*)(intptr_t)i, "Child", i))
 			{
-				ImGui::Text("blah blah");
-		//		ImGui::SameLine();
-				if (ImGui::SmallButton("button")) {};
+				ImGui::Text("Layer");
+				ImGui::SameLine();
+				if (ImGui::Checkbox("Test", &active)) {};
 				ImGui::TreePop();
 			}
 		ImGui::TreePop();
 	}
 
-	static float f = 0.0f;
-	static int counter = 0;
-	Text("Hello, world!");
-	SliderFloat("float", &f, 0.0f, 1.0f);
-	ColorEdit3("clear color", (float*)&clear_color);
-	Checkbox("Demo Window", &show_demo_window);
-	Checkbox("Another Window", &show_another_window);
 
-
-	Button("Click");     // Label = "Click",  ID = top of id stack + hash of "Click"
-	if (TreeNode("node"))
+	if (ImGui::TreeNode("Basic trees##1"))
 	{
-		Button("Click");   // Label = "Click",  ID = top of id stack + hash of "node" + hash of "Click"
-		TreePop();
+		for (int i = 0; i < 5; i++)
+			if (ImGui::TreeNode((void*)(intptr_t)i, "Child", i))
+			{
+				ImGui::Text("Layer");
+				ImGui::SameLine();
+				if (ImGui::Checkbox("Test", &active)) {};
+				ImGui::TreePop();
+			}
+		ImGui::TreePop();
 	}
+	ImGui::End();
+
+
+	ImGui::SetNextWindowPos(ImVec2(400,400), ImGuiCond_FirstUseEver);
+    ImGui::Begin("Same title as another window##2");
+	if (ImGui::TreeNode("Basic trees"))
+	{
+		for (int i = 0; i < 5; i++)
+			if (ImGui::TreeNode((void*)(intptr_t)i, "Child", i))
+			{
+				ImGui::Text("Layer");
+				ImGui::SameLine();
+				if (ImGui::Checkbox("Test", &active)) {};
+				ImGui::TreePop();
+			}
+		ImGui::TreePop();
+	}
+    ImGui::End();
+
 
 	ShowDemoWindow();
-
-	if (Button("Button"))
-		counter++;
-	SameLine();
-	Text("counter = %d", counter);
-
-	Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / GetIO().Framerate, GetIO().Framerate);
 
 	Render();
 	ImGui_ImplGlfwGL3_RenderDrawData(GetDrawData());

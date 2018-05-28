@@ -198,7 +198,7 @@ float Renderer2D::SubmitTexture(uint textureID)
 	}
 	else {
 		std::cout << "Invalid Texture ID" << std::endl;
-		ASSERT(false);
+		ASSERT(false, "Temp");
 	}
 
 	return result;
