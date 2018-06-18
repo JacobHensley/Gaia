@@ -21,6 +21,7 @@ GameLayer::GameLayer(const String& name)
 
 	ASSERT(Resource::LoadShader("TextShader", "shaders/Text.shader"), "Could not load TextShader into Resource");
 	ASSERT(Resource::LoadShader("Shader", "shaders/Basic.shader"), "Could not load Shader into Resource");
+	ASSERT(Resource::LoadShader("LineShader", "shaders/Line.shader"), "Could not load LineShader into Resource");
 	Shader* shader = Resource::GetAs<Shader>("Shader");
 
 	shader->SetTextureIDs("u_Textures");

@@ -8,6 +8,7 @@ IndexBuffer::IndexBuffer(uint* data, uint count)
 	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_BufferID));
 	GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint), data, GL_STATIC_DRAW));
 	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
+
 }
 
 IndexBuffer::~IndexBuffer()
@@ -23,6 +24,11 @@ void IndexBuffer::Draw() const
 void IndexBuffer::Draw(uint count) const
 {
 	GLCall(glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, NULL));
+}
+
+void IndexBuffer::DrawLine(uint count) const
+{
+	GLCall(glDrawElements(GL_LINE, count, GL_UNSIGNED_INT, NULL));
 }
 
 void IndexBuffer::Bind() const

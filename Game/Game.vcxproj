@@ -168,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Basic.shader" />
+    <None Include="shaders\Line.shader" />
     <None Include="shaders\Text.Shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

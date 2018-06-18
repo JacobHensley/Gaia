@@ -10,6 +10,7 @@ public:
 
 	void Draw() const;
 	void Draw(uint count) const;
+	void DrawLine(uint count) const;
 	void Bind() const;
 	void Unbind() const;
 private:

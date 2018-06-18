@@ -14,7 +14,7 @@ private:
 	std::vector<Layer*> m_OverlayStack;
 	TimeStep m_TimeStep;
 
-	int activeLayer = 0;
+	int activeLayer = 1;
 public:
 	Application(const String& name, int width, int height);
 	~Application();	

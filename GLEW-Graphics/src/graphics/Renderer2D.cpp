@@ -18,7 +18,7 @@ struct Vertex
 };
 
 Renderer2D::Renderer2D(int width, int height)
-	: m_Width(width), m_Height(height), m_Camera(nullptr), m_Buffer(nullptr), m_IndexCount(0)
+	: m_Width(width), m_Height(height), m_Camera(nullptr), m_Buffer(nullptr), m_IndexCount(0), m_LineIndexCount(0)
 {
 	Init();
 }
@@ -26,12 +26,15 @@ Renderer2D::Renderer2D(int width, int height)
 void Renderer2D::Init()
 {
 	const uint MAX_SPRITES = 100000;
-
 	const uint MAX_TEXT_CHARS = 1000;
+	const uint MAX_LINE = 2000;
 
 	const uint INDEX_BUFFER_SIZE = MAX_SPRITES * 6;
+	const uint LINE_INDEX_BUFFER_SIZE = MAX_LINE * 2;
+
 	uint offset = 0;
 	uint* indices = new uint[INDEX_BUFFER_SIZE];
+	uint* lineIndices = new uint[MAX_LINE];
 
 	for (int i = 0; i < MAX_SPRITES; i += 6)
 	{
@@ -45,22 +48,31 @@ void Renderer2D::Init()
 		offset += 4;
 	}
 
-	m_VertexBuffer = new VertexBuffer(MAX_SPRITES * sizeof(float) * 10);
-
-	m_TextVertexBuffer = new VertexBuffer(MAX_TEXT_CHARS * sizeof(float) * 10);
-
 	BufferLayout layout;
 	layout.Push<vec3>("Position");
 	layout.Push<vec2>("TexCoord");
 	layout.Push<float>("textureID");
 	layout.Push<vec4>("Color");
 
-	m_VertexBuffer->SetLayout(layout);
+	m_VertexBuffer = new VertexBuffer(MAX_SPRITES * layout.GetStride());
+	m_TextVertexBuffer = new VertexBuffer(MAX_TEXT_CHARS * layout.GetStride());
 
+	BufferLayout lineLayout;
+	lineLayout.Push<vec3>("Position");
+	lineLayout.Push<vec4>("Color");
+
+	m_LineVertexBuffer = new VertexBuffer(MAX_LINE * lineLayout.GetStride());
+
+
+	m_VertexBuffer->SetLayout(layout);
 	m_TextVertexBuffer->SetLayout(layout);
+	m_LineVertexBuffer->SetLayout(lineLayout);
 
 	m_IndexBuffer = new IndexBuffer(indices, INDEX_BUFFER_SIZE);
+	m_LineIndexBuffer = new IndexBuffer(lineIndices, LINE_INDEX_BUFFER_SIZE);
+
 	delete[] indices;
+	delete[] lineIndices;
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -73,6 +85,9 @@ void Renderer2D::Begin()
 
 	m_TextVertexBuffer->Bind();
 	m_TextBuffer = m_TextVertexBuffer->Map<Vertex>();
+
+	m_LineVertexBuffer->Bind();
+	m_LineBuffer = m_LineVertexBuffer->Map<Vertex>();
 }
 
 void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float height)
@@ -167,6 +182,19 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font, ve
 	font.UpdateAtlasTexture();
 }
 
+void Renderer2D::DrawLine(const vec2& point1, const vec2& point2, const vec4& color, float thickness)
+{
+	m_LineBuffer->position = vec3(point1.x, point1.y);
+	m_LineBuffer->color = color;
+	m_LineBuffer++;
+
+	m_LineBuffer->position = vec3(point2.x, point2.y);
+	m_LineBuffer->color = color;
+	m_LineBuffer++;
+
+	m_LineIndexCount += 2;
+}
+
 float Renderer2D::SubmitTexture(uint textureID)
 {
 	float result = 0.0f;
@@ -219,6 +247,10 @@ void Renderer2D::End()
 	m_TextVertexBuffer->Bind();
 	m_TextVertexBuffer->Unmap();
 	m_TextVertexBuffer->Unbind();
+
+	m_LineVertexBuffer->Bind();
+	m_LineVertexBuffer->Unmap();
+	m_LineVertexBuffer->Unbind();
 }
 
 void Renderer2D::Flush()
@@ -229,10 +261,10 @@ void Renderer2D::Flush()
 		glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);
 	}
 
+	mat4 mvp = m_Camera->GetProjectionMatrix() *  m_Camera->GetViewMatrix() * mat4::Identity();
+
 	if (m_IndexCount > 0)
 	{
-		mat4 mvp = m_Camera->GetProjectionMatrix() *  m_Camera->GetViewMatrix() * mat4::Identity();
-
 		//Geometry pass
 		{
 			Shader* shader = Resource::GetAs<Shader>("Shader");
@@ -259,6 +291,22 @@ void Renderer2D::Flush()
 
 	}
 
+	if (m_LineIndexCount > 0)
+	{
+		//Line pass
+
+		Shader* shader = Resource::GetAs<Shader>("LineShader");
+		shader->Bind();
+		shader->SetUniformMat4("u_MVP", mvp);
+
+		m_LineVertexBuffer->Bind();
+		m_LineIndexBuffer->Bind();
+
+		m_LineIndexBuffer->DrawLine(m_LineIndexCount);
+
+	}
+
+	m_LineIndexCount = 0;
 	m_IndexCount = 0;
 
 #if 0

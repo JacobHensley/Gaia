@@ -9,7 +9,7 @@ Application::Application(const String& name, int width, int height)
 {
 	s_Application = this;
 	m_Window = new Window(name.c_str(), width, height);
-	PushOverlay(new DebugLayer());
+//	PushOverlay(new DebugLayer());
 }
 
 Application::~Application()
