@@ -7,7 +7,7 @@
 #include "Font.h"
 
 struct Vertex;
-
+struct LineVertex;
 struct RenderCommand
 {
 	Sprite* sprite;
@@ -21,9 +21,15 @@ private:
 	int m_Width, m_Height;
 	CameraRef m_Camera;
 
-	Vertex* m_LineBuffer;
+	LineVertex* m_LineBuffer;
+	LineVertex* m_LineBufferPtr;
+
 	Vertex* m_TextBuffer;
+	Vertex* m_TextBufferPtr;
+
 	Vertex* m_Buffer;
+	Vertex* m_BufferPtr;
+
 
 	VertexBuffer* m_LineVertexBuffer;
 	VertexBuffer* m_TextVertexBuffer;

@@ -17,6 +17,12 @@ struct Vertex
 	vec4 color;
 };
 
+struct LineVertex
+{
+	vec3 position;
+	vec4 color;
+};
+
 Renderer2D::Renderer2D(int width, int height)
 	: m_Width(width), m_Height(height), m_Camera(nullptr), m_Buffer(nullptr), m_IndexCount(0), m_LineIndexCount(0)
 {
@@ -48,6 +54,9 @@ void Renderer2D::Init()
 		offset += 4;
 	}
 
+	for (int i = 0; i < MAX_LINE; i++)
+		lineIndices[i] = i;
+
 	BufferLayout layout;
 	layout.Push<vec3>("Position");
 	layout.Push<vec2>("TexCoord");
@@ -57,12 +66,16 @@ void Renderer2D::Init()
 	m_VertexBuffer = new VertexBuffer(MAX_SPRITES * layout.GetStride());
 	m_TextVertexBuffer = new VertexBuffer(MAX_TEXT_CHARS * layout.GetStride());
 
+	m_Buffer = new Vertex[MAX_SPRITES];
+	m_TextBuffer = new Vertex[MAX_TEXT_CHARS];
+
 	BufferLayout lineLayout;
 	lineLayout.Push<vec3>("Position");
 	lineLayout.Push<vec4>("Color");
 
 	m_LineVertexBuffer = new VertexBuffer(MAX_LINE * lineLayout.GetStride());
 
+	m_LineBuffer = new LineVertex[MAX_LINE];
 
 	m_VertexBuffer->SetLayout(layout);
 	m_TextVertexBuffer->SetLayout(layout);
@@ -80,14 +93,11 @@ void Renderer2D::Init()
 
 void Renderer2D::Begin()
 {
-	m_VertexBuffer->Bind();
-	m_Buffer = m_VertexBuffer->Map<Vertex>();
+	m_BufferPtr = m_Buffer;
 
-	m_TextVertexBuffer->Bind();
-	m_TextBuffer = m_TextVertexBuffer->Map<Vertex>();
+	m_TextBufferPtr = m_TextBuffer;
 
-	m_LineVertexBuffer->Bind();
-	m_LineBuffer = m_LineVertexBuffer->Map<Vertex>();
+	m_LineBufferPtr = m_LineBuffer;
 }
 
 void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float height)
@@ -97,29 +107,29 @@ void Renderer2D::Submit(Sprite* sprite, float x, float y, float width, float hei
 	if (sprite->GetTexture())
 		textureID = SubmitTexture(sprite->GetTexture());
 
-	m_Buffer->position = vec3(x, y + height);
-	m_Buffer->texCoord = vec2(0, 0);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->textureID = textureID;
-	m_Buffer++;
+	m_BufferPtr->position = vec3(x, y + height);
+	m_BufferPtr->texCoord = vec2(0, 0);
+	m_BufferPtr->color = sprite->m_Color;
+	m_BufferPtr->textureID = textureID;
+	m_BufferPtr++;
 
-	m_Buffer->position = vec3(x, y);
-	m_Buffer->texCoord = vec2(0, 1);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->textureID = textureID;
-	m_Buffer++;
+	m_BufferPtr->position = vec3(x, y);
+	m_BufferPtr->texCoord = vec2(0, 1);
+	m_BufferPtr->color = sprite->m_Color;
+	m_BufferPtr->textureID = textureID;
+	m_BufferPtr++;
 
-	m_Buffer->position = vec3(x + width, y);
-	m_Buffer->texCoord = vec2(1, 1);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->textureID = textureID;
-	m_Buffer++;
+	m_BufferPtr->position = vec3(x + width, y);
+	m_BufferPtr->texCoord = vec2(1, 1);
+	m_BufferPtr->color = sprite->m_Color;
+	m_BufferPtr->textureID = textureID;
+	m_BufferPtr++;
 
-	m_Buffer->position = vec3(x + width, y + height);
-	m_Buffer->texCoord = vec2(1, 0);
-	m_Buffer->color = sprite->m_Color;
-	m_Buffer->textureID = textureID;
-	m_Buffer++;
+	m_BufferPtr->position = vec3(x + width, y + height);
+	m_BufferPtr->texCoord = vec2(1, 0);
+	m_BufferPtr->color = sprite->m_Color;
+	m_BufferPtr->textureID = textureID;
+	m_BufferPtr++;
 
 	m_IndexCount += 6;
 }
@@ -150,28 +160,28 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font, ve
 		float x1 = x + glyph->offset_x + glyph->width;
 		float y1 = y - glyph->offset_y;
 
-		m_TextBuffer->position = vec3(x0, y0);
-		m_TextBuffer->texCoord = vec2(glyph->s0, glyph->t1);
-		m_TextBuffer->color = color;
-		m_TextBuffer->textureID = textureID;
-		m_TextBuffer++;
+		m_TextBufferPtr->position = vec3(x0, y0);
+		m_TextBufferPtr->texCoord = vec2(glyph->s0, glyph->t1);
+		m_TextBufferPtr->color = color;
+		m_TextBufferPtr->textureID = textureID;
+		m_TextBufferPtr++;
 
-		m_TextBuffer->position = vec3(x1, y0);
-		m_TextBuffer->texCoord = vec2(glyph->s1, glyph->t1);
-		m_TextBuffer->color = color;
-		m_TextBuffer->textureID = textureID;
-		m_TextBuffer++;
+		m_TextBufferPtr->position = vec3(x1, y0);
+		m_TextBufferPtr->texCoord = vec2(glyph->s1, glyph->t1);
+		m_TextBufferPtr->color = color;
+		m_TextBufferPtr->textureID = textureID;
+		m_TextBufferPtr++;
 
-		m_TextBuffer->position = vec3(x1, y1);
-		m_TextBuffer->texCoord = vec2(glyph->s1, glyph->t0);
-		m_TextBuffer->color = color;
-		m_TextBuffer->textureID = textureID;
-		m_TextBuffer++;
+		m_TextBufferPtr->position = vec3(x1, y1);
+		m_TextBufferPtr->texCoord = vec2(glyph->s1, glyph->t0);
+		m_TextBufferPtr->color = color;
+		m_TextBufferPtr->textureID = textureID;
+		m_TextBufferPtr++;
 
-		m_TextBuffer->position = vec3(x0, y1);
-		m_TextBuffer->texCoord = vec2(glyph->s0, glyph->t0);
-		m_TextBuffer->color = color;
-		m_TextBuffer->textureID = textureID;
+		m_TextBufferPtr->position = vec3(x0, y1);
+		m_TextBufferPtr->texCoord = vec2(glyph->s0, glyph->t0);
+		m_TextBufferPtr->color = color;
+		m_TextBufferPtr->textureID = textureID;
 		m_TextBuffer++;
 
 		m_IndexCount += 6;
@@ -184,13 +194,13 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font, ve
 
 void Renderer2D::DrawLine(const vec2& point1, const vec2& point2, const vec4& color, float thickness)
 {
-	m_LineBuffer->position = vec3(point1.x, point1.y);
-	m_LineBuffer->color = color;
-	m_LineBuffer++;
+	m_LineBufferPtr->position = vec3(point1.x, point1.y);
+	m_LineBufferPtr->color = color;
+	m_LineBufferPtr++;
 
-	m_LineBuffer->position = vec3(point2.x, point2.y);
-	m_LineBuffer->color = color;
-	m_LineBuffer++;
+	m_LineBufferPtr->position = vec3(point2.x, point2.y);
+	m_LineBufferPtr->color = color;
+	m_LineBufferPtr++;
 
 	m_LineIndexCount += 2;
 }
@@ -241,15 +251,15 @@ float Renderer2D::SubmitTexture(const Texture* texture)
 void Renderer2D::End()
 {
 	m_VertexBuffer->Bind();
-	m_VertexBuffer->Unmap();
+	glBufferSubData(GL_ARRAY_BUFFER, 0, (m_BufferPtr - m_Buffer) * sizeof(Vertex), m_Buffer);
 	m_VertexBuffer->Unbind();
 
 	m_TextVertexBuffer->Bind();
-	m_TextVertexBuffer->Unmap();
+	glBufferSubData(GL_ARRAY_BUFFER, 0, (m_TextBufferPtr - m_TextBuffer) * sizeof(Vertex), m_TextBuffer);
 	m_TextVertexBuffer->Unbind();
 
 	m_LineVertexBuffer->Bind();
-	m_LineVertexBuffer->Unmap();
+	glBufferSubData(GL_ARRAY_BUFFER, 0, (m_LineBufferPtr - m_LineBuffer) * sizeof(LineVertex), m_LineBuffer);
 	m_LineVertexBuffer->Unbind();
 }
 

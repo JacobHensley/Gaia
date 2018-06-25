@@ -28,7 +28,8 @@ void IndexBuffer::Draw(uint count) const
 
 void IndexBuffer::DrawLine(uint count) const
 {
-	GLCall(glDrawElements(GL_LINE, count, GL_UNSIGNED_INT, NULL));
+	glLineWidth(10.0f);
+	GLCall(glDrawElements(GL_LINES, count, GL_UNSIGNED_INT, NULL));
 }
 
 void IndexBuffer::Bind() const
