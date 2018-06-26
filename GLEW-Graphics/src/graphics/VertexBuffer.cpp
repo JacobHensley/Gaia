@@ -5,7 +5,7 @@ VertexBuffer::VertexBuffer(uint count)
 {
 	GLCall(glGenBuffers(1, &m_BufferID));
 	GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_BufferID));
-	GLCall(glBufferData(GL_ARRAY_BUFFER, count * sizeof(GLfloat), NULL, GL_DYNAMIC_DRAW));
+	GLCall(glBufferData(GL_ARRAY_BUFFER, count, NULL, GL_DYNAMIC_DRAW));
 	GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
 }
 

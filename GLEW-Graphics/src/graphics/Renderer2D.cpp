@@ -3,12 +3,6 @@
 #include <GLFW/glfw3.h>
 #include "FontManager.h"
 
-#define RENDERER_VERTEX_SIZE sizeof(Vertex)
-
-#define SHADER_VERTEX_INDEX 0
-#define SHADER_TC_INDEX     1
-#define SHADER_TID_INDEX    2
-
 struct Vertex
 {
 	vec3 position;
@@ -31,61 +25,64 @@ Renderer2D::Renderer2D(int width, int height)
 
 void Renderer2D::Init()
 {
+	
+	// Object count
 	const uint MAX_SPRITES = 100000;
 	const uint MAX_TEXT_CHARS = 1000;
-	const uint MAX_LINE = 2000;
+	const uint MAX_LINES = 1000;
 
-	const uint INDEX_BUFFER_SIZE = MAX_SPRITES * 6;
-	const uint LINE_INDEX_BUFFER_SIZE = MAX_LINE * 2;
+	// Vertex count
+	const uint QUAD_VERTEX_BUFFER_COUNT = MAX_SPRITES * 4;
+	const uint LINE_VERTEX_BUFFER_COUNT = MAX_LINES * 2;
+
+	// Index count
+	const uint QUAD_INDEX_BUFFER_COUNT = MAX_SPRITES * 6;
+	const uint LINE_INDEX_BUFFER_COUNT = MAX_LINES * 2;
+
+	std::vector<uint> qaudIndices(QUAD_INDEX_BUFFER_COUNT);
+	std::vector<uint> lineIndices(LINE_INDEX_BUFFER_COUNT);
 
 	uint offset = 0;
-	uint* indices = new uint[INDEX_BUFFER_SIZE];
-	uint* lineIndices = new uint[MAX_LINE];
 
-	for (int i = 0; i < MAX_SPRITES; i += 6)
+	for (int i = 0; i < QUAD_INDEX_BUFFER_COUNT; i += 6)
 	{
-		indices[i + 0] = offset;
-		indices[i + 1] = offset + 1;
-		indices[i + 2] = offset + 2;
+		qaudIndices[i + 0] = offset;
+		qaudIndices[i + 1] = offset + 1;
+		qaudIndices[i + 2] = offset + 2;
 
-		indices[i + 3] = offset + 2;
-		indices[i + 4] = offset + 3;
-		indices[i + 5] = offset + 0;
+		qaudIndices[i + 3] = offset + 2;
+		qaudIndices[i + 4] = offset + 3;
+		qaudIndices[i + 5] = offset + 0;
 		offset += 4;
 	}
 
-	for (int i = 0; i < MAX_LINE; i++)
+	for (int i = 0; i < LINE_INDEX_BUFFER_COUNT; i++)
 		lineIndices[i] = i;
 
-	BufferLayout layout;
-	layout.Push<vec3>("Position");
-	layout.Push<vec2>("TexCoord");
-	layout.Push<float>("textureID");
-	layout.Push<vec4>("Color");
-
-	m_VertexBuffer = new VertexBuffer(MAX_SPRITES * layout.GetStride());
-	m_TextVertexBuffer = new VertexBuffer(MAX_TEXT_CHARS * layout.GetStride());
-
-	m_Buffer = new Vertex[MAX_SPRITES];
-	m_TextBuffer = new Vertex[MAX_TEXT_CHARS];
+	BufferLayout qaudLayout;
+	qaudLayout.Push<vec3>("Position");
+	qaudLayout.Push<vec2>("TexCoord");
+	qaudLayout.Push<float>("textureID");
+	qaudLayout.Push<vec4>("Color");
 
 	BufferLayout lineLayout;
 	lineLayout.Push<vec3>("Position");
 	lineLayout.Push<vec4>("Color");
 
-	m_LineVertexBuffer = new VertexBuffer(MAX_LINE * lineLayout.GetStride());
+	m_VertexBuffer = new VertexBuffer(QUAD_VERTEX_BUFFER_COUNT * qaudLayout.GetStride());
+	m_TextVertexBuffer = new VertexBuffer(QUAD_VERTEX_BUFFER_COUNT * qaudLayout.GetStride());
+	m_LineVertexBuffer = new VertexBuffer(LINE_VERTEX_BUFFER_COUNT * lineLayout.GetStride());
 
-	m_LineBuffer = new LineVertex[MAX_LINE];
+	m_Buffer = new Vertex[QUAD_VERTEX_BUFFER_COUNT];
+	m_TextBuffer = new Vertex[QUAD_VERTEX_BUFFER_COUNT];
+	m_LineBuffer = new LineVertex[LINE_VERTEX_BUFFER_COUNT];
 
-	m_VertexBuffer->SetLayout(layout);
-	m_TextVertexBuffer->SetLayout(layout);
+	m_VertexBuffer->SetLayout(qaudLayout);
+	m_TextVertexBuffer->SetLayout(qaudLayout);
 	m_LineVertexBuffer->SetLayout(lineLayout);
 
-	m_IndexBuffer = new IndexBuffer(indices, INDEX_BUFFER_SIZE);
-	m_LineIndexBuffer = new IndexBuffer(lineIndices, LINE_INDEX_BUFFER_SIZE);
-
-	delete[] indices;
-	delete[] lineIndices;
+	m_IndexBuffer = new IndexBuffer(qaudIndices.data(), QUAD_INDEX_BUFFER_COUNT);
+	m_LineIndexBuffer = new IndexBuffer(lineIndices.data(), LINE_INDEX_BUFFER_COUNT);
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -182,7 +179,7 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font, ve
 		m_TextBufferPtr->texCoord = vec2(glyph->s0, glyph->t0);
 		m_TextBufferPtr->color = color;
 		m_TextBufferPtr->textureID = textureID;
-		m_TextBuffer++;
+		m_TextBufferPtr++;
 
 		m_IndexCount += 6;
 

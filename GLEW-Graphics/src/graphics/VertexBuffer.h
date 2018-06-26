@@ -6,7 +6,7 @@
 class VertexBuffer : public RefCounted
 {
 public:
-	VertexBuffer(uint count);
+	VertexBuffer(uint size);
 	VertexBuffer(float* data, int count, uint componentCount);
 	~VertexBuffer();
 
