@@ -21,6 +21,46 @@ Shader::~Shader()
 	GLCall(glDeleteProgram(m_ShaderID));
 }
 
+std::vector<Uniform>& Shader::GetUniforms()
+{
+	std::ifstream stream(m_FilePath);
+	std::vector<Uniform> uniforms;
+
+	String line;
+	while (getline(stream, line))
+	{
+		if (line.find("uniform") != String::npos)
+		{
+			std::vector<String> tokens;
+			String token;
+			for (int i = 0; i < line.length(); i++)
+			{
+				if (line[i] == ' ')
+				{
+					tokens.push_back(token);
+					token = "";
+					continue;
+				}
+				token += line[i];
+			}
+			tokens.push_back(token);
+
+			uniforms.push_back({ tokens[1],  tokens[2].substr(0, tokens[2].length() - 1) });
+		}
+	}
+	return uniforms;
+}
+
+Uniform& Shader::GetUniform(const String& name)
+{
+	std::vector<Uniform> uniforms = GetUniforms();
+	for (int i = 0; i < uniforms.size(); i++) 
+	{
+		if (uniforms[i].Name == name)
+			return uniforms[i];
+	}
+}
+
 ShaderSource Shader::ParseShader(const String& filePath)
 {
 	std::ifstream stream(filePath);

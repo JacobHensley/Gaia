@@ -14,7 +14,11 @@ private:
 	std::vector<Layer*> m_OverlayStack;
 	TimeStep m_TimeStep;
 
-	int activeLayer = 1;
+	double m_LastTime;
+	int m_NbFrames;
+
+	double m_MSFrame;
+	double m_FPS;
 public:
 	Application(const String& name, int width, int height);
 	~Application();	
@@ -30,7 +34,11 @@ public:
 	inline int GetWidth() const { return m_Window->GetWidth(); }
 	inline int GetHeight() const { return m_Window->GetHeight(); }
 	
-	inline void SetActiveLayer(int value) { activeLayer = value; }
+	inline std::vector<Layer*> GetLayers() const { return m_LayerStack; }
+	inline std::vector<Layer*> GetOverlays() const { return m_OverlayStack; }
+
+	inline double GetMSFrame() const { return m_MSFrame; }
+	inline double GetFPS() const { return m_FPS; }
 
 	inline bool IsKeyPressed(int keycode) const { ASSERT(keycode >= 0 && keycode < 1024, "Keycode requsted out of range"); return m_Window->m_Keys[keycode]; }
 	inline Window* GetWindow() const { return m_Window; }

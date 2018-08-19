@@ -13,7 +13,4 @@ public:
 	void OnRender() override;
 
 public:
-	bool show_demo_window;
-	bool show_another_window;
-	vec4 clear_color;
 };

@@ -7,12 +7,20 @@
 #include "utils/Resource.h"
 
 struct ShaderSource;
+struct Uniform
+{
+	String Name;
+	String Type;
+};
 
 class Shader
 {
 public:
 	Shader(const String& filePath);
 	~Shader();
+
+	std::vector<Uniform>& GetUniforms();
+	Uniform& GetUniform(const String& name);
 
 	void Bind();
 	void Unbind();

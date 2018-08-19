@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "debug/DebugLayer.h"
+#include "graphics/layers/IamGUILayer.h"
 #include <GLFW/glfw3.h>
 #include "utils/TimeStep.h"
 
@@ -9,7 +10,9 @@ Application::Application(const String& name, int width, int height)
 {
 	s_Application = this;
 	m_Window = new Window(name.c_str(), width, height);
-//	PushOverlay(new DebugLayer());
+	m_LastTime = glfwGetTime();
+
+	PushOverlay(new IamGUILayer("DebugOverlay"));
 }
 
 Application::~Application()
@@ -33,12 +36,13 @@ void Application::OnRender()
 {
 	for (int i = 0;i < m_LayerStack.size();i++) 
 	{
-		if (i == activeLayer)
+		if (m_LayerStack[i]->m_IsActive)
 			m_LayerStack[i]->OnRender();
 	}
 
 	for (Layer* layer : m_OverlayStack) {
-		layer->OnRender();
+		if (layer->m_IsActive)
+			layer->OnRender();
 	}
 }
 
@@ -58,6 +62,18 @@ void Application::Run()
 
 	while (!m_Window->Closed()) 
 	{
+
+		double currentTime = glfwGetTime();
+		m_NbFrames++;
+		if (currentTime - m_LastTime >= 1.0)
+		{
+			m_MSFrame = 1000.0 / double(m_NbFrames);
+			m_FPS = double(m_NbFrames);
+
+			m_NbFrames = 0;
+			m_LastTime += 1.0;
+		}
+
 		m_TimeStep.Update((float)glfwGetTime());
 		OnUpdate(m_TimeStep);
 

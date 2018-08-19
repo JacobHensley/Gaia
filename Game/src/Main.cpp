@@ -11,7 +11,7 @@ int main()
 
 	app.PushLayer(new GameLayer("GameLayer"));
 	app.PushLayer(new UILayer("UILayer"));
-	app.PushLayer(new IamGUILayer("IamGUILayer"));
+//	app.PushLayer(new IamGUILayer("IamGUILayer"));
 	app.Run();
 
 }
