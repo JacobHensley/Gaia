@@ -3,15 +3,15 @@
 #include "utils/Common.h"
 #include <vector>
 #include "graphics/layers/Layer.h"
-
+#include "LayerStack.h"
 class Application
 {
 private:
 	static Application* s_Application;
 private:
 	Window* m_Window;
-	std::vector<Layer*> m_LayerStack;
-	std::vector<Layer*> m_OverlayStack;
+
+	LayerStack* m_LayerStack;
 	TimeStep m_TimeStep;
 
 	double m_LastTime;
@@ -33,9 +33,8 @@ public:
 
 	inline int GetWidth() const { return m_Window->GetWidth(); }
 	inline int GetHeight() const { return m_Window->GetHeight(); }
-	
-	inline std::vector<Layer*> GetLayers() const { return m_LayerStack; }
-	inline std::vector<Layer*> GetOverlays() const { return m_OverlayStack; }
+
+	inline LayerStack* GetLayerStack() const { return m_LayerStack; }
 
 	inline double GetMSFrame() const { return m_MSFrame; }
 	inline double GetFPS() const { return m_FPS; }

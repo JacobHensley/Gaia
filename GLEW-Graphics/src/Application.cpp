@@ -10,6 +10,7 @@ Application::Application(const String& name, int width, int height)
 {
 	s_Application = this;
 	m_Window = new Window(name.c_str(), width, height);
+	m_LayerStack = new LayerStack();
 	m_LastTime = glfwGetTime();
 
 	PushOverlay(new IamGUILayer("DebugOverlay"));
@@ -17,44 +18,29 @@ Application::Application(const String& name, int width, int height)
 
 Application::~Application()
 {
-	//TODO: Delete Layers/Overlay
 	Shutdown();
+	delete m_LayerStack;
 	delete m_Window;
 }
 
 void Application::PushLayer(Layer* layer)
 {
-	m_LayerStack.push_back(layer);
+	m_LayerStack->PushLayer(layer);
 }
 
 void Application::PushOverlay(Layer* layer)
 {
-	m_OverlayStack.push_back(layer);
+	m_LayerStack->PushOverlay(layer);
 }
 
 void Application::OnRender()
 {
-	for (int i = 0;i < m_LayerStack.size();i++) 
-	{
-		if (m_LayerStack[i]->m_IsActive)
-			m_LayerStack[i]->OnRender();
-	}
-
-	for (Layer* layer : m_OverlayStack) {
-		if (layer->m_IsActive)
-			layer->OnRender();
-	}
+	m_LayerStack->OnRedner();
 }
 
 void Application::OnUpdate(TimeStep timeStep)
 {
-	for (Layer* layer : m_LayerStack) {
-		layer->OnUpdate(timeStep);
-	}
-
-	for (Layer* layer : m_OverlayStack) {
-		layer->OnUpdate(timeStep);
-	}
+	m_LayerStack->OnUpdate(timeStep);
 }
 
 void Application::Run()

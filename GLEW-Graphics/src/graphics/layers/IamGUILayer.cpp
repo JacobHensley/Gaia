@@ -33,6 +33,7 @@ void IamGUILayer::OnRender()
 	using namespace ImGui;
 
 	Application& app = Application::GetApplication();
+	LayerStack layerStack = app.GetLayerStack();
 
 	ImGui_ImplGlfwGL3_NewFrame();
 	ImGui::Begin("Debug Info");
@@ -42,7 +43,7 @@ void IamGUILayer::OnRender()
 
 	ImGui::Separator();
 
-	std::vector<Layer*> layers = app.GetLayers();
+	std::vector<Layer*> layers = layerStack.GetLayers();
 	if (ImGui::TreeNode("Layers"))
 	{
 		for (int i = 0; i < layers.size(); i++)
@@ -55,7 +56,7 @@ void IamGUILayer::OnRender()
 		ImGui::TreePop();
 	}
 
-	std::vector<Layer*> overlays = app.GetOverlays();
+	std::vector<Layer*> overlays = layerStack.GetOverlays();
 	if (ImGui::TreeNode("Overlays"))
 	{
 		for (int i = 0; i < overlays.size(); i++)
