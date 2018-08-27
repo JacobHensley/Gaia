@@ -3,7 +3,7 @@
 #include "utils/RefCounted.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
-#include "Shader.h"
+#include "shaders/Shader.h"
 
 class Sprite : RefCounted 
 {

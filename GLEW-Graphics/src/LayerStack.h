@@ -15,11 +15,11 @@ public:
 	void PushLayer(Layer* layer);
 	void PushOverlay(Layer* layer);
 
-	void OnRedner();
+	void OnRender();
 	void OnUpdate(TimeStep timeStep);
 
-	Layer* GetLayer(String& name) const;
-	Layer* GetOverlay(String& name) const;
+	Layer* GetLayer(const String& name) const;
+	Layer* GetOverlay(const String& name) const;
 
 	inline std::vector<Layer*> GetLayers() const { return m_LayerStack; }
 	inline std::vector<Layer*> GetOverlays() const { return m_OverlayStack; }

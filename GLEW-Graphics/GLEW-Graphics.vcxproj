@@ -284,6 +284,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\shaders\ShaderUniform.cpp" />
     <ClCompile Include="src\LayerStack.cpp" />
     <ClCompile Include="src\debug\DebugLayer.cpp" />
     <ClCompile Include="src\game\component\SpriteComponent.cpp" />
@@ -304,7 +305,7 @@
     <ClCompile Include="src\graphics\Camera\PerspectiveCamera.cpp" />
     <ClCompile Include="src\graphics\IndexBuffer.cpp" />
     <ClCompile Include="src\graphics\Renderer2D.cpp" />
-    <ClCompile Include="src\graphics\Shader.cpp" />
+    <ClCompile Include="src\graphics\shaders\Shader.cpp" />
     <ClCompile Include="src\vendor\imgui\imgui.cpp" />
     <ClCompile Include="src\vendor\imgui\imgui_demo.cpp" />
     <ClCompile Include="src\vendor\imgui\imgui_draw.cpp" />
@@ -320,6 +321,7 @@
     <ClCompile Include="src\utils\Resource.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\shaders\ShaderUniform.h" />
     <ClInclude Include="src\LayerStack.h" />
     <ClInclude Include="src\debug\DebugLayer.h" />
     <ClInclude Include="src\game\component\Component.h" />
@@ -344,7 +346,7 @@
     <ClInclude Include="src\graphics\Camera\PerspectiveCamera.h" />
     <ClInclude Include="src\graphics\IndexBuffer.h" />
     <ClInclude Include="src\graphics\Renderer2D.h" />
-    <ClInclude Include="src\graphics\Shader.h" />
+    <ClInclude Include="src\graphics\shaders\Shader.h" />
     <ClInclude Include="src\vendor\imgui\imconfig.h" />
     <ClInclude Include="src\vendor\imgui\imgui.h" />
     <ClInclude Include="src\vendor\imgui\imgui_impl_glfw_gl3.h" />

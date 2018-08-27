@@ -5,22 +5,20 @@
 #include "math/math.h" 
 #include <unordered_map>
 #include "utils/Resource.h"
+#include "graphics/shaders/ShaderUniform.h"
 
 struct ShaderSource;
-struct Uniform
-{
-	String Name;
-	String Type;
-};
 
 class Shader
 {
 public:
+
 	Shader(const String& filePath);
 	~Shader();
 
-	std::vector<Uniform>& GetUniforms();
-	Uniform& GetUniform(const String& name);
+	std::vector<ShaderUniform> GetUniforms();
+	void PrintUniforms();
+
 
 	void Bind();
 	void Unbind();

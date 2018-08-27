@@ -21,10 +21,10 @@ Shader::~Shader()
 	GLCall(glDeleteProgram(m_ShaderID));
 }
 
-std::vector<Uniform>& Shader::GetUniforms()
+std::vector<ShaderUniform> Shader::GetUniforms()
 {
 	std::ifstream stream(m_FilePath);
-	std::vector<Uniform> uniforms;
+	std::vector<ShaderUniform> uniforms;
 
 	String line;
 	while (getline(stream, line))
@@ -35,6 +35,21 @@ std::vector<Uniform>& Shader::GetUniforms()
 			String token;
 			for (int i = 0; i < line.length(); i++)
 			{
+				if (line[i] == '[')
+				{
+					tokens.push_back(token);
+					token = "";
+					uint last = line.find("]");
+					token = line.substr(i + 1, last - i - 1);
+					tokens.push_back(token);
+					break;
+				}
+
+				if (line[i] == ';')
+				{
+					break;
+				}
+
 				if (line[i] == ' ')
 				{
 					tokens.push_back(token);
@@ -44,20 +59,22 @@ std::vector<Uniform>& Shader::GetUniforms()
 				token += line[i];
 			}
 			tokens.push_back(token);
-
-			uniforms.push_back({ tokens[1],  tokens[2].substr(0, tokens[2].length() - 1) });
+			if (tokens.size() == 3)
+				tokens.push_back("1");
+			uniforms.push_back(ShaderUniform(tokens[2], tokens[1], std::stoi(tokens[3])));
 		}
 	}
+
 	return uniforms;
 }
 
-Uniform& Shader::GetUniform(const String& name)
+void Shader::PrintUniforms()
 {
-	std::vector<Uniform> uniforms = GetUniforms();
-	for (int i = 0; i < uniforms.size(); i++) 
+	std::vector<ShaderUniform> uniforms = GetUniforms();
+
+	for (int i = 0; i < uniforms.size(); i++)
 	{
-		if (uniforms[i].Name == name)
-			return uniforms[i];
+		std::cout << uniforms[i].StringFromType(uniforms[i].GetType()) << " " << uniforms[i].GetName() << " " << uniforms[i].GetCount() << " " << uniforms[i].GetSize() << std::endl;
 	}
 }
 

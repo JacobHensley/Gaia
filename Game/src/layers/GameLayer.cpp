@@ -26,6 +26,8 @@ GameLayer::GameLayer(const String& name)
 
 	shader->SetTextureIDs("u_Textures");
 
+	shader->PrintUniforms();
+
 	ASSERT(Resource::LoadTexture("Jungle", "res/textures/jungle.png"), "Could not load Jungle texture into Resource");
 
 	OnInit();

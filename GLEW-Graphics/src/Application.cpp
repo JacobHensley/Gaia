@@ -35,7 +35,7 @@ void Application::PushOverlay(Layer* layer)
 
 void Application::OnRender()
 {
-	m_LayerStack->OnRedner();
+	m_LayerStack->OnRender();
 }
 
 void Application::OnUpdate(TimeStep timeStep)
