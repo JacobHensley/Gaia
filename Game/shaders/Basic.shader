@@ -36,10 +36,10 @@ in float f_TextureID;
 in vec4 f_Color;
 
 uniform sampler2D u_Textures[32];
+uniform float u_TestColor;
 
 void main()
-{
-
+{                         
 	vec2 tc = f_TexCoord;
 	vec4 textureColor = vec4(1.0);
 	if (f_TextureID > 0.0)
@@ -48,5 +48,5 @@ void main()
 		textureColor = texture(u_Textures[tid], tc);
 	}
 
-	color = textureColor * f_Color;
+	color = textureColor * f_Color * u_TestColor;
 }

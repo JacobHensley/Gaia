@@ -65,6 +65,7 @@ std::vector<ShaderUniform> Shader::GetUniforms()
 		}
 	}
 
+
 	return uniforms;
 }
 
@@ -193,7 +194,6 @@ int Shader::GetUniformLocation(const String& name)
 		return m_UniformLocationCache[name];
 
 	GLCall(int location = glGetUniformLocation(m_ShaderID, name.c_str()));
-//	ASSERT(location != -1);
 
 	m_UniformLocationCache[name] = location;
 	return location;

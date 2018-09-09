@@ -17,9 +17,8 @@ private:
 private:
 	Shader* m_Shader;
 	std::vector<Texture*> m_Textures;
-
-	UniformBuffer m_VSUserUniformBuffer;
-	UniformBuffer m_FSUserUniformBuffer;
+	std::vector<ShaderUniform> m_Uniforms;
+	UniformBuffer m_UniformBuffer;
 public:
 	Material(Shader* shader);
 	~Material();
@@ -27,10 +26,16 @@ public:
 	template<typename T> 
 	void SetValue(const String& name, const T& value)
 	{
-		//TODO: get offset from uniform declaration
 		uint offset = 0;
-		//TODO: get right Buffer from uniform declaration
-		UniformBuffer& buffer = m_VSUserUniformBuffer;
+
+		for (int i = 0; i < m_Uniforms.size(); i++)
+		{
+			if (m_Uniforms[i].GetName() == name)
+				break;
+			offset += m_Uniforms[i].GetSize();
+		}
+
+		UniformBuffer& buffer = m_UniformBuffer;
 		memcpy(buffer.buffer + offset, &value, sizeof(T));
 	}
 

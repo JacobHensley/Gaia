@@ -3,8 +3,8 @@
 Material::Material(Shader* shader)
 	: m_Shader(shader)
 {
+	m_Uniforms = m_Shader->GetUniforms();
 	AllocateStorage();
-	SetValue("test", 5);
 }
 
 Material::~Material()
@@ -13,19 +13,19 @@ Material::~Material()
 
 void Material::AllocateStorage()
 {
-	//TODO: Get uniform declaration from shader
-	uint vsUniformSize = 0;
-	uint fsUniformSize = 0;
+	uint uniformBufferSize = 0;
 
-	m_VSUserUniformBuffer.buffer = new byte[vsUniformSize];
-	m_VSUserUniformBuffer.size = vsUniformSize;
+	for (int i = 0; i < m_Uniforms.size(); i++)
+	{
+		uniformBufferSize += m_Uniforms[i].GetSize();
+	}
 
-	m_FSUserUniformBuffer.buffer = new byte[fsUniformSize];
-	m_FSUserUniformBuffer.size = fsUniformSize;
+	m_UniformBuffer.buffer = new byte[uniformBufferSize];
+	m_UniformBuffer.size = uniformBufferSize;
 
 	//TODO: get texture count from shader
-	uint TextureCount = 1;
-	m_Textures.resize(TextureCount);
+	uint textureCount = 1;
+	m_Textures.resize(textureCount);
 }
 
 void Material::FreeStorage()
@@ -35,8 +35,17 @@ void Material::FreeStorage()
 
 void Material::SetTexture(const String& name, Texture* texture)
 {
-	//TODO: get index by name from declaration
 	uint index = 0;
+
+	for (int i = 0; i < m_Uniforms.size(); i++)
+	{
+		if (m_Uniforms[i].GetName() == name)
+		{
+			index = i;
+			break;
+		}
+	}
+
 	m_Textures[index] = texture;
 }
 
