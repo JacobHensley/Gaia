@@ -23,8 +23,10 @@ public:
 	inline const uint GetSize() { return m_Size; }
 	inline const uint GetOffset() { return m_Offset; }
 
+	inline void SetOffset(int offset) { m_Offset = offset; }
+
 private:
-	String m_Name;
+	const String& m_Name;
 	Type m_Type;
 	uint m_Count;
 	uint m_Size;

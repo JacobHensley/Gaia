@@ -12,13 +12,12 @@ struct ShaderSource;
 class Shader
 {
 public:
-
 	Shader(const String& filePath);
 	~Shader();
 
-	std::vector<ShaderUniform> GetUniforms();
+	void ParseUniforms();
+	void PushUniform(ShaderUniform* uniform);
 	void PrintUniforms();
-
 
 	void Bind();
 	void Unbind();
@@ -26,6 +25,8 @@ public:
 	void SetTextureIDs(const String& name);
 
 	int GetUniformLocation(const String& name);
+
+	inline const std::vector<ShaderUniform*> GetUniforms() { return m_Uniforms; };
 
 	void SetUniform1i(const String& name, int value);
 	void SetUniform1iv(const String& name, int* value, int count);
@@ -45,5 +46,6 @@ private:
 	ShaderSource ParseShader(const String& filePath);
 	int CompileShader(uint shader, const String& shaderSrc);
 	uint Load();
+	std::vector<ShaderUniform*> m_Uniforms;
 	std::unordered_map<String, int> m_UniformLocationCache;
 };

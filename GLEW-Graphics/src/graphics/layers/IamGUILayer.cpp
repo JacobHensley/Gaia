@@ -33,7 +33,7 @@ void IamGUILayer::OnRender()
 	using namespace ImGui;
 
 	Application& app = Application::GetApplication();
-	LayerStack layerStack = app.GetLayerStack();
+	LayerStack* layerStack = app.GetLayerStack();
 
 	ImGui_ImplGlfwGL3_NewFrame();
 	ImGui::Begin("Debug Info");
@@ -43,10 +43,10 @@ void IamGUILayer::OnRender()
 
 	ImGui::Separator();
 
-	std::vector<Layer*> layers = layerStack.GetLayers();
+	std::vector<Layer*> layers = layerStack->GetLayers();
 	if (ImGui::TreeNode("Layers"))
 	{
-		for (int i = 0; i < layers.size(); i++)
+		for (uint i = 0; i < layers.size(); i++)
 			if (ImGui::TreeNode(layers[i]->GetName().c_str()))
 			{
 				ImGui::Text("Placeholder");
@@ -56,10 +56,10 @@ void IamGUILayer::OnRender()
 		ImGui::TreePop();
 	}
 
-	std::vector<Layer*> overlays = layerStack.GetOverlays();
+	std::vector<Layer*> overlays = layerStack->GetOverlays();
 	if (ImGui::TreeNode("Overlays"))
 	{
-		for (int i = 0; i < overlays.size(); i++)
+		for (uint i = 0; i < overlays.size(); i++)
 			if (ImGui::TreeNode(overlays[i]->GetName().c_str()))
 			{
 				ImGui::Text("Placeholder");

@@ -15,9 +15,9 @@ void Material::AllocateStorage()
 {
 	uint uniformBufferSize = 0;
 
-	for (int i = 0; i < m_Uniforms.size(); i++)
+	for (uint i = 0; i < m_Uniforms.size(); i++)
 	{
-		uniformBufferSize += m_Uniforms[i].GetSize();
+		uniformBufferSize += m_Uniforms[i]->GetSize();
 	}
 
 	m_UniformBuffer.buffer = new byte[uniformBufferSize];
@@ -35,17 +35,13 @@ void Material::FreeStorage()
 
 void Material::SetTexture(const String& name, Texture* texture)
 {
-	uint index = 0;
-
-	for (int i = 0; i < m_Uniforms.size(); i++)
+	for (uint i = 0; i < m_Uniforms.size(); i++)
 	{
-		if (m_Uniforms[i].GetName() == name)
+		if (m_Uniforms[i]->GetName() == name)
 		{
-			index = i;
+			m_Textures[i] = texture;
 			break;
 		}
 	}
-
-	m_Textures[index] = texture;
 }
 

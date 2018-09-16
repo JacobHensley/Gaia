@@ -40,7 +40,7 @@ static byte* AlignData(byte* data, uint size)
 {
 	buffer = new byte[size * 4];
 	memset(buffer, 0, size * 4);
-	for (int i = 0; i < size; i++) {
+	for (uint i = 0; i < size; i++) {
 		buffer[i * 4] = data[i];
 	}
 

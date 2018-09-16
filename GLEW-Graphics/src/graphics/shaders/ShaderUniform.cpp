@@ -6,7 +6,6 @@ ShaderUniform::ShaderUniform(const String& name, const String& type, uint count)
 	m_Size = SizeFromType(m_Type) * m_Count;
 }
 
-
 ShaderUniform::~ShaderUniform()
 {
 }

@@ -138,7 +138,7 @@ void Renderer2D::DrawString(const String& text, float x, float y, Font& font, ve
 
 	Texture* atlasTexture = font.GetAtlasTexture();
 
-	for (int i = 0; i < text.size(); i++)
+	for (uint i = 0; i < text.size(); i++)
 	{
 		char c = text[i];
 

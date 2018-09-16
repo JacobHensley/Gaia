@@ -8,7 +8,7 @@ FontManager::FontManager()
 
 void FontManager::LoadFont(Font* font)
 {
-	for (int i = 0;i < s_Fonts.size();i++)
+	for (uint i = 0;i < s_Fonts.size();i++)
 	{
 		if (s_Fonts[i] == font)
 			return;
@@ -19,7 +19,7 @@ void FontManager::LoadFont(Font* font)
 
 Font* FontManager::GetFont(const String& name, int size)
 {
-	for (int i = 0; i < s_Fonts.size(); i++)
+	for (uint i = 0; i < s_Fonts.size(); i++)
 	{
 		Font* font = s_Fonts[i];
 		if (font->GetName() == name && font->GetSize() == size)
@@ -30,7 +30,7 @@ Font* FontManager::GetFont(const String& name, int size)
 
 Font* FontManager::GetFont(const String& name)
 {
-	for (int i = 0; i < s_Fonts.size(); i++)
+	for (uint i = 0; i < s_Fonts.size(); i++)
 	{
 		Font* font = s_Fonts[i];
 		if (font->GetName() == name)
@@ -41,7 +41,7 @@ Font* FontManager::GetFont(const String& name)
 
 Font* FontManager::GetFont(int size)
 {
-	for (int i = 0; i < s_Fonts.size(); i++)
+	for (uint i = 0; i < s_Fonts.size(); i++)
 	{
 		Font* font = s_Fonts[i];
 		if (font->GetSize() == size)

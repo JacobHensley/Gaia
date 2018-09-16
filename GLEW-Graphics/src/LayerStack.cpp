@@ -21,7 +21,7 @@ void LayerStack::PushOverlay(Layer* layer)
 
 void LayerStack::OnRender()
 {
-	for (int i = 0; i < m_LayerStack.size(); i++)
+	for (uint i = 0; i < m_LayerStack.size(); i++)
 	{
 		if (m_LayerStack[i]->m_IsActive)
 			m_LayerStack[i]->OnRender();
@@ -46,7 +46,7 @@ void LayerStack::OnUpdate(TimeStep timeStep)
 
 Layer* LayerStack::GetLayer(const String& name) const
 {
-	for (int i = 0; i < m_LayerStack.size(); i++)
+	for (uint i = 0; i < m_LayerStack.size(); i++)
 	{
 		if (m_LayerStack[i]->GetName() == name)
 			return m_LayerStack[i];
@@ -56,7 +56,7 @@ Layer* LayerStack::GetLayer(const String& name) const
 
 Layer* LayerStack::GetOverlay(const String& name) const
 {
-	for (int i = 0; i < m_OverlayStack.size(); i++)
+	for (uint i = 0; i < m_OverlayStack.size(); i++)
 	{
 		if (m_OverlayStack[i]->GetName() == name)
 			return m_OverlayStack[i];

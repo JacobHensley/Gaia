@@ -14,6 +14,8 @@ Shader::Shader(const String& filePath)
 {
 	m_ShaderID = Load();
 	ASSERT(m_ShaderID, "Temp");
+
+	ParseUniforms();
 }
 
 Shader::~Shader()
@@ -21,10 +23,9 @@ Shader::~Shader()
 	GLCall(glDeleteProgram(m_ShaderID));
 }
 
-std::vector<ShaderUniform> Shader::GetUniforms()
+void Shader::ParseUniforms()
 {
 	std::ifstream stream(m_FilePath);
-	std::vector<ShaderUniform> uniforms;
 
 	String line;
 	while (getline(stream, line))
@@ -33,7 +34,7 @@ std::vector<ShaderUniform> Shader::GetUniforms()
 		{
 			std::vector<String> tokens;
 			String token;
-			for (int i = 0; i < line.length(); i++)
+			for (uint i = 0; i < line.length(); i++)
 			{
 				if (line[i] == '[')
 				{
@@ -58,24 +59,51 @@ std::vector<ShaderUniform> Shader::GetUniforms()
 				}
 				token += line[i];
 			}
+
 			tokens.push_back(token);
 			if (tokens.size() == 3)
 				tokens.push_back("1");
-			uniforms.push_back(ShaderUniform(tokens[2], tokens[1], std::stoi(tokens[3])));
+
+			String& name = tokens[1];
+			String& type = tokens[2];
+			int count = std::stoi(tokens[3]);
+
+			PushUniform(new ShaderUniform(type, name, count));
 		}
 	}
+}
 
+void Shader::PushUniform(ShaderUniform* uniform)
+{
+	int offset = 0;
 
-	return uniforms;
+	for (uint i = 0; i < m_Uniforms.size(); i++)
+	{
+		offset += m_Uniforms[i]->GetSize();
+	}
+
+	uniform->SetOffset(offset);
+
+	//Method Two
+/*	if (m_Uniforms.size() > 0) 
+	{
+		int index = m_Uniforms.size() - 1;
+		offset = m_Uniforms[index]->GetOffset() + m_Uniforms[index]->GetSize();
+		uniform->SetOffset(offset);
+	}
+	else	
+		uniform->SetOffset(0); */
+	
+	m_Uniforms.push_back(uniform);
 }
 
 void Shader::PrintUniforms()
 {
-	std::vector<ShaderUniform> uniforms = GetUniforms();
+	std::vector<ShaderUniform*> uniforms = GetUniforms();
 
-	for (int i = 0; i < uniforms.size(); i++)
+	for (uint i = 0; i < uniforms.size(); i++)
 	{
-		std::cout << uniforms[i].StringFromType(uniforms[i].GetType()) << " " << uniforms[i].GetName() << " " << uniforms[i].GetCount() << " " << uniforms[i].GetSize() << std::endl;
+		std::cout << uniforms[i]->StringFromType(uniforms[i]->GetType()) << " " << uniforms[i]->GetName() << " " << uniforms[i]->GetCount() << " " << uniforms[i]->GetSize() << std::endl;
 	}
 }
 

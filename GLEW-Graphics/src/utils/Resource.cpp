@@ -1,5 +1,5 @@
 #include "Resource.h"
-#include "graphics/Shader.h"
+#include "graphics/shaders/Shader.h"
 #include "graphics/Texture.h"
 
 Resource::ResourceMap Resource::s_ResourceMap;
