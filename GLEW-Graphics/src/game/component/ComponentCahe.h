@@ -13,14 +13,14 @@ public:
 	template<typename T>
 	const std::vector<Component*>& GetAll()
 	{
-		//TODO: add static assert 
+		//TODO: Add static assert. 
 		return m_Components[T::GetStaticType()];
 	}
 
 	template<typename T>
     T* Get(const Entity* entity)
 	{
-		//TODO: add static assert 
+		//TODO: Add static assert.
 		return (T*)m_EntityComponents[(Entity*)entity][T::GetStaticType()];
 	}
 

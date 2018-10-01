@@ -28,19 +28,10 @@ Sprite::Sprite(const Texture* texture, const vec4& color)
 	Init();
 }
 
-//Temp
-Sprite::Sprite(const vec4& color, int width, int height)
-	: m_Color(color), m_Texture(nullptr), m_TempWidth(width), m_TempHeight(height)
-{
-	Init();
-}
-
 void Sprite::Init()
 {
 	if (!m_Shader) 
 	{
-		float hwidth = 0.5f;
-		float hheight = 0.5f;
 		float vertices[] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 1.0f,
 			-0.5f,  0.5f, 0.0f, 0.0f, 0.0f,

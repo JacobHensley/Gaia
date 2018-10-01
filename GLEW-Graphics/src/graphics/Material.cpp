@@ -23,7 +23,7 @@ void Material::AllocateStorage()
 	m_UniformBuffer.buffer = new byte[uniformBufferSize];
 	m_UniformBuffer.size = uniformBufferSize;
 
-	//TODO: get texture count from shader
+	//TODO: Get texture count from shader.
 	uint textureCount = 1;
 	m_Textures.resize(textureCount);
 }

@@ -13,7 +13,7 @@ Shader::Shader(const String& filePath)
 	: m_FilePath(filePath)
 {
 	m_ShaderID = Load();
-	ASSERT(m_ShaderID, "Temp");
+	ASSERT(m_ShaderID);
 
 	ParseUniforms();
 }
@@ -76,23 +76,12 @@ void Shader::ParseUniforms()
 void Shader::PushUniform(ShaderUniform* uniform)
 {
 	int offset = 0;
-
-	for (uint i = 0; i < m_Uniforms.size(); i++)
+	if (m_Uniforms.size() > 0) 
 	{
-		offset += m_Uniforms[i]->GetSize();
-	}
-
-	uniform->SetOffset(offset);
-
-	//Method Two
-/*	if (m_Uniforms.size() > 0) 
-	{
-		int index = m_Uniforms.size() - 1;
-		offset = m_Uniforms[index]->GetOffset() + m_Uniforms[index]->GetSize();
+		ShaderUniform* uniform = m_Uniforms[m_Uniforms.size() - 1];
+		offset = uniform->GetOffset() + uniform->GetSize();
 		uniform->SetOffset(offset);
 	}
-	else	
-		uniform->SetOffset(0); */
 	
 	m_Uniforms.push_back(uniform);
 }

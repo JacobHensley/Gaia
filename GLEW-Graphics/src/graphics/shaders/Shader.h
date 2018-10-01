@@ -26,7 +26,7 @@ public:
 
 	int GetUniformLocation(const String& name);
 
-	inline const std::vector<ShaderUniform*> GetUniforms() { return m_Uniforms; };
+	inline const std::vector<ShaderUniform*>& GetUniforms() { return m_Uniforms; };
 
 	void SetUniform1i(const String& name, int value);
 	void SetUniform1iv(const String& name, int* value, int count);

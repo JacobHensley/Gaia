@@ -12,4 +12,6 @@ int main()
 	app.PushLayer(new GameLayer("GameLayer"));
 	app.PushLayer(new UILayer("UILayer"));
 	app.Run();
+
+	//ImGUI uniforms
 }

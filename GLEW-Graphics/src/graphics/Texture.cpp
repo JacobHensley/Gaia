@@ -24,7 +24,7 @@ uint Texture::LoadFromFile()
 {
 	int width, height, bpc;
 	byte* data = stbi_load(m_Path.c_str(), &width, &height, &bpc, 0);
-	ASSERT(data, "Failed to load texture from: " + m_Path);
+	ASSERT(data);
 
 	uint texture = Load(data, width, height);
 
@@ -67,7 +67,7 @@ uint Texture::Load(byte* data, uint width, uint height)
 void Texture::SetData(byte* data, uint size)
 {
 	Bind();
-	ASSERT(size == m_Width * m_Height * GetStrideFromFormat(m_Parameters.format), "Size does not match size from texture");
+	ASSERT(size == m_Width * m_Height * GetStrideFromFormat(m_Parameters.format));
 	byte* alignedData = AlignData(data, size);
 	delete buffer;
 	GLCall(glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, m_Width, m_Height, TextureFormatToGL(m_Parameters.format), GL_UNSIGNED_BYTE, data));

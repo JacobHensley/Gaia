@@ -7,7 +7,7 @@ class Shader;
 
 class Resource {
 public:
-	enum class ResourceType { NONE = 0, SHADER, TEXTURE }; //TEMP
+	enum class ResourceType { NONE = 0, SHADER = 1, TEXTURE = 2 };
 private:
 	struct ResourceStore 
 	{

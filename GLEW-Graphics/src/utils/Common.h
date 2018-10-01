@@ -10,10 +10,9 @@ typedef unsigned int uint;
 typedef unsigned char byte;
 
 #ifdef _DEBUG
-#define ASSERT(condition, message) if (!(condition)) { \
+#define ASSERT(condition) if (!(condition)) { \
 	std::cout << "Assertion Failed!" << std::endl; \
 	std::cout << "File: " << __FILE__ << ", Line: " << __LINE__ << std::endl; \
-	std::cout << "Error: " << message << std::endl; \
 	std::cout << "Condition: " << #condition << std::endl; \
 	__debugbreak(); \
 }

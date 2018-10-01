@@ -12,7 +12,7 @@ Entity::~Entity()
 
 void Entity::AddComponent(Component* component)
 {
-	ASSERT(m_Level, "Temp");
+	ASSERT(m_Level);
 
 	component->SetEntity(this);
 	m_Level->AddComponent(component);

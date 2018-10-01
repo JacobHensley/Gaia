@@ -48,5 +48,5 @@ void main()
 		textureColor = texture(u_Textures[tid], tc);
 	}
 
-	color = textureColor * f_Color * u_TestColor;
+	color = textureColor * f_Color;
 }
