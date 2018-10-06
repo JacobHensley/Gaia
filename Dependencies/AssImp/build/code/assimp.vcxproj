@@ -1,0 +1,865 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{21973E1B-0265-3E5B-95B5-B540FC447EC0}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>assimp</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">assimp.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">assimp-vc140-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">assimp.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">assimp-vc140-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">assimp.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">assimp-vc140-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">assimp.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">assimp-vc140-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="Debug";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"Debug\";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\contrib\zlib\Debug\zlibstaticd.lib;..\contrib\irrXML\Debug\IrrXML.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/Debug/assimp-vc140-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/Debug/assimp-vc140-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="Release";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"Release\";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\contrib\zlib\Release\zlibstatic.lib;..\contrib\irrXML\Release\IrrXML.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/Release/assimp-vc140-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/Release/assimp-vc140-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="MinSizeRel";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"MinSizeRel\";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\contrib\zlib\MinSizeRel\zlibstatic.lib;..\contrib\irrXML\MinSizeRel\IrrXML.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/MinSizeRel/assimp-vc140-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/MinSizeRel/assimp-vc140-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="RelWithDebInfo";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"RelWithDebInfo\";assimp_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\rapidjson\include;$(SolutionDir)Dependencies\AssImp\code\..\contrib;$(SolutionDir)Dependencies\AssImp\code\..\contrib\unzip;$(SolutionDir)Dependencies\AssImp\contrib\irrXML;$(SolutionDir)Dependencies\AssImp\code\..\contrib\openddlparser\include;$(SolutionDir)Dependencies\AssImp\code\..\include;$(SolutionDir)Dependencies\AssImp\build\code\..\include;$(SolutionDir)Dependencies\AssImp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\contrib\zlib\RelWithDebInfo\zlibstatic.lib;..\contrib\irrXML\RelWithDebInfo\IrrXML.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/RelWithDebInfo/assimp-vc140-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/RelWithDebInfo/assimp-vc140-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp" "-BC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build" --check-stamp-file "C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;$(SolutionDir)Dependencies\AssImp\cmake-modules\FindRT.cmake;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp" "-BC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build" --check-stamp-file "C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;$(SolutionDir)Dependencies\AssImp\cmake-modules\FindRT.cmake;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp" "-BC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build" --check-stamp-file "C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;$(SolutionDir)Dependencies\AssImp\cmake-modules\FindRT.cmake;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp" "-BC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build" --check-stamp-file "C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;$(SolutionDir)Dependencies\AssImp\cmake-modules\FindRT.cmake;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Assimp.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BaseImporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BaseProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BaseProcess.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Importer.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ScenePrivate.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\PostStepRegistry.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ImporterRegistry.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\DefaultProgressHandler.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\DefaultIOStream.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\DefaultIOSystem.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\CInterfaceIOWrapper.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\CInterfaceIOWrapper.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\IFF.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SGSpatialSort.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\VertexTriangleAdjacency.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\VertexTriangleAdjacency.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SpatialSort.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SceneCombiner.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ScenePreprocessor.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ScenePreprocessor.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SkeletonMeshBuilder.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SplitByBoneCountProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\SplitByBoneCountProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\StandardShapes.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\TargetAnimation.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\TargetAnimation.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\RemoveComments.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Subdivision.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\scene.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Bitmap.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Version.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\CreateAnimMesh.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\simd.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\simd.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\LogStream.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Logger.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\NullLogger.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Win32DebugLogStream.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\DefaultLogger.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FileLogStream.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\StdOStreamLogStream.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Exporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\AssimpCExport.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\BlobIOSystem.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\CalcTangentsProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\CalcTangentsProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ComputeUVMappingProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ComputeUVMappingProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ConvertToLHProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ConvertToLHProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\EmbedTexturesProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\EmbedTexturesProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FindDegenerates.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FindDegenerates.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FindInstancesProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FindInstancesProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FindInvalidDataProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FindInvalidDataProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FixNormalsStep.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FixNormalsStep.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\GenFaceNormalsProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\GenFaceNormalsProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\GenVertexNormalsProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\GenVertexNormalsProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\PretransformVertices.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\PretransformVertices.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ImproveCacheLocality.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ImproveCacheLocality.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\JoinVerticesProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\JoinVerticesProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\LimitBoneWeightsProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\LimitBoneWeightsProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\RemoveRedundantMaterials.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\RemoveRedundantMaterials.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\RemoveVCProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\RemoveVCProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SortByPTypeProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\SortByPTypeProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SplitLargeMeshes.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\SplitLargeMeshes.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\TextureTransform.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\TextureTransform.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\TriangulateProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\TriangulateProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ValidateDataStructure.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ValidateDataStructure.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OptimizeGraph.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OptimizeGraph.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OptimizeMeshes.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OptimizeMeshes.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\DeboneProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\DeboneProcess.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ProcessHelper.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ProcessHelper.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\PolyTools.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MakeVerboseFormat.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MakeVerboseFormat.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ScaleProcess.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ScaleProcess.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MaterialSystem.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MaterialSystem.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\STEPFile.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\StepExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\StepExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\AMFImporter.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\AMFImporter_Macro.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\AMFImporter_Node.hpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\AMFImporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\AMFImporter_Geometry.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\AMFImporter_Material.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\AMFImporter_Postprocess.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\3DSConverter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\3DSHelper.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\3DSLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\3DSLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\3DSExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\3DSExporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ACLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ACLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ASELoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ASELoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ASEParser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ASEParser.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\AssbinExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\AssbinExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\AssbinLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\AssbinLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\AssxmlExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\AssxmlExporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\B3DImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\B3DImporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BVHLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BVHLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ColladaHelper.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ColladaLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ColladaLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ColladaParser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ColladaParser.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ColladaExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ColladaExporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\DXFLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\DXFLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\DXFHelper.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\CSMLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\CSMLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\HMPFileData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\HMPLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\HMPLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\HalfLifeFileData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\IRRMeshLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\IRRMeshLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\IRRShared.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\IRRShared.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\IRRLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\IRRLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\LWOAnimation.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\LWOAnimation.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\LWOBLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\LWOFileData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\LWOLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\LWOLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\LWOMaterial.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\LWSLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\LWSLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MD2FileData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MD2Loader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MD2Loader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MD2NormalTable.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MD3FileData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MD3Loader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MD3Loader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MD5Loader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MD5Loader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MD5Parser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MD5Parser.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MDCFileData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MDCLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MDCLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MDCNormalTable.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MDLDefaultColorMap.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MDLFileData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MDLLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MDLLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MDLMaterialLoader.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\NFFLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\NFFLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\NDOLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\NDOLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OFFLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OFFLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ObjFileData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ObjFileImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ObjFileImporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ObjFileMtlImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ObjFileMtlImporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ObjFileParser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ObjFileParser.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ObjTools.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\ObjExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\ObjExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OgreImporter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OgreStructs.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OgreParsingUtils.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OgreBinarySerializer.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OgreXmlSerializer.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OgreImporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OgreStructs.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OgreBinarySerializer.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OgreXmlSerializer.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OgreMaterial.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OpenGEXExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OpenGEXExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\OpenGEXImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OpenGEXImporter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\OpenGEXStructs.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\PlyLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\PlyLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\PlyParser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\PlyParser.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\PlyExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\PlyExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MS3DLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MS3DLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\COBLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\COBLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\COBScene.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BlenderLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BlenderDNA.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderDNA.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderDNA.inl" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BlenderScene.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderScene.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderSceneGen.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderIntermediate.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderModifier.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BlenderModifier.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderBMesh.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BlenderBMesh.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderTessellator.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BlenderTessellator.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\BlenderCustomData.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BlenderCustomData.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCReaderGen1_2x3.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCReaderGen2_2x3.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCReaderGen_2x3.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCUtil.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCUtil.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCGeometry.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCMaterial.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCProfile.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCCurve.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCBoolean.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\IFCOpenings.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\STEPFileReader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\STEPFileReader.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\STEPFileEncoding.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Importer\IFC\STEPFileEncoding.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\XGLLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\XGLLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXCompileConfig.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXImporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXParser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXParser.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXTokenizer.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXTokenizer.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXImportSettings.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXConverter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXConverter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXUtil.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXUtil.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXDocument.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXDocument.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXProperties.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXProperties.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXMeshGeometry.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXMeshGeometry.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXMaterial.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXModel.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXAnimation.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXNodeAttribute.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXDeformer.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXBinaryTokenizer.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXDocumentUtil.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXExportNode.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXExportNode.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXExportProperty.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FBXExportProperty.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FBXCommon.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Q3DLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Q3DLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Q3BSPFileData.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Q3BSPFileParser.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Q3BSPFileParser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Q3BSPFileImporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Q3BSPFileImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\Q3BSPZipArchive.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Q3BSPZipArchive.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\RawLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\RawLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SIBImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\SIBImporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\SMDLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\SMDLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\STLLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\STLLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\STLExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\STLExporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\TerragenLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\TerragenLoader.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\UnrealLoader.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\UnrealLoader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\XFileHelper.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\XFileImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\XFileImporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\XFileParser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\XFileParser.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\XFileExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\XFileExporter.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\X3DExporter.hpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter.hpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Geometry2D.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Geometry3D.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Group.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Light.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Macro.hpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Metadata.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Networking.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Node.hpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Postprocess.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Rendering.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Shape.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DImporter_Texturing.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\FIReader.hpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\FIReader.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\X3DVocabulary.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTFAsset.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTFAsset.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTFAssetWriter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTFAssetWriter.inl" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\glTFImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTFImporter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTFExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\glTFExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTF2Asset.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTF2Asset.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTF2AssetWriter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTF2AssetWriter.inl" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\glTF2Importer.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTF2Importer.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\glTF2Exporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\glTF2Exporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\D3MFImporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\D3MFImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\D3MFExporter.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\D3MFExporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\D3MFOpcPackage.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\D3MFOpcPackage.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\3MFXmlTags.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MMDCpp14.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MMDImporter.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MMDImporter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MMDPmdParser.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MMDPmxParser.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\MMDPmxParser.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\code\MMDVmdParser.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\irrXMLWrapper.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\unzip\crypt.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\unzip\ioapi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\unzip\ioapi.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\unzip\unzip.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\unzip\unzip.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\common\shapes.cc" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\common\shapes.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\common\utils.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\sweep\advancing_front.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\sweep\advancing_front.cc" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\sweep\cdt.cc" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\sweep\cdt.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\sweep\sweep.cc" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\sweep\sweep.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\sweep\sweep_context.cc" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\poly2tri\poly2tri\sweep\sweep_context.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\clipper\clipper.hpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\clipper\clipper.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\code\OpenDDLParser.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\code\DDLNode.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\code\OpenDDLCommon.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\code\OpenDDLExport.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\code\Value.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\code\OpenDDLStream.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\include\openddlparser\OpenDDLParser.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\include\openddlparser\OpenDDLParserUtils.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\include\openddlparser\OpenDDLCommon.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\include\openddlparser\OpenDDLExport.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\include\openddlparser\OpenDDLStream.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\include\openddlparser\DDLNode.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\openddlparser\include\openddlparser\Value.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcAdjacencyInfo.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcArithmeticCodec.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcArithmeticCodec.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcBinaryStream.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcCommon.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcDVEncodeParams.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcDynamicVectorDecoder.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcDynamicVectorDecoder.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcDynamicVectorEncoder.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcDynamicVectorEncoder.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcDynamicVector.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcFIFO.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcIndexedFaceSet.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcIndexedFaceSet.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcSC3DMCDecoder.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcSC3DMCDecoder.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcSC3DMCEncodeParams.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcSC3DMCEncoder.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcSC3DMCEncoder.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcTimer.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcTools.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcTriangleFans.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcTriangleFans.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcTriangleListDecoder.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcTriangleListDecoder.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcTriangleListEncoder.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcTriangleListEncoder.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcVector.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\Open3DGC\o3dgcVector.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\zip\src\miniz.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\zip\src\zip.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\zip\src\zip.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\anim.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\ai_assert.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\camera.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\color4.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\color4.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\build\include\assimp\config.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\defs.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Defines.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\cfileio.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\light.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\material.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\material.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\matrix3x3.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\matrix3x3.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\matrix4x4.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\matrix4x4.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\mesh.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\pbrmaterial.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\postprocess.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\quaternion.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\quaternion.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\scene.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\metadata.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\texture.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\types.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\vector2.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\vector2.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\vector3.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\vector3.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\version.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\cimport.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\importerdesc.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Importer.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\IOStream.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\IOSystem.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\cexport.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Exporter.hpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\DefaultIOStream.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\DefaultIOSystem.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\SceneCombiner.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\fast_atof.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\qnan.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\BaseImporter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Hash.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\MemoryIOWrapper.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\ParsingUtils.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\StreamReader.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\StreamWriter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\StringComparison.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\StringUtils.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\SGSpatialSort.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\GenericProperty.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\SpatialSort.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\SkeletonMeshBuilder.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\SmoothingGroups.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\SmoothingGroups.inl" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\StandardShapes.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\RemoveComments.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Subdivision.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Vertex.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\LineSplitter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\TinyFormatter.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Profiler.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\LogAux.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Bitmap.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\XMLTools.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\IOStreamBuffer.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\CreateAnimMesh.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\MathFunctions.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Macros.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Exceptional.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\ByteSwapper.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Compiler\pstdint.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)Dependencies\AssImp\build\ZERO_CHECK.vcxproj">
+      <Project>{824F5F21-DC01-3DA6-9902-368BEE8E5197}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\IrrXML.vcxproj">
+      <Project>{7A1B7A5E-329E-36B1-8944-8F0EA587AE3C}</Project>
+      <Name>IrrXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)Dependencies\AssImp\build\contrib\zlib\zlibstatic.vcxproj">
+      <Project>{190880AE-92A9-30E9-BF08-4D1E73F569A2}</Project>
+      <Name>zlibstatic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

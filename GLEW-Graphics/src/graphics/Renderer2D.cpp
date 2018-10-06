@@ -25,7 +25,6 @@ Renderer2D::Renderer2D(int width, int height)
 
 void Renderer2D::Init()
 {
-	
 	// Object count
 	const uint MAX_SPRITES = 100000;
 	const uint MAX_TEXT_CHARS = 1000;
@@ -315,32 +314,6 @@ void Renderer2D::Flush()
 
 	m_LineIndexCount = 0;
 	m_IndexCount = 0;
-
-#if 0
-	while (!m_Queue.empty())
-	{
-		break;
-		RenderCommand command = m_Queue.front();
-		m_Queue.pop();
-
-		command.sprite->m_VertexArray->Bind();
-		command.sprite->m_IndexBuffer->Bind();
-		command.sprite->m_Shader->Bind();
-		command.sprite->GetTexture()->Bind();
-
-		command.sprite->m_Shader->SetUniform1i("u_Texture", 0);
-		command.sprite->m_Shader->SetUniformMat4("u_ProjMatrix", m_Camera->GetProjectionMatrix());
-		command.sprite->m_Shader->SetUniformMat4("u_ViewMatrix", m_Camera->GetViewMatrix());
-		command.sprite->m_Shader->SetUniformMat4("u_ModelMatrix", command.transform);
-
-		command.sprite->m_IndexBuffer->Draw();
-
-		command.sprite->GetTexture()->Unbind();
-		command.sprite->m_Shader->Unbind();
-		command.sprite->m_IndexBuffer->Unbind();
-		command.sprite->m_VertexArray->Unbind();
-	}
-#endif
 }
 
 void Renderer2D::SetCamera(CameraRef camera)
