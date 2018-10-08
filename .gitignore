@@ -1,5 +1,4 @@
 # Visual Studio Files
-bin/
 .vs/
 *.sdf
 *.db
