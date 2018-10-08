@@ -20,7 +20,7 @@ struct MeshTexture {
 class Mesh
 {
 public:
-	Mesh(std::vector<MeshVertex> vertices, std::vector<uint> indices, std::vector<Texture> textures);
+	Mesh(std::vector<MeshVertex>& vertices, std::vector<uint>& indices, std::vector<MeshTexture>& textures);
 private:
 	void Init();
 private:

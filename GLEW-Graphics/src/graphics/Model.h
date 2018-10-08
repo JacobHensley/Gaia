@@ -14,9 +14,10 @@ public:
 	~Model();
 
 	void LoadFromFile(String path);
-	void processNode(aiNode* node, const aiScene* scene);
-	Mesh processMesh(aiMesh* mesh, const aiScene* scene);
-	const String& determineTextureType(const aiScene* scene, aiMaterial* mat);
+	void ProcessNode(aiNode* node, const aiScene* scene);
+	std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTextureType type, String typeName, const aiScene* scene) const;
+	Mesh ProcessMesh(aiMesh* mesh, const aiScene* scene);
+	String determineTextureType(const aiScene* scene, aiMaterial* mat);
 private:
 	std::vector<Mesh>& m_Meshs;
 	mat4& m_Transform;

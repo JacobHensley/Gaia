@@ -14,14 +14,14 @@ void Model::LoadFromFile(String path)
 {
 	const aiScene* scene = aiImportFile(path.c_str(), aiProcessPreset_TargetRealtime_MaxQuality);
 
-	processNode(scene->mRootNode, scene);
+	ProcessNode(scene->mRootNode, scene);
 
 	aiReleaseImport(scene);
 }
 
 String textype;
 
-Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
+Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 {
 	// Data to fill
 	std::vector<MeshVertex> vertices;
@@ -72,64 +72,35 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
 	return Mesh(vertices, indices, textures);
 }
 
-std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTextureType type, string typeName, const aiScene * scene)
+std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTextureType type, String typeName, const aiScene* scene) const
 {
 	std::vector<MeshTexture> textures;
-	for (unt i = 0; i < mat->GetTextureCount(type); i++)
+	for (uint i = 0; i < mat->GetTextureCount(type); i++)
 	{
 		aiString str;
 		mat->GetTexture(type, i, &str);
-		// Check if texture was loaded before and if so, continue to next iteration: skip loading a new texture
-		bool skip = false;
-		for (uint j = 0; j < textures_loaded.size(); j++)
-		{
-			if (std::strcmp(textures_loaded[j].path.c_str(), str.C_Str()) == 0)
-			{
-				textures.push_back(textures_loaded[j]);
-				skip = true; // A texture with the same filepath has already been loaded, continue to next one. (optimization)
-				break;
-			}
-		}
-		if (!skip)
-		{   // If texture hasn't been loaded already, load it
-			MeshTexture texture;
-			if (textype == "embedded compressed texture")
-			{
-				int textureindex = getTextureIndex(&str);
-				texture.texture = getTextureFromModel(scene, textureindex);
-			}
-			else
-			{
-				string filename = string(str.C_Str());
-				filename = directory + '/' + filename;
-				wstring filenamews = wstring(filename.begin(), filename.end());
-				hr = CreateWICTextureFromFile(dev, devcon, filenamews.c_str(), nullptr, &texture.texture);
-			}
-			texture.type = typeName;
-			texture.path = str.C_Str();
-			textures.push_back(texture);
-			this->textures_loaded.push_back(texture);  // Store it as texture loaded for entire model, to ensure we won't unnecesery load duplicate textures.
-		}
+		String texture = str.data;
+		std::cout << texture << std::end;
 	}
 	return textures;
 }
 
 
-void Model::processNode(aiNode* node, const aiScene* scene)
+void Model::ProcessNode(aiNode* node, const aiScene* scene)
 {
 	for (uint i = 0; i < node->mNumMeshes; i++)
 	{
 		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-		m_Meshs.push_back(this->processMesh(mesh, scene));
+		m_Meshs.push_back(this->ProcessMesh(mesh, scene));
 	}
 
 	for (uint i = 0; i < node->mNumChildren; i++)
 	{
-		this->processNode(node->mChildren[i], scene);
+		this->ProcessNode(node->mChildren[i], scene);
 	}
 }
 
-const String& Model::determineTextureType(const aiScene* scene, aiMaterial* mat)
+String Model::determineTextureType(const aiScene* scene, aiMaterial* mat)
 {
 	aiString textypeStr;
 	mat->GetTexture(aiTextureType_DIFFUSE, 0, &textypeStr);
@@ -149,4 +120,5 @@ const String& Model::determineTextureType(const aiScene* scene, aiMaterial* mat)
 	{
 		return "textures are on disk";
 	}
+	return "";
 }
