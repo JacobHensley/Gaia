@@ -162,6 +162,9 @@
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;$(SolutionDir)bin\$(Configuration)\GLFW.lib;$(SolutionDir)bin\$(Configuration)\GLEW.lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /f /y "$(SolutionDir)Dependencies\assimp\bin\x86\Debug\assimp-vc140-mt.dll" "$(SolutionDir)bin\$(Configuration)"\*</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AArch64-Android-NVIDIA'">
     <ClCompile>
@@ -190,6 +193,9 @@
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;$(SolutionDir)bin\$(Configuration)\GLFW.lib;$(SolutionDir)bin\$(Configuration)\GLEW.lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /f /y "$(SolutionDir)Dependencies\assimp\bin\x86\Debug\assimp-vc140-mt.dll" "$(SolutionDir)bin\$(Configuration)"\*</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='test|AArch64-Android-NVIDIA'">
     <ClCompile>
@@ -248,6 +254,9 @@
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;$(SolutionDir)bin\$(Configuration)\GLFW.lib;$(SolutionDir)bin\$(Configuration)\GLEW.lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /f /y "$(SolutionDir)Dependencies\assimp\bin\x86\Debug\assimp-vc140-mt.dll" "$(SolutionDir)bin\$(Configuration)"\*</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|AArch64-Android-NVIDIA'">
     <ClCompile>
