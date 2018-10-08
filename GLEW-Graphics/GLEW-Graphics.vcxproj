@@ -284,6 +284,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\Mesh.cpp" />
+    <ClCompile Include="src\graphics\Model.cpp" />
     <ClCompile Include="src\graphics\shaders\ShaderUniform.cpp" />
     <ClCompile Include="src\LayerStack.cpp" />
     <ClCompile Include="src\debug\DebugLayer.cpp" />
@@ -321,6 +323,8 @@
     <ClCompile Include="src\utils\Resource.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\Mesh.h" />
+    <ClInclude Include="src\graphics\Model.h" />
     <ClInclude Include="src\graphics\shaders\ShaderUniform.h" />
     <ClInclude Include="src\LayerStack.h" />
     <ClInclude Include="src\debug\DebugLayer.h" />
