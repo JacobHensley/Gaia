@@ -1,9 +1,14 @@
 #include "Model.h"
 
-Model::Model(std::vector<Mesh>& meshs, mat4& transform)
+Model::Model(std::vector<Mesh> meshs, mat4 transform)
 	:	m_Meshs(meshs), m_Transform(transform) 
 {
 
+}
+
+Model::Model(String filepath)
+{
+	LoadFromFile(filepath);
 }
 
 Model::~Model()
@@ -12,11 +17,13 @@ Model::~Model()
 
 void Model::LoadFromFile(String path)
 {
-	const aiScene* scene = aiImportFile(path.c_str(), aiProcessPreset_TargetRealtime_MaxQuality);
+	Assimp::Importer importer;
+
+	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_ConvertToLeftHanded);
 
 	ProcessNode(scene->mRootNode, scene);
 
-	aiReleaseImport(scene);
+//	aiReleaseImport(scene);
 }
 
 String textype;
@@ -72,6 +79,26 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	return Mesh(vertices, indices, textures);
 }
 
+void Model::PrintMeshData()
+{
+	for (uint i = 0; i < m_Meshs.size(); i++)
+	{
+		Mesh mesh = m_Meshs[i];
+		for (uint j = 0; j < mesh.m_Vertices.size(); j++)
+		{
+			MeshVertex vertex = mesh.m_Vertices[j];
+			std::cout << "Vertex:   X: " << vertex.x << " Y: " << vertex.y << " X: " << vertex.z << std::endl;
+			std::cout << "TexCoord: X: " << vertex.texcoord.x << " Y: " << vertex.texcoord.y << std::endl;
+		}
+
+		for (uint j = 0; j < mesh.m_Indices.size(); j++)
+		{
+			uint index = mesh.m_Indices[j];
+			std::cout << index << std::endl;
+		}
+	}
+}
+
 std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTextureType type, String typeName, const aiScene* scene) const
 {
 	std::vector<MeshTexture> textures;
@@ -80,7 +107,7 @@ std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTexture
 		aiString str;
 		mat->GetTexture(type, i, &str);
 		String texture = str.data;
-		std::cout << texture << std::end;
+		std::cout << texture << std::endl;
 	}
 	return textures;
 }

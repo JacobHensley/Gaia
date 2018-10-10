@@ -6,19 +6,22 @@
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
 #include "assimp/material.h"
+#include <assimp/Importer.hpp>
 
 class Model
 {
 public:
-	Model(std::vector<Mesh>& meshs, mat4& transform);
+	Model(std::vector<Mesh> meshs, mat4 transform);
+	Model(String filepath);
 	~Model();
 
 	void LoadFromFile(String path);
 	void ProcessNode(aiNode* node, const aiScene* scene);
-	std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTextureType type, String typeName, const aiScene* scene) const;
+	std::vector<MeshTexture> loadMaterialTextures(aiMaterial * mat, aiTextureType type, String typeName, const aiScene* scene) const;
 	Mesh ProcessMesh(aiMesh* mesh, const aiScene* scene);
+	void PrintMeshData();
 	String determineTextureType(const aiScene* scene, aiMaterial* mat);
 private:
-	std::vector<Mesh>& m_Meshs;
-	mat4& m_Transform;
+	std::vector<Mesh> m_Meshs;
+	mat4 m_Transform;
 };

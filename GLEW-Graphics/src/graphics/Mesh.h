@@ -23,8 +23,8 @@ public:
 	Mesh(std::vector<MeshVertex>& vertices, std::vector<uint>& indices, std::vector<MeshTexture>& textures);
 private:
 	void Init();
-private:
+public:
 	std::vector<MeshVertex> m_Vertices;
 	std::vector<uint> m_Indices;
-	std::vector<Texture> m_Textures;
+	std::vector<MeshTexture>& m_Textures;
 };

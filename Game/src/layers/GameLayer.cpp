@@ -20,16 +20,12 @@ GameLayer::GameLayer(const String& name)
 	m_Camera = new OrthographicCamera(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f);
 	m_Renderer->SetCamera(m_Camera);
 
-	ASSERT(Resource::LoadShader("TextShader", "shaders/Text.shader"), "Could not load TextShader into Resource");
-	ASSERT(Resource::LoadShader("Shader", "shaders/Basic.shader"), "Could not load Shader into Resource");
-	ASSERT(Resource::LoadShader("LineShader", "shaders/Line.shader"), "Could not load LineShader into Resource");
+	ASSERT(Resource::LoadShader("TextShader", "shaders/Text.shader"));
+	ASSERT(Resource::LoadShader("Shader", "shaders/Basic.shader"));
+	ASSERT(Resource::LoadShader("LineShader", "shaders/Line.shader"));
 	Shader* shader = Resource::GetAs<Shader>("Shader");
 
 	shader->SetTextureIDs("u_Textures");
-
-//	shader->PrintUniforms();
-//	Material material = Material(shader);
-//	material.SetValue("u_TestColor", 1);
 
 	ASSERT(Resource::LoadTexture("Jungle", "res/textures/jungle.png"), "Could not load Jungle texture into Resource");
 
