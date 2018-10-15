@@ -1,0 +1,43 @@
+﻿  Resource.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\utils\fileutils.h(9): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\texture.h(5): fatal error C1083: Cannot open include file: 'ft2build.h': No such file or directory
+  vec4.cpp
+  vec3.cpp
+  vec2.cpp
+  mat4.cpp
+  Layer.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\camera\camera.h(4): fatal error C1083: Cannot open include file: 'RefCounted.h': No such file or directory
+  Window.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\window.cpp(3): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Texture.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\texture.h(4): fatal error C1083: Cannot open include file: 'RefCounted.h': No such file or directory
+  stb_image.cpp
+  Shader.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\utils\fileutils.h(9): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\shader.cpp(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  Renderer2D.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\camera\camera.h(4): fatal error C1083: Cannot open include file: 'RefCounted.h': No such file or directory
+  IndexBuffer.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\indexbuffer.h(3): fatal error C1083: Cannot open include file: 'RefCounted.h': No such file or directory
+  PerspectiveCamera.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\camera\camera.h(4): fatal error C1083: Cannot open include file: 'RefCounted.h': No such file or directory
+  OrthographicCamera.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\camera\camera.h(4): fatal error C1083: Cannot open include file: 'RefCounted.h': No such file or directory
+  VertexBuffer.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\vertexbuffer.h(2): fatal error C1083: Cannot open include file: 'Common.h': No such file or directory
+  Sprite.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\sprite.h(3): fatal error C1083: Cannot open include file: 'RefCounted.h': No such file or directory
+  Material.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\utils\fileutils.h(9): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+  FontManager.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\fontmanager.h(2): fatal error C1083: Cannot open include file: 'Common.h': No such file or directory
+  GLError.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\glerror.cpp(2): fatal error C1083: Cannot open include file: 'gl\glew.h': No such file or directory
+  Application.cpp
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\utils\fileutils.h(9): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+c:\dev\tutoring\jacob\glew-graphics\glew-graphics\src\graphics\texture.h(5): fatal error C1083: Cannot open include file: 'ft2build.h': No such file or directory
+  Generating Code...

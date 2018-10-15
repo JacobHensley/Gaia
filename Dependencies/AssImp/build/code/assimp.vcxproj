@@ -81,23 +81,6 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp" "-BC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build" --check-stamp-file "C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/code/CMakeFiles/generate.stamp"
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/code/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;$(SolutionDir)Dependencies\AssImp\cmake-modules\FindRT.cmake;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Dependencies\AssImp\build\code\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\Assimp.cpp" />
     <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BaseImporter.cpp" />
     <ClCompile Include="$(SolutionDir)Dependencies\AssImp\code\BaseProcess.cpp" />

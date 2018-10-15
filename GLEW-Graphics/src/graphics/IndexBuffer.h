@@ -5,7 +5,7 @@
 class IndexBuffer : public RefCounted
 {
 public:
-	IndexBuffer(uint* data, uint count);
+	IndexBuffer(const uint* data, uint count);
 	~IndexBuffer();
 
 	void Draw() const;

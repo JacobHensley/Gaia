@@ -4,6 +4,9 @@
 #include "math/vec2.h"
 #include "graphics/Texture.h"
 
+#include "graphics/VertexBuffer.h"
+#include "graphics/IndexBuffer.h"
+
 struct MeshVertex {
 	float x;
 	float y;
@@ -27,4 +30,19 @@ public:
 	std::vector<MeshVertex> m_Vertices;
 	std::vector<uint> m_Indices;
 	std::vector<MeshTexture>& m_Textures;
+
+	friend class RenderMesh;
+};
+
+class RenderMesh
+{
+public:
+	RenderMesh(const Mesh& mesh);
+
+	void Render() const;
+private:
+	const Mesh* m_Mesh;
+
+	VertexBuffer* m_VertexBuffer;
+	IndexBuffer* m_IndexBuffer;
 };

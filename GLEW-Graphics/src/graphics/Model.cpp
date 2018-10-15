@@ -82,7 +82,7 @@ void Model::PrintMeshData()
 {
 	for (uint i = 0; i < m_Meshs.size(); i++)
 	{
-		Mesh mesh = m_Meshs[i];
+		Mesh& mesh = m_Meshs[i];
 		for (uint j = 0; j < mesh.m_Vertices.size(); j++)
 		{
 			MeshVertex vertex = mesh.m_Vertices[j];
@@ -117,7 +117,9 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene)
 	for (uint i = 0; i < node->mNumMeshes; i++)
 	{
 		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-		m_Meshs.push_back(this->ProcessMesh(mesh, scene));
+		Mesh m = ProcessMesh(mesh, scene);
+		m_Meshs.push_back(m);
+		m_RenderMeshs.push_back(RenderMesh(m));
 	}
 
 	for (uint i = 0; i < node->mNumChildren; i++)
@@ -147,4 +149,13 @@ String Model::determineTextureType(const aiScene* scene, aiMaterial* mat)
 		return "textures are on disk";
 	}
 	return "";
+}
+
+void Model::Render()
+{
+	for (uint i = 0; i < m_RenderMeshs.size(); i++)
+	{
+		const RenderMesh& mesh = m_RenderMeshs[i];
+		mesh.Render();
+	}
 }

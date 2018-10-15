@@ -521,9 +521,6 @@
     <ClInclude Include="$(SolutionDir)Dependencies\AssImp\include\assimp\Compiler\pstdint.h" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="$(SolutionDir)Dependencies\AssImp\code\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="3D">
       <UniqueIdentifier>{28444909-E1C0-3A7C-8016-D8035A48EA54}</UniqueIdentifier>
     </Filter>

@@ -21,7 +21,10 @@ public:
 	Mesh ProcessMesh(aiMesh* mesh, const aiScene* scene);
 	void PrintMeshData();
 	String determineTextureType(const aiScene* scene, aiMaterial* mat);
+
+	void Render();
 private:
 	std::vector<Mesh> m_Meshs;
+	std::vector<RenderMesh> m_RenderMeshs;
 	mat4 m_Transform;
 };

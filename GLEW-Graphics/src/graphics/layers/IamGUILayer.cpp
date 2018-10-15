@@ -83,6 +83,7 @@ void IamGUILayer::OnRender()
 	{
 		if (resource.second.type == Resource::ResourceType::SHADER)
 		{
+#if 0
 			Shader* shader = (Shader*)resource.second.pointer;
 			std::vector<ShaderUniform*>& uniforms = shader->GetUniforms();
 			if (ImGui::TreeNode(resource.first.c_str()))
@@ -95,6 +96,7 @@ void IamGUILayer::OnRender()
 					}
 				ImGui::TreePop();
 			}
+#endif
 		}
 	}
 	ImGui::End();

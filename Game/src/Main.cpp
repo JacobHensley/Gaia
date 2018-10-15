@@ -8,10 +8,6 @@
 
 int main()
 {
-	//Test
-	Model model = Model("res/models/bunny.obj");
-//	model.PrintMeshData();
-
 	Application app("Test Window", 1280, 720);
 
 	app.PushLayer(new GameLayer("GameLayer"));

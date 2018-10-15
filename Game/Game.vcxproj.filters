@@ -49,5 +49,6 @@
     <None Include="shaders\Basic.shader" />
     <None Include="shaders\Text.Shader" />
     <None Include="shaders\Line.shader" />
+    <None Include="shaders\Bunny.shader" />
   </ItemGroup>
 </Project>
