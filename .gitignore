@@ -36,3 +36,4 @@ bin/
 
 # Misc
 *.html
+!Game/res/models/*.obj

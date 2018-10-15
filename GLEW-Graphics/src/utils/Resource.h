@@ -43,5 +43,6 @@ public:
 	typedef std::unordered_map<String, ResourceStore> ResourceMap;
 private:
 	static ResourceMap s_ResourceMap;
-
+public:
+	static inline ResourceMap& GetResourceMap() { return s_ResourceMap; }
 };

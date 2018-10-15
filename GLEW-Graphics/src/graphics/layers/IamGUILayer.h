@@ -11,6 +11,4 @@ public:
 
 	void OnUpdate(TimeStep timeStep) override;
 	void OnRender() override;
-
-public:
 };

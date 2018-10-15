@@ -2,6 +2,8 @@
 #include "Application.h"
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw_gl3.h"
+#include "utils/Resource.h"
+#include "graphics/shaders/Shader.h"
 
 IamGUILayer::IamGUILayer(const String& name)
 	: Layer(name)
@@ -36,7 +38,8 @@ void IamGUILayer::OnRender()
 	LayerStack* layerStack = app.GetLayerStack();
 
 	ImGui_ImplGlfwGL3_NewFrame();
-	ImGui::Begin("Debug Info");
+	/*Layer Window starts here*/
+	ImGui::Begin("Layer Info");
 
 	ImGui::Text("FPS | %f", app.GetFPS());
 	ImGui::Text("MS/F | %f", app.GetMSFrame());
@@ -71,6 +74,29 @@ void IamGUILayer::OnRender()
 
 	ImGui::Separator();
 
+	ImGui::End();
+
+	/*Uniform Window starts here*/
+	ImGui::Begin("Uniform Info");
+
+	for each (auto resource in Resource::GetResourceMap())
+	{
+		if (resource.second.type == Resource::ResourceType::SHADER)
+		{
+			Shader* shader = (Shader*)resource.second.pointer;
+			std::vector<ShaderUniform*>& uniforms = shader->GetUniforms();
+			if (ImGui::TreeNode(resource.first.c_str()))
+			{
+				for (uint i = 0; i < uniforms.size(); i++)
+					if (ImGui::TreeNode(uniforms[i]->GetName().c_str()))
+					{
+						ImGui::Text(uniforms[i]->GetName());
+						ImGui::TreePop();
+					}
+				ImGui::TreePop();
+			}
+		}
+	}
 	ImGui::End();
 
 	ShowDemoWindow();

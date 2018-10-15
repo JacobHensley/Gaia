@@ -23,7 +23,6 @@ void Model::LoadFromFile(String path)
 
 	ProcessNode(scene->mRootNode, scene);
 
-//	aiReleaseImport(scene);
 }
 
 String textype;
