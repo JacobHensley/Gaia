@@ -35,5 +35,7 @@ bin/
 *.app
 
 # Misc
-*.html
+*.html/
 !Game/res/models/*.obj
+Dependencies/AssImp/build/code/assimp.dir/
+Dependencies/AssImp/build/code/Debug/

@@ -38,6 +38,7 @@ void IamGUILayer::OnRender()
 	LayerStack* layerStack = app.GetLayerStack();
 
 	ImGui_ImplGlfwGL3_NewFrame();
+
 	/*Layer Window starts here*/
 	ImGui::Begin("Layer Info");
 
@@ -83,20 +84,23 @@ void IamGUILayer::OnRender()
 	{
 		if (resource.second.type == Resource::ResourceType::SHADER)
 		{
-#if 0
-			Shader* shader = (Shader*)resource.second.pointer;
-			std::vector<ShaderUniform*>& uniforms = shader->GetUniforms();
+			Shader* shader = static_cast<Shader*>(resource.second.pointer);
+			const std::vector<ShaderUniform*>& uniforms = shader->GetUniforms();
+
 			if (ImGui::TreeNode(resource.first.c_str()))
 			{
 				for (uint i = 0; i < uniforms.size(); i++)
+			
 					if (ImGui::TreeNode(uniforms[i]->GetName().c_str()))
 					{
-						ImGui::Text(uniforms[i]->GetName());
+						ImGui::Text("Type:   | %s", uniforms[i]->StringFromType(uniforms[i]->GetType()).c_str());
+						ImGui::Text("Count:  | %i", uniforms[i]->GetCount());
+						ImGui::Text("Size:   | %i", uniforms[i]->GetSize());
+						ImGui::Text("Offset: | %i", uniforms[i]->GetOffset());
 						ImGui::TreePop();
 					}
 				ImGui::TreePop();
 			}
-#endif
 		}
 	}
 	ImGui::End();

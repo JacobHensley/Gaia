@@ -27,7 +27,7 @@ private:
 	inline void SetOffset(int offset) { m_Offset = offset; }
 private:
 	friend class Shader;
-	const String& m_Name;
+	const String m_Name;
 	Type m_Type;
 	uint m_Count;
 	uint m_Size;

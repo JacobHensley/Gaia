@@ -5,6 +5,7 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "GLEW-Graphics\GLEW-Graphics.vcxproj", "{32290AB3-60BB-455F-9B04-9622F769FC1E}"
 	ProjectSection(ProjectDependencies) = postProject
+		{21973E1B-0265-3E5B-95B5-B540FC447EC0} = {21973E1B-0265-3E5B-95B5-B540FC447EC0}
 		{C1CF0BCA-F11F-379A-8724-DCB44F4190FB} = {C1CF0BCA-F11F-379A-8724-DCB44F4190FB}
 	EndProjectSection
 EndProject
@@ -23,7 +24,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreeType", "Dependencies\Fr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreeTypeGL", "Dependencies\FreeTypeGL\FreeTypeGL\FreeTypeGL.vcxproj", "{9FE9C9CC-DB09-4FD3-B956-08305DDC253D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "assimp", "Dependencies\assimp\build\code\assimp.vcxproj", "{21973E1B-0265-3E5B-95B5-B540FC447EC0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "assimp", "Dependencies\AssImp\build\code\assimp.vcxproj", "{21973E1B-0265-3E5B-95B5-B540FC447EC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +58,8 @@ Global
 		{9FE9C9CC-DB09-4FD3-B956-08305DDC253D}.Release|x86.Build.0 = Release|Win32
 		{21973E1B-0265-3E5B-95B5-B540FC447EC0}.Debug|x86.ActiveCfg = Debug|Win32
 		{21973E1B-0265-3E5B-95B5-B540FC447EC0}.Debug|x86.Build.0 = Debug|Win32
-		{21973E1B-0265-3E5B-95B5-B540FC447EC0}.Release|x86.ActiveCfg = Debug|Win32
-		{21973E1B-0265-3E5B-95B5-B540FC447EC0}.Release|x86.Build.0 = Debug|Win32
+		{21973E1B-0265-3E5B-95B5-B540FC447EC0}.Release|x86.ActiveCfg = Release|Win32
+		{21973E1B-0265-3E5B-95B5-B540FC447EC0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

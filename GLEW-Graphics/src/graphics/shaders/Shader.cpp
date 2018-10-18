@@ -78,8 +78,8 @@ void Shader::PushUniform(ShaderUniform* uniform)
 	int offset = 0;
 	if (m_Uniforms.size() > 0) 
 	{
-		ShaderUniform* uniform = m_Uniforms[m_Uniforms.size() - 1];
-		offset = uniform->GetOffset() + uniform->GetSize();
+		ShaderUniform* lastUniform = m_Uniforms[m_Uniforms.size() - 1];
+		offset = lastUniform->GetOffset() + lastUniform->GetSize();
 		uniform->SetOffset(offset);
 	}
 	
@@ -132,6 +132,7 @@ ShaderSource Shader::ParseShader(const String& filePath)
 int Shader::CompileShader(uint shader, const String& shaderSrc)
 {
 	const char* vs = shaderSrc.c_str();
+
 	GLCall(glShaderSource(shader, 1, &vs, NULL));
 	GLCall(glCompileShader(shader));
 
@@ -165,6 +166,13 @@ uint Shader::Load()
 	String vertexSrc = shaderSrc.VertexSource;
 	String fragSrc = shaderSrc.FragmentSource;
 
+	if (vertexSrc == "" || fragSrc == "")
+	{
+		std::cout << "Vertex or Fragment shader is empty!" << std::endl;
+		ASSERT(false);
+		return 0;
+	}
+		
 	if (CompileShader(vertex, vertexSrc) && CompileShader(fragment, fragSrc)) 
 	{
 		GLCall(glAttachShader(program, vertex));

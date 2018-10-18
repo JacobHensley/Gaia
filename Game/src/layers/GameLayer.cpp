@@ -62,16 +62,16 @@ void GameLayer::OnUpdate(TimeStep timeStep)
 
 void GameLayer::OnRender()
 {
-	/*m_Level->OnRender(m_Renderer);
+	m_Level->OnRender(m_Renderer);
 
 	m_Renderer->Begin();
 
 	m_Renderer->End();
-	m_Renderer->Flush();*/
+	m_Renderer->Flush();
 
 	m_BunnyShader->Bind();
 	mat4 projection = mat4::Perspective(65.0f, 1.778f, 0.01f, 1000.0f);
-	mat4 model = mat4::Translate(vec3(0, 0, -1));// *mat4::Scale(vec3(5));
+	mat4 model = mat4::Translate(vec3(0, 0, -1));
 	mat4 mvp = projection * model;
 	m_BunnyShader->SetUniformMat4("u_MVP", mvp);
 	m_BunnyModel->Render();

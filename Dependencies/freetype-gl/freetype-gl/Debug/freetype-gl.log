@@ -1,6 +1,0 @@
-﻿  vector.c
-  texture-atlas.c
-  Generating Code...
-  texture-font.c
-c:\dev\tutoring\jacob\glew-graphics\dependencies\freetype-gl\texture-font.c(654): warning C4101: 'c': unreferenced local variable
-  freetype-gl.vcxproj -> C:\dev\Tutoring\Jacob\GLEW-Graphics\Debug\freetype-gl.lib
