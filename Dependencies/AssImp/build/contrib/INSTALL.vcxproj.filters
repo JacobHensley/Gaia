@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\8c9ec16319b8935597c7745b67d52198\INSTALL_force.rule">
+    <CustomBuild Include="$(SolutionDir)Dependencies\AssImp\build\CMakeFiles\8c9ec16319b8935597c7745b67d52198\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>

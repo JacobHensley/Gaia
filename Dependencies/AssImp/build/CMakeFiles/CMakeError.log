@@ -2,46 +2,86 @@ Determining size of off64_t failed with the following output:
 Change Dir: C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/CMakeFiles/CMakeTmp
 
 Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_e01df.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.8.168+ga8fba1ebd7 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 10/5/2018 6:40:18 PM.
-Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_e01df.dir\Debug\".
-  Creating directory "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_e01df.dir\Debug\cmTC_e01df.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_e01df.dir\Debug\cmTC_e01df.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e01df.dir\Debug\\" /Fd"cmTC_e01df.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CheckTypeSize\OFF64_T.c"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.15.26729 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e01df.dir\Debug\\" /Fd"cmTC_e01df.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CheckTypeSize\OFF64_T.c"
-  OFF64_T.c
-  
-c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(25): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(26): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(27): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(28): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(29): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-Done Building Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj" (default targets) -- FAILED.
-
-Build FAILED.
-
-"C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj" (default target) (1) ->
-(ClCompile target) -> 
-  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(25): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(26): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(27): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(28): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(29): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
-
-    0 Warning(s)
-    5 Error(s)
-
-Time Elapsed 00:00:00.51
+Microsoft (R) Build Engine version 15.8.168+ga8fba1ebd7 for .NET Framework
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+$(SolutionDir)
+
+Build started 10/5/2018 6:40:18 PM.
+$(SolutionDir)
+Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj" on node 1 (default targets).
+
+PrepareForBuild:
+
+  Creating directory "cmTC_e01df.dir\Debug\".$(SolutionDir)
+
+  Creating directory "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\".
+
+  Creating directory "cmTC_e01df.dir\Debug\cmTC_e01df.tlog\".$(SolutionDir)
+
+InitializeBuildStatus:
+$(SolutionDir)$(SolutionDir)
+$(SolutionDir)ssfulbuild" because "AlwaysCreate" was specified.$(SolutionDir)
+$(SolutionDir)$(SolutionDir)
+$(SolutionDir)$(SolutionDir)
+$(SolutionDir)$(SolutionDir)
+  C:\Program Files (x86$(SolutionDir)4.15.26726\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e01df.dir\Debug\\" /Fd"cmTC_e01df.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CheckTypeSize\OFF64_T.c"
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.15.26729 for x86
+
+ $(SolutionDir)ed.
+
+  $(SolutionDir)$(SolutionDir)
+$(SolutionDir)$(SolutionDir)
+  $(SolutionDir) WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDI$(SolutionDir)c:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e01df.dir\Debug\\" /Fd"cmTC_e01df.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CheckTypeSize\OFF64_T.c"
+$(SolutionDir)$(SolutionDir)
+  $(SolutionDir)$(SolutionDir)
+
+  
+
+c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(25): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(26): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(27): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(28): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(29): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+Done Building Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj" (default targets) -- FAILED.
+
+
+
+Build FAILED.
+
+
+
+"C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj" (default target) (1) ->
+
+(ClCompile target) -> 
+
+  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(25): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(26): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(27): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(28): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\checktypesize\off64_t.c(29): error C2065: 'off64_t': undeclared identifier [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_e01df.vcxproj]
+
+
+
+    0 Warning(s)
+
+    5 Error(s)
+
+
+
+Time Elapsed 00:00:00.51
+
 
 C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/CMakeFiles/CheckTypeSize/OFF64_T.c:
 #include <sys/types.h>
@@ -60,10 +100,10 @@ C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/buil
 # define KEY '_','_','p','p','c','6','4','_','_'
 #elif defined(__aarch64__)
 # define KEY '_','_','a','a','r','c','h','6','4','_','_'
-#elif defined(__ARM_ARCH_7A__)
+#elif def$(SolutionDir)
 # define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
 #elif defined(__ARM_ARCH_7S__)
-# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+# define KEY '_','_','$(SolutionDir)
 #endif
 
 #define SIZE (sizeof(off64_t))
@@ -76,17 +116,17 @@ char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
   ']',
 #ifdef KEY
   ' ','k','e','y','[', KEY, ']',
-#endif
-  '\0'};
-
-#ifdef __CLASSIC_C__
+#endif$(SolutionDir)
+  '\0'};$(SolutionDir)
+$(SolutionDir)$(SolutionDir)
+#ifdef __CLASSIC_C__$(SolutionDir)
 int main(argc, argv) int argc; char *argv[];
 #else
 int main(int argc, char *argv[])
-#endif
+#$(SolutionDir)
 {
-  int require = 0;
-  require += info_size[argc];
+  int require = 0;$(SolutionDir)
+  $(SolutionDir)$(SolutionDir)
   (void)argv;
   return require;
 }
@@ -96,79 +136,147 @@ Determining if the function fseeko exists failed with the following output:
 Change Dir: C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/CMakeFiles/CMakeTmp
 
 Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_4c39c.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.8.168+ga8fba1ebd7 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 10/5/2018 6:40:19 PM.
-Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_4c39c.dir\Debug\".
-  Creating directory "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_4c39c.dir\Debug\cmTC_4c39c.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_4c39c.dir\Debug\cmTC_4c39c.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4c39c.dir\Debug\\" /Fd"cmTC_4c39c.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CheckFunctionExists.c"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.15.26729 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4c39c.dir\Debug\\" /Fd"cmTC_4c39c.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CheckFunctionExists.c"
-  CheckFunctionExists.c
-  
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\cmTC_4c39c.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/CMakeFiles/CMakeTmp/Debug/cmTC_4c39c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/CMakeFiles/CMakeTmp/Debug/cmTC_4c39c.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_4c39c.dir\Debug\CheckFunctionExists.obj
-CheckFunctionExists.obj : error LNK2019: unresolved external symbol _fseeko referenced in function _main [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj]
-C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\cmTC_4c39c.exe : fatal error LNK1120: 1 unresolved externals [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj]
-Done Building Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj" (default targets) -- FAILED.
-
-Build FAILED.
-
-"C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj" (default target) (1) ->
-(Link target) -> 
-  CheckFunctionExists.obj : error LNK2019: unresolved external symbol _fseeko referenced in function _main [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj]
-  C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\cmTC_4c39c.exe : fatal error LNK1120: 1 unresolved externals [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj]
-
-    0 Warning(s)
-    2 Error(s)
-
-Time Elapsed 00:00:01.00
+Microsoft (R) Build Engine version 15.8.168+ga8fba1ebd7 for .NET Framework
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+
+
+Build sta$(SolutionDir)
+
+Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj" on node 1 (default targets).
+$(SolutionDir)
+PrepareForBuild:
+
+  Creating directory "cmTC_4c39c.dir\Debug\".
+
+  Creating directory "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\".$(SolutionDir)
+
+  Creating directory "cmTC_4c39c.dir\Debug\cmTC_4c39c.tlog\".
+
+InitializeBuildStatus:$(SolutionDir)
+
+  Creating "cmTC_4c39c.dir\Debug\cmTC_4c39c.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+$(SolutionDir)$(SolutionDir)
+ClCompile:$(SolutionDir)
+
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4c39c.dir\Debug\\" /Fd"cmTC_4c39c.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CheckFunctionExists.c"
+
+ $(SolutionDir)6729 for x86
+
+  $(SolutionDir)d.$(SolutionDir)
+
+  
+
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4c39c.dir\Debug\\" /Fd"cmTC_4c39c.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CheckFunctionExists.c"
+
+  CheckFunctionExists.c
+
+  
+
+Link:
+
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\cmTC_4c39c.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/CMakeFiles/CMakeTmp/Debug/cmTC_4c39c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/CMakeFiles/CMakeTmp/Debug/cmTC_4c39c.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_4c39c.dir\Debug\CheckFunctionExists.obj
+
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol _fseeko referenced in function _main [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj]
+
+C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\cmTC_4c39c.exe : fatal error LNK1120: 1 unresolved externals [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj]
+
+Done Building Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj" (default targets) -- FAILED.
+
+
+
+Build FAILED.
+
+
+
+"C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj" (default target) (1) ->
+
+(Link target) -> 
+
+  CheckFunctionExists.obj : error LNK2019: unresolved external symbol _fseeko referenced in function _main [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj]
+
+  C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\cmTC_4c39c.exe : fatal error LNK1120: 1 unresolved externals [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_4c39c.vcxproj]
+
+
+
+    0 Warning(s)
+
+    2 Error(s)
+
+
+
+Time Elapsed 00:00:01.00
+
 
 
 Determining if the include file unistd.h exists failed with the following output:
 Change Dir: C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/CMakeFiles/CMakeTmp
 
 Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_7c5a7.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.8.168+ga8fba1ebd7 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 10/5/2018 6:40:20 PM.
-Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_7c5a7.dir\Debug\".
-  Creating directory "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_7c5a7.dir\Debug\cmTC_7c5a7.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_7c5a7.dir\Debug\cmTC_7c5a7.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7c5a7.dir\Debug\\" /Fd"cmTC_7c5a7.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.15.26729 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7c5a7.dir\Debug\\" /Fd"cmTC_7c5a7.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  CheckIncludeFile.c
-  
-c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj]
-Done Building Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj" (default targets) -- FAILED.
-
-Build FAILED.
-
-"C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj" (default target) (1) ->
-(ClCompile target) -> 
-  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj]
-
-    0 Warning(s)
-    1 Error(s)
-
-Time Elapsed 00:00:00.56
+Microsoft (R) Build Engine version 15.8.168+ga8fba1ebd7 for .NET Framework
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+
+
+Build started 10/5/2018 6:40:20 PM.
+
+Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj" on node 1 (default targets).
+
+PrepareForBuild:
+
+  Creating directory "cmTC_7c5a7.dir\Debug\".
+
+  Creating directory "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\Debug\".
+
+  Creating directory "cmTC_7c5a7.dir\Debug\cmTC_7c5a7.tlog\".
+
+InitializeBuildStatus:
+
+  Creating "cmTC_7c5a7.dir\Debug\cmTC_7c5a7.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+
+ClCompile:
+
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7c5a7.dir\Debug\\" /Fd"cmTC_7c5a7.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.15.26729 for x86
+
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+
+  
+
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7c5a7.dir\Debug\\" /Fd"cmTC_7c5a7.dir\Debug\vc141.pdb" /Gd /TC /analyze- /FC /errorReport:queue "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+
+  CheckIncludeFile.c
+
+  
+
+c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj]
+
+Done Building Project "C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj" (default targets) -- FAILED.
+
+
+
+Build FAILED.
+
+
+
+"C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj" (default target) (1) ->
+
+(ClCompile target) -> 
+
+  c:\users\j\dropbox\desktop files\code\c++\glew-graphics\dependencies\assimp\build\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\CMakeFiles\CMakeTmp\cmTC_7c5a7.vcxproj]
+
+
+
+    0 Warning(s)
+
+    1 Error(s)
+
+
+
+Time Elapsed 00:00:00.56
+
 
 

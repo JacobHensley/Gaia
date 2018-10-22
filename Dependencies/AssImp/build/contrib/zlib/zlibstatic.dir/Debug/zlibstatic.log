@@ -15,4 +15,4 @@
   trees.c
   uncompr.c
   zutil.c
-  zlibstatic.vcxproj -> C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib\Debug\zlibstaticd.lib
+  zlibstatic.vcxproj -> $(SolutionDir)Dependencies\AssImp\build\contrib\zlib\Debug\zlibstaticd.lib

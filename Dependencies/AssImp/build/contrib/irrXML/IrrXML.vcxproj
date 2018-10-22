@@ -56,26 +56,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\irrXML\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">IrrXML.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">IrrXML</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\irrXML\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">IrrXML.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">IrrXML</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\irrXML\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">IrrXML.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">IrrXML</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\irrXML\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">IrrXML.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">IrrXML</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -93,10 +93,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -109,7 +109,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -127,10 +127,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -143,7 +143,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -161,10 +161,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -177,7 +177,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -194,10 +194,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;ASSIMP_BUILD_NO_C4D_IMPORTER;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\.;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\include;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\zlib;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\.;$(SolutionDir)Dependencies\AssImp\include;$(SolutionDir)Dependencies\AssImp\build;$(SolutionDir)Dependencies\AssImp\build\include;$(SolutionDir)Dependencies\AssImp\contrib\zlib;$(SolutionDir)Dependencies\AssImp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -209,7 +209,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt">
+    <CustomBuild Include="$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp" "-BC:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build" --check-stamp-file "C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/contrib/irrXML/CMakeFiles/generate.stamp"
@@ -220,8 +220,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\irrXML\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
@@ -233,8 +233,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\irrXML\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
@@ -246,8 +246,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\irrXML\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
@@ -259,22 +259,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\contrib\irrXML\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\CXMLReaderImpl.h" />
-    <ClInclude Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\heapsort.h" />
-    <ClInclude Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\irrArray.h" />
-    <ClInclude Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\irrString.h" />
-    <ClInclude Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\irrTypes.h" />
-    <ClCompile Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\irrXML.cpp" />
-    <ClInclude Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\contrib\irrXML\irrXML.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\irrXML\CXMLReaderImpl.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\irrXML\heapsort.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\irrXML\irrArray.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\irrXML\irrString.h" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\irrXML\irrTypes.h" />
+    <ClCompile Include="$(SolutionDir)Dependencies\AssImp\contrib\irrXML\irrXML.cpp" />
+    <ClInclude Include="$(SolutionDir)Dependencies\AssImp\contrib\irrXML\irrXML.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\j\Dropbox\Desktop Files\Code\C++\GLEW-Graphics\Dependencies\AssImp\build\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="$(SolutionDir)Dependencies\AssImp\build\ZERO_CHECK.vcxproj">
       <Project>{824F5F21-DC01-3DA6-9902-368BEE8E5197}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
