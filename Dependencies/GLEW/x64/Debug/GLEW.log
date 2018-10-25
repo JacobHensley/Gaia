@@ -1,2 +1,0 @@
-﻿  glew.c
-c:\dev\tutoring\jacob\glew-graphics\dependencies\glew\src\glew.c(33): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
