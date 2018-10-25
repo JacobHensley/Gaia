@@ -84,7 +84,10 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeType\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions); _CRT_NONSTDC_NO_DEPRECATE</PreprocessorDefinitions>
+<<<<<<< HEAD
       <DisableSpecificWarnings>4101</DisableSpecificWarnings>
+=======
+>>>>>>> 76893405e94aad0897081f43ba98a33793f20642
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

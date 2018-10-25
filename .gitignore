@@ -36,6 +36,10 @@ bin/
 
 # Misc
 *.html/
+<<<<<<< HEAD
 !Sandbox/res/models/*.obj
+=======
+!Game/res/models/*.obj
+>>>>>>> 76893405e94aad0897081f43ba98a33793f20642
 Dependencies/AssImp/build/code/assimp.dir/
 Dependencies/AssImp/build/code/Debug/
