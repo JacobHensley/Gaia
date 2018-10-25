@@ -1,0 +1,41 @@
+# Visual Studio Files
+bin/
+.vs/
+*.sdf
+*.db
+*.suo
+*.user
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Misc
+*.html/
+!Sandbox/res/models/*.obj
+Dependencies/AssImp/build/code/assimp.dir/
+Dependencies/AssImp/build/code/Debug/

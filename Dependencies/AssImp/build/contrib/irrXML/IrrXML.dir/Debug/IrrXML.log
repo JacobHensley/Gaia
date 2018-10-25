@@ -1,0 +1,4 @@
+﻿  Building Custom Rule C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/contrib/irrXML/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/j/Dropbox/Desktop Files/Code/C++/GLEW-Graphics/Dependencies/AssImp/build/contrib/irrXML/CMakeFiles/generate.stamp is up-to-date.
+  irrXML.cpp
+  IrrXML.vcxproj -> $(SolutionDir)Dependencies\AssImp\build\contrib\irrXML\Debug\IrrXML.lib
