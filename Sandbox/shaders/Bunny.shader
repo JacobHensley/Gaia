@@ -6,18 +6,19 @@ layout(location = 0) in vec4 position;
 layout(location = 1) in vec3 normal;
 layout(location = 2) in vec2 texCoord;
 
-out vec4 f_Position;
+out vec3 f_Position;
 out vec3 f_Normal;
 out vec2 f_TexCoord;
 
 uniform mat4 u_MVP;
+uniform mat4 u_ModelMatrix;
 
 void main()
 {
 	gl_Position = u_MVP * position;
 
-	f_Position = position;
-	f_Normal = normal;
+	f_Position = (position * u_ModelMatrix).xyz;
+	f_Normal = mat3(transpose(inverse(u_ModelMatrix))) * normal;
 	f_TexCoord = texCoord;
 }
 
@@ -27,7 +28,7 @@ void main()
 
 layout(location = 0) out vec4 color;
 
-in vec4 f_Position;
+in vec3 f_Position;
 in vec3 f_Normal;
 in vec2 f_TexCoord;
 

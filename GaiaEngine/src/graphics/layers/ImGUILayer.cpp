@@ -39,7 +39,7 @@ void ImGUILayer::OnRender()
 
 	ShowUniformMenu(app, layerStack);
 
-	ImGui::ShowDemoWindow();
+//	ImGui::ShowDemoWindow();
 }
 
 void ImGUILayer::ShowLayerMenu(Application& app, LayerStack* layerStack)

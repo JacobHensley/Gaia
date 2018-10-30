@@ -13,7 +13,6 @@
 #include "utils/TimeStep.h"
 #include "graphics/FontManager.h"
 #include "graphics/Material.h"
-
 #include "imgui/imgui.h"
 
 GameLayer::GameLayer(const String& name)
@@ -77,10 +76,11 @@ void GameLayer::OnRender()
 	m_BunnyShader->SetUniform3f("u_ObjectColor", m_ObjectColor);
 
 	mat4 projection = mat4::Perspective(65.0f, 1.778f, 0.01f, 1000.0f);
-	mat4 model = mat4::Translate(vec3(0, 0, -1)) * mat4::Scale(vec3(m_Scale)) * mat4::Rotate(m_Angle.x, vec3(1, 0, 0)) * mat4::Rotate(m_Angle.y, vec3(0, 1, 0)) * mat4::Rotate(m_Angle.z, vec3(0, 0, 1));
+	mat4 model = mat4::Translate(vec3(0, 0, -1)) * mat4::Rotate(m_Angle.x, vec3(1, 0, 0)) * mat4::Rotate(m_Angle.y, vec3(0, 1, 0)) * mat4::Rotate(m_Angle.z, vec3(0, 0, 1)) * mat4::Scale(vec3(m_Scale));
 	mat4 mvp = projection * model;
 
 	m_BunnyShader->SetUniformMat4("u_MVP", mvp);
+	m_BunnyShader->SetUniformMat4("u_ModelMatrix", model);
 	m_BunnyModel->Render();
 
 	ImGui::DragFloat("Scale", &m_Scale, 0.05f, 0.0f, 10.0f);
