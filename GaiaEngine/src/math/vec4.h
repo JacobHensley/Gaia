@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../utils/Common.h"
+#include "utils/Common.h"
 
 #include "vec3.h"
 
 struct mat4;
 
-struct vec4
+struct  vec4
 {
 	float x, y, z, w;
 
@@ -39,4 +39,3 @@ struct vec4
 
 	friend std::ostream& operator<<(std::ostream& stream, const vec4& vector);
 };
-

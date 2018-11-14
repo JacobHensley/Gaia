@@ -37,8 +37,11 @@ bool Window::Init()
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
 	glfwSetWindowUserPointer(m_Window, this);
+
 	glfwSetFramebufferSizeCallback(m_Window, WindowResize);
 	glfwSetKeyCallback(m_Window, KeyCallback);
+	glfwSetMouseButtonCallback(m_Window, MouseButtonCallback);
+	glfwSetCursorPosCallback(m_Window, MouseMovementCallback);
 
 	if (glewInit() != GLEW_OK) 
 	{
@@ -75,6 +78,24 @@ void WindowResize(GLFWwindow* window, int width, int height)
 	Window* win = (Window*)glfwGetWindowUserPointer(window);
 	win->m_Width = width;
 	win->m_Height = height;
+}
+
+void MouseMovementCallback(GLFWwindow* window, double xpos, double ypos)
+{
+	Window* win = (Window*)glfwGetWindowUserPointer(window);
+	glfwGetCursorPos(window, &xpos, &ypos);
+	win->m_MousePos.x = xpos;
+	win->m_MousePos.y = ypos;
+}
+
+void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+{
+	Window* win = (Window*)glfwGetWindowUserPointer(window);
+
+	if (action == GLFW_PRESS && button >= 0 && button < 3)
+		win->m_Button = button;
+	if (action == GLFW_RELEASE && button >= 0 && button < 3)
+		win->m_Button = -1;
 }
 
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)

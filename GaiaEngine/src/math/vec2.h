@@ -1,9 +1,9 @@
 #pragma once
+#include "utils/Common.h"
 
-#include "../utils/Common.h"
 #include "vec3.h"
 
-struct vec2
+struct  vec2
 {
 	float x, y;
 

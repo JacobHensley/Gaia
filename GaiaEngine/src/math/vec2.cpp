@@ -232,4 +232,3 @@ std::ostream& operator<<(std::ostream& stream, const vec2& vector)
 	stream << vector.ToString();
 	return stream;
 }
-

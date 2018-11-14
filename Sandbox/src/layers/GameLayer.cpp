@@ -1,7 +1,6 @@
 #include "GameLayer.h"
 #include "graphics/Camera/OrthographicCamera.h"
 #include "graphics/Camera/PerspectiveCamera.h"
-#include "debug/DebugLayer.h"
 #include "Application.h"
 #include "utils/Resource.h"
 #include <vector>
@@ -14,11 +13,12 @@
 #include "graphics/FontManager.h"
 #include "graphics/Material.h"
 #include "imgui/imgui.h"
+#include "graphics/Camera/MayaCamera.h"
 
 GameLayer::GameLayer(const String& name)
 	: Layer(name)
 {
-	m_Camera = new OrthographicCamera(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f);
+	m_Camera = new MayaCamera(mat4::Perspective(100, 16.0f/9.0f, 10.0f, 10.0f));
 	m_Renderer->SetCamera(m_Camera);
 
 	ASSERT(Resource::LoadShader("TextShader", "shaders/Text.shader"));
@@ -56,7 +56,7 @@ void GameLayer::OnInit()
 void GameLayer::OnUpdate(TimeStep timeStep)
 {
 	m_Camera->OnUpdate(timeStep);
-	m_Camera->SetProjectionMatrix(mat4::Orthographic(-m_Width / 40.0f, m_Width / 40.0f, -m_Height / 40.0f, m_Height / 40.0f, -1.0f, 1.0f));
+	m_Camera->SetProjectionMatrix(mat4::Perspective(65.0f, 1.778f, 0.01f, 1000.0f));
 
 	m_Level->OnUpdate(timeStep);
 }
@@ -77,7 +77,7 @@ void GameLayer::OnRender()
 
 	mat4 projection = mat4::Perspective(65.0f, 1.778f, 0.01f, 1000.0f);
 	mat4 model = mat4::Translate(vec3(0, 0, -1)) * mat4::Rotate(m_Angle.x, vec3(1, 0, 0)) * mat4::Rotate(m_Angle.y, vec3(0, 1, 0)) * mat4::Rotate(m_Angle.z, vec3(0, 0, 1)) * mat4::Scale(vec3(m_Scale));
-	mat4 mvp = projection * model;
+	mat4 mvp = m_Camera->GetProjectionMatrix() * model * m_Camera->GetViewMatrix();
 
 	m_BunnyShader->SetUniformMat4("u_MVP", mvp);
 	m_BunnyShader->SetUniformMat4("u_ModelMatrix", model);

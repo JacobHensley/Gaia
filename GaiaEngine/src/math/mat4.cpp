@@ -2,6 +2,8 @@
 
 #include <sstream>
 
+#include "Quaternion.h"
+
 mat4::mat4()
 {
 	memset(elements, 0, 4 * 4 * sizeof(float));
@@ -242,7 +244,7 @@ mat4 mat4::Perspective(float fov, float aspectRatio, float near, float far)
 {
 	mat4 result(1.0f);
 
-	float q = 1.0f / tan(toRadians(0.5f * fov));
+	float q = 1.0f / maths::tan(maths::toRadians(0.5f * fov));
 	float a = q / aspectRatio;
 
 	float b = (near + far) / (near - far);
@@ -294,7 +296,7 @@ mat4 mat4::Rotate(float angle, const vec3& axis)
 {
 	mat4 result(1.0f);
 
-	float r = toRadians(angle);
+	float r = maths::toRadians(angle);
 	float c = cos(r);
 	float s = sin(r);
 	float omc = 1.0f - c;
@@ -303,18 +305,46 @@ mat4 mat4::Rotate(float angle, const vec3& axis)
 	float y = axis.y;
 	float z = axis.z;
 
-	result.elements[0 + 0 * 4] = x * omc + c;
+	result.elements[0 + 0 * 4] = x * x * omc + c;
 	result.elements[0 + 1 * 4] = y * x * omc + z * s;
 	result.elements[0 + 2 * 4] = x * z * omc - y * s;
 
 	result.elements[1 + 0 * 4] = x * y * omc - z * s;
-	result.elements[1 + 1 * 4] = y * omc + c;
+	result.elements[1 + 1 * 4] = y * y * omc + c;
 	result.elements[1 + 2 * 4] = y * z * omc + x * s;
 
 	result.elements[2 + 0 * 4] = x * z * omc + y * s;
 	result.elements[2 + 1 * 4] = y * z * omc - x * s;
-	result.elements[2 + 2 * 4] = z * omc + c;
+	result.elements[2 + 2 * 4] = z * z * omc + c;
 
+	return result;
+}
+
+mat4 mat4::Rotate(const Quaternion& quat)
+{
+	mat4 result = Identity();
+
+	float qx, qy, qz, qw, qx2, qy2, qz2, qxqx2, qyqy2, qzqz2, qxqy2, qyqz2, qzqw2, qxqz2, qyqw2, qxqw2;
+	qx = quat.x;
+	qy = quat.y;
+	qz = quat.z;
+	qw = quat.w;
+	qx2 = (qx + qx);
+	qy2 = (qy + qy);
+	qz2 = (qz + qz);
+	qxqx2 = (qx * qx2);
+	qxqy2 = (qx * qy2);
+	qxqz2 = (qx * qz2);
+	qxqw2 = (qw * qx2);
+	qyqy2 = (qy * qy2);
+	qyqz2 = (qy * qz2);
+	qyqw2 = (qw * qy2);
+	qzqz2 = (qz * qz2);
+	qzqw2 = (qw * qz2);
+
+	result.rows[0] = vec4(((1.0f - qyqy2) - qzqz2), (qxqy2 - qzqw2), (qxqz2 + qyqw2), 0.0f);
+	result.rows[1] = vec4((qxqy2 + qzqw2), ((1.0f - qxqx2) - qzqz2), (qyqz2 - qxqw2), 0.0f);
+	result.rows[2] = vec4((qxqz2 - qyqw2), (qyqz2 + qxqw2), ((1.0f - qxqx2) - qyqy2), 0.0f);
 	return result;
 }
 
@@ -342,7 +372,7 @@ mat4 mat4::Transpose(const mat4& matrix)
 		vec4(matrix.rows[0].y, matrix.rows[1].y, matrix.rows[2].y, matrix.rows[3].y),
 		vec4(matrix.rows[0].z, matrix.rows[1].z, matrix.rows[2].z, matrix.rows[3].z),
 		vec4(matrix.rows[0].w, matrix.rows[1].w, matrix.rows[2].w, matrix.rows[3].w)
-		);
+	);
 }
 
 String mat4::ToString() const

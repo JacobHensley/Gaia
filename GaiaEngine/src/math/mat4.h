@@ -1,10 +1,12 @@
 #pragma once
 
-#include "../utils/Common.h"
+#include "utils/Common.h"
 
 #include "vec3.h"
 #include "vec4.h"
 #include "maths_func.h"
+
+struct Quaternion;
 
 struct mat4
 {
@@ -39,26 +41,17 @@ struct mat4
 	inline vec3 GetPosition() const { return vec3(GetColumn(3)); }
 	inline void SetPosition(const vec3& position) { SetColumn(3, vec4(position, 1.0f)); }
 
-	inline vec3 GetScale() const 
-	{
-		vec3 c0 = GetColumn(0);
-		vec3 c1 = GetColumn(0);
-		vec3 c2 = GetColumn(0);
-
-		return vec3(c0.Magnitude(), c1.Magnitude(), c2.Magnitude());
-	}
-
 	static mat4 Orthographic(float left, float right, float bottom, float top, float near, float far);
 	static mat4 Perspective(float fov, float aspectRatio, float near, float far);
 	static mat4 LookAt(const vec3& camera, const vec3& object, const vec3& up);
 
 	static mat4 Translate(const vec3& translation);
 	static mat4 Rotate(float angle, const vec3& axis);
+	static mat4 Rotate(const Quaternion& quat);
 	static mat4 Scale(const vec3& scale);
 	static mat4 Invert(const mat4& matrix);
 
 	static mat4 Transpose(const mat4& matrix);
 
-	std::string ToString() const;
+	String ToString() const;
 };
-

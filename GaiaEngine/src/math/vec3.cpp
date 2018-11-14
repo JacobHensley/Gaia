@@ -152,7 +152,7 @@ vec3 vec3::Multiply(const mat4& transform) const
 		transform.rows[0].x * x + transform.rows[0].y * y + transform.rows[0].z * z + transform.rows[0].w,
 		transform.rows[1].x * x + transform.rows[1].y * y + transform.rows[1].z * z + transform.rows[1].w,
 		transform.rows[2].x * x + transform.rows[2].y * y + transform.rows[2].z * z + transform.rows[2].w
-		);
+	);
 }
 
 vec3 operator+(vec3 left, const vec3& right)
@@ -304,4 +304,3 @@ std::ostream& operator<<(std::ostream& stream, const vec3& vector)
 	stream << "vec3: (" << vector.x << ", " << vector.y << ", " << vector.z << ")";
 	return stream;
 }
-

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <queue>
 #include "Camera/Camera.h"
 #include "Sprite.h"
 #include "Texture.h"
@@ -8,16 +7,10 @@
 
 struct Vertex;
 struct LineVertex;
-struct RenderCommand
-{
-	Sprite* sprite;
-	mat4 transform;
-};
 
 class Renderer2D
 {
 private:
-	std::queue<RenderCommand> m_Queue;
 	int m_Width, m_Height;
 	CameraRef m_Camera;
 

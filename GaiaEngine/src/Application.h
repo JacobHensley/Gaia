@@ -4,6 +4,7 @@
 #include <vector>
 #include "graphics/layers/Layer.h"
 #include "graphics/layers/LayerStack.h"
+
 class Application
 {
 private:
@@ -40,6 +41,8 @@ public:
 	inline double GetFPS() const { return m_FPS; }
 
 	inline bool IsKeyPressed(int keycode) const { ASSERT(keycode >= 0 && keycode < 1024); return m_Window->m_Keys[keycode]; }
+	inline int GetMouseButton() const { return m_Window->m_Button; }
+	inline vec2 GetMousePos() const { return m_Window->m_MousePos; }
 	inline Window* GetWindow() const { return m_Window; }
 
 	void Shutdown();

@@ -1,10 +1,9 @@
 #include "Application.h"
-#include "debug/DebugLayer.h"
 #include "graphics/layers/ImGUILayer.h"
-#include <GLFW/glfw3.h>
-#include "utils/TimeStep.h"
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw_gl3.h"
+#include "utils/TimeStep.h"
+#include <GLFW/glfw3.h>
 
 Application* Application::s_Application = nullptr;
 
@@ -14,8 +13,8 @@ Application::Application(const String& name, int width, int height)
 	m_Window = new Window(name.c_str(), width, height);
 	m_LayerStack = new LayerStack();
 	m_LastTime = glfwGetTime();
-
-	PushOverlay(new ImGUILayer("DebugOverlay"));
+	
+	PushOverlay(new ImGUILayer("ImGUILayer"));
 }
 
 Application::~Application()
