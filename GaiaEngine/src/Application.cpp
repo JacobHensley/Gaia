@@ -4,6 +4,7 @@
 #include "imgui/imgui_impl_glfw_gl3.h"
 #include "utils/TimeStep.h"
 #include <GLFW/glfw3.h>
+#include "imgui/ImGuizmo.h"
 
 Application* Application::s_Application = nullptr;
 
@@ -67,6 +68,7 @@ void Application::Run()
 		m_Window->Clear();
 
 		ImGui_ImplGlfwGL3_NewFrame();
+		ImGuizmo::BeginFrame();
 
 		OnRender();	
 

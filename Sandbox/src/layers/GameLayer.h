@@ -14,7 +14,7 @@ private:
 	LevelRef m_Level;
 	Model* m_BunnyModel;
 	Shader* m_BunnyShader;
-	float m_Scale = 0.2f;
+	float m_Scale = 00.2f;
 	vec3 m_Angle{0, 0, 0};
 	vec3 m_LightPos{ 5, 5, 5 };
 	vec3 m_LightColor{ 1, 1, 1 };

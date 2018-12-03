@@ -14,6 +14,7 @@
 #include "graphics/Material.h"
 #include "imgui/imgui.h"
 #include "graphics/Camera/MayaCamera.h"
+#include "imgui/ImGuizmo.h"
 
 GameLayer::GameLayer(const String& name)
 	: Layer(name)
@@ -63,6 +64,9 @@ void GameLayer::OnUpdate(TimeStep timeStep)
 
 void GameLayer::OnRender()
 {
+	static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::ROTATE);
+	static ImGuizmo::MODE mCurrentGizmoMode(ImGuizmo::LOCAL);
+
 	m_Level->OnRender(m_Renderer);
 
 	m_Renderer->Begin();
@@ -75,15 +79,18 @@ void GameLayer::OnRender()
 	m_BunnyShader->SetUniform3f("u_LightColor", m_LightColor);
 	m_BunnyShader->SetUniform3f("u_ObjectColor", m_ObjectColor);
 
-	mat4 projection = mat4::Perspective(65.0f, 1.778f, 0.01f, 1000.0f);
-	mat4 model = mat4::Translate(vec3(0, 0, -1)) * mat4::Rotate(m_Angle.x, vec3(1, 0, 0)) * mat4::Rotate(m_Angle.y, vec3(0, 1, 0)) * mat4::Rotate(m_Angle.z, vec3(0, 0, 1)) * mat4::Scale(vec3(m_Scale));
+	mat4 model = mat4::Translate(vec3(0, 0, 0)) * mat4::Rotate(m_Angle.x, vec3(1, 0, 0)) * mat4::Rotate(m_Angle.y, vec3(0, 1, 0)) * mat4::Rotate(m_Angle.z, vec3(0, 0, 1)) * mat4::Scale(vec3(m_Scale));
 	mat4 mvp = m_Camera->GetProjectionMatrix() * model * m_Camera->GetViewMatrix();
+
+	ImGuizmo::SetDrawlist();
+	ImGuizmo::SetOrthographic(false);
+	ImGuizmo::Manipulate(m_Camera->GetViewMatrix().elements, m_Camera->GetProjectionMatrix().elements, mCurrentGizmoOperation, mCurrentGizmoMode, model.elements, NULL, NULL);
 
 	m_BunnyShader->SetUniformMat4("u_MVP", mvp);
 	m_BunnyShader->SetUniformMat4("u_ModelMatrix", model);
 	m_BunnyModel->Render();
 
-	ImGui::DragFloat("Scale", &m_Scale, 0.05f, 0.0f, 10.0f);
+	ImGui::DragFloat("Scale", &m_Scale, 0.05f, 0.0f, 50.0f);
 	ImGui::DragFloat3("Angle", &m_Angle.x, 1.0f, -360.0f, 360.0f);
 	ImGui::DragFloat3("Light Pos", &m_LightPos.x, 0.5f, -10.0f, 10.0f);
 	ImGui::ColorPicker3("Light Color", &m_LightColor.x);
