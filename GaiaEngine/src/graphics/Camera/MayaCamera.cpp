@@ -37,11 +37,11 @@ void MayaCamera::OnUpdate(TimeStep timeStep)
 		vec2 delta = mouse - m_InitialMousePosition;
 		m_InitialMousePosition = mouse;
 		
-		if (app.GetMouseButton() == GLFW_MOUSE_BUTTON_RIGHT)
+		if (app.GetMouseButton() == GLFW_MOUSE_BUTTON_MIDDLE)
 			MousePan(delta);
 		else if (app.GetMouseButton() == GLFW_MOUSE_BUTTON_LEFT)
 			MouseRotate(delta);
-		else if (app.GetMouseButton() == GLFW_MOUSE_BUTTON_MIDDLE)
+		else if (app.GetMouseButton() == GLFW_MOUSE_BUTTON_RIGHT)
 			MouseZoom(delta.y);
 	}
 

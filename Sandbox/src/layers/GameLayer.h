@@ -13,6 +13,7 @@ public:
 private:
 	LevelRef m_Level;
 	Model* m_BunnyModel;
+	mat4 model;
 	Shader* m_BunnyShader;
 	float m_Scale = 00.2f;
 	vec3 m_Angle{0, 0, 0};

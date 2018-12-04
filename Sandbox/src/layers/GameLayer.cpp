@@ -51,6 +51,8 @@ void GameLayer::OnInit()
 	colorEntity->AddComponent(new SpriteComponent(Sprite(vec4(0.8f, 0.8f, 0.2f, 1.0f))));
 	colorEntity->AddComponent(new PlayerComponent());
 
+	model = mat4::Translate(vec3(0, 0, 0));
+
 	m_BunnyModel = new Model("res/models/bunny.obj");
 }
 
@@ -64,7 +66,7 @@ void GameLayer::OnUpdate(TimeStep timeStep)
 
 void GameLayer::OnRender()
 {
-	static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::ROTATE);
+	static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::TRANSLATE);
 	static ImGuizmo::MODE mCurrentGizmoMode(ImGuizmo::LOCAL);
 
 	m_Level->OnRender(m_Renderer);
@@ -79,12 +81,22 @@ void GameLayer::OnRender()
 	m_BunnyShader->SetUniform3f("u_LightColor", m_LightColor);
 	m_BunnyShader->SetUniform3f("u_ObjectColor", m_ObjectColor);
 
-	mat4 model = mat4::Translate(vec3(0, 0, 0)) * mat4::Rotate(m_Angle.x, vec3(1, 0, 0)) * mat4::Rotate(m_Angle.y, vec3(0, 1, 0)) * mat4::Rotate(m_Angle.z, vec3(0, 0, 1)) * mat4::Scale(vec3(m_Scale));
+//	mat4 model = mat4::Translate(vec3(0, 0, 0));// * mat4::Rotate(m_Angle.x, vec3(1, 0, 0)) * mat4::Rotate(m_Angle.y, vec3(0, 1, 0)) * mat4::Rotate(m_Angle.z, vec3(0, 0, 1)) * mat4::Scale(vec3(m_Scale));
 	mat4 mvp = m_Camera->GetProjectionMatrix() * model * m_Camera->GetViewMatrix();
 
-	ImGuizmo::SetDrawlist();
+	auto view = mat4::Transpose(m_Camera->GetViewMatrix());
+	auto proj = mat4::Transpose(m_Camera->GetProjectionMatrix());
+
 	ImGuizmo::SetOrthographic(false);
-	ImGuizmo::Manipulate(m_Camera->GetViewMatrix().elements, m_Camera->GetProjectionMatrix().elements, mCurrentGizmoOperation, mCurrentGizmoMode, model.elements, NULL, NULL);
+	ImGuiIO& io = ImGui::GetIO();
+	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
+
+
+	model = mat4::Transpose(model);
+	ImGuizmo::Manipulate(view.elements, proj.elements, mCurrentGizmoOperation, mCurrentGizmoMode, model.elements, NULL, NULL);
+	model = mat4::Transpose(model);
+
+	std::cout << "X: " << model.GetPosition().x << " Y: " << model.GetPosition().y << " Z: " << model.GetPosition().z << std::endl;
 
 	m_BunnyShader->SetUniformMat4("u_MVP", mvp);
 	m_BunnyShader->SetUniformMat4("u_ModelMatrix", model);
