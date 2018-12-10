@@ -41,6 +41,9 @@ struct mat4
 	inline vec3 GetPosition() const { return vec3(GetColumn(3)); }
 	inline void SetPosition(const vec3& position) { SetColumn(3, vec4(position, 1.0f)); }
 
+	vec3 GetScale() const;
+	vec3 GetRotation() const;
+
 	static mat4 Orthographic(float left, float right, float bottom, float top, float near, float far);
 	static mat4 Perspective(float fov, float aspectRatio, float near, float far);
 	static mat4 LookAt(const vec3& camera, const vec3& object, const vec3& up);

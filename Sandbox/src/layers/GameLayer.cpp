@@ -64,6 +64,33 @@ void GameLayer::OnUpdate(TimeStep timeStep)
 	m_Level->OnUpdate(timeStep);
 }
 
+static void ImGuiDrawMat(const mat4& matrix)
+{
+	ImGui::Begin("Mat");
+	for (int y = 0;y < 4;y++)
+	{
+		for (int x = 0;x < 4;x++)
+		{
+			ImGui::Text("%.2f", matrix.elements[x + y * 4]);
+			ImGui::SameLine();
+		}
+		ImGui::NewLine();
+	}
+	ImGui::Separator();
+
+
+	auto trans = matrix.GetPosition();
+	ImGui::Text("T: %.2f, %.2f, %.2f", trans.x, trans.y, trans.z);
+
+	auto rotation = matrix.GetRotation();
+	ImGui::Text("R: %.2f, %.2f, %.2f", rotation.x, rotation.y, rotation.z);
+
+	auto scale = matrix.GetScale();
+	ImGui::Text("S: %.2f, %.2f, %.2f", scale.x, scale.y, scale.z);
+
+	ImGui::End();
+}
+
 void GameLayer::OnRender()
 {
 	static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::TRANSLATE);
@@ -82,11 +109,10 @@ void GameLayer::OnRender()
 	m_BunnyShader->SetUniform3f("u_ObjectColor", m_ObjectColor);
 
 //	mat4 model = mat4::Translate(vec3(0, 0, 0));// * mat4::Rotate(m_Angle.x, vec3(1, 0, 0)) * mat4::Rotate(m_Angle.y, vec3(0, 1, 0)) * mat4::Rotate(m_Angle.z, vec3(0, 0, 1)) * mat4::Scale(vec3(m_Scale));
-	mat4 mvp = m_Camera->GetProjectionMatrix() * model * m_Camera->GetViewMatrix();
+	mat4 mvp = m_Camera->GetProjectionMatrix() * m_Camera->GetViewMatrix() * model;
 
 	auto view = mat4::Transpose(m_Camera->GetViewMatrix());
 	auto proj = mat4::Transpose(m_Camera->GetProjectionMatrix());
-
 	ImGuizmo::SetOrthographic(false);
 	ImGuiIO& io = ImGui::GetIO();
 	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
@@ -95,12 +121,13 @@ void GameLayer::OnRender()
 	model = mat4::Transpose(model);
 	ImGuizmo::Manipulate(view.elements, proj.elements, mCurrentGizmoOperation, mCurrentGizmoMode, model.elements, NULL, NULL);
 	model = mat4::Transpose(model);
-
+	ImGuiDrawMat(model);
 	std::cout << "X: " << model.GetPosition().x << " Y: " << model.GetPosition().y << " Z: " << model.GetPosition().z << std::endl;
 
 	m_BunnyShader->SetUniformMat4("u_MVP", mvp);
 	m_BunnyShader->SetUniformMat4("u_ModelMatrix", model);
 	m_BunnyModel->Render();
+
 
 	ImGui::DragFloat("Scale", &m_Scale, 0.05f, 0.0f, 50.0f);
 	ImGui::DragFloat3("Angle", &m_Angle.x, 1.0f, -360.0f, 360.0f);

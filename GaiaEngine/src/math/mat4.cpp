@@ -223,6 +223,36 @@ void mat4::SetColumn(uint index, const vec4& column)
 	elements[index + 3 * 4] = column.w;
 }
 
+vec3 mat4::GetScale() const
+{
+	return { vec3(rows[0]).Magnitude(), vec3(rows[1]).Magnitude(), vec3(rows[2]).Magnitude() };
+}
+
+vec3 mat4::GetRotation() const
+{
+	// pitch, yaw, roll
+	vec3 result;
+	if (rows[0].x == 1.0f)
+	{
+		result.x = 0;
+		result.y = atan2f(rows[0].z, rows[2].w);
+		result.z = 0;
+	}
+	else if (rows[0].x == -1.0f)
+	{
+		result.x = 0;
+		result.y = atan2f(rows[0].z, rows[2].w);
+		result.z = 0;
+	}
+	else
+	{
+		result.x = asin(rows[1].x);
+		result.y = atan2(-rows[2].x, rows[0].x);
+		result.z = atan2(-rows[1].z, rows[1].y);
+	}
+	return result;
+}
+
 mat4 mat4::Orthographic(float left, float right, float bottom, float top, float near, float far)
 {
 	mat4 result(1.0f);
