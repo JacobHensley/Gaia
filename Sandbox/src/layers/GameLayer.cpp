@@ -15,6 +15,7 @@
 #include "imgui/imgui.h"
 #include "graphics/Camera/MayaCamera.h"
 #include "imgui/ImGuizmo.h"
+#include "utils/Log.h"
 
 GameLayer::GameLayer(const String& name)
 	: Layer(name)
@@ -42,6 +43,14 @@ void GameLayer::OnInit()
 	m_Level = new Level();
 	m_Level->OnInit();
 
+	Log::Init();
+	CORE_TRACE("Test");
+	CORE_DEBUG("Test");
+	CORE_INFO("Test");
+	CORE_WARN("Test");
+	CORE_ERROR("Test");
+	CORE_CRITICAL("Test");
+
 	EntityRef textureEntity = m_Level->CreateEntity<Entity>();
 	textureEntity->AddComponent(new TransformComponent(mat4::Identity()));
 	textureEntity->AddComponent(new SpriteComponent(Sprite(Resource::GetAs<Texture>("Jungle"))));
@@ -60,7 +69,6 @@ void GameLayer::OnUpdate(TimeStep timeStep)
 {
 	m_Camera->OnUpdate(timeStep);
 	m_Camera->SetProjectionMatrix(mat4::Perspective(65.0f, 1.778f, 0.01f, 1000.0f));
-
 	m_Level->OnUpdate(timeStep);
 }
 
@@ -122,7 +130,6 @@ void GameLayer::OnRender()
 	ImGuizmo::Manipulate(view.elements, proj.elements, mCurrentGizmoOperation, mCurrentGizmoMode, model.elements, NULL, NULL);
 	model = mat4::Transpose(model);
 	ImGuiDrawMat(model);
-	std::cout << "X: " << model.GetPosition().x << " Y: " << model.GetPosition().y << " Z: " << model.GetPosition().z << std::endl;
 
 	m_BunnyShader->SetUniformMat4("u_MVP", mvp);
 	m_BunnyShader->SetUniformMat4("u_ModelMatrix", model);
