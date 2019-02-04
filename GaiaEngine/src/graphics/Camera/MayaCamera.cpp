@@ -11,7 +11,7 @@ MayaCamera::MayaCamera(const mat4& projectionMatrix)
 	m_RotationSpeed = 0.002f;
 	m_ZoomSpeed = 0.2f;
 
-	m_Position = vec3(0.0f, 25.0f, -25.0f);
+	m_Position = vec3(0.0f, 500.0f, -500.0f);
 	m_Rotation = vec3(90.0f, 0.0f, 0.0f);
 
 	m_FocalPoint = vec3::Zero();

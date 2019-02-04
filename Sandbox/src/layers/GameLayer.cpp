@@ -44,12 +44,6 @@ void GameLayer::OnInit()
 	m_Level->OnInit();
 
 	Log::Init();
-	CORE_TRACE("Test");
-	CORE_DEBUG("Test");
-	CORE_INFO("Test");
-	CORE_WARN("Test");
-	CORE_ERROR("Test");
-	CORE_CRITICAL("Test");
 
 	EntityRef textureEntity = m_Level->CreateEntity<Entity>();
 	textureEntity->AddComponent(new TransformComponent(mat4::Identity()));
@@ -60,9 +54,9 @@ void GameLayer::OnInit()
 	colorEntity->AddComponent(new SpriteComponent(Sprite(vec4(0.8f, 0.8f, 0.2f, 1.0f))));
 	colorEntity->AddComponent(new PlayerComponent());
 
-	model = mat4::Translate(vec3(0, 0, 0));
+	model = mat4::Translate(vec3(100, 300, 0));
 
-	m_BunnyModel = new Model("res/models/bunny.obj");
+	m_BunnyModel = new Model("res/models/cube.obj");
 }
 
 void GameLayer::OnUpdate(TimeStep timeStep)
@@ -72,8 +66,12 @@ void GameLayer::OnUpdate(TimeStep timeStep)
 	m_Level->OnUpdate(timeStep);
 }
 
-static void ImGuiDrawMat(const mat4& matrix)
+static void ImGuiDrawMat(mat4& matrix)
 {
+
+//	ImGui::DragFloat3("Position", &trans.x, 1.0f, -360.0f, 360.0f);
+//	matrix.SetPosition(trans);
+
 	ImGui::Begin("Mat");
 	for (int y = 0;y < 4;y++)
 	{
@@ -89,19 +87,22 @@ static void ImGuiDrawMat(const mat4& matrix)
 
 	auto trans = matrix.GetPosition();
 	ImGui::Text("T: %.2f, %.2f, %.2f", trans.x, trans.y, trans.z);
-
+	
 	auto rotation = matrix.GetRotation();
 	ImGui::Text("R: %.2f, %.2f, %.2f", rotation.x, rotation.y, rotation.z);
 
 	auto scale = matrix.GetScale();
 	ImGui::Text("S: %.2f, %.2f, %.2f", scale.x, scale.y, scale.z);
 
+	ImGui::DragFloat3("scale", &scale.x, 1.0f, -360.0f, 360.0f);
+	matrix.Scale(scale);
+
 	ImGui::End();
 }
 
 void GameLayer::OnRender()
 {
-	static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::TRANSLATE);
+	static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::SCALE);
 	static ImGuizmo::MODE mCurrentGizmoMode(ImGuizmo::LOCAL);
 
 	m_Level->OnRender(m_Renderer);
@@ -125,7 +126,6 @@ void GameLayer::OnRender()
 	ImGuiIO& io = ImGui::GetIO();
 	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
 
-
 	model = mat4::Transpose(model);
 	ImGuizmo::Manipulate(view.elements, proj.elements, mCurrentGizmoOperation, mCurrentGizmoMode, model.elements, NULL, NULL);
 	model = mat4::Transpose(model);
@@ -134,7 +134,6 @@ void GameLayer::OnRender()
 	m_BunnyShader->SetUniformMat4("u_MVP", mvp);
 	m_BunnyShader->SetUniformMat4("u_ModelMatrix", model);
 	m_BunnyModel->Render();
-
 
 	ImGui::DragFloat("Scale", &m_Scale, 0.05f, 0.0f, 50.0f);
 	ImGui::DragFloat3("Angle", &m_Angle.x, 1.0f, -360.0f, 360.0f);
