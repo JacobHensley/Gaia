@@ -43,14 +43,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\Debug-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\bin\Debug-windows-x86_64\Intermediates\Debug\Sandbox\</IntDir>
+    <IntDir>..\bin-int\Debug-windows-x86_64\Sandbox\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Release-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\bin\Release-windows-x86_64\Intermediates\Release\Sandbox\</IntDir>
+    <IntDir>..\bin-int\Release-windows-x86_64\Sandbox\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
@@ -58,22 +58,23 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>src;..\GaiaEngine\src;..\GaiaEngine\src\vendor;..\Dependencies\GLEW\include;..\Dependencies\GLFW\include;..\Dependencies\FreeTypeGL;..\Dependencies\FreeType\include;..\Dependencies\AssImp\build\include;..\Dependencies\AssImp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\GaiaEngine\src;..\GaiaEngine\src\vendor;..\Dependencies\AssImp\build\include;..\Dependencies\AssImp\include;..\Dependencies\FreeTypeGL;..\Dependencies\FreeType\include;..\Dependencies\imgui;..\Dependencies\GLFW\include;..\Dependencies\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>src;..\GaiaEngine\src;..\GaiaEngine\src\vendor;..\Dependencies\GLEW\include;..\Dependencies\GLFW\include;..\Dependencies\FreeTypeGL;..\Dependencies\FreeType\include;..\Dependencies\AssImp\build\include;..\Dependencies\AssImp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\GaiaEngine\src;..\GaiaEngine\src\vendor;..\Dependencies\AssImp\build\include;..\Dependencies\AssImp\include;..\Dependencies\FreeTypeGL;..\Dependencies\FreeType\include;..\Dependencies\imgui;..\Dependencies\GLFW\include;..\Dependencies\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -86,6 +87,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -100,23 +102,26 @@
     <ClCompile Include="src\layers\UILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GaiaEngine\GaiaEngine.vcxproj">
-      <Project>{4D098932-39C1-CA7F-A2C8-A3DB8E9F6570}</Project>
+    <ProjectReference Include="..\Dependencies\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\GLEW\GLEW.vcxproj">
       <Project>{F44A857C-E081-860D-896E-6C107584020F}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\Dependencies\GLFW\GLFW.vcxproj">
-      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Dependencies\AssImp\build\code\AssImp.vcxproj">
       <Project>{32ACDFA7-1E4E-0A7E-0709-1ED2F34991CE}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\FreeTypeGL\FreeTypeGL\FreeTypeGL.vcxproj">
+      <Project>{FCE06C91-E898-AEDE-51A0-873A3D7749CF}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\FreeType\FreeType.vcxproj">
       <Project>{49610F50-352E-6A5B-5E47-58034A739FE9}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\Dependencies\FreeTypeGL\FreeTypeGL\FreeTypeGL.vcxproj">
-      <Project>{FCE06C91-E898-AEDE-51A0-873A3D7749CF}</Project>
+    <ProjectReference Include="..\Dependencies\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GaiaEngine\GaiaEngine.vcxproj">
+      <Project>{4D098932-39C1-CA7F-A2C8-A3DB8E9F6570}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

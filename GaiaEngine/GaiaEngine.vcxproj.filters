@@ -28,9 +28,6 @@
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
-    <Filter Include="vendor\imgui">
-      <UniqueIdentifier>{5D3BD0F0-499E-5F95-F223-984BDE652B18}</UniqueIdentifier>
-    </Filter>
     <Filter Include="vendor\spdlog">
       <UniqueIdentifier>{8BBC5F22-F77C-DB58-C0B7-24D62C372035}</UniqueIdentifier>
     </Filter>
@@ -177,36 +174,6 @@
     </ClInclude>
     <ClInclude Include="src\utils\TimeStep.h">
       <Filter>utils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\ImCurveEdit.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\ImGuizmo.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\ImSequencer.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\imconfig.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\imgui.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\imgui_impl_glfw_gl3.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\imgui_internal.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\stb_rect_pack.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\stb_textedit.h">
-      <Filter>vendor\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\vendor\imgui\stb_truetype.h">
-      <Filter>vendor\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\vendor\spdlog\async.h">
       <Filter>vendor\spdlog</Filter>
@@ -459,30 +426,6 @@
     </ClCompile>
     <ClCompile Include="src\utils\Resource.cpp">
       <Filter>utils</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vendor\imgui\ImCurveEdit.cpp">
-      <Filter>vendor\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vendor\imgui\ImGuizmo.cpp">
-      <Filter>vendor\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vendor\imgui\ImSequencer.cpp">
-      <Filter>vendor\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vendor\imgui\imgui.cpp">
-      <Filter>vendor\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vendor\imgui\imgui_demo.cpp">
-      <Filter>vendor\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vendor\imgui\imgui_draw.cpp">
-      <Filter>vendor\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vendor\imgui\imgui_impl_glfw_gl3.cpp">
-      <Filter>vendor\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\vendor\imgui\main.cpp">
-      <Filter>vendor\imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>

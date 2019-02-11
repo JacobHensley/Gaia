@@ -57,6 +57,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>-std=c11 -lgdi32 %(AdditionalOptions)</AdditionalOptions>
@@ -70,9 +71,10 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>-std=c11 -lgdi32 /MT %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-std=c11 -lgdi32 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -95,7 +97,6 @@
     <ClCompile Include="src\win32_init.c" />
     <ClCompile Include="src\win32_joystick.c" />
     <ClCompile Include="src\win32_monitor.c" />
-    <ClCompile Include="src\win32_thread.c" />
     <ClCompile Include="src\win32_time.c" />
     <ClCompile Include="src\win32_window.c" />
     <ClCompile Include="src\window.c" />

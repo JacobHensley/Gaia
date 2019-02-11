@@ -834,6 +834,9 @@
    * Include internal headers definitions from <internal/...>
    * only when building the library.
    */
+
+#define FT2_BUILD_LIBRARY
+
 #ifdef FT2_BUILD_LIBRARY
 #define  FT_INTERNAL_INTERNAL_H  <freetype/internal/internal.h>
 #include FT_INTERNAL_INTERNAL_H

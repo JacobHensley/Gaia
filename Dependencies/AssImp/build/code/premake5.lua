@@ -525,15 +525,40 @@ project "AssImp"
         "../../include/assimp/Compiler/pstdint.h"
     }
     
+
+	includedirs
+    {
+        "../",
+    	"../../",
+        "../../include",
+        "../../build/include",
+        "../../contrib/irrXML",
+        "../../contrib/rapidjson/include",
+        "../../contrib/unzip",
+        "../../contrib/unzip",
+        "../../contrib/zlib/zlib.h",
+        "../../contrib/zlib",
+        "../../contrib/openddlparser/include",
+        "../../build/contrib/zlib",
+        "../../build/contrib/zlib"
+    }
+
+    defines 
+    { 
+        "WIN32",
+        "_WINDOWS",
+        "WIN32_LEAN_AND_MEAN",
+        "ASSIMP_BUILD_NO_C4D_IMPORTER",
+        "ASSIMP_BUILD_DLL_EXPORT",
+        "_SCL_SECURE_NO_WARNINGS",
+        "_CRT_SECURE_NO_WARNINGS",
+        "OPENDDLPARSER_BUILD",
+        "assimp_EXPORTS"
+    }
+
 	filter "system:windows"
         buildoptions { "-std=c11", "-lgdi32" }
         systemversion "10.0.17134.0"
         staticruntime "On"
 
-		defines 
-		{ 
-            "_GLFW_WIN32",
-            "_CRT_SECURE_NO_WARNINGS"
-		}
     filter { "system:windows", "configurations:Release" }
-        buildoptions "/MT"

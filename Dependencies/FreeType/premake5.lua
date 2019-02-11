@@ -123,10 +123,21 @@ project "FreeType"
         "builds/windows/ftdebug.c"
     }
     
+    includedirs
+    {
+        "include",
+    }
+
+    defines 
+    { 
+        "FT2_BUILD_LIBRARY",
+        "FT2BUILD_H_"
+    }
+
 	filter "system:windows"
         systemversion "10.0.17134.0"
         staticruntime "On"
-
+        
 		defines 
 		{ 
             "_GLFW_WIN32",

@@ -1,7 +1,7 @@
 #include "ImGUILayer.h"
 
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw_gl3.h"
+#include "imgui.h"
+#include "imgui_impl_opengl3.h"
 #include "utils/Resource.h"
 #include "graphics/shaders/Shader.h"
 
@@ -13,7 +13,6 @@ ImGUILayer::ImGUILayer(const String& name)
 
 ImGUILayer::~ImGUILayer()
 {
-	ImGui_ImplGlfwGL3_Shutdown();
 	ImGui::DestroyContext();
 }
 
@@ -22,7 +21,7 @@ void ImGUILayer::OnInit()
 	Application& app = Application::GetApplication();
 
 	ImGui::CreateContext();
-	ImGui_ImplGlfwGL3_Init(app.GetWindow()->GetWindow(), true);
+	ImGui_ImplOpenGL3_Init("#version 410");
 	ImGui::StyleColorsDark();
 }
 

@@ -1,10 +1,10 @@
 #include "Application.h"
 #include "graphics/layers/ImGUILayer.h"
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw_gl3.h"
+#include "imgui.h"
+#include "imgui_impl_opengl3.h"
 #include "utils/TimeStep.h"
 #include <GLFW/glfw3.h>
-#include "imgui/ImGuizmo.h"
+#include "ImGuizmo.h"
 
 Application* Application::s_Application = nullptr;
 
@@ -67,13 +67,14 @@ void Application::Run()
 
 		m_Window->Clear();
 
-		ImGui_ImplGlfwGL3_NewFrame();
+		
+		ImGui_ImplOpenGL3_NewFrame();
 		ImGuizmo::BeginFrame();
 
 		OnRender();	
 
 		ImGui::Render();
-		ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		m_Window->Update();
 	}

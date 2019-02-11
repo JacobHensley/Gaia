@@ -2,7 +2,7 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "imgui/imgui.h"
+#include "imgui.h"
 
 Window::Window(const char* title, int width, int height)
 	: m_Title(title), m_Width(width), m_Height(height) 

@@ -6,6 +6,8 @@
 #ifndef __FREETYPE_GL_H__
 #define __FREETYPE_GL_H__
 
+#define NOT_USING_FT_GL_NAMESPACE
+
 /* Mandatory */
 #include "opengl.h"
 #include "vec234.h"

@@ -56,9 +56,6 @@
     <ClCompile Include="src\win32_monitor.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\win32_thread.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\win32_time.c">
       <Filter>src</Filter>
     </ClCompile>

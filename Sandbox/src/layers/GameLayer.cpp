@@ -12,9 +12,9 @@
 #include "utils/TimeStep.h"
 #include "graphics/FontManager.h"
 #include "graphics/Material.h"
-#include "imgui/imgui.h"
+#include "imgui.h"
 #include "graphics/Camera/MayaCamera.h"
-#include "imgui/ImGuizmo.h"
+#include "ImGuizmo.h"
 #include "utils/Log.h"
 
 GameLayer::GameLayer(const String& name)

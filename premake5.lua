@@ -1,35 +1,44 @@
 workspace "Gaia"
-   architecture "x64"
-   configurations { "Debug", "Release" }
+	architecture "x64"
+	startproject "Sandbox"
+
+	configurations
+	{
+		"Debug",
+		"Release"
+	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "Dependencies/GLFW/include"
-IncludeDir["GLEW"] = "Dependencies/GLEW/include"
+IncludeDir["AssImp"] = "Dependencies/AssImp/include"
+IncludeDir["AssImpBuild"] = "Dependencies/AssImp/build/include"
 IncludeDir["FreeType"] = "Dependencies/FreeType/include"
 IncludeDir["FreeTypeGL"] = "Dependencies/FreeTypeGL"
+IncludeDir["GLFW"] = "Dependencies/GLFW/include"
+IncludeDir["GLEW"] = "Dependencies/GLEW/include"
+IncludeDir["ImGui"] = "Dependencies/imgui"
 
-IncludeDir["AssImp"] = "Dependencies/AssImp/build/include"
-IncludeDir["AssImp"] = "Dependencies/AssImp/include"
-
-include "Dependencies/GLFW"
-include "Dependencies/GLEW"
+include "Dependencies/AssImp/build/code"
 include "Dependencies/FreeType"
 include "Dependencies/FreeTypeGL/FreeTypeGL"
-include "Dependencies/AssImp/build/code"
+include "Dependencies/GLFW"
+include "Dependencies/GLEW"
+include "Dependencies/imgui"
 
 project "GaiaEngine"
-	location "GaiaEngine" 
+	location "GaiaEngine"
 	kind "StaticLib"
 	language "C++"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin/" .. outputdir .. "/Intermediates")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-	files 
-	{ 
-		"%{prj.name}/src/**.h",  
+	files
+	{
+		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
 	}
 
@@ -37,38 +46,49 @@ project "GaiaEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/src/vendor",
-		"%{wks.location}/Dependencies/GLEW/include",
-		"%{wks.location}/Dependencies/GLFW/include",
-		"%{wks.location}/Dependencies/FreeTypeGL",
-		"%{wks.location}/Dependencies/FreeType/include",
-		"%{wks.location}/Dependencies/AssImp/build/include",
-		"%{wks.location}/Dependencies/AssImp/include"
+		"%{IncludeDir.AssImpBuild}",
+		"%{IncludeDir.AssImp}",
+		"%{IncludeDir.FreeType}",
+		"%{IncludeDir.FreeTypeGL}",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLEW}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
+		defines
+		{
+			"GLFW_INCLUDE_NONE"
+		}
+
+		postbuildcommands
+		{
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
+		}
+
 	filter "configurations:Debug"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
-		optimize "On"	
+		runtime "Release"
+		optimize "On"
 
-
-project "Sandbox"		
-	location "Sandbox" 
+project "Sandbox"
+	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin/" .. outputdir .. "/Intermediates")	
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-
-	files 
-	{ 
-		"%{prj.name}/src/**.h",  
+	files
+	{
+		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
 	}
 
@@ -77,28 +97,35 @@ project "Sandbox"
 		"%{prj.name}/src",
 		"GaiaEngine/src",
 		"GaiaEngine/src/vendor",
-		"%{wks.location}/Dependencies/GLEW/include",
-		"%{wks.location}/Dependencies/GLFW/include",
-		"%{wks.location}/Dependencies/FreeTypeGL",
-		"%{wks.location}/Dependencies/FreeType/include",
-		"%{wks.location}/Dependencies/AssImp/build/include",
-		"%{wks.location}/Dependencies/AssImp/include"
+		"%{IncludeDir.AssImpBuild}",
+		"%{IncludeDir.AssImp}",
+		"%{IncludeDir.FreeTypeGL}",
+		"%{IncludeDir.FreeType}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLEW}"
 	}
 
-	links { "GaiaEngine" }
-	links { "GLEW" }
-	links { "GLFW" }
-	links { "Assimp" }
-	links { "FreeType" }
-	links { "FreeTypeGL" }
+	links 
+	{ 
+		"GLFW",
+		"GLEW",
+		"AssImp",
+		"FreeTypeGL",
+		"FreeType",
+		"ImGui",
+		"GaiaEngine",
+		"opengl32.lib"
+	}
 
 	filter "system:windows"
-	cppdialect "C++17"
-	staticruntime "On"
-	systemversion "latest"
+		cppdialect "C++17"
+		systemversion "latest"
 
 	filter "configurations:Debug"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
+		runtime "Release"
 		optimize "On"
