@@ -55,13 +55,20 @@ project "GaiaEngine"
 		"%{IncludeDir.ImGui}"
 	}
 
+
+	defines 
+	{
+		"GLEW_STATIC"
+	}
+
 	filter "system:windows"
 		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
 		{
-			"GLFW_INCLUDE_NONE"
+			"GLFW_INCLUDE_NONE",
+			"GLEW_STATIC"
 		}
 
 		postbuildcommands

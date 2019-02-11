@@ -18,6 +18,11 @@ project "GLFW"
         "src/window.c"
     }
     
+    defines 
+    {
+        "GLEW_STATIC"
+    }
+
     includedirs
     {
         "src"

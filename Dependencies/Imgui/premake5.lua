@@ -34,7 +34,9 @@ project "ImGui"
 
     defines
     {
-        "IMGUI_DEFINE_MATH_OPERATORS"
+        "IMGUI_DEFINE_MATH_OPERATORS",
+        "GLEW_STATIC",
+        "_CRT_SECURE_NO_WARNINGS"
     } 
 
 	filter "system:windows"

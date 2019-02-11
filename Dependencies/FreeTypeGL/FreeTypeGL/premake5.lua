@@ -24,9 +24,9 @@ project "FreeTypeGL"
     
   defines 
   { 
-            "_GLFW_WIN32",
-            "_CRT_SECURE_NO_WARNINGS",
-            "NOT_USING_FT_GL_NAMESPACE",
+        "_GLFW_WIN32",
+        "_CRT_SECURE_NO_WARNINGS",
+        "NOT_USING_FT_GL_NAMESPACE",
   }  
 
   includedirs 
