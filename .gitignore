@@ -1,5 +1,5 @@
 # Visual Studio Files
-bin/
+/bin/
 .vs/
 *.sdf
 *.db
@@ -30,7 +30,6 @@ bin/
 *.a
 
 # Executables
-*.exe
 *.out
 *.app
 

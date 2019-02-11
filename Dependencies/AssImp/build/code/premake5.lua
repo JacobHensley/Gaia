@@ -536,6 +536,7 @@ project "AssImp"
         "../../contrib/rapidjson/include",
         "../../contrib/unzip",
         "../../contrib/unzip",
+        "../../contrib/zip/src",
         "../../contrib/zlib/zlib.h",
         "../../contrib/zlib",
         "../../contrib/openddlparser/include",

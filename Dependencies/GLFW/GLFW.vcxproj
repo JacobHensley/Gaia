@@ -98,6 +98,7 @@
     <ClCompile Include="src\win32_joystick.c" />
     <ClCompile Include="src\win32_monitor.c" />
     <ClCompile Include="src\win32_time.c" />
+    <ClCompile Include="src\win32_tls.c" />
     <ClCompile Include="src\win32_window.c" />
     <ClCompile Include="src\window.c" />
   </ItemGroup>

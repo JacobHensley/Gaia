@@ -59,6 +59,9 @@
     <ClCompile Include="src\win32_time.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\win32_tls.c">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\win32_window.c">
       <Filter>src</Filter>
     </ClCompile>

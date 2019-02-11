@@ -56,7 +56,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;NOT_USING_FT_GL_NAMESPACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;NOT_USING_FT_GL_NAMESPACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\FreeType\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -69,7 +69,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;NOT_USING_FT_GL_NAMESPACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;NOT_USING_FT_GL_NAMESPACE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\FreeType\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -94,6 +94,17 @@
     <ClCompile Include="..\texture-font.c" />
     <ClCompile Include="..\utf8-utils.c" />
     <ClCompile Include="..\vector.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FreeType\FreeType.vcxproj">
+      <Project>{49610f50-352e-6a5b-5e47-58034a739fe9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GLEW\GLEW.vcxproj">
+      <Project>{f44a857c-e081-860d-896e-6c107584020f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GLFW\GLFW.vcxproj">
+      <Project>{154b857c-0182-860d-aa6e-6c109684020f}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,9 +9,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\FreeType\include\ft2build.h">
-      <Filter>FreeType\include</Filter>
-    </ClInclude>
     <ClInclude Include="..\distance-field.h" />
     <ClInclude Include="..\edtaa3func.h" />
     <ClInclude Include="..\freetype-gl.h" />
