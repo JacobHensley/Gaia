@@ -121,7 +121,7 @@ project "Sandbox"
 
 	postbuildcommands
 	{
-		("{COPY} %{wks.location}Dependencies/AssImp/bin/Debug/assimp-vc140-mt.lib \"../bin/" .. outputdir .. "/Sandbox/\"")
+		("{COPY} %{wks.location}Dependencies/AssImp/bin/Debug/assimp-vc140-mt.dll \"../bin/" .. outputdir .. "/Sandbox/\"")
 	}
 
 	filter "system:windows"
