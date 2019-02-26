@@ -125,7 +125,7 @@ void GameLayer::OnRender()
 	ImGuizmo::SetOrthographic(false);
 	ImGuiIO& io = ImGui::GetIO();
 	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
-
+	ImGuizmo::SetDrawlist();
 	model = mat4::Transpose(model);
 	ImGuizmo::Manipulate(view.elements, proj.elements, mCurrentGizmoOperation, mCurrentGizmoMode, model.elements, NULL, NULL);
 	model = mat4::Transpose(model);

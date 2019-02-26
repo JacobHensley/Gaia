@@ -14,7 +14,10 @@ Application::Application(const String& name, int width, int height)
 	m_Window = new Window(name.c_str(), width, height);
 	m_LayerStack = new LayerStack();
 	m_LastTime = glfwGetTime();
-	
+
+	ImGui::CreateContext();
+	ImGui_ImplOpenGL3_Init("#version 410");
+
 	PushOverlay(new ImGUILayer("ImGUILayer"));
 }
 
@@ -67,16 +70,17 @@ void Application::Run()
 
 		m_Window->Clear();
 
-		
+		ImGui::GetIO().DisplaySize = ImVec2(m_Window->GetWidth(), m_Window->GetHeight());
 		ImGui_ImplOpenGL3_NewFrame();
-		ImGuizmo::BeginFrame();
-
+		ImGui::NewFrame();
+		
 		OnRender();	
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		m_Window->Update();
+		
 	}
 
 }

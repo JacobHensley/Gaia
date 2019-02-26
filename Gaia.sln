@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssImp", "Dependencies\AssImp\build\code\AssImp.vcxproj", "{32ACDFA7-1E4E-0A7E-0709-1ED2F34991CE}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreeType", "Dependencies\FreeType\FreeType.vcxproj", "{49610F50-352E-6A5B-5E47-58034A739FE9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreeTypeGL", "Dependencies\FreeTypeGL\FreeTypeGL\FreeTypeGL.vcxproj", "{FCE06C91-E898-AEDE-51A0-873A3D7749CF}"
@@ -27,10 +25,6 @@ Global
 		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Debug|x64.Build.0 = Debug|x64
 		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Release|x64.ActiveCfg = Release|x64
 		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Release|x64.Build.0 = Release|x64
-		{32ACDFA7-1E4E-0A7E-0709-1ED2F34991CE}.Debug|x64.ActiveCfg = Debug|x64
-		{32ACDFA7-1E4E-0A7E-0709-1ED2F34991CE}.Debug|x64.Build.0 = Debug|x64
-		{32ACDFA7-1E4E-0A7E-0709-1ED2F34991CE}.Release|x64.ActiveCfg = Release|x64
-		{32ACDFA7-1E4E-0A7E-0709-1ED2F34991CE}.Release|x64.Build.0 = Release|x64
 		{49610F50-352E-6A5B-5E47-58034A739FE9}.Debug|x64.ActiveCfg = Debug|x64
 		{49610F50-352E-6A5B-5E47-58034A739FE9}.Debug|x64.Build.0 = Debug|x64
 		{49610F50-352E-6A5B-5E47-58034A739FE9}.Release|x64.ActiveCfg = Release|x64
