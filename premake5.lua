@@ -12,12 +12,14 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["FreeType"] = "Dependencies/FreeType/include"
+IncludeDir["AssImp"] = "Dependencies/AssImp/include"
 IncludeDir["FreeTypeGL"] = "Dependencies/FreeTypeGL"
 IncludeDir["GLFW"] = "Dependencies/GLFW/include"
 IncludeDir["GLEW"] = "Dependencies/GLEW/include"
 IncludeDir["ImGui"] = "Dependencies/imgui"
 
 include "Dependencies/FreeType"
+include "Dependencies/AssImp"
 include "Dependencies/FreeTypeGL/FreeTypeGL"
 include "Dependencies/GLFW"
 include "Dependencies/GLEW"
@@ -42,7 +44,7 @@ project "GaiaEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/src/vendor",
-		"Dependencies/AssImp/include",
+		"%{IncludeDir.AssImp}",	
 		"%{IncludeDir.FreeType}",
 		"%{IncludeDir.FreeTypeGL}",
 		"%{IncludeDir.GLFW}",
@@ -99,7 +101,7 @@ project "Sandbox"
 		"%{prj.name}/src",
 		"GaiaEngine/src",
 		"GaiaEngine/src/vendor",
-		"Dependencies/AssImp/include",
+		"%{IncludeDir.AssImp}",
 		"%{IncludeDir.FreeTypeGL}",
 		"%{IncludeDir.FreeType}",
 		"%{IncludeDir.ImGui}",
@@ -111,17 +113,12 @@ project "Sandbox"
 	{ 
 		"GLFW",
 		"GLEW",
+		"AssImp",
 		"FreeTypeGL",
 		"FreeType",
 		"ImGui",
 		"GaiaEngine",
-		"Dependencies/AssImp/bin/Debug/assimp-vc140-mt.lib",
 		"opengl32.lib"
-	}
-
-	postbuildcommands
-	{
-		("{COPY} %{wks.location}Dependencies/AssImp/bin/Debug/assimp-vc140-mt.dll \"../bin/" .. outputdir .. "/Sandbox/\"")
 	}
 
 	filter "system:windows"

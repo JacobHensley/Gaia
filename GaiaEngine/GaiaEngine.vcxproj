@@ -60,7 +60,7 @@
       <AdditionalIncludeDirectories>src;src\vendor;..\Dependencies\AssImp\include;..\Dependencies\FreeType\include;..\Dependencies\FreeTypeGL;..\Dependencies\GLFW\include;..\Dependencies\GLEW\include;..\Dependencies\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>

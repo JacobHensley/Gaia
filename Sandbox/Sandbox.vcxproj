@@ -61,17 +61,14 @@
       <AdditionalIncludeDirectories>src;..\GaiaEngine\src;..\GaiaEngine\src\vendor;..\Dependencies\AssImp\include;..\Dependencies\FreeTypeGL;..\Dependencies\FreeType\include;..\Dependencies\imgui;..\Dependencies\GLFW\include;..\Dependencies\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>..\Dependencies\AssImp\bin\Debug\assimp-vc140-mt.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST $(SolutionDir)Dependencies\AssImp\bin\Debug\assimp-vc140-mt.dll\ (xcopy /Q /E /Y /I $(SolutionDir)Dependencies\AssImp\bin\Debug\assimp-vc140-mt.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I $(SolutionDir)Dependencies\AssImp\bin\Debug\assimp-vc140-mt.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -90,11 +87,8 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\Dependencies\AssImp\bin\Debug\assimp-vc140-mt.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST $(SolutionDir)Dependencies\AssImp\bin\Debug\assimp-vc140-mt.dll\ (xcopy /Q /E /Y /I $(SolutionDir)Dependencies\AssImp\bin\Debug\assimp-vc140-mt.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I $(SolutionDir)Dependencies\AssImp\bin\Debug\assimp-vc140-mt.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\PlayerComponent.h" />
@@ -113,6 +107,9 @@
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\GLEW\GLEW.vcxproj">
       <Project>{F44A857C-E081-860D-896E-6C107584020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\AssImp\assimp.vcxproj">
+      <Project>{724885F2-5EEA-AFC8-47A5-C31C33E63619}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\FreeTypeGL\FreeTypeGL\FreeTypeGL.vcxproj">
       <Project>{FCE06C91-E898-AEDE-51A0-873A3D7749CF}</Project>
