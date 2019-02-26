@@ -26,22 +26,28 @@ project "ImGui"
         "ImSequencer.cpp",
         "ImSequencer.h"
     }
-    
-    includedirs 
-    { 
-        "../GLEW/include"
-    }
-
+   
     defines
     {
         "IMGUI_DEFINE_MATH_OPERATORS",
         "GLEW_STATIC",
         "_CRT_SECURE_NO_WARNINGS"
+    }
+
+    includedirs 
+    { 
+        "../GLEW/include"
     } 
 
 	filter "system:windows"
         systemversion "latest"
         cppdialect "C++17"
         staticruntime "On"
-        
-    filter { "system:windows", "configurations:Release" }
+
+    filter "configurations:Debug"
+        runtime "Debug"
+        symbols "On"
+
+    filter "configurations:Release"
+        runtime "Release"
+        optimize "On"
