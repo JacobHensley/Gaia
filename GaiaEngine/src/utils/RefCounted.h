@@ -2,7 +2,7 @@
 #include "utils/Common.h"
 
 template<typename T>
-class Ref
+class GAIA_API Ref
 {
 private:
 	T* m_Obj;
@@ -80,7 +80,7 @@ public:
 	}
 };
 
-class RefCounted {
+class GAIA_API RefCounted {
 private:
 	mutable uint m_ReferenceCount;
 public:

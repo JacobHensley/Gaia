@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 
-struct ShaderSource
+struct GAIA_API ShaderSource
 {
 	String VertexSource;
 	String FragmentSource;

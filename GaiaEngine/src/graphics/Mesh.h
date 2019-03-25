@@ -7,7 +7,7 @@
 #include "graphics/VertexBuffer.h"
 #include "graphics/IndexBuffer.h"
 
-struct MeshVertex {
+struct GAIA_API MeshVertex {
 	float x;
 	float y;
 	float z;
@@ -15,13 +15,13 @@ struct MeshVertex {
 	vec2 texcoord;
 };
 
-struct MeshTexture {
+struct GAIA_API MeshTexture {
 	String type;
 	String path;
 	Texture* texture;
 };
 
-class Mesh
+class GAIA_API Mesh
 {
 public:
 	Mesh(std::vector<MeshVertex>& vertices, std::vector<uint>& indices, std::vector<MeshTexture>& textures);
@@ -35,7 +35,7 @@ public:
 	friend class RenderMesh;
 };
 
-class RenderMesh
+class GAIA_API RenderMesh
 {
 public:
 	RenderMesh(const Mesh& mesh);

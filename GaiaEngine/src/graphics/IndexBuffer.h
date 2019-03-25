@@ -2,7 +2,7 @@
 #include "utils/Common.h"
 #include "utils/RefCounted.h"
 
-class IndexBuffer : public RefCounted
+class GAIA_API IndexBuffer : public RefCounted
 {
 public:
 	IndexBuffer(const uint* data, uint count);

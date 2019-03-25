@@ -2,7 +2,7 @@
 #include "graphics/Camera/Camera.h"
 #include "math/Quaternion.h"
 
-class MayaCamera : public Camera
+class GAIA_API MayaCamera : public Camera
 {
 private:
 	bool m_Panning, m_Rotating;

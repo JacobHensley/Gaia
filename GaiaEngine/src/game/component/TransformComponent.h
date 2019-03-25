@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "math/mat4.h"
 
-class TransformComponent : public Component
+class GAIA_API TransformComponent : public Component
 {
 public:
 	mat4 m_Transform;

@@ -3,7 +3,7 @@
 #include "Font.h"
 #include "vector.h"
 
-class FontManager
+class GAIA_API FontManager
 {
 public:
 	FontManager();

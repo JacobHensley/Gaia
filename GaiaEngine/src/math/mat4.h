@@ -8,7 +8,7 @@
 
 struct Quaternion;
 
-struct mat4
+struct GAIA_API mat4
 {
 	union
 	{

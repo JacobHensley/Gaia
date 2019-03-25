@@ -5,11 +5,11 @@
 class Texture;
 class Shader;
 
-class Resource {
+class GAIA_API Resource {
 public:
 	enum class ResourceType { NONE = 0, SHADER = 1, TEXTURE = 2 };
 private:
-	struct ResourceStore 
+	struct GAIA_API ResourceStore
 	{
 		ResourceType type;
 		void* pointer;

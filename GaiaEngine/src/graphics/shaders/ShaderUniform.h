@@ -6,7 +6,7 @@ enum Type
 	NONE = 0, SHADER_INT = 1, SHADER_FLOAT = 2, SHADER_SAMPLER2D = 3, SHADER_MAT4 = 4
 };
 
-class ShaderUniform
+class GAIA_API ShaderUniform
 {
 public:
 	ShaderUniform(const String& name, const String& type, uint count);

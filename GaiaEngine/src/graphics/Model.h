@@ -8,7 +8,7 @@
 #include "assimp/material.h"
 #include <assimp/Importer.hpp>
 
-class Model
+class GAIA_API Model
 {
 public:
 	Model(std::vector<Mesh> meshs, mat4 transform);

@@ -9,7 +9,7 @@ typedef Ref<Component> ComponentRef;
 class Level;
 typedef Ref<Level> LevelRef;
 
-class Entity : public RefCounted
+class GAIA_API Entity : public RefCounted
 {
 protected:
 	LevelRef m_Level;

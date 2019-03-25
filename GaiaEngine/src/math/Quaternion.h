@@ -4,7 +4,7 @@
 
 #include "mat4.h"
 
-struct  Quaternion
+struct GAIA_API Quaternion
 {
 	float x, y, z, w;
 

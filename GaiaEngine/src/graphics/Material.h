@@ -1,10 +1,10 @@
 #pragma once
 #include "shaders/Shader.h"
 
-class Material
+class GAIA_API Material
 {
 private:
-	struct  UniformBuffer
+	struct GAIA_API UniformBuffer
 	{
 		byte* buffer;
 		uint size;

@@ -5,7 +5,7 @@
 #include "graphics/layers/Layer.h"
 #include "graphics/layers/LayerStack.h"
 
-class Application
+class GAIA_API Application
 {
 private:
 	static Application* s_Application;

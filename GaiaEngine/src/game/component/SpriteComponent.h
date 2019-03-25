@@ -3,7 +3,7 @@
 #include "Component.h"
 #include "graphics/Sprite.h"
 
-class SpriteComponent : public Component
+class GAIA_API SpriteComponent : public Component
 {
 public:
 	Sprite m_Sprite;

@@ -3,7 +3,7 @@
 #include "utils/RefCounted.h"
 #include "BufferLayout.h"
 
-class VertexBuffer : public RefCounted
+class GAIA_API VertexBuffer : public RefCounted
 {
 public:
 	VertexBuffer(uint count);

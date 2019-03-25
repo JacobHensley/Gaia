@@ -10,7 +10,7 @@
 class Entity;
 typedef Ref<Entity> EntityRef;
 
-class Level : public RefCounted
+class GAIA_API Level : public RefCounted
 {
 protected:
 	std::vector<EntityRef> m_Entities;

@@ -9,7 +9,7 @@
 
 struct ShaderSource;
 
-class Shader
+class GAIA_API Shader
 {
 public:
 	Shader(const String& filePath);

@@ -2,7 +2,7 @@
 
 #include "Component.h"
 
-class GameComponent : public Component
+class GAIA_API GameComponent : public Component
 {
 private:
 public:

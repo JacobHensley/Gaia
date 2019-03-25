@@ -3,7 +3,7 @@
 
 #include "vec3.h"
 
-struct  vec2
+struct GAIA_API vec2
 {
 	float x, y;
 

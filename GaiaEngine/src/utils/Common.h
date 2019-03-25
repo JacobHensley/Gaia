@@ -9,6 +9,14 @@ typedef std::string String;
 typedef unsigned int uint;
 typedef unsigned char byte;
 
+#ifdef GA_PLATFORM_WINDOWS
+	#ifdef GA_BUILD_DLL
+		#define GAIA_API __declspec(dllexport)
+	#else
+		#define GAIA_API __declspec(dllimport)
+	#endif
+#endif
+
 #ifdef _DEBUG
 #define ASSERT(condition) if (!(condition)) { \
 	std::cout << "Assertion Failed!" << std::endl; \

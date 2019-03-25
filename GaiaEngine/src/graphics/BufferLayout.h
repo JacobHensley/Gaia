@@ -10,10 +10,10 @@
 #define GL_UNSIGNED_INT 0x1405
 #define GL_FLOAT 0x1406
 
-class BufferLayout 
+class GAIA_API BufferLayout
 {
 private:
-	struct BufferElement
+	struct GAIA_API BufferElement
 	{
 		String name;
 		uint type;

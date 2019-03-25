@@ -5,10 +5,10 @@
 
 class Entity;
 
-class Component : public RefCounted
+class GAIA_API Component : public RefCounted
 {
 public:
-	struct Type
+	struct GAIA_API Type
 	{
 		String Name;
 	};

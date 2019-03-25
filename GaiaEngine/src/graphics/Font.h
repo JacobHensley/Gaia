@@ -3,7 +3,7 @@
 #include "Texture.h"
 #include "freetype-gl.h"
 
-class Font 
+class GAIA_API Font
 {
 private:
 	String m_Name;

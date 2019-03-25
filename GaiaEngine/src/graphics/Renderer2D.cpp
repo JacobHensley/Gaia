@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include "FontManager.h"
 
-struct Vertex
+struct GAIA_API Vertex
 {
 	vec3 position;
 	vec2 texCoord;
@@ -11,7 +11,7 @@ struct Vertex
 	vec4 color;
 };
 
-struct LineVertex
+struct GAIA_API LineVertex
 {
 	vec3 position;
 	vec4 color;

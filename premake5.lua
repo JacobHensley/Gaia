@@ -52,10 +52,22 @@ project "GaiaEngine"
 		"%{IncludeDir.ImGui}"
 	}
 
+	links 
+	{ 
+		"GLFW",
+		"GLEW",
+		"AssImp",
+		"FreeTypeGL",
+		"FreeType",
+		"ImGui",
+		"opengl32.lib"
+	}
 
 	defines 
 	{
-		"GLEW_STATIC"
+		"GLEW_STATIC",
+		"GA_PLATFORM_WINDOWS",
+		"GA_BUILD_DLL"
 	}
 
 	filter "system:windows"
@@ -111,14 +123,12 @@ project "Sandbox"
 
 	links 
 	{ 
-		"GLFW",
-		"GLEW",
-		"AssImp",
-		"FreeTypeGL",
-		"FreeType",
-		"ImGui",
-		"GaiaEngine",
-		"opengl32.lib"
+		"GaiaEngine"
+	}
+
+	defines 
+	{
+		"GA_PLATFORM_WINDOWS"
 	}
 
 	filter "system:windows"

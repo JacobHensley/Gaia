@@ -5,7 +5,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-class Texture : public RefCounted
+class GAIA_API Texture : public RefCounted
 {
 
 public:
@@ -36,7 +36,7 @@ public:
 		LUMINANCE_ALPHA
 	};
 
-	struct TextureParameters
+	struct GAIA_API TextureParameters
 	{
 		TextureFormat format;
 		TextureFilter filter;

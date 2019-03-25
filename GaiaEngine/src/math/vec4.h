@@ -6,7 +6,7 @@
 
 struct mat4;
 
-struct  vec4
+struct GAIA_API vec4
 {
 	float x, y, z, w;
 

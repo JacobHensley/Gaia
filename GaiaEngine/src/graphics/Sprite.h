@@ -5,7 +5,7 @@
 #include "IndexBuffer.h"
 #include "shaders/Shader.h"
 
-class Sprite : RefCounted 
+class GAIA_API Sprite : RefCounted
 {
 private:
 	friend class Renderer2D;

@@ -3,7 +3,7 @@
 #include "utils/TimeStep.h"
 #include "utils/Common.h"
 
-class LayerStack
+class GAIA_API LayerStack
 {
 private:
 	std::vector<Layer*> m_LayerStack;

@@ -3,7 +3,7 @@
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "Common.h"
 
-class Log
+class GAIA_API Log
 {
 public:
 	static void Init();

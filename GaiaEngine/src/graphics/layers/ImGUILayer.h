@@ -4,7 +4,7 @@
 #include "Layer.h"
 #include "Application.h"
 
-class ImGUILayer : public Layer {
+class GAIA_API ImGUILayer : public Layer {
 public:
 	ImGUILayer(const String& name);
 	~ImGUILayer();

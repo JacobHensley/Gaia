@@ -4,7 +4,7 @@
 #include "utils/RefCounted.h"
 #include "utils/TimeStep.h"
 
-class Camera : public  RefCounted
+class GAIA_API Camera : public  RefCounted
 {
 protected:
 	mat4 m_Proj, m_View;

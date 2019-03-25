@@ -3,7 +3,7 @@
 
 struct GLFWwindow;
 
-class Window
+class GAIA_API Window
 {
 private:
 	friend class Application;

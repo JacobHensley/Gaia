@@ -3,7 +3,7 @@
 #include "utils/Common.h"
 #include "utils/TimeStep.h"
 
-class Layer 
+class GAIA_API Layer
 {
 protected: 
 	String m_Name;

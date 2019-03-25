@@ -8,7 +8,7 @@
 struct Vertex;
 struct LineVertex;
 
-class Renderer2D
+class GAIA_API Renderer2D
 {
 private:
 	int m_Width, m_Height;

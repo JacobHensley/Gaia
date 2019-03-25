@@ -1,6 +1,6 @@
 #pragma once
 
-class TimeStep {
+class GAIA_API TimeStep {
 private:
 	float m_LastUpdate, m_UpdateTime;
 public:

@@ -3,7 +3,7 @@
 #include <vector>
 #include "Component.h"
 
-class ComponentCache
+class GAIA_API ComponentCache
 {
 private:
 	std::unordered_map<Component::Type*, std::vector<Component*>> m_Components;
