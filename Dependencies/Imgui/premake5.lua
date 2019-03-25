@@ -2,8 +2,13 @@ project "ImGui"
     kind "StaticLib"
     language "C++"
     
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    objdir ("bin/intermediates/" .. outputdir .. "/%{prj.name}")
+
+    disablewarnings
+    {
+    	"4267"
+	}
 
 	files
 	{

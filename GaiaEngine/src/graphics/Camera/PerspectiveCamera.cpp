@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "PerspectiveCamera.h"
 
 PerspectiveCamera::PerspectiveCamera(float fov, float aspectRatio, float timeStep)

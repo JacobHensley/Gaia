@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "Model.h"
 
 Model::Model(std::vector<Mesh> meshs, mat4 transform)

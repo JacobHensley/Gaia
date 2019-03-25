@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "ShaderUniform.h"
 
 ShaderUniform::ShaderUniform(const String& name, const String& type, uint count)

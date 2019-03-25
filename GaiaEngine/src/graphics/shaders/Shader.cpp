@@ -1,7 +1,6 @@
+#include "GaPCH.h"
 #include "Shader.h"
 #include <GL/glew.h>
-#include <fstream>
-#include <sstream>
 
 struct ShaderSource
 {
@@ -40,7 +39,7 @@ void Shader::ParseUniforms()
 				{
 					tokens.push_back(token);
 					token = "";
-					uint last = line.find("]");
+					uint last = (uint)line.find("]");
 					token = line.substr(i + 1, last - i - 1);
 					tokens.push_back(token);
 					break;

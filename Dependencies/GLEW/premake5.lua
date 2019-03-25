@@ -2,8 +2,8 @@ project "GLEW"
     kind "StaticLib"
     language "C"
     
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    objdir ("bin/intermediates/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{

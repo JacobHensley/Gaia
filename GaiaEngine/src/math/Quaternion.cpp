@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "Quaternion.h"
 #include "math/maths_func.h"
 

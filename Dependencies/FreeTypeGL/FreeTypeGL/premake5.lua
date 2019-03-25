@@ -2,9 +2,16 @@ project "FreeTypeGL"
     kind "StaticLib"
     language "C"
       
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+  targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+  objdir ("bin/intermediates/" .. outputdir .. "/%{prj.name}")
 
+    disablewarnings
+    {
+    	"4101",
+    	"4267",
+    	"4996"
+	}
+    	
     files
     {
         "../distance-field.h",

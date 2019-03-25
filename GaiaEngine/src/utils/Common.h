@@ -1,9 +1,6 @@
 #pragma once
-
-#include <string>
-#include <iostream>
+#include "GaPCH.h"
 #include "GLError.h"
-#include <unordered_map>
 
 typedef std::string String;
 typedef unsigned int uint;

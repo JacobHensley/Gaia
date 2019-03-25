@@ -1,5 +1,5 @@
 #pragma once
-
+#include "GaPCH.h"
 #include "Component.h"
 
 class GameComponent : public Component

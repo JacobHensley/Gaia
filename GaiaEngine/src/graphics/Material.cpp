@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "Material.h"
 
 Material::Material(Shader* shader)

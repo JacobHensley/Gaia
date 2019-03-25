@@ -1,5 +1,5 @@
+#include "GaPCH.h"
 #include "Window.h"
-#include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "imgui.h"
@@ -84,8 +84,8 @@ void MouseMovementCallback(GLFWwindow* window, double xpos, double ypos)
 {
 	Window* win = (Window*)glfwGetWindowUserPointer(window);
 	glfwGetCursorPos(window, &xpos, &ypos);
-	win->m_MousePos.x = xpos;
-	win->m_MousePos.y = ypos;
+	win->m_MousePos.x = (float)xpos;
+	win->m_MousePos.y = (float)ypos;
 }
 
 void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)

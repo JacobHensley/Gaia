@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "graphics/Renderer2D.h"
 #include "utils/Common.h"
 #include "utils/TimeStep.h"

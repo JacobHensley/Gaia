@@ -15,7 +15,7 @@
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>FreeType</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -42,13 +42,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>bin\Debug-windows-x86_64\FreeType\</OutDir>
-    <IntDir>bin-int\Debug-windows-x86_64\FreeType\</IntDir>
+    <IntDir>bin\intermediatesDebug-windows-x86_64\FreeType\</IntDir>
     <TargetName>FreeType</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>bin\Release-windows-x86_64\FreeType\</OutDir>
-    <IntDir>bin-int\Release-windows-x86_64\FreeType\</IntDir>
+    <IntDir>bin\intermediatesRelease-windows-x86_64\FreeType\</IntDir>
     <TargetName>FreeType</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
@@ -56,6 +56,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4005;4244;4267;4312;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>FT2_BUILD_LIBRARY;FT2BUILD_H_;_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -72,6 +73,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4005;4244;4267;4312;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>FT2_BUILD_LIBRARY;FT2BUILD_H_;_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>

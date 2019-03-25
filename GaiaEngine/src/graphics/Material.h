@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "shaders/Shader.h"
 
 class Material

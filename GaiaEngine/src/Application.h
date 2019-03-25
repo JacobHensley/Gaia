@@ -1,7 +1,7 @@
 #pragma once
+#include "GaPCH.h"
 #include "graphics/Window.h"
 #include "utils/Common.h"
-#include <vector>
 #include "graphics/layers/Layer.h"
 #include "graphics/layers/LayerStack.h"
 

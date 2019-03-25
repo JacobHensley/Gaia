@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "Sprite.h"
 
 VertexBuffer* Sprite::m_VertexBuffer = nullptr;

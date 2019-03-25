@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 
 class OrthographicCamera : public Camera
 {

@@ -3,7 +3,14 @@ project "assimp"
     language "C++"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    objdir ("bin/intermediates/" .. outputdir .. "/%{prj.name}")
+
+    disablewarnings
+    {
+    	"4996",
+    	"4267",
+    	"4065",
+	}	
 
     files 
     {

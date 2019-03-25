@@ -1,6 +1,6 @@
+#include "GaPCH.h"
 #include "GLError.h"
 #include <gl/glew.h>
-#include <iostream>
 
 unsigned int GLCheckError()
 {

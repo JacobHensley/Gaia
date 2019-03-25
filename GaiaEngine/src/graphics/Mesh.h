@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "utils/Common.h"
 #include "graphics/Texture.h"
 #include "math/vec2.h"

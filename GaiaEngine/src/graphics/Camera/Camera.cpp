@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "Camera.h"
 
 

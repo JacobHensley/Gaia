@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
-#include <cstdlib>
-#include <algorithm>
+#include "GaPCH.h"
 #include "Common.h"
 
 static String ReadFile(const String& path) 

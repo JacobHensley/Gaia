@@ -32,7 +32,10 @@ project "GaiaEngine"
 	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin/intermediates/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "GaPCH.h"
+	pchsource "GaiaEngine/src/GaPCH.cpp"	
 
 	files
 	{
@@ -55,7 +58,9 @@ project "GaiaEngine"
 
 	defines 
 	{
-		"GLEW_STATIC"
+		"GLEW_STATIC",
+		"GA_PLATFORM_WINDOWS",
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	filter "system:windows"
@@ -88,7 +93,7 @@ project "Sandbox"
 	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin/intermediates/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
@@ -119,6 +124,11 @@ project "Sandbox"
 		"ImGui",
 		"GaiaEngine",
 		"opengl32.lib"
+	}
+
+	defines 
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	filter "system:windows"

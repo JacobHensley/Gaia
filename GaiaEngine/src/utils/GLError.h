@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 
 unsigned int GLCheckError();
 bool GLLogCall(const char* function, const char* file, int line);

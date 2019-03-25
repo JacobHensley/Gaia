@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "Application.h"
 #include "graphics/layers/ImGUILayer.h"
 #include "imgui.h"
@@ -70,7 +71,7 @@ void Application::Run()
 
 		m_Window->Clear();
 
-		ImGui::GetIO().DisplaySize = ImVec2(m_Window->GetWidth(), m_Window->GetHeight());
+		ImGui::GetIO().DisplaySize = ImVec2((float)m_Window->GetWidth(), (float)m_Window->GetHeight());
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui::NewFrame();
 		

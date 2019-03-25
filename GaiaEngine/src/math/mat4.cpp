@@ -1,6 +1,6 @@
+#include "GaPCH.h"
 #include "mat4.h"
 
-#include <sstream>
 
 #include "Quaternion.h"
 
@@ -253,7 +253,7 @@ vec3 mat4::GetRotation() const
 	return result;
 }
 
-mat4 mat4::Orthographic(float left, float right, float bottom, float top, float near, float far)
+mat4 mat4::Orthographic(float left, float right, float bottom, float top, float matNear, float matFar)
 {
 	mat4 result(1.0f);
 
@@ -261,24 +261,24 @@ mat4 mat4::Orthographic(float left, float right, float bottom, float top, float 
 
 	result.elements[1 + 1 * 4] = 2.0f / (top - bottom);
 
-	result.elements[2 + 2 * 4] = 2.0f / (near - far);
+	result.elements[2 + 2 * 4] = 2.0f / (matNear - matFar);
 
 	result.elements[3 + 0 * 4] = (left + right) / (left - right);
 	result.elements[3 + 1 * 4] = (bottom + top) / (bottom - top);
-	result.elements[3 + 2 * 4] = (far + near) / (far - near);
+	result.elements[3 + 2 * 4] = (matFar + matNear) / (matFar - matNear);
 
 	return result;
 }
 
-mat4 mat4::Perspective(float fov, float aspectRatio, float near, float far)
+mat4 mat4::Perspective(float fov, float aspectRatio, float matNear, float matFar)
 {
 	mat4 result(1.0f);
 
 	float q = 1.0f / maths::tan(maths::toRadians(0.5f * fov));
 	float a = q / aspectRatio;
 
-	float b = (near + far) / (near - far);
-	float c = (2.0f * near * far) / (near - far);
+	float b = (matNear + matFar) / (matNear - matFar);
+	float c = (2.0f * matNear * matFar) / (matNear - matFar);
 
 	result.elements[0 + 0 * 4] = a;
 	result.elements[1 + 1 * 4] = q;

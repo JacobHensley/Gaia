@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "utils/Common.h"
 #include "game/Entity.h"
 #include "utils/RefCounted.h"

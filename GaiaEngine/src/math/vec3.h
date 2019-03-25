@@ -1,5 +1,5 @@
 #pragma once
-
+#include "GaPCH.h"
 #include "utils/Common.h"
 
 struct vec2;

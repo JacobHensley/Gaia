@@ -1,5 +1,5 @@
 #pragma once
-
+#include "GaPCH.h"
 #include "Component.h"
 #include "graphics/Sprite.h"
 

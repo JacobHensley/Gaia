@@ -1,9 +1,8 @@
 #pragma once
+#include "GaPCH.h"
 #include "utils/Common.h"
 #include "utils/FileUtils.h"
-#include <vector>
 #include "math/math.h" 
-#include <unordered_map>
 #include "utils/Resource.h"
 #include "graphics/shaders/ShaderUniform.h"
 

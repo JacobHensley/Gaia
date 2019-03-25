@@ -1,6 +1,6 @@
-#include "vec2.h"
+#include "GaPCH.h"
 
-#include <sstream>
+#include "vec2.h"
 
 vec2::vec2()
 	: x(0.0f), y(0.0f)

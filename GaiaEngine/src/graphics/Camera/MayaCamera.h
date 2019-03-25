@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "graphics/Camera/Camera.h"
 #include "math/Quaternion.h"
 

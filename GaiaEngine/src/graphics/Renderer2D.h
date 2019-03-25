@@ -1,5 +1,5 @@
 #pragma once
-
+#include "GaPCH.h"
 #include "Camera/Camera.h"
 #include "Sprite.h"
 #include "Texture.h"

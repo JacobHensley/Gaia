@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "Font.h"
 
 Font::Font(const String& name, const String& filePath, float size)
@@ -8,14 +9,14 @@ Font::Font(const String& name, const String& filePath, float size)
 
 	ASSERT(m_FTFont);
 
-	m_AtlasTexture = new Texture(m_FTAtlas->width, m_FTAtlas->height, Texture::TextureFormat::RED);
+	m_AtlasTexture = new Texture((uint)m_FTAtlas->width, (uint)m_FTAtlas->height, Texture::TextureFormat::RED);
 }
 
 void Font::UpdateAtlasTexture()
 {
 	if (m_FTAtlas->dirty) 
 	{
-		m_AtlasTexture->SetData(m_FTAtlas->data, m_FTAtlas->width * m_FTAtlas->height);
+		m_AtlasTexture->SetData(m_FTAtlas->data, (uint)(m_FTAtlas->width * m_FTAtlas->height));
 		m_FTAtlas->dirty = 0;
 	}
 }

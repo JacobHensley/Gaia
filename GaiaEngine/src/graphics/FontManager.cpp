@@ -1,3 +1,4 @@
+#include "GaPCH.h"
 #include "FontManager.h"
 
 std::vector<Font*> FontManager::s_Fonts;

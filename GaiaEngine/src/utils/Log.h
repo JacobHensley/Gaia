@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "Common.h"
@@ -26,28 +27,28 @@ private:
 };
 
 //For temporary logging
-#define LOG(...)           Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define GA_LOG(...)           Log::GetCoreLogger()->trace(__VA_ARGS__)
 
 // Core log macros
-#define CORE_TRACE(...)    Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define CORE_DEBUG(...)    Log::GetCoreLogger()->debug(__VA_ARGS__)
-#define CORE_INFO(...)     Log::GetCoreLogger()->info(__VA_ARGS__)
-#define CORE_WARN(...)     Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define CORE_ERROR(...)    Log::GetCoreLogger()->error(__VA_ARGS__)
-#define CORE_CRITICAL(...) Log::GetCoreLogger()->critical(__VA_ARGS__)
+#define GA_CORE_TRACE(...)    Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define GA_CORE_DEBUG(...)    Log::GetCoreLogger()->debug(__VA_ARGS__)
+#define GA_CORE_INFO(...)     Log::GetCoreLogger()->info(__VA_ARGS__)
+#define GA_CORE_WARN(...)     Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define GA_CORE_ERROR(...)    Log::GetCoreLogger()->error(__VA_ARGS__)
+#define GA_CORE_CRITICAL(...) Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
-#define TRACE(...)	       Log::GetClientLogger()->trace(__VA_ARGS__)
-#define DEBUG(...)         Log::GetClientLogger()->debug(__VA_ARGS__)
-#define INFO(...)	       Log::GetClientLogger()->info(__VA_ARGS__)
-#define WARN(...)	       Log::GetClientLogger()->warn(__VA_ARGS__)
-#define ERROR(...)	       Log::GetClientLogger()->error(__VA_ARGS__)
-#define CRITICAL(...)      Log::GetClientLogger()->critical(__VA_ARGS__)
+#define GA_TRACE(...)	       Log::GetClientLogger()->trace(__VA_ARGS__)
+#define GA_DEBUG(...)         Log::GetClientLogger()->debug(__VA_ARGS__)
+#define GA_INFO(...)	       Log::GetClientLogger()->info(__VA_ARGS__)
+#define GA_WARN(...)	       Log::GetClientLogger()->warn(__VA_ARGS__)
+#define GA_ERROR(...)	       Log::GetClientLogger()->error(__VA_ARGS__)
+#define GA_CRITICAL(...)      Log::GetClientLogger()->critical(__VA_ARGS__)
 
 //Level macros
-#define LEVEL_TRACE        spdlog::level::trace
-#define LEVEL_DEBUG        spdlog::level::debug
-#define LEVEL_INFO         spdlog::level::info
-#define LEVEL_WARN         spdlog::level::warn
-#define LEVEL_ERROR        spdlog::level::err
-#define LEVEL_CRITICAL     spdlog::level::critical
+#define GA_LEVEL_TRACE        spdlog::level::trace
+#define GA_LEVEL_DEBUG        spdlog::level::debug
+#define GA_LEVEL_INFO         spdlog::level::info
+#define GA_LEVEL_WARN         spdlog::level::warn
+#define GA_LEVEL_ERROR        spdlog::level::err
+#define GA_LEVEL_CRITICAL     spdlog::level::critical

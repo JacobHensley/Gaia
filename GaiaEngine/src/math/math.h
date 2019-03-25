@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 
 #include <math.h>
 #include "maths_func.h"

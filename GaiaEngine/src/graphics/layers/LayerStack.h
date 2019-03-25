@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "graphics/layers/Layer.h"
 #include "utils/TimeStep.h"
 #include "utils/Common.h"

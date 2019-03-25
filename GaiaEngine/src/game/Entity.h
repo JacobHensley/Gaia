@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "utils/RefCounted.h"
 #include "component/Component.h"
 #include "utils/TimeStep.h"

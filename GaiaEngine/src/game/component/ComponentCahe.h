@@ -1,6 +1,5 @@
 #pragma once
-#include <unordered_map>
-#include <vector>
+#include "GaPCH.h"
 #include "Component.h"
 
 class ComponentCache

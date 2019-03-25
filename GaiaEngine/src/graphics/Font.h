@@ -1,4 +1,5 @@
 #pragma once
+#include "GaPCH.h"
 #include "utils/Common.h"
 #include "Texture.h"
 #include "freetype-gl.h"
