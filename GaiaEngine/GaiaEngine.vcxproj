@@ -42,13 +42,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>..\bin\Debug-windows-x86_64\GaiaEngine\</OutDir>
-    <IntDir>..\bin\intermediatesDebug-windows-x86_64\GaiaEngine\</IntDir>
+    <IntDir>..\bin\intermediates\Debug-windows-x86_64\GaiaEngine\</IntDir>
     <TargetName>GaiaEngine</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>..\bin\Release-windows-x86_64\GaiaEngine\</OutDir>
-    <IntDir>..\bin\intermediatesRelease-windows-x86_64\GaiaEngine\</IntDir>
+    <IntDir>..\bin\intermediates\Release-windows-x86_64\GaiaEngine\</IntDir>
     <TargetName>GaiaEngine</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>

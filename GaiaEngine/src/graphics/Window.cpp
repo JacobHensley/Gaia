@@ -19,12 +19,16 @@ Window::~Window()
 
 bool Window::Init()
 {
+
 	if (!glfwInit()) 
 	{
 		std::cout << "Could not initialize GLFW!" << std::endl;
 		return false;
 	}
-		
+	
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, nullptr, nullptr);
 
 	if (!m_Window) 
@@ -48,6 +52,10 @@ bool Window::Init()
 		std::cout << "Could not initialize GLEW!" << std::endl;
 		return false;
 	}	
+
+	uint vao;
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
 
 	glfwSwapInterval(0);
 
@@ -86,16 +94,36 @@ void MouseMovementCallback(GLFWwindow* window, double xpos, double ypos)
 	glfwGetCursorPos(window, &xpos, &ypos);
 	win->m_MousePos.x = (float)xpos;
 	win->m_MousePos.y = (float)ypos;
+
+	ImGuiIO& io = ImGui::GetIO();
+	io.MousePos.x = xpos;
+	io.MousePos.y = ypos;
+
 }
 
 void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 {
 	Window* win = (Window*)glfwGetWindowUserPointer(window);
-
-	if (action == GLFW_PRESS && button >= 0 && button < 3)
+	ImGuiIO& io = ImGui::GetIO();
+	if (action == GLFW_PRESS && button >= 0 && button < 3) 
+	{
 		win->m_Button = button;
-	if (action == GLFW_RELEASE && button >= 0 && button < 3)
+		if (button == GLFW_MOUSE_BUTTON_LEFT)
+			io.MouseDown[0] = true;
+		else if (button == GLFW_MOUSE_BUTTON_RIGHT)
+			io.MouseDown[1] = true;
+	}
+		
+	if (action == GLFW_RELEASE && button >= 0 && button < 3) 
+	{
 		win->m_Button = -1;
+		if (button == GLFW_MOUSE_BUTTON_LEFT)
+			io.MouseDown[0] = false;
+		else if (button == GLFW_MOUSE_BUTTON_RIGHT)
+			io.MouseDown[1] = false;
+	}
+		
+
 }
 
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
