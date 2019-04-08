@@ -326,6 +326,9 @@
     <ClInclude Include="src\vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="VertexArray.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
@@ -431,6 +434,9 @@
     </ClCompile>
     <ClCompile Include="src\vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexArray.cpp">
+      <Filter>graphics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

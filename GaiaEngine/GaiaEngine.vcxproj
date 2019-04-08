@@ -191,6 +191,7 @@
     <ClInclude Include="src\vendor\spdlog\tweakme.h" />
     <ClInclude Include="src\vendor\spdlog\version.h" />
     <ClInclude Include="src\vendor\stb_image\stb_image.h" />
+    <ClInclude Include="VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
@@ -231,6 +232,7 @@
     <ClCompile Include="src\utils\Log.cpp" />
     <ClCompile Include="src\utils\Resource.cpp" />
     <ClCompile Include="src\vendor\stb_image\stb_image.cpp" />
+    <ClCompile Include="VertexArray.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

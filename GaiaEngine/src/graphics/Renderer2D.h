@@ -4,6 +4,7 @@
 #include "Sprite.h"
 #include "Texture.h"
 #include "Font.h"
+#include "graphics/VertexArray.h"
 
 struct Vertex;
 struct LineVertex;
@@ -23,10 +24,13 @@ private:
 	Vertex* m_Buffer;
 	Vertex* m_BufferPtr;
 
-
 	VertexBuffer* m_LineVertexBuffer;
 	VertexBuffer* m_TextVertexBuffer;
 	VertexBuffer* m_VertexBuffer;
+
+	VertexArray* m_LineVertexArray;
+	VertexArray* m_TextVertexArray;
+	VertexArray* m_VertexArray;
 
 	IndexBufferRef m_LineIndexBuffer;
 	IndexBufferRef m_IndexBuffer;

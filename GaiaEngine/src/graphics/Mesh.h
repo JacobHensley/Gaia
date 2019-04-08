@@ -4,7 +4,7 @@
 #include "graphics/Texture.h"
 #include "math/vec2.h"
 #include "graphics/Texture.h"
-
+#include "graphics/VertexArray.h"
 #include "graphics/VertexBuffer.h"
 #include "graphics/IndexBuffer.h"
 
@@ -45,6 +45,7 @@ public:
 private:
 	const Mesh* m_Mesh;
 
+	VertexArray* m_VertexArray;
 	VertexBuffer* m_VertexBuffer;
 	IndexBuffer* m_IndexBuffer;
 };

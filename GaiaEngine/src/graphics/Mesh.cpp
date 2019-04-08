@@ -17,7 +17,7 @@ void Mesh::Init()
 RenderMesh::RenderMesh(const Mesh& mesh)
 	: m_Mesh(&mesh)
 {
-	// GLCall(glGenVertexArrays(1, &m_VAO));
+	m_VertexArray = new VertexArray();
 
 
 	m_VertexBuffer = new VertexBuffer((float*)&mesh.m_Vertices[0], (uint)(mesh.m_Vertices.size() * 8));
@@ -27,12 +27,14 @@ RenderMesh::RenderMesh(const Mesh& mesh)
 	layout.Push<vec2>("texCoord");
 	m_VertexBuffer->SetLayout(layout);
 
+	m_VertexArray->PushVertexBuffer(m_VertexBuffer);
+
 	m_IndexBuffer = new IndexBuffer((uint*)&mesh.m_Indices[0], (uint)mesh.m_Indices.size());
 }
 
 void RenderMesh::Render() const
 {
-	m_VertexBuffer->Bind();
+	m_VertexArray->Bind();
 	m_IndexBuffer->Bind();
 
 	m_IndexBuffer->Draw();

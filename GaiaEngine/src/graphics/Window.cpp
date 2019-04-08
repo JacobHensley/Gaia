@@ -53,10 +53,6 @@ bool Window::Init()
 		return false;
 	}	
 
-	uint vao;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
 	glfwSwapInterval(0);
 
 	glEnable(GL_DEPTH_TEST);
@@ -96,8 +92,8 @@ void MouseMovementCallback(GLFWwindow* window, double xpos, double ypos)
 	win->m_MousePos.y = (float)ypos;
 
 	ImGuiIO& io = ImGui::GetIO();
-	io.MousePos.x = xpos;
-	io.MousePos.y = ypos;
+	io.MousePos.x = (float)xpos;
+	io.MousePos.y = (float)ypos;
 
 }
 

@@ -15,6 +15,7 @@ public:
 	void Unbind() const;
 
 	inline void SetLayout(const BufferLayout& layout) { m_Layout = layout; }
+	inline const BufferLayout& GetLayout() const { return m_Layout; }
 
 	template<typename T = void>
 	inline T* Map()

@@ -69,6 +69,10 @@ void Renderer2D::Init()
 	lineLayout.Push<vec3>("Position");
 	lineLayout.Push<vec4>("Color");
 
+	m_VertexArray = new VertexArray();
+	m_TextVertexArray = new VertexArray();
+	m_LineVertexArray = new VertexArray();
+
 	m_VertexBuffer = new VertexBuffer(QUAD_VERTEX_BUFFER_COUNT * qaudLayout.GetStride());
 	m_TextVertexBuffer = new VertexBuffer(QUAD_VERTEX_BUFFER_COUNT * qaudLayout.GetStride());
 	m_LineVertexBuffer = new VertexBuffer(LINE_VERTEX_BUFFER_COUNT * lineLayout.GetStride());
@@ -80,6 +84,11 @@ void Renderer2D::Init()
 	m_VertexBuffer->SetLayout(qaudLayout);
 	m_TextVertexBuffer->SetLayout(qaudLayout);
 	m_LineVertexBuffer->SetLayout(lineLayout);
+
+
+	m_VertexArray->PushVertexBuffer(m_VertexBuffer);
+	m_TextVertexArray->PushVertexBuffer(m_TextVertexBuffer);
+	m_LineVertexArray->PushVertexBuffer(m_LineVertexBuffer);
 
 	m_IndexBuffer = new IndexBuffer(qaudIndices.data(), QUAD_INDEX_BUFFER_COUNT);
 	m_LineIndexBuffer = new IndexBuffer(lineIndices.data(), LINE_INDEX_BUFFER_COUNT);
@@ -247,17 +256,17 @@ float Renderer2D::SubmitTexture(const Texture* texture)
 
 void Renderer2D::End()
 {
-	m_VertexBuffer->Bind();
+	m_VertexArray->Bind();
 	glBufferSubData(GL_ARRAY_BUFFER, 0, (m_BufferPtr - m_Buffer) * sizeof(Vertex), m_Buffer);
-	m_VertexBuffer->Unbind();
+	m_VertexArray->Unbind();
 
-	m_TextVertexBuffer->Bind();
+	m_TextVertexArray->Bind();
 	glBufferSubData(GL_ARRAY_BUFFER, 0, (m_TextBufferPtr - m_TextBuffer) * sizeof(Vertex), m_TextBuffer);
-	m_TextVertexBuffer->Unbind();
+	m_TextVertexArray->Unbind();
 
-	m_LineVertexBuffer->Bind();
+	m_LineVertexArray->Bind();
 	glBufferSubData(GL_ARRAY_BUFFER, 0, (m_LineBufferPtr - m_LineBuffer) * sizeof(LineVertex), m_LineBuffer);
-	m_LineVertexBuffer->Unbind();
+	m_LineVertexArray->Unbind();
 }
 
 void Renderer2D::Flush()
@@ -278,7 +287,7 @@ void Renderer2D::Flush()
 			shader->Bind();
 			shader->SetUniformMat4("u_MVP", mvp);
 
-			m_VertexBuffer->Bind();
+			m_VertexArray->Bind();
 			m_IndexBuffer->Bind();
 
 			m_IndexBuffer->Draw(m_IndexCount);
@@ -290,7 +299,7 @@ void Renderer2D::Flush()
 			shader->Bind();
 			shader->SetUniformMat4("u_MVP", mvp);
 
-			m_TextVertexBuffer->Bind();
+			m_TextVertexArray->Bind();
 			m_IndexBuffer->Bind();
 
 			m_IndexBuffer->Draw(m_IndexCount);
@@ -306,7 +315,7 @@ void Renderer2D::Flush()
 		shader->Bind();
 		shader->SetUniformMat4("u_MVP", mvp);
 
-		m_LineVertexBuffer->Bind();
+		m_LineVertexArray->Bind();
 		m_LineIndexBuffer->Bind();
 
 		m_LineIndexBuffer->DrawLine(m_LineIndexCount);
