@@ -9,7 +9,7 @@ VertexArray::VertexArray()
 
 VertexArray::~VertexArray()
 {
-	glDeleteVertexArrays(1, &m_VertexArray)
+	glDeleteVertexArrays(1, &m_VertexArray);
 }
 
 void VertexArray::PushVertexBuffer(VertexBuffer* VB)
